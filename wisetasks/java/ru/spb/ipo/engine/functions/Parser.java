@@ -21,23 +21,23 @@ package ru.spb.ipo.engine.functions;
 
 import java.util.Map;
 
-import ru.spb.ipo.engine.elements.FractionalElement;
+import ru.spb.ipo.engine.elements.RationalElement;
 import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 public class Parser extends Function {
 
-	FractionalElement fe;
+	RationalElement fe;
 
 	public void initFunction(Node node){
 		Map m = super.getAttributes(node);
-		FractionalNumber mod = (FractionalNumber)m.get("mod");		
+		RationalNumber mod = (RationalNumber)m.get("mod");
 		if (m.containsKey("exp")) {
-			FractionalNumber exp = (FractionalNumber)m.get("exp");
-			exp = mod == null ? exp : new FractionalNumber(exp.getBigInteger().mod(mod.getBigInteger()));
-			fe = new FractionalElement(exp);
-		} else fe = new FractionalElement(new FractionalNumber(0));
+			RationalNumber exp = (RationalNumber)m.get("exp");
+			exp = mod == null ? exp : new RationalNumber(exp.getBigInteger().mod(mod.getBigInteger()));
+			fe = new RationalElement(exp);
+		} else fe = new RationalElement(new RationalNumber(0));
 	}
 	
 	public Element compute(Element e) {		

@@ -34,7 +34,7 @@ import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.exception.UserAnswerParseException;
 import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.utils.FileAccessUtil;
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 import ru.spb.ipo.engine.utils.Parser;
 import ru.spb.ipo.engine.verifiers.Verifier;
 
@@ -87,24 +87,29 @@ public class ServerTaskImpl implements ServerTask {
             int index = 0;
             while (iterator.hasNext()) {
                 Map parameterSet =  (Map)iterator.next();
-
-                Node localMathDesc = Preprocessor.executeTask(math, parameterSet);
-                String userAnswer = Preprocessor.parseAnswer(userAnswerRaw, parameterSet);
-                Parser p = new Parser ();
-                FractionalNumber [] pvs = p.parseUserAnswer(userAnswer);
-                //System.out.println("user answer = " + pv);
-                //TODO System.out.println("parser value = " + pv);
-                boolean bp = getVerifier(localMathDesc).verify(pvs);
+                boolean bp = checkAnswer(userAnswerRaw, parameterSet, math);
                 System.out.println("test " + index + " " + ((!bp) ? "failed" : "approved"));
                 index++;
+
                 if (!bp) return false;
             }
             return true;
         } else {
-            Node localMathDesc = Preprocessor.executeTask(math, new HashMap());
-            Parser p = new Parser ();
-            FractionalNumber [] pvs = p.parseUserAnswer(userAnswerRaw);
+            return checkAnswer(userAnswerRaw, new HashMap(), math);
+        }
+    }
+
+    private boolean checkAnswer(String userAnswerRaw, Map parameterSet, Node math) throws TaskDeserializationException, UserAnswerParseException, SystemException {
+        String userAnswer = Preprocessor.insertParameters2Answer(userAnswerRaw, parameterSet);
+        Parser parser = new Parser ();
+        RationalNumber[] pvs = parser.parseUserAnswer(userAnswer);
+
+        Node node = task.getNewCode();
+        if (node == null) {
+            Node localMathDesc = Preprocessor.expandMacros(math, parameterSet);
             return getVerifier(localMathDesc).verify(pvs);
+        } else {
+            throw new RuntimeException("Not implemented");
         }
     }
 
@@ -157,6 +162,12 @@ public class ServerTaskImpl implements ServerTask {
 
     private Verifier getVerifier(Node md) throws TaskDeserializationException, SystemException {    	
 		return Verifier.generateVerifier(md);    	
+    }
+
+    private boolean getNewVerifier(Node newCode) throws TaskDeserializationException, SystemException {
+        List params = verifierSandbox.getParameterNames();
+        String code = newCode.getText();
+        return false;
     }
     
 }

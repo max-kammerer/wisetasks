@@ -23,17 +23,14 @@ import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Set;
 
-import ru.spb.ipo.client.ui.ClientUI;
 import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
-import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.functions.Function;
 import ru.spb.ipo.engine.functions.ToDigit;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 import ru.spb.ipo.engine.utils.Parser;
-import ru.spb.ipo.engine.utils.Utils;
 import ru.spb.ipo.engine.sets.SetIterator;
 
 public class ListVerifier extends Verifier {
@@ -42,7 +39,7 @@ public class ListVerifier extends Verifier {
 
     private ru.spb.ipo.engine.sets.Set source;
     
-    private FractionalNumber normilizer;
+    private RationalNumber normilizer;
 
     public ListVerifier(Node node) throws SystemException, TaskDeserializationException {
         source = ru.spb.ipo.engine.sets.Set.generateSet(node.getChild("sourceSet").getChild("set"));
@@ -54,7 +51,7 @@ public class ListVerifier extends Verifier {
         }
     }
 
-    public boolean verify(FractionalNumber [] answers) {
+    public boolean verify(RationalNumber[] answers) {
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss SSS");
 //        System.out.println(sdf.format(new Date()));
         //System.out.println("Starting solver ...");
@@ -71,7 +68,7 @@ public class ListVerifier extends Verifier {
             
             if (Element.ptrue.equals(af.compute(e))) {
             	//TODO
-            	FractionalNumber answ = new FractionalNumber(ToDigit.computeAnswer(e));
+            	RationalNumber answ = new RationalNumber(ToDigit.computeAnswer(e));
             	if (userAnswers.contains(answ)) {
             		userAnswers.remove(answ);
             	} else {

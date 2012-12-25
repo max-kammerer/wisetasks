@@ -29,7 +29,7 @@ import ru.spb.ipo.engine.functions.Function;
 import ru.spb.ipo.engine.sets.Set;
 import ru.spb.ipo.engine.sets.SetIterator;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 import ru.spb.ipo.engine.utils.Parser;
 
 public class SimpleVerifier extends Verifier {
@@ -38,7 +38,7 @@ public class SimpleVerifier extends Verifier {
 
     private Set source;
     
-    private FractionalNumber normilizer;
+    private RationalNumber normilizer;
 
     public SimpleVerifier(Node node) throws SystemException, TaskDeserializationException {
         source = Set.generateSet(node.getChild("sourceSet").getChild("set"));
@@ -50,7 +50,7 @@ public class SimpleVerifier extends Verifier {
         }
     }
 
-    public boolean verify(FractionalNumber [] answers) {
+    public boolean verify(RationalNumber[] answers) {
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss SSS");
         long size = source.getSize();
         long iteration = 0;
@@ -64,7 +64,7 @@ public class SimpleVerifier extends Verifier {
             }
             setCompleted((float)iteration++/size);            
         }
-        FractionalNumber systemAnswer = new FractionalNumber(count);        
+        RationalNumber systemAnswer = new RationalNumber(count);
         if (normilizer != null) {
         	systemAnswer = systemAnswer.divide(normilizer);        	
         } 

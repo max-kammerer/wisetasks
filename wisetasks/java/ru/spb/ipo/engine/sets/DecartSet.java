@@ -43,7 +43,8 @@ public class DecartSet extends Set {
     public DecartSet() {
     }
 
-    public DecartSet(Set [] sets){
+
+    public DecartSet(Set ... sets){
         this.sets = sets;
         setsNumber = this.sets.length;
 

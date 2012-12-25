@@ -21,7 +21,6 @@ package ru.spb.ipo.engine.rmi;
 
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.task.ServerTask;
-import ru.spb.ipo.engine.task.JavaTaskFactory;
 import ru.spb.ipo.engine.task.TaskFactory;
 import ru.spb.ipo.engine.utils.FileAccessUtil;
 
@@ -48,11 +47,12 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
 
     private Contests contests;
 
-    private Map problemsperContest = new HashMap();
+    private Map problemsPerContest = new HashMap();
 
-    private TaskFactory factory = new JavaTaskFactory();
+    private TaskFactory factory;
 
-    public LocalContestProblemAccessor() throws TaskDeserializationException {
+    public LocalContestProblemAccessor(TaskFactory factory) throws TaskDeserializationException {
+        this.factory = factory;
         contests = new Contests();
     }
 
@@ -74,7 +74,7 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
             fileProxies[i] = new ProblemProxy(taskFiles[i], i);
         }
 
-        problemsperContest.put(contestId, fileProxies);
+        problemsPerContest.put(contestId, fileProxies);
 
         final ProblemProxy [] proxies = new ProblemProxy[taskFiles.length];
         for(int i = 0; i < taskFiles.length; i++) {
@@ -122,12 +122,12 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
     }
 
     private String getFileName(long contestId, long problemId) {
-        String fileName = ((ProblemProxy [])problemsperContest.get(contestId))[(int)problemId].getTitle();
+        String fileName = ((ProblemProxy []) problemsPerContest.get(contestId))[(int)problemId].getTitle();
         return fileName;
     }
 
     public String getFullFileName(long contestId, long problemId) {
-        String fileName = ((ProblemProxy [])problemsperContest.get(contestId))[(int)problemId].getTitle();
+        String fileName = ((ProblemProxy []) problemsPerContest.get(contestId))[(int)problemId].getTitle();
         return contests.getFile((int)contestId) + "/" + fileName;
     }
 

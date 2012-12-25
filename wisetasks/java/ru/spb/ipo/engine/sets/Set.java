@@ -63,12 +63,11 @@ abstract public class Set {
             s = (Set)Class.forName(type).newInstance();
             s.initSet(node);
         } catch (ClassNotFoundException e) {
-//    		throw new SystemException("Couldn't find class for function " + type, e);
-        	throw new TaskDeserializationException("Не могу найти класс для множества " + shortType, e);
+        	throw new TaskDeserializationException("Ошибка при создании класса для множества " + shortType, e);
 		} catch (InstantiationException e) {
-			throw new TaskDeserializationException("Не могу найти класс для множества " + shortType, e);
+			throw new TaskDeserializationException("Ошибка при создании класса для множества " + shortType, e);
 		} catch (IllegalAccessException e) {
-			throw new TaskDeserializationException("Не могу найти класс для множества " + shortType, e);
+			throw new TaskDeserializationException("Ошибка при создании класса для множества " + shortType, e);
 		}
         return s;
 

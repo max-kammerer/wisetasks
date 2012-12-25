@@ -28,7 +28,7 @@ public class Preprocessor {
 
     private static java.util.Set hs = new TreeSet(Arrays.asList(new String [] {"for"}));
 
-    public static Node executeTask(Node node, Map parameters) throws XmlException {
+    public static Node expandMacros(Node node, Map parameters) throws XmlException {
         return generateTask(node.makeCopy(), parameters, true);
     }
 
@@ -37,37 +37,43 @@ public class Preprocessor {
     }
 
     //node already cloned
-    private static Node generateTask(Node node, Map parameters, boolean forExecution) throws XmlException {
+    private static Node generateTask(Node node, Map parameters, boolean expandMacros) throws XmlException {
         if (node == null) {
             return node;
         }
 
-        Map<String, Node> attrs = node.getAttrs();
+        Map<String, String> attrs = node.getAttrs();
 
         String text = node.getText();
         if (text != null) {
             String newText = parse(text, parameters);
-            if (newText != text) {
+            if (false == newText.equals(text)) {
                 node.update(node.getText());
             }
         }
 
+
         if (attrs != null) {
-            for (java.util.Iterator iterator = attrs.entrySet().iterator(); iterator.hasNext(); ) {
-                Map.Entry<String, Node>  attr = (Map.Entry<String, Node>) iterator.next();
-                parseAttr(attr.getValue(), parameters);
+            for (java.util.Iterator<Map.Entry<String, String>>  iterator = attrs.entrySet().iterator(); iterator.hasNext(); ) {
+                Map.Entry<String, String>  attr = iterator.next();
+                String prevValue = attr.getValue();
+                String newValue = parse(prevValue, parameters);
+                if (prevValue != newValue) {
+                    node.updateAttr(attr.getKey(), newValue);
+                }
             }
+
         }
 
-        if (forExecution && hs.contains(node.getNodeName())) {
-            expandMacros(node, parameters, forExecution);
+        if (expandMacros && hs.contains(node.getNodeName())) {
+            expandMacros(node, parameters, expandMacros);
         } else {
             List<Node> childNodes = node.getChilds(null);
 
             if (childNodes != null) {
                 for(Node child: childNodes) {
                     Node newChild = parse(child, parameters);
-                    generateTask(newChild, parameters, forExecution);
+                    generateTask(newChild, parameters, expandMacros);
                 }
             }
         }
@@ -129,7 +135,7 @@ public class Preprocessor {
         node.removeFromParent(node);
     }
 
-    public static String parseAnswer(String answer, Map parameters) {
+    public static String insertParameters2Answer(String answer, Map parameters) {
         Iterator it = parameters.keySet().iterator();
         StringBuffer sb = new StringBuffer(answer);
         while(it.hasNext()) {

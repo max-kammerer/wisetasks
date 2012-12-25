@@ -22,9 +22,8 @@ package ru.spb.ipo.engine.functions;
 import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
-import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 import java.util.Map;
 
@@ -36,7 +35,7 @@ public class Projection extends Function {
     	super.initFunction(node);
     	Map m = super.getAttributes(node);
     	if (m.containsKey("axis")) {
-            axis = ((FractionalNumber)m.get("axis")).getBigInteger().intValue();
+            axis = ((RationalNumber)m.get("axis")).getBigInteger().intValue();
         }
     }
 

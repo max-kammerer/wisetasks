@@ -153,11 +153,11 @@ public class Parser {
         //System.out.println(pol);
     }
     
-    public FractionalNumber [] parseUserAnswer(String ustr) throws UserAnswerParseException {
+    public RationalNumber[] parseUserAnswer(String ustr) throws UserAnswerParseException {
     	try {
 	    	ustr = ustr.trim();
 	    	if ("empty".equalsIgnoreCase(ustr)) {
-	    		return new FractionalNumber[0];
+	    		return new RationalNumber[0];
 	    	}
 	    	String answers [] = ustr.split(";");
 	    	ArrayList al = new ArrayList();
@@ -167,13 +167,13 @@ public class Parser {
 					al.add(parse(str));
 				}
 			}	    	
-	    	return (FractionalNumber []) al.toArray(new FractionalNumber[al.size()]);
+	    	return (RationalNumber[]) al.toArray(new RationalNumber[al.size()]);
     	} catch (Exception e) {
     		throw new UserAnswerParseException("Ошибка в записи выражения. Проверьте его правильность!" ,e);
 		}
     }
 
-    public FractionalNumber parse(String ustr) {    	
+    public RationalNumber parse(String ustr) {
     	ustr = ustr.replaceAll("\\s+", "");
     	stack.clear();
     	pol.clear();
@@ -185,22 +185,22 @@ public class Parser {
              if (isNumber((String)pol.get(index))) {
             	 //System.err.println(pol.get(index));
                  String str = (String)pol.remove(index);
-                 pol.add(index, new FractionalNumber( new BigInteger(str)));
+                 pol.add(index, new RationalNumber( new BigInteger(str)));
                  index++;
              } else if (isOperation((String)pol.get(index))) {
                String op = (String)pol.get(index);
-               FractionalNumber res = null;
+               RationalNumber res = null;
                if (termA.equals(op) || termS.equals(op) || termD.equals(op) || termM.equals(op) || termP.equals(op)) {
-            	   FractionalNumber bi1, bi2;
+            	   RationalNumber bi1, bi2;
                    if (index > 0) {
-                       bi2 = (FractionalNumber)pol.remove(index - 1);
+                       bi2 = (RationalNumber)pol.remove(index - 1);
                        index--;
-                   } else bi2 = new FractionalNumber( BigInteger.valueOf(0));
+                   } else bi2 = new RationalNumber( BigInteger.valueOf(0));
 
                    if (index > 0) {
-                       bi1 = (FractionalNumber)pol.remove(index - 1);
+                       bi1 = (RationalNumber)pol.remove(index - 1);
                        index--;
-                   } else bi1 = new FractionalNumber(BigInteger.valueOf(0));
+                   } else bi1 = new RationalNumber(BigInteger.valueOf(0));
 
                    if (termA.equals(op)) res = bi1.add(bi2);
                    if (termS.equals(op)) res = bi1.substract(bi2);
@@ -209,12 +209,12 @@ public class Parser {
                    if (termP.equals(op)) res = bi1.pow(bi2);
                }
                if (termF.equals(op)) {
-            	   FractionalNumber bi1;
+            	   RationalNumber bi1;
                    if (index > 0) {
-                       bi1 = (FractionalNumber)pol.remove(index - 1);
+                       bi1 = (RationalNumber)pol.remove(index - 1);
                        index--;
-                   } else bi1 = new FractionalNumber (BigInteger.valueOf(0));
-                   res = new FractionalNumber (MathOperations.factorial(bi1.getBigInteger().intValue()));
+                   } else bi1 = new RationalNumber(BigInteger.valueOf(0));
+                   res = new RationalNumber(MathOperations.factorial(bi1.getBigInteger().intValue()));
                }
                pol.remove(index);
                pol.add(index, res);
@@ -224,7 +224,7 @@ public class Parser {
             }
         }
         //System.out.println(pol);        
-        return (FractionalNumber) pol.get(0);
+        return (RationalNumber) pol.get(0);
     }
 
     public String getTerm(StringBuffer sb){

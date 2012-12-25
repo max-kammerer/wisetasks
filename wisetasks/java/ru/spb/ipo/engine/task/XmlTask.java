@@ -28,6 +28,8 @@ public interface XmlTask extends TaskConstant {
 
     Node getMathDescription();
 
+    Node getNewCode();
+
     Node getDescription();
 
     String getTitle();

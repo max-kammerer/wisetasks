@@ -26,8 +26,7 @@ import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.task.Node;
 import ru.spb.ipo.engine.task.TaskConstant;
-import ru.spb.ipo.engine.utils.FractionalNumber;
-import ru.spb.ipo.engine.utils.Utils;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 /**
  * User: mike
@@ -35,7 +34,7 @@ import ru.spb.ipo.engine.utils.Utils;
  */
 public abstract class Verifier implements TaskConstant {
 
-    public abstract boolean verify(FractionalNumber [] answer);
+    public abstract boolean verify(RationalNumber[] answer);
 
     public static Verifier generateVerifier(Node node) throws TaskDeserializationException, SystemException {
     	Node verifierNode = node.getChild(TaskConstant.VERIFIER);

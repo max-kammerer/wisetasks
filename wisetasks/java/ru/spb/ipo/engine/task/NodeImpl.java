@@ -56,7 +56,10 @@ public class NodeImpl implements Node {
 
         for (int i = 0; i < nl.getLength(); i++) {
             if (name == null || nl.item(i).getNodeName().equals(name)) {
-                childs.add(new NodeImpl(nl.item(i)));
+                org.w3c.dom.Node child = nl.item(i);
+                if (false == (child instanceof Attr)) {
+                    childs.add(new NodeImpl(child));
+                }
             }
         }
         return childs;
@@ -123,13 +126,13 @@ public class NodeImpl implements Node {
         return node;
     }
 
-    public Map<String, Node> getAttrs() {
-        HashMap<String, Node> result = new HashMap<String, Node>();
+    public Map<String, String> getAttrs() {
+        HashMap<String, String> result = new HashMap();
         NamedNodeMap nnm = node.getAttributes();
         if (nnm != null) {
             for (int i = 0; i< nnm.getLength(); i++) {
                 org.w3c.dom.Node attr = nnm.item(i);
-                result.put(attr.getNodeName(), new NodeImpl(attr));
+                result.put(attr.getNodeName(), attr.getNodeValue());
             }
         }
         return result;
@@ -139,6 +142,18 @@ public class NodeImpl implements Node {
     public void update(String newNodeValue) {
         if (newNodeValue != null) {
             node.setNodeValue(newNodeValue);
+        }
+    }
+
+    public void updateAttr(String name, String value) {
+        NamedNodeMap nnm = node.getAttributes();
+        org.w3c.dom.Node child = nnm.getNamedItem(name);
+        if (child == null) {
+            Attr attr = child.getOwnerDocument().createAttribute(name);
+            attr.setNodeValue(value);
+            ((Element)node).setAttributeNode(attr);
+        } else {
+            child.setNodeValue(value);
         }
     }
 

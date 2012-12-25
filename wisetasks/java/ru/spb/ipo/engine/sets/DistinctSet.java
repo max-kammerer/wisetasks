@@ -33,19 +33,16 @@ public class DistinctSet extends Set {
 
 	private ArrayList<ContainerElement> unique;
     private int len;
-	
-	public DistinctSet() {
-		
-	}
+
 	
 	protected void initSet(Node node) throws SystemException, TaskDeserializationException {
 		List<Node> lsets = node.getChilds("set");
 		if (lsets.size() == 2) {
 			if (!"SubstitutionSet".equals(lsets.get(1).getAttr("type")))
-				throw new TaskDeserializationException("DistinctSet: 2-е вложенное множество должно быть SubstitutionSet");
+				throw new TaskDeserializationException("DistinctSet: 2-е параметр множество должно быть SubstitutionSet");
 		}
 		else if (lsets.size() != 1)
-			throw new TaskDeserializationException("DistinctSet должен иметь одно или два вложенных множества");
+			throw new TaskDeserializationException("DistinctSet должен иметь одно или два параметра-множества");
 		
 		Set source = generateSet(lsets.get(0));
 		len = source.getLength();

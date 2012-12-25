@@ -19,7 +19,7 @@
 
 package ru.spb.ipo.engine.elements;
 
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 
 public class ContainerElement extends Element {
@@ -88,7 +88,7 @@ public class ContainerElement extends Element {
 		return 0;
 	}
 	
-	public FractionalNumber getFractionalNumber() {
+	public RationalNumber getRationalNumber() {
 		return null;
 	}
 	

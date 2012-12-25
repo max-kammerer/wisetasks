@@ -62,5 +62,9 @@ public class XmlTaskImpl implements XmlTask {
         return new NodeImpl(document.getElementsByTagName(VERIFIER_PARAMS).item(0));
     }
 
-
+    @Override
+    public Node getNewCode() {
+        org.w3c.dom.Node xmlNode = document.getElementsByTagName("code").item(0);
+        return xmlNode == null ? null : new NodeImpl(xmlNode);
+    }
 }

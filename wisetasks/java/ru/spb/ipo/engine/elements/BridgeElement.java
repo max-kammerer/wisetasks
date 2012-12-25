@@ -19,7 +19,7 @@
 
 package ru.spb.ipo.engine.elements;
 
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 public class BridgeElement extends Element  {
 
@@ -49,8 +49,8 @@ public class BridgeElement extends Element  {
 		return original.getElements();
 	}
 
-	public FractionalNumber getFractionalNumber() {
-		return original.getFractionalNumber();
+	public RationalNumber getRationalNumber() {
+		return original.getRationalNumber();
 	}
 
 	public int getInt() {		

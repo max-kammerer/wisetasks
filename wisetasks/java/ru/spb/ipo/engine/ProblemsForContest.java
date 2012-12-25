@@ -93,9 +93,8 @@ public class ProblemsForContest {
         this.accessor = accessor;
         try {
         	problemProxies = accessor.getProblemList(contestId);
-            //FileAccessUtil.list(taskDir, ".xml");
         } catch (IOException e) {
-        	throw new TaskDeserializationException("Не могу составить список задач для " + accessor.getContestName(contestId) + ": \n" + e.getMessage());
+        	throw new TaskDeserializationException("Ошибка при составлении списка задач для " + accessor.getContestName(contestId) + ": \n" + e.getMessage());
 		}
 
         serverProblems = new HashMap<Long, ServerTask>();

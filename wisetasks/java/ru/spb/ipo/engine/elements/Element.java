@@ -24,8 +24,7 @@ import java.util.List;
 
 import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
-import ru.spb.ipo.engine.utils.Utils;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 
 public abstract class Element extends ru.spb.ipo.engine.functions.AbstractFunction
@@ -97,5 +96,5 @@ public abstract class Element extends ru.spb.ipo.engine.functions.AbstractFuncti
 
     abstract public int getLength();
 
-    abstract public FractionalNumber getFractionalNumber();
+    abstract public RationalNumber getRationalNumber();
 }

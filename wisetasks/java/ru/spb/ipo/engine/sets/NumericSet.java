@@ -31,27 +31,18 @@ public class NumericSet extends Set {
     private int first;
     private int last;
 
-    private int current;
-    private boolean beforeFirst;
 
     private long size;
-
-    private Element el;
 
     public NumericSet (int first, int last) throws XmlException {
         this.first = first;
         this.last = last;
-        current = first;
-        beforeFirst = true;
-        el = new IntElement(first);
         size  = last - first + 1;
         check();
     }
 
-    public NumericSet() {
-        first = 0;
-        last = 0;        
-        el = new IntElement(0);        
+    public NumericSet() throws XmlException {
+        this(0, 0);
     }
 
     public void initSet (Node node) throws XmlException {
@@ -82,39 +73,6 @@ public class NumericSet extends Set {
 
     public Element getElement(long index) {
         return new IntElement((int) (first + (index - 1) % size));      
-    }
-
-
-    public boolean hasNext() {
-        if (beforeFirst && (first <= last) ) return true;
-        if (current < last) return true;
-        return false;
-    }
-
-//    public Element getFirst() {
-//        return null;
-//        //return new Element(first);
-//    }
-
-    public Element getCurrent() {
-        el = new IntElement(current);
-        //el.setInt(current);
-        return el;
-    }
-
-    public Element next() {
-        if (!hasNext()) return null;
-        if (beforeFirst){
-            beforeFirst = false;
-        } else {
-            current++;
-        }
-        return getCurrent();
-    }
-
-    public void reset() {
-        current = first;
-        beforeFirst = true;
     }
 
     public int getLength() {

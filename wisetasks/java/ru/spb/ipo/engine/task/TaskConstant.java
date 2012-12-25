@@ -25,19 +25,19 @@ package ru.spb.ipo.engine.task;
  * Time: 12:20
  */
 public interface TaskConstant {
-    public static final String DESCRIPTION = "description";
-    public static final String MATH_DESCRIPTION = "mathDescription";
-    public static final String DESCRIPTION_PARAMS = "description-params";
-    public static final String VERIFIER_PARAMS = "verifier-params";
-    public static final String PARAM = "param";
-    public static final String PARAM_NAME ="name";
-    public static final String PARAM_TYPE ="type";
-    public static final String PARAM_TEXT ="text";
-    public static final String PARAM_SET = "value";
-    public static final String VERIFIER ="verifier";
+    String DESCRIPTION = "description";
+    String MATH_DESCRIPTION = "mathDescription";
+    String DESCRIPTION_PARAMS = "description-params";
+    String VERIFIER_PARAMS = "verifier-params";
 
-    public static final String FUNCTION ="function";
+    String PARAM = "param";
+    String PARAM_NAME ="name";
+    String PARAM_TYPE ="type";
+    String PARAM_TEXT ="text";
+    String PARAM_SET = "value";
+    String VERIFIER ="verifier";
+    String FUNCTION ="function";
 
-    public static final String IMAGES ="imgs";
-    public static final String IMAGE ="img";
+    String IMAGES ="imgs";
+    String IMAGE ="img";
 }

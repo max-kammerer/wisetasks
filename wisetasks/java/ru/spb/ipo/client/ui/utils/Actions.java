@@ -132,8 +132,11 @@ public class Actions {
 
 
     private void connect(Server engine) {
-        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
-
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
+            }
+        });
 		this.engine = engine;			
 	    currentTask = null;
 		currentChoise = null;

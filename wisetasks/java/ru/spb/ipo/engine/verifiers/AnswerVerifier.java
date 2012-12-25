@@ -25,8 +25,7 @@ import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.functions.Function;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
-import ru.spb.ipo.engine.utils.Utils;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 public class AnswerVerifier extends Verifier {
 	
@@ -36,8 +35,8 @@ public class AnswerVerifier extends Verifier {
 		fn = Function.generateFunction(node.getChild(VERIFIER).getChild(FUNCTION));
 	}
 	
-	public boolean verify(FractionalNumber [] answers) {
+	public boolean verify(RationalNumber[] answers) {
 		Element systemAnswer = fn.compute(null);
-		return systemAnswer.getFractionalNumber().equals(answers[0]);		
+		return systemAnswer.getRationalNumber().equals(answers[0]);
 	}
 }

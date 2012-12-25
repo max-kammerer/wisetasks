@@ -24,6 +24,8 @@ import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.exception.UserAnswerParseException;
 import ru.spb.ipo.engine.task.ClientTask;
+import ru.spb.ipo.engine.task.JavaTaskFactory;
+import ru.spb.ipo.engine.task.TaskFactory;
 
 /**
  * User: Michael Bogdanov
@@ -35,7 +37,8 @@ public class ServerImpl /*extends UnicastRemoteObject*/ implements Server {
 
     public ServerImpl() throws TaskDeserializationException, SystemException {
         //super();
-        accessor = new LocalContestProblemAccessor();
+        TaskFactory factory = new JavaTaskFactory();
+        accessor = new LocalContestProblemAccessor(factory);
     }
     
     public ServerImpl(ContestProblemAccessor accessor) {

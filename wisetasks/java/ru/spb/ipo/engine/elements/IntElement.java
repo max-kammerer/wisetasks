@@ -21,13 +21,13 @@ package ru.spb.ipo.engine.elements;
 
 import java.math.BigInteger;
 
-import ru.spb.ipo.engine.utils.FractionalNumber;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 
 public class IntElement extends Element {
 
 	private int value;
-	private FractionalNumber fnumber = null;
+	private RationalNumber fnumber = null;
 
 	public IntElement(int value) {
 		this.value = value;
@@ -72,12 +72,12 @@ public class IntElement extends Element {
 	}
 
 
-	public FractionalNumber getFractionalNumber() {
+	public RationalNumber getRationalNumber() {
 		if (fnumber == null) {
-			fnumber = new FractionalNumber(BigInteger.valueOf(value));			
+			fnumber = new RationalNumber(BigInteger.valueOf(value));
 		} else {
 			if (fnumber.getBigInteger().intValue() != value) {			
-				fnumber = new FractionalNumber(BigInteger.valueOf(value));
+				fnumber = new RationalNumber(BigInteger.valueOf(value));
 			}
 		}		
 		return fnumber;		

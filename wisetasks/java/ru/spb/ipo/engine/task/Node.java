@@ -48,9 +48,11 @@ public interface Node {
 
     Node getChild(String name) throws NodeNotExistsException;
 
-    Map<String, Node> getAttrs();
+    Map<String, String> getAttrs();
 
     void update(String newNodeValue);
+
+    void updateAttr(String name, String value);
 
     void addToParent(Node newChild);
 

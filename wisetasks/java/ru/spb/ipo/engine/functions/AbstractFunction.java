@@ -56,15 +56,15 @@ abstract public class AbstractFunction {
     private static Parser parser = new Parser();
     
     public static Map<String, String> getAttributes(Node n) {
-    	Map<String, Node> attrs = n.getAttrs();
+    	Map<String, String> attrs = n.getAttrs();
     	Map result = new HashMap();
     	if (attrs == null) {
             return result;
         }
 
-        for (Map.Entry<String, Node> entry: attrs.entrySet()) {
-    		if (!"type".equals(entry.getValue().getNodeName())) {
-    			result.put(entry.getKey(), parser.parse(entry.getValue().getText()));
+        for (Map.Entry<String, String> entry: attrs.entrySet()) {
+    		if (!"type".equals(entry.getKey())) {
+    			result.put(entry.getKey(), parser.parse(entry.getValue()));
     		}
     	}    	
     	return result;

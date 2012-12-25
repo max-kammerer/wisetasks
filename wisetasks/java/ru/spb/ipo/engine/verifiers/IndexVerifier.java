@@ -21,18 +21,15 @@ package ru.spb.ipo.engine.verifiers;
 
 import java.math.BigInteger;
 
-import ru.spb.ipo.client.ui.ClientUI;
 import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
-import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.functions.AbstractFunction;
 import ru.spb.ipo.engine.functions.Function;
 import ru.spb.ipo.engine.sets.Set;
 import ru.spb.ipo.engine.sets.SetIterator;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.FractionalNumber;
-import ru.spb.ipo.engine.utils.Utils;
+import ru.spb.ipo.engine.utils.RationalNumber;
 
 public class IndexVerifier extends Verifier {
 
@@ -48,7 +45,7 @@ public class IndexVerifier extends Verifier {
         element2index = (Element)AbstractFunction.generateAbstractFunction(node.getChild("verifier").getChild("indexingElement").getChild("constElement"));
     }
 	
-	public boolean verify(FractionalNumber [] answers) {
+	public boolean verify(RationalNumber[] answers) {
         long size = source.getSize();
         long iteration = 0;
         BigInteger count = BigInteger.ZERO;
@@ -68,7 +65,7 @@ public class IndexVerifier extends Verifier {
         }
         setCompleted(1.0f);
         if (isFound) {
-        	if (new FractionalNumber(count).equals(answers[0])) {
+        	if (new RationalNumber(count).equals(answers[0])) {
         		return true;
         	}
         }
