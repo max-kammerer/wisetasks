@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<task title="Счастливые билеты">
+    <description-params>
+        <param name="length">
+            <value text="двух">4</value>
+            <value text="трех">6</value>
+        </param>
+        <param name="base">
+            <value text="девяти">9</value>
+            <value text="пяти">5</value>
+        </param>
+    </description-params>
+    <description>
+        <![CDATA[Трамвайный билет называется счастливым по-питерски, 
+        если сумма первых ${length-text} цифр равна сумме последних 
+        ${length-text} цифр. Трамвайный билет называется счастливым 
+        по-московски, если сумма его цифр, стоящих на четных местах,
+        равна сумме цифр, стоящих на нечетных местах.
+        Сколько существует билетов, счастливых и по питерски и по московски,
+        если для записи билета используются цифры от нуля до ${base-text}?]]>
+    </description>
+
+    <code>
+        val set = CartesianSet((1 to length).map(p => NumericSet(0, base)))
+
+        set.count (
+             element =>  {
+               val (leftPetersburg, rightPetersburg) = element.splitAt(element.size / 2)
+               if (leftPetersburg.sum == rightPetersburg.sum) {
+                 val (evenMoscow, oddMoscow) = element.zipWithIndex.partition{ case (value, index) => index % 2 == 0}
+                 oddMoscow.unzip._1.sum == evenMoscow.unzip._1.sum
+               } else false
+             }
+           )
+    </code>
+    <mathDescription>
+        <sourceSet>
+            <set type="DecartSet">
+                <for name="i" first="1" last="${length}" inc="1">
+                    <set type="NumericSet" first="0" last="${base}"/>
+                </for>
+            </set>
+        </sourceSet>
+        <verifier type="CountVerifier">
+            <function type="And">
+                <function type="Equals">
+                    <function type="Add">
+                        <for name="i" first="1" last="${length}/2" inc="1">
+                            <function type="Projection" axis="${i}">
+                                <current-set-element/>
+                            </function>
+                        </for>
+                    </function>
+                    <function type="Add">
+                        <for name="i" first="${length}/2+1" last="${length}" inc="1">
+                            <function type="Projection" axis="${i}">
+                                <current-set-element/>
+                            </function>
+                        </for>
+                    </function>
+                </function>
+                <function type="Equals">
+                    <function type="Add">
+                        <for name="i" first="1" last="${length}" inc="2">
+                            <function type="Projection" axis="${i}">
+                                <current-set-element/>
+                            </function>
+                        </for>
+                    </function>
+                    <function type="Add">
+                        <for name="i" first="2" last="${length}" inc="2">
+                            <function type="Projection" axis="${i}">
+                                <current-set-element/>
+                            </function>
+                        </for>
+                    </function>
+                </function>
+            </function>
+        </verifier>
+    </mathDescription>
+</task>

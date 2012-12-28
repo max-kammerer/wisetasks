@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<task title="Две двойки">
+    <description>
+        Из колоды в 36 карты вынимают случайным образом 5 карт.
+        Сколько вариантов вытащить две пары? (В комбинации "пара" среди вынутых карт ровно две должны иметь одно и то же
+        значение)
+    </description>
+    <code>
+        val set = CombinationSet(CartesianSet(NumericSet(6,14), NumericSet(1, 4)), 5)
+
+        set.count(element => {
+          element.groupBy(card => card(0)).map{ case (value, list) => list.size }.toList.sorted == List(1, 2, 2)
+        })
+    </code>
+    <mathDescription>
+        <sourceSet>
+            <set type="CombinationSet" length="5">
+                <set type="DecartSet">
+                    <set type="NumericSet" first="6" last="14"/>
+                    <set type="NumericSet" first="1" last="4"/>
+                </set>
+            </set>
+        </sourceSet>
+        <verifier type="CountVerifier">
+            <function type="And">
+                <function type="Equals">
+                    <function type="Count" axis="1">
+                        <current-set-element/>
+                    </function>
+                    <constElement>
+                        <constElement>0</constElement>
+                        <constElement>0</constElement>
+                        <constElement>1</constElement>
+                        <constElement>2</constElement>
+                        <constElement>2</constElement>
+                    </constElement>
+                </function>
+            </function>
+        </verifier>
+    </mathDescription>
+</task>

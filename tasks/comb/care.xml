@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<task title="Каре">
+    <description>
+        Из колоды в 36 карты вынимают случайным образом 5 карт.
+        Сколько вариантов вытащить каре? (В комбинации "каре" среди вынутых карт четыре карты должны иметь одно
+        значение)
+    </description>
+    <code>
+        val set = CombinationSet(CartesianSet(NumericSet(6,14), NumericSet(1, 4)), 5)
+
+        set.count(element => {
+          element.groupBy(card => card(0)).exists{ case (_, values) =>  values.size == 4}
+        })
+    </code>
+    <mathDescription>
+        <sourceSet>
+            <set type="CombinationSet" length="5">
+                <set type="DecartSet">
+                    <set type="NumericSet" first="6" last="14"/>
+                    <set type="NumericSet" first="1" last="4"/>
+                </set>
+            </set>
+        </sourceSet>
+        <verifier type="CountVerifier">
+            <function type="Equals">
+                <function type="Projection" axis="5">
+                    <function type="Count" axis="1">
+                        <current-set-element/>
+                    </function>
+                </function>
+                <constElement>4</constElement>
+            </function>
+        </verifier>
+    </mathDescription>
+</task>
