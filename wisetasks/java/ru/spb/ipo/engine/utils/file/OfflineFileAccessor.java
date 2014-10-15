@@ -48,11 +48,15 @@ public class OfflineFileAccessor extends AbstractFileAccessor  {
 	}
 	
 	
-	public String [] list(String dirName, final String filter) throws IOException {
+	public String [] list(String dirName, final String... filter) throws IOException {
         dirName = dirName.replaceAll("\\\\", "/");
 		return new File(getContext() +  dirName).list(new FilenameFilter() {
 			public boolean accept(File dir, String pathname) {
-				return pathname.toLowerCase().endsWith(filter);
+				String path = pathname.toLowerCase();
+				for (String f : filter) {
+					if (path.endsWith(f)) return true;
+				}
+				return false;
 			}        	
         });				
 	}	

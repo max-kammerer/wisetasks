@@ -28,7 +28,7 @@ public interface FileAccessor {
 		
 	public InputStream getInputStream(String fileName) throws IOException;
 		
-	public String [] list(String dirName, final String filter) throws IOException;	
+	public String [] list(String dirName, final String... filter) throws IOException;
 		
 	public ImageIcon getIcon(String fileName) throws IOException;
 		

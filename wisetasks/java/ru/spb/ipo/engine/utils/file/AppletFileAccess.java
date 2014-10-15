@@ -21,13 +21,8 @@ package ru.spb.ipo.engine.utils.file;
 
 import java.awt.Image;
 import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,7 +92,7 @@ public class AppletFileAccess extends AbstractFileAccessor  {
 		return new URL(getContext() + fileName).getContent();
 	}
 		
-	public String [] list(String dirName, final String filter) throws IOException {
+	public String [] list(String dirName, final String... filter) throws IOException {
         System.out.println("da" + dirName);
         List list = (List)lists.get(getSafe(dirName));
 		return (String [])list.toArray(new String[list.size()]);			
