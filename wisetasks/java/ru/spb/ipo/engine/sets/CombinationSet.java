@@ -160,7 +160,7 @@ public class CombinationSet extends Set {
         
     }
 
-    public Object clone() {
+    public Set clone() {
     	throw new UnsupportedOperationException("Operation clone isn't supported in CombinationSet class");
     }
 

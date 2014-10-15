@@ -39,18 +39,15 @@ public class DecartSet extends Set {
 
     private int setsNumber;
 
+    public DecartSet() {}
 
-    public DecartSet() {
-    }
-
-
-    public DecartSet(Set ... sets){
-        this.sets = sets;
+    public <T extends Set> DecartSet(List<T> sets){
+        this.sets = sets.toArray(new Set[sets.size()]);
         setsNumber = this.sets.length;
 
         size = 1;
         for (int i = 0; i < setsNumber; i++) {
-            size *= sets[i].getSize();
+            size *= sets.get(i).getSize();
         }
     }
 

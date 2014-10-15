@@ -100,7 +100,7 @@ public class PermutationWithRepetitionSet extends Set {
     	throw new UnsupportedOperationException("Operation getElement(long index) isn't supported in CombinationSet class");
     }
 
-    public Object clone() {
+    public Set clone() {
     	throw new UnsupportedOperationException("Operation clone isn't supported in CombinationSet class");
     }
 

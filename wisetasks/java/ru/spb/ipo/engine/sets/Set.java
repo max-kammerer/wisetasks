@@ -24,7 +24,6 @@ import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.Utils;
 
 
 /**
@@ -35,7 +34,7 @@ import ru.spb.ipo.engine.utils.Utils;
 /*
  * Базовый класс множества.
  */
-abstract public class Set {
+abstract public class Set implements Cloneable {
 
     /**
      * Инициализирует поля объекта, созданного с помощью  метода generateSet(node).
@@ -91,4 +90,8 @@ abstract public class Set {
 
     abstract public SetIterator iterator();
 
+    @Override
+    public Set clone() throws CloneNotSupportedException {
+        return (Set) super.clone();
+    }
 }
