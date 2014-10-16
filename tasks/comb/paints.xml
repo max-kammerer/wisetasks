@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="windows-1251"?>
-<task title="Краски">
+<?xml version="1.0" encoding="utf-8"?>
+<task title="РљСЂР°СЃРєРё">
     <description>
-        <![CDATA[Имеется k красок. Сколькими способами можно раскрасить стороны
-        данного правильного n-угольника так,
-         чтобы соседние стороны были окрашены в разные цвета?]]>
+        <![CDATA[РРјРµРµС‚СЃСЏ k РєСЂР°СЃРѕРє. РЎРєРѕР»СЊРєРёРјРё СЃРїРѕСЃРѕР±Р°РјРё РјРѕР¶РЅРѕ СЂР°СЃРєСЂР°СЃРёС‚СЊ СЃС‚РѕСЂРѕРЅС‹
+        РґР°РЅРЅРѕРіРѕ РїСЂР°РІРёР»СЊРЅРѕРіРѕ n-СѓРіРѕР»СЊРЅРёРєР° С‚Р°Рє,
+         С‡С‚РѕР±С‹ СЃРѕСЃРµРґРЅРёРµ СЃС‚РѕСЂРѕРЅС‹ Р±С‹Р»Рё РѕРєСЂР°С€РµРЅС‹ РІ СЂР°Р·РЅС‹Рµ С†РІРµС‚Р°?]]>
     </description>
     <verifier-params>
         <param name="n" type="1">
@@ -15,13 +15,13 @@
             <value>4</value>
         </param>
     </verifier-params>
-    <code>
-        val set = CartesianSet((1 to n).map(_ => NumericSet(1, k)))
+    <!--<code>-->
+        <!--val set = CartesianSet((1 to n).map(_ => NumericSet(1, k)))-->
 
-        set.count(element => {
-           (element.tail :+ element.head).zip(element).forall{ case (left, right) => left != right }
-        })
-    </code>
+        <!--set.count(element => {-->
+           <!--(element.tail :+ element.head).zip(element).forall{ case (left, right) => left != right }-->
+        <!--})-->
+    <!--</code>-->
     <mathDescription>
         <sourceSet>
             <set type="DecartSet">

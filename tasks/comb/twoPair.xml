@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="windows-1251"?>
-<task title="Две двойки">
+<?xml version="1.0" encoding="utf-8"?>
+<task title="Р”РІРµ РґРІРѕР№РєРё">
     <description>
-        Из колоды в 36 карты вынимают случайным образом 5 карт.
-        Сколько вариантов вытащить две пары? (В комбинации "пара" среди вынутых карт ровно две должны иметь одно и то же
-        значение)
+        РР· РєРѕР»РѕРґС‹ РІ 36 РєР°СЂС‚С‹ РІС‹РЅРёРјР°СЋС‚ СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј 5 РєР°СЂС‚.
+        РЎРєРѕР»СЊРєРѕ РІР°СЂРёР°РЅС‚РѕРІ РІС‹С‚Р°С‰РёС‚СЊ РґРІРµ РїР°СЂС‹? (Р’ РєРѕРјР±РёРЅР°С†РёРё "РїР°СЂР°" СЃСЂРµРґРё РІС‹РЅСѓС‚С‹С… РєР°СЂС‚ СЂРѕРІРЅРѕ РґРІРµ РґРѕР»Р¶РЅС‹ РёРјРµС‚СЊ РѕРґРЅРѕ Рё С‚Рѕ Р¶Рµ
+        Р·РЅР°С‡РµРЅРёРµ)
     </description>
-    <code>
+<!--    <code>
         val set = CombinationSet(CartesianSet(NumericSet(6,14), NumericSet(1, 4)), 5)
 
         set.count(element => {
           element.groupBy(card => card(0)).map{ case (value, list) => list.size }.toList.sorted == List(1, 2, 2)
         })
-    </code>
+    </code>-->
     <mathDescription>
         <sourceSet>
             <set type="CombinationSet" length="5">
