@@ -34,6 +34,8 @@ import org.omg.CORBA.SystemException;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import ru.spb.ipo.wisetaks2.Task;
+import ru.spb.ipo.wisetaks2.compile.CompilePackage;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -50,9 +52,11 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
     private Map problemsPerContest = new HashMap();
 
     private TaskFactory factory;
+    private TaskFactory kotlinFactory;
 
-    public LocalContestProblemAccessor(TaskFactory factory) throws TaskDeserializationException {
-        this.factory = factory;
+    public LocalContestProblemAccessor(TaskFactory xmlFactory, TaskFactory kotlinFactory) throws TaskDeserializationException {
+        this.factory = xmlFactory;
+        this.kotlinFactory = kotlinFactory;
         contests = new Contests();
     }
 
@@ -68,7 +72,7 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
     public ProblemProxy[] getProblemList(long contestId) throws TaskDeserializationException, IOException {
         String folder = contests.getFile((int)contestId);
         String [] taskFiles = null;
-        taskFiles = FileAccessUtil.list(folder, ".xml");
+        taskFiles = FileAccessUtil.list(folder, ".xml", ".kt", ".kts");
         ProblemProxy[] fileProxies = new ProblemProxy[taskFiles.length];
         for(int i = 0; i < taskFiles.length; i++) {
             fileProxies[i] = new ProblemProxy(taskFiles[i], i);
@@ -81,21 +85,13 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
             proxies[i] = new ProblemProxy("Название задачи не задано", i);
         }
 
-        for (int i = 0; i < taskFiles.length; i++) {
-        	final int index = i;
-			try {
-				SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-				parser.parse(FileAccessUtil.getInputStream(getFullFileName(contestId,  i)), new DefaultHandler() {
-					public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-						if ("task".equals(qName)) {
-                            proxies[index].setTitle(attributes.getValue("title"));                            
-						}
-					}
-				});
-			} catch (SAXException e){
-				e.printStackTrace();
-			} catch (ParserConfigurationException e) {
-                e.printStackTrace();  //TODO:
+        for (int index = 0; index < taskFiles.length; index++) {
+            final ProblemProxy proxy = proxies[index];
+            String fullTaskFileName = getFullFileName(contestId, index);
+            if (fullTaskFileName.endsWith(".xml")) {
+                initProxyFromXml(fullTaskFileName, proxy);
+            } else {
+                initProxyFromKotlin(fullTaskFileName, proxy);
             }
         }
 
@@ -108,10 +104,43 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
         return proxies;
     }
 
+    private void initProxyFromXml(String fullTaskFileName, final ProblemProxy proxy) throws IOException {
+        try {
+            SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+            parser.parse(FileAccessUtil.getInputStream(fullTaskFileName), new DefaultHandler() {
+                public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+                    if ("task".equals(qName)) {
+                        proxy.setTitle(attributes.getValue("title"));
+                    }
+                }
+            });
+        } catch (SAXException e){
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();  //TODO:
+        }
+    }
+
+    private void initProxyFromKotlin(String fullTaskFileName, final ProblemProxy proxy) throws IOException {
+        try {
+            Task task = CompilePackage.compileAndGetTask(fullTaskFileName);
+            String title = task.getTitle();
+            proxy.setTitle(title);
+        } catch (Exception e) {
+            e.printStackTrace();
+            proxy.setTitle("Ошибка " + e.getMessage());
+        }
+    }
+
+
     public ServerTask getProblem(long contestId, long problemId) throws TaskDeserializationException, SystemException{
         String file = getFullFileName(contestId,  problemId);
-        try {            
-            return factory.createServerTask(file, problemId);
+        try {
+            if (file.endsWith("xml")) {
+                return factory.createServerTask(file, problemId);
+            } else {
+                return kotlinFactory.createServerTask(file, problemId);
+            }
         } catch (IOException e) {
         	throw new TaskDeserializationException("Не могу прочитать файл " + file + ":\n" + e.getMessage(), e);
         }

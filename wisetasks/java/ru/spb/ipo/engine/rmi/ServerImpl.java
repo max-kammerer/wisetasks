@@ -26,6 +26,7 @@ import ru.spb.ipo.engine.exception.UserAnswerParseException;
 import ru.spb.ipo.engine.task.ClientTask;
 import ru.spb.ipo.engine.task.JavaTaskFactory;
 import ru.spb.ipo.engine.task.TaskFactory;
+import ru.spb.ipo.wisetaks2.compile.KotlinTaskFactory;
 
 /**
  * User: Michael Bogdanov
@@ -38,7 +39,7 @@ public class ServerImpl /*extends UnicastRemoteObject*/ implements Server {
     public ServerImpl() throws TaskDeserializationException, SystemException {
         //super();
         TaskFactory factory = new JavaTaskFactory();
-        accessor = new LocalContestProblemAccessor(factory);
+        accessor = new LocalContestProblemAccessor(factory, new KotlinTaskFactory());
     }
     
     public ServerImpl(ContestProblemAccessor accessor) {

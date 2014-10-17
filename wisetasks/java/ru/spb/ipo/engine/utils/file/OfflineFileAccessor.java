@@ -50,15 +50,16 @@ public class OfflineFileAccessor extends AbstractFileAccessor  {
 	
 	public String [] list(String dirName, final String... filter) throws IOException {
         dirName = dirName.replaceAll("\\\\", "/");
-		return new File(getContext() +  dirName).list(new FilenameFilter() {
+		String[] list = new File(getContext() + dirName).list(new FilenameFilter() {
 			public boolean accept(File dir, String pathname) {
 				String path = pathname.toLowerCase();
 				for (String f : filter) {
 					if (path.endsWith(f)) return true;
 				}
 				return false;
-			}        	
-        });				
+			}
+		});
+		return list == null ? new String[0] : list;
 	}	
 	
 	public ImageIcon getIcon(String fileName) throws IOException {

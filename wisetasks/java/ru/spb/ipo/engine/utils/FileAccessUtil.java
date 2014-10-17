@@ -49,7 +49,7 @@ public class FileAccessUtil {
 		return accessor.getInputStream(fileName);		
 	}
 	
-	public static String [] list(String dirName, final String filter) throws IOException {
+	public static String [] list(String dirName, final String... filter) throws IOException {
 		return accessor.list(dirName, filter);		
 	}	
 	
