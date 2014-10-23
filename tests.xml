@@ -1,0 +1,4 @@
+<contests>
+    <test title="Старый формат" folder="tasks/comb"></test>
+    <test title="Новый формат (русский)" folder="tasks/newru"></test>
+</contests>
