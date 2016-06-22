@@ -1,39 +1,31 @@
 package ru.spb.ipo.wisetaks2
 
-import kotlin.properties.Delegates
-import java.util.ArrayList
-import ru.spb.ipo.engine.sets.SetIterator
 import ru.spb.ipo.engine.elements.Element
-import ru.spb.ipo.engine.elements.ContainerElement
-import ru.spb.ipo.wisetaks2.annotations.translate
-import ru.spb.ipo.engine.sets
+import ru.spb.ipo.engine.sets.Set
+import ru.spb.ipo.engine.sets.SetIterator
+import java.util.*
+import kotlin.properties.Delegates
 
 /**
  * Created by mike on 10/14/14.
  */
 
-fun d<T>() = Delegates.notNull<T>()
+fun <T : Any> d() = Delegates.notNull<T>()
 
-public fun Element.get(index: Int): Element {
+operator fun Element.get(index: Int): Element {
     return this.getElementAt(index)!!
 }
 
-//public fun Element<T>.iterator(): Iterator<T> {
-//    object: Iterator<T> {
-//
-//    }
-//}
-
-abstract public class SourceSet<T> {
+abstract class SourceSet<T> {
     abstract fun iterator() : Iterator<T>
 }
 
 class Value<T>(var value: T = null as T, var text: String? = null)
 
-class Parameter<T>(val name: String) {
+class Parameter<T: Any>(val name: String) {
     val values = arrayListOf<Value<T>>()
     var text: String? = null
-    var value: T = null
+    lateinit var value: T
 }
 
 open class ParameterContainer() {
@@ -47,7 +39,7 @@ class Task : ParameterContainer() {
 
     var description by d<ParameterContainer.() -> String>()
 
-    public var verifier: (()-> Verifier)? = null
+    var verifier: (()-> Verifier)? = null
 
 }
 
@@ -63,21 +55,21 @@ fun Task.description(init: ParameterContainer.() -> String): ParameterContainer 
     return parameter;
 }
 
-fun <T> Task.verifier(clazz: Class<T>, init: T.() -> Unit) {
+inline fun <reified V : Verifier> Task.verifier(crossinline init: V.() -> Unit) {
     this.verifier = {
-        val newInstance = clazz.newInstance()
+        val newInstance = V::class.java.newInstance()
         newInstance.init();
-        newInstance as Verifier
+        newInstance
     }
 }
 
-fun ParameterContainer.parameter<T>(name: String, init: Parameter<T>.() -> Unit) {
+fun <T: Any> ParameterContainer.parameter(name: String, init: Parameter<T>.() -> Unit) {
     val parameter = Parameter<T>(name)
     parameter.init()
     parameters.add(parameter as Parameter<Any>)
 }
 
-fun ParameterContainer.parameter<T>(name: String, vararg values: T) : T {
+fun <T:Any> ParameterContainer.parameter(name: String, vararg values: T) : T {
     val parameter = Parameter<T>(name)
     for (i in values) {
         parameter.values.add(Value(i))
@@ -87,7 +79,7 @@ fun ParameterContainer.parameter<T>(name: String, vararg values: T) : T {
     return parameter.values[0].value
 }
 
-fun ParameterContainer.parameter<T>(name: String, vararg values: Value<T>): Parameter<T> {
+fun <T: Any> ParameterContainer.parameter(name: String, vararg values: Value<T>): Parameter<T> {
     val parameter = Parameter<T>(name)
     for (i in values) {
         parameter.values.add(i)
@@ -96,20 +88,20 @@ fun ParameterContainer.parameter<T>(name: String, vararg values: Value<T>): Para
     return parameter
 }
 
-fun <T> Parameter<T>.value(init: Value<T>.() -> T): Value<T> {
+fun <T:Any> Parameter<T>.value(init: Value<T>.() -> T): Value<T> {
     val value = Value<T>()
     val pValue = value.init()
     value.value = pValue
     return value
 }
 
-fun <V: sets.Set, T> V.toSet(): SourceSet<T> {
-    val setIterator: SetIterator = this.iterator()!!
-    return object : SourceSet<T>() {
-        override fun iterator(): Iterator<T> {
-            return object : Iterator<T> {
-                override fun next(): T {
-                    return setIterator.next() as T
+fun <E> Set.toSet(): SourceSet<E> {
+    val setIterator: SetIterator = this.iterator()
+    return object : SourceSet<E>() {
+        override fun iterator(): Iterator<E> {
+            return object : Iterator<E> {
+                override fun next(): E {
+                    return setIterator.next() as E
                 }
                 override fun hasNext(): Boolean {
                     return setIterator.hasNext()
@@ -119,8 +111,8 @@ fun <V: sets.Set, T> V.toSet(): SourceSet<T> {
     }
 }
 
-fun <T : sets.Set> T.times(times: Int): List<sets.Set?> {
-    val result: ArrayList<sets.Set?> = arrayListOf()
+fun <S : Set> S.times(times: Int): List<Set> {
+    val result: ArrayList<Set> = arrayListOf()
     for (i in 1..times) {
         result.add(this.clone())
     }

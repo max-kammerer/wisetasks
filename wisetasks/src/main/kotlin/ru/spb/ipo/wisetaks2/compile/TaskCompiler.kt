@@ -1,63 +1,64 @@
 package ru.spb.ipo.wisetaks2.compile
 
-import org.jetbrains.jet.lang.parsing.JetScriptDefinition
-import org.jetbrains.jet.config.CompilerConfiguration
-import org.jetbrains.jet.cli.common.CLIConfigurationKeys
-import org.jetbrains.jet.config.CommonConfigurationKeys
-import org.jetbrains.jet.cli.jvm.JVMConfigurationKeys
-import org.jetbrains.jet.cli.common.messages.MessageCollector
-import org.jetbrains.jet.cli.common.messages.MessageCollectorPlainTextToStream
 import com.intellij.openapi.util.Disposer
-import org.jetbrains.jet.lang.resolve.AnalyzerScriptParameter
-import org.jetbrains.jet.codegen.ScriptCodegen
-import org.jetbrains.jet.cli.jvm.compiler.JetCoreEnvironment
-import org.jetbrains.jet.lang.parsing.JetScriptDefinitionProvider
-import org.jetbrains.jet.cli.jvm.compiler.KotlinToJVMBytecodeCompiler
-import org.jetbrains.jet.codegen.state.GenerationState
-import org.jetbrains.jet.utils.PathUtil
-import org.jetbrains.jet.utils.KotlinPathsFromHomeDir
-import org.jetbrains.jet.lang.resolve.name.FqName
-import org.jetbrains.jet.lang.resolve.ScriptNameUtil
-import org.jetbrains.jet.codegen.GeneratedClassLoader
-import java.net.URLClassLoader
-import java.net.URL
-import kotlin.modules.AllModules
+import jdk.internal.org.objectweb.asm.ClassReader
+import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
+import org.jetbrains.kotlin.cli.common.messages.MessageCollector
+import org.jetbrains.kotlin.cli.common.messages.PrintingMessageCollector
+import org.jetbrains.kotlin.cli.jvm.compiler.EnvironmentConfigFiles
+import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment
+import org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler
+import org.jetbrains.kotlin.cli.jvm.config.JVMConfigurationKeys
+import org.jetbrains.kotlin.cli.jvm.config.addJvmClasspathRoot
+import org.jetbrains.kotlin.cli.jvm.config.addJvmClasspathRoots
+import org.jetbrains.kotlin.cli.jvm.repl.ReplInterpreter
+import org.jetbrains.kotlin.codegen.GeneratedClassLoader
+import org.jetbrains.kotlin.codegen.state.GenerationStateEventCallback
+import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.config.addKotlinSourceRoot
+import org.jetbrains.kotlin.resolve.diagnostics.DiagnosticSuppressor
+import org.jetbrains.kotlin.script.KotlinScriptDefinitionProvider
+import org.jetbrains.kotlin.script.ScriptNameUtil
+import org.jetbrains.kotlin.script.StandardScriptDefinition
+import org.jetbrains.kotlin.util.ExtensionProvider
+import org.jetbrains.kotlin.utils.PathUtil
+import org.jetbrains.org.objectweb.asm.util.Textifier
 import ru.spb.ipo.wisetaks2.Task
 import java.io.File
+import java.io.FileReader
+import java.net.URLClassLoader
 
 
 fun compile(taskPath: String): Class<*> {
-    val messageCollector = MessageCollectorPlainTextToStream.PLAIN_TEXT_TO_SYSTEM_ERR
-    val rootDisposable = Disposer.newDisposable()
+    val classpathEntries = System.getProperty("java.class.path").split(File.pathSeparator);
 
-    val configuration = CompilerConfiguration()
-    val file = PathUtil.getJarPathForClass(javaClass<PathUtil>())
+    val configuration = CompilerConfiguration().apply {
+        put<MessageCollector>(CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY, PrintingMessageCollector.PLAIN_TEXT_TO_SYSTEM_ERR)
+        addKotlinSourceRoot(taskPath)
+        addJvmClasspathRoots(classpathEntries.map { File(it) })
+        addJvmClasspathRoot(PathUtil.getPathUtilJar())
+        put(JVMConfigurationKeys.MODULE_NAME, "wisetasks")
+    }
 
-    val classpath = System.getProperty("java.class.path");
-    val classpathEntries = classpath.split(File.pathSeparator);
+    val disposable = Disposer.newDisposable()
+    val environment = KotlinCoreEnvironment.createForProduction(disposable, configuration, EnvironmentConfigFiles.JVM_CONFIG_FILES)
+    KotlinScriptDefinitionProvider.getInstance(environment.project).addScriptDefinition(StandardScriptDefinition)
+    ExtensionProvider.create(DiagnosticSuppressor.EP_NAME)
 
-    configuration.put<MessageCollector>(CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY, messageCollector)
-    configuration.add<String>(CommonConfigurationKeys.SOURCE_ROOTS_KEY, taskPath)
-    //configuration.addAll(JVMConfigurationKeys.CLASSPATH_KEY, PathUtil.getJdkClassesRoots())
-    configuration.addAll(JVMConfigurationKeys.CLASSPATH_KEY, classpathEntries.map { File(it) })
-    configuration.add(JVMConfigurationKeys.CLASSPATH_KEY, file)
-
-    val environment = JetCoreEnvironment.createForProduction(rootDisposable, configuration)
-    JetScriptDefinitionProvider.getInstance(environment.getProject()).markFileAsScript(environment.getSourceFiles().get(0))
-
-    val state = KotlinToJVMBytecodeCompiler.analyzeAndGenerate(environment)
-    val nameForScript: FqName = ScriptNameUtil.classNameForScript(environment.getSourceFiles().get(0).getScript())
-    val classLoader = GeneratedClassLoader(state.getFactory(), URLClassLoader(array<URL>(file.toURI().toURL()), javaClass<AllModules>().getClassLoader()));
-    return classLoader.loadClass(nameForScript.asString())
-
+//    val compiledScript = KotlinToJVMBytecodeCompiler.compileScript(configuration, PathUtil.getKotlinPathsForCompiler(), environment)
+//    return compiledScript!!
+    val state = KotlinToJVMBytecodeCompiler.analyzeAndGenerate(environment, GenerationStateEventCallback.DO_NOTHING)!!
+    val nameForScript = ScriptNameUtil.generateNameByFileName(environment.getSourceFiles()[0].script!!.name!!, "kts")
+    val classLoader = GeneratedClassLoader(state.factory, ClassLoader.getSystemClassLoader());
+    return classLoader.loadClass(nameForScript)
 }
 
 fun compileAndGetTask(taskPath: String): Task {
     val clazz = compile(taskPath)
-    val result = clazz.getDeclaredField("rv")
-    return result.get(clazz.newInstance()) as Task
+    val result = clazz.getDeclaredMethod("getзадача")
+    return result.invoke(clazz.getConstructor(Array<String>::class.java).newInstance(arrayOf<String>())) as Task
 }
 
 fun main(args: Array<String>) {
-    compileAndGetTask("/home/mike/devel/projects/opro/wisetasks/wisetasks/src/main/kotlin/ru/spb/ipo/wisetaks2/tasks/en/bilets.kts/bilets.kts")
+    compileAndGetTask("en/bilets.kts/bilets.kts")
 }

@@ -1,17 +1,11 @@
 package ru.spb.ipo.wisetaks2.compile
 
-import ru.spb.ipo.engine.task.TaskFactory
+import ru.spb.ipo.engine.task.*
 import ru.spb.ipo.engine.task.ServerTask
-import ru.spb.ipo.engine.task.ClientTask
-import ru.spb.ipo.engine.task.XmlTask
-import javax.swing.Icon
-import ru.spb.ipo.engine.task
-import ru.spb.ipo.wisetaks2.Task
-import ru.spb.ipo.engine.task.ClientTaskImpl
-import ru.spb.ipo.wisetaks2.Value
-import ru.spb.ipo.engine.task.Preprocessor
 import ru.spb.ipo.engine.utils.Parser
 import ru.spb.ipo.engine.utils.RationalNumber
+import ru.spb.ipo.wisetaks2.Task
+import ru.spb.ipo.wisetaks2.Value
 
 class KotlinTaskFactory : TaskFactory {
 
@@ -29,12 +23,12 @@ class KotlinTaskFactory : TaskFactory {
     }
 }
 
-class ServerTask(val task: Task, val problemId: Long): task.ServerTask {
+class ServerTask(val task: Task, val problemId: Long): ServerTask {
 
-    override fun verify(ct: ClientTask?): Boolean {
+    override fun verify(ct: ClientTask): Boolean {
         //TODO process params
         val newParams = java.util.HashMap<String, String>()
-        ct!!.getGenParams()!!.entrySet().forEach {
+        ct.genParams.forEach {
             val value = it.value
             when(value) {
                 is Value<*> -> newParams.put(it.key as String, value.value.toString())
@@ -47,7 +41,7 @@ class ServerTask(val task: Task, val problemId: Long): task.ServerTask {
         val parser = Parser()
         val pvs: Array<out RationalNumber>? = parser.parseUserAnswer(userAnswer)
 
-        return task.verifier!!().verify(pvs!![0]!!)
+        return task.verifier!!().verify(pvs!![0])
     }
 
     override fun getTitle(): String? {

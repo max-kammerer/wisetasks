@@ -19,27 +19,25 @@
 
 package ru.spb.ipo.engine.rmi;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.task.ServerTask;
 import ru.spb.ipo.engine.task.TaskFactory;
 import ru.spb.ipo.engine.utils.FileAccessUtil;
+import ru.spb.ipo.wisetaks2.Task;
+import ru.spb.ipo.wisetaks2.compile.TaskCompilerKt;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.omg.CORBA.SystemException;
-import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import ru.spb.ipo.wisetaks2.Task;
-import ru.spb.ipo.wisetaks2.compile.CompilePackage;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * User: mike
@@ -123,7 +121,7 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
 
     private void initProxyFromKotlin(String fullTaskFileName, final ProblemProxy proxy) throws IOException {
         try {
-            Task task = CompilePackage.compileAndGetTask(fullTaskFileName);
+            Task task = TaskCompilerKt.compileAndGetTask(fullTaskFileName);
             String title = task.getTitle();
             proxy.setTitle(title);
         } catch (Exception e) {
@@ -133,7 +131,7 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
     }
 
 
-    public ServerTask getProblem(long contestId, long problemId) throws TaskDeserializationException, SystemException{
+    public ServerTask getProblem(long contestId, long problemId) throws TaskDeserializationException, SystemException {
         String file = getFullFileName(contestId,  problemId);
         try {
             if (file.endsWith("xml")) {
