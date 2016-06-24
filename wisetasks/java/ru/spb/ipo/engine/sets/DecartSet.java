@@ -72,7 +72,7 @@ public class DecartSet extends Set {
 
     public Element getElement(long index) {
         long msize = size;
-        long temp = msize;
+        long temp;
         Element [] elms = new Element[setsNumber];
         for(int i = 0 ; i < setsNumber; i++) {
             msize = msize / sets[i].getSize();
@@ -135,9 +135,7 @@ public class DecartSet extends Set {
                             i--;
                         }
                     }
-                    for (int j = 0; j < i; j++) {
-                        elms[j] = last[j];
-                    }
+                    System.arraycopy(last, 0, elms, 0, i);
                     last = elms;
                     return new ContainerElement(elms);
                 } else return null;

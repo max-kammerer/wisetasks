@@ -34,7 +34,7 @@ public class NumericSet extends Set {
 
     private long size;
 
-    public NumericSet (int first, int last) throws XmlException {
+    public NumericSet(int first, int last) throws XmlException {
         this.first = first;
         this.last = last;
         size  = last - first + 1;
@@ -87,12 +87,10 @@ public class NumericSet extends Set {
             private int current = first;
 
             public boolean hasNext() {
-                if (beforeFirst && (first <= last)) return true;
-                if (current < last) return true;
-                return false;
+                return beforeFirst && (first <= last) || current < last;
             }
 
-            public Element getCurrent() {
+            Element getCurrent() {
                 return new IntElement(current);                
             }
 

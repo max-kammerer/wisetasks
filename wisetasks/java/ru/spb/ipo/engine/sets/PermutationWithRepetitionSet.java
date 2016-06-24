@@ -23,7 +23,6 @@ import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.elements.ContainerElement;
 import ru.spb.ipo.engine.task.Node;
 import ru.spb.ipo.engine.utils.MathOperations;
-import ru.spb.ipo.engine.utils.Utils;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.exception.SystemException;
 
@@ -57,7 +56,7 @@ public class PermutationWithRepetitionSet extends Set {
 
     private void checkDublicates(Set source) {
         elements = new HashMap<Element, Integer>();
-        listOfElements = new ArrayList();
+        listOfElements = new ArrayList<Element>();
         SetIterator it = source.iterator();
         while(it.hasNext()) {
             Element el = (Element)it.next().clone(); ///unclone
@@ -73,9 +72,8 @@ public class PermutationWithRepetitionSet extends Set {
         Collections.sort(listOfElements);                                    
         Collection<Integer> values = elements.values();
         BigInteger totalSize = MathOperations.layout(llength,llength);
-        for (Iterator<Integer> integerIterator = values.iterator(); integerIterator.hasNext();) {
-             Integer count =  integerIterator.next();
-             totalSize = totalSize.divide(MathOperations.factorial(count));
+        for (Integer count : values) {
+            totalSize = totalSize.divide(MathOperations.factorial(count));
         }
         size = tlength = totalSize.longValue();
     }
@@ -162,7 +160,7 @@ public class PermutationWithRepetitionSet extends Set {
                 }
 
                 private boolean layout2Element() {
-                    Map<Element, Integer> map = new HashMap();
+                    Map<Element, Integer> map = new HashMap<Element, Integer>();
                     Element [] elms = new Element [llength];
                     for (int i = 0; i < llength; i++) {
                         Element el = listOfElements.get(layout[i]-1);

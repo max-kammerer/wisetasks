@@ -25,9 +25,6 @@ import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.task.Node;
 import ru.spb.ipo.engine.utils.MathOperations;
-import ru.spb.ipo.engine.utils.Utils;
-
-import java.util.*;
 
 public class CombinationSet extends Set {
 
@@ -40,8 +37,6 @@ public class CombinationSet extends Set {
 
     //размер множества
     private int slength;
-
-    private List listOfElements;
 
     public CombinationSet() {
     }
@@ -64,78 +59,6 @@ public class CombinationSet extends Set {
 //        }
 //        Collections.sort(listOfElements);
     }
-
-
-//    public boolean hasNext() {
-////        if (index == 0 || !listOfElements.get(listOfElements.size()-1).equals(listOfElements.get(combination[combination.length - 1]-1))) {
-////            return true;
-////        }
-////        int i = clength - 1;
-////        int temp = combination[i];
-////        while(i >= 0) {
-////            if (temp < slength - (clength - 1 - i)) {
-////                temp++;
-////                if (!listOfElements.get(temp - 1).equals(listOfElements.get(temp-2))) {
-////                    return true;
-////                }
-////            } else {
-////                i--;
-////                if (i >= 0) {
-////                    temp = combination[i];
-////                }
-////            }
-////        }
-//        if (index < size) return true;
-//    	/*for (int i = 0; i < combination.length; i++) {
-//    		if (combination[i] != slength + i - combination.length + 1) return true;
-//    	}*/
-//        return false;
-//    }
-//
-//    public Element getCurrent() {
-//        comb2Element();
-//        return elm;
-//    }
-
-//    public Element next() {
-//        if (!hasNext()) return null;
-//
-//        if (index == 0) {
-//            for (int i = 0; i < clength; i++) {
-//                combination[i] = i + 1;
-//            }
-//        } else {
-//            boolean stop = false;
-//            int i = clength - 1;
-//            while(!stop && i >= 0) {
-//                if (combination[i] < slength - (clength - 1 - i)) {
-//                    combination[i]++;
-//                    //if (!listOfElements.get(combination[i] - 1).equals(listOfElements.get(combination[i]-2))) {
-//                        stop = true;
-//                    //}
-//                } else i--;
-//            }
-//            for (int j = i + 1; j < clength; j++)
-//                combination[j] = combination[i] + j - i;
-//        }
-//        comb2Element();
-//        index++;
-//        return elm;
-//    }
-
-//    private Element comb2Element(){
-//        for (int i = 0; i < clength; i++) {
-//            set[i].getElement(combination[i]);
-//            //elm.setElementAt(i, (Element)listOfElements.get(combination[i] - 1));
-//        }
-//    }
-//
-//    public void reset() {
-//        index = 0;
-//        for (int i = 0; i < clength; i++)
-//            set[i].getElement(i);
-//    }
-
 
     protected void initSet(Node node) throws TaskDeserializationException, SystemException {
         Node sset = node.getChild("set");
@@ -174,10 +97,6 @@ public class CombinationSet extends Set {
             private long index = 0;
           
             private int [] combination = new int [clength];
-
-            public Element getCurrent() {
-                return comb2Element();                  
-            }
 
             public Element next() {
                 if (!hasNext()) return null;

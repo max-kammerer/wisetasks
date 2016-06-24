@@ -60,44 +60,6 @@ public class LayoutSet extends Set{
         return false;
     }
 
-//    public Element next() {
-//        if (!hasNext()) return null;
-//
-//        if ((index == 0) || (index % tlength == 0)) {
-//            for (int j = 1; j <= llength; j ++) layout[j - 1] = j;
-//            newCombination();
-//        }
-//        else {
-//            int little = layout.length - 2;
-//
-//            while((little >= 0) && (layout[little] > layout[little + 1])) little --;
-//
-//            //if (little < 0) return;
-//
-//            int big = layout.length - 1;
-//
-//            while (layout[little] > layout[big]) big --;
-//
-//            int temp =  layout[little];
-//            layout[little] = layout[big];
-//            layout[big] = temp;
-//
-//            for (int i = 1; i < (layout.length - little + 1)/2; i++) {
-//                temp = layout[little  + i];
-//                layout[little  + i] = layout[layout.length - i];
-//                layout[layout.length - i] = temp;
-//            }
-//        }
-//
-//        index++;
-//        layout2Element();
-//        return elm;
-//    }
-//
-//    public void reset() {
-//        index = 0;
-//    }
-
     protected void initSet(Node node) throws TaskDeserializationException, SystemException {
         Node sset = node.getChild("set");
         Set source = Set.generateSet(sset);
@@ -123,36 +85,6 @@ public class LayoutSet extends Set{
      public int getLength() {
         return llength;
     }
-
-//    private void newCombination() {
-//        if (index == 0) {
-//            for (int i = 0; i < llength; i++) {
-//                combination[i] = i + 1;
-//            }
-//        } else {
-//            boolean f = true;
-//            int i = llength - 1;
-//            while(f && i >= 0) {
-//                if (combination[i] < slength - (llength - 1 - i)) {
-//                    combination[i]++;
-//                    f = false;
-//                } else i--;
-//            }
-//            for (int j = i + 1; j < llength; j++)
-//                combination[j] = combination[i] + j - i;
-//        }
-//
-//    }
-
-
-//    private Element layout2Element() {
-//        Element [] elms  = new Element[llength];
-//        for (int i = 0; i < llength; i++) {
-//            elms[i] = set.getElement(combination[layout[i]-1]);
-//        }
-//        return new ContainerElement(elms);
-//    }
-
 
     public SetIterator iterator() {
         return new SetIterator() {

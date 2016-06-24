@@ -20,6 +20,7 @@
 package ru.spb.ipo.engine.sets;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import ru.spb.ipo.engine.elements.Element;
@@ -34,14 +35,10 @@ import ru.spb.ipo.engine.utils.Utils;
  */
 public class EnumerationSet extends Set {
 
-    private List list;
+    private List<Element> list = new ArrayList();
 
     public EnumerationSet(Element [] elements) {
-        list = new ArrayList();
-        for (int i = 0; i < elements.length; i++) {
-			list.add(elements[i]);
-		}
-
+        Collections.addAll(list, elements);
     }
 
     public EnumerationSet() {

@@ -50,9 +50,9 @@ public abstract class Element extends ru.spb.ipo.engine.functions.AbstractFuncti
 	 */
     abstract public void setElementAt(int index, Element element);
 
-    public Object clone() {
+    public Element clone() {
         try {
-            return super.clone();
+            return (Element) super.clone();
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -78,10 +78,7 @@ public abstract class Element extends ru.spb.ipo.engine.functions.AbstractFuncti
     }
 
     public boolean equals(Object o) {
-        if (this.compareTo(o) == 0) {
-            return true;
-        }
-        return false;
+        return compareTo(o) == 0;
     }
 
 	public int hashCode() {		

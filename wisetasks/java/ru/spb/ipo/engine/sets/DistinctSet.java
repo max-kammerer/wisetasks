@@ -48,7 +48,7 @@ public class DistinctSet extends Set {
 		len = source.getLength();
 		if (lsets.size() == 2) {
 			String tn = lsets.get(1).getAttr("dim");
-			if (tn == null || new Integer(tn).intValue() != source.getLength())
+			if (tn == null || Integer.parseInt(tn) != source.getLength())
 				throw new TaskDeserializationException("DistinctSet: длина кортежей 1-го множества должна совпадать с dim");
 		}
 		

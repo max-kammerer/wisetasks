@@ -29,12 +29,11 @@ import ru.spb.ipo.engine.elements.PermutationElement;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.task.Node;
-import ru.spb.ipo.engine.utils.Utils;
 import ru.spb.ipo.engine.functions.AbstractFunction;
 
 public class SubstitutionSet extends Set {
 
-	private List items;
+	private List<PermutationElement> items;
 	private int dimension; // длина каждой перестановки в наборе перестановок
 	
 	public SubstitutionSet() {
@@ -42,33 +41,32 @@ public class SubstitutionSet extends Set {
 	
 	public SubstitutionSet(int dim) { // создает тривиальную группу перестановок из одного единичного элемента
 		dimension = dim;
-		items = new ArrayList();
+		items = new ArrayList<PermutationElement>();
 		items.add(new PermutationElement(dim));
 	}
 	
 	public SubstitutionSet(int dim, PermutationElement [] basis) {
 		dimension = dim;
-		items = new ArrayList();
+		items = new ArrayList<PermutationElement>();
 		applyBasisRecursively(new PermutationElement(dim), basis);
 	}
 	
 	private void applyBasisRecursively(PermutationElement t, PermutationElement [] basis) {
 		if (!items.contains(t)) {
 			items.add(t);
-			for (int i = 0; i < basis.length; i++) {
-				PermutationElement next = basis[i];
+			for (PermutationElement next : basis) {
 				applyBasisRecursively(next.applyTo(t), basis);
 			}
 		}
 	}
 
 	protected void initSet(Node node) throws SystemException, TaskDeserializationException {
-		List<Element> containers = new ArrayList() ;
+		List<Element> containers = new ArrayList<Element>() ;
         List<Node> nl = node.getChilds("constElement");
-        for (int i = 0; i < nl.size(); i++) {
-            Element el = (Element) AbstractFunction.generateAbstractFunction(nl.get(i));
-            containers.add(el);
-        }
+		for (Node aNl : nl) {
+			Element el = (Element) AbstractFunction.generateAbstractFunction(aNl);
+			containers.add(el);
+		}
 
 		String dimAttr = node.getAttrIfExists("dim", null);
 		if (dimAttr != null) {
@@ -84,19 +82,19 @@ public class SubstitutionSet extends Set {
 			basis[i] = new PermutationElement(container);
 		}
 		
-		items = new ArrayList();
+		items = new ArrayList<PermutationElement>();
 		applyBasisRecursively(new PermutationElement(dimension), basis);
 	}
 
-	public boolean canMake(ContainerElement a, ContainerElement b) {
+	boolean canMake(ContainerElement a, ContainerElement b) {
 		boolean found = false;
 		for (int i = 0; i < items.size() && (!found); i++)
-			found = ((PermutationElement)items.get(i)).applyTo(a).equals(b);
+			found = (items.get(i)).applyTo(a).equals(b);
 		return found;	
 	}
 
 	public Element getElement(long index) {
-		return (Element)items.get((int)index - 1);
+		return items.get((int) index - 1);
 	}
 
 	public int getLength() {
