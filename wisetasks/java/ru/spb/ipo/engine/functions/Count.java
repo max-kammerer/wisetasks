@@ -36,33 +36,33 @@ public class Count extends Function {
 
     private Element fe;
     private int length;
-    private Element [] array;
+    private Element[] array;
     private int axis;
 
     public void initFunction(Node node) throws TaskDeserializationException, SystemException {
-    	super.initFunction(node);
-    	Map m = super.getAttributes(node);
-    	if (m.containsKey("axis")) {
-            axis = ((RationalNumber)m.get("axis")).getBigInteger().intValue();
+        super.initFunction(node);
+        Map m = getAttributes(node);
+        if (m.containsKey("axis")) {
+            axis = ((RationalNumber) m.get("axis")).getBigInteger().intValue();
         }
     }
 
     public Element compute(Element parameter) {
         Element element = fns[0].compute(parameter);
-        if (fe  == null) {
-            length = element.getLength();            
+        if (fe == null) {
+            length = element.getLength();
             array = new Element[length];
-            Element []  temp = new Element[length];
-        	for (int i = 0; i < temp.length; i++) {
-				temp[i] = new IntElement(0);
-			}
-        	fe = new ContainerElement(temp);
+            Element[] temp = new Element[length];
+            for (int i = 0; i < temp.length; i++) {
+                temp[i] = new IntElement(0);
+            }
+            fe = new ContainerElement(temp);
         }
-        
+
         for (int i = 1; i <= length; i++) {
             if (axis != 0)
-                array [i-1] = element.getElementAt(i).getElementAt(axis);
-            else array [i-1] = element.getElementAt(i);
+                array[i - 1] = element.getElementAt(i).getElementAt(axis);
+            else array[i - 1] = element.getElementAt(i);
         }
         Arrays.sort(array);
         int index = 1;
@@ -70,7 +70,7 @@ public class Count extends Function {
         int count = 1;
         for (int i = 1; i < length; i++) {
             if (array[i].equals(prev)) count++;
-            else {            	
+            else {
                 fe.getElementAt(index).setInt(count);
                 index++;
                 count = 1;
@@ -78,11 +78,11 @@ public class Count extends Function {
             prev = array[i];
         }
         fe.getElementAt(index).setInt(count);
-        index++;        
+        index++;
         for (int i = index; i <= length; i++)
-        	fe.getElementAt(i).setInt(0);
-        if (fe.getElements()  != null) Arrays.sort(fe.getElements());
-        
+            fe.getElementAt(i).setInt(0);
+        if (fe.getElements() != null) Arrays.sort(fe.getElements());
+
         return fe;
     }
 }

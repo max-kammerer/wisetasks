@@ -28,19 +28,21 @@ import ru.spb.ipo.engine.utils.RationalNumber;
 
 public class Parser extends Function {
 
-	RationalElement fe;
+    private RationalElement fe;
 
-	public void initFunction(Node node){
-		Map m = super.getAttributes(node);
-		RationalNumber mod = (RationalNumber)m.get("mod");
-		if (m.containsKey("exp")) {
-			RationalNumber exp = (RationalNumber)m.get("exp");
-			exp = mod == null ? exp : new RationalNumber(exp.getBigInteger().mod(mod.getBigInteger()));
-			fe = new RationalElement(exp);
-		} else fe = new RationalElement(new RationalNumber(0));
-	}
-	
-	public Element compute(Element e) {		
-		return fe;
-	}
+    public void initFunction(Node node) {
+        Map m = getAttributes(node);
+        RationalNumber mod = (RationalNumber) m.get("mod");
+        if (m.containsKey("exp")) {
+            RationalNumber exp = (RationalNumber) m.get("exp");
+            exp = mod == null ? exp : new RationalNumber(exp.getBigInteger().mod(mod.getBigInteger()));
+            fe = new RationalElement(exp);
+        } else {
+            fe = new RationalElement(new RationalNumber(0));
+        }
+    }
+
+    public Element compute(Element e) {
+        return fe;
+    }
 }

@@ -23,12 +23,11 @@ import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.elements.IntElement;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
-import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
 
 public class Add extends Function {
 
-    Element fe;
+    private Element fe;
 
     public void initFunction(Node node) throws TaskDeserializationException, SystemException {
         super.initFunction(node);
@@ -37,8 +36,8 @@ public class Add extends Function {
 
     public Element compute(Element parameter) {
         int temp = 0;
-        for (int i = 0; i < fns.length; i++) {
-            temp += fns[i].compute(parameter).getInt();
+        for (AbstractFunction fn : fns) {
+            temp += fn.compute(parameter).getInt();
         }
         fe.setInt(temp);
         return fe;

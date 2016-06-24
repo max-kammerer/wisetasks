@@ -25,8 +25,8 @@ public class And extends Function {
 
     public Element compute(Element parameter) {
 
-        for (int i = 0; i < fns.length; i++) {
-            if (Element.pfalse.equals(fns[i].compute(parameter))) return Element.pfalse;
+        for (AbstractFunction fn : fns) {
+            if (Element.pfalse.equals(fn.compute(parameter))) return Element.pfalse;
         }
         return Element.ptrue;
     }

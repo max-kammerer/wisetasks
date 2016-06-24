@@ -24,26 +24,24 @@ import ru.spb.ipo.engine.elements.ContainerElement;
 import ru.spb.ipo.engine.elements.Element;
 import ru.spb.ipo.engine.exception.SystemException;
 import ru.spb.ipo.engine.exception.TaskDeserializationException;
-import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
 
 public class FunctionElement extends Function {
 
 
     public void initFunction(Node node) throws TaskDeserializationException, SystemException {
-        super.initFunction(node);        
+        super.initFunction(node);
     }
 
     public Element compute(Element parameter) {
-    	if (fns == null) return null;
+        if (fns == null) return null;
 
-        Element [] elements = new Element [fns.length];
+        Element[] elements = new Element[fns.length];
         for (int i = 0; i < fns.length; i++) {
             elements[i] = fns[i].compute(parameter);
         }
-        Element el = new ContainerElement(elements);
-        
-        return el;
+
+        return new ContainerElement(elements);
     }
 
 

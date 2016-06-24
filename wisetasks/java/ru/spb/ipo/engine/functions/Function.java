@@ -32,31 +32,31 @@ import java.util.List;
  */
 abstract public class Function extends AbstractFunction {
 
-    protected AbstractFunction [] fns;
+    protected AbstractFunction[] fns;
 
-    public void initFunction (Node node) throws TaskDeserializationException, SystemException {
+    public void initFunction(Node node) throws TaskDeserializationException, SystemException {
         List<Node> ns = node.getFunctionList();
-        fns = new AbstractFunction [ns.size()];
-        for (int i = 0; i < ns.size(); i++){
+        fns = new AbstractFunction[ns.size()];
+        for (int i = 0; i < ns.size(); i++) {
             fns[i] = AbstractFunction.generateAbstractFunction(ns.get(i));
         }
     }
 
-    public static Function generateFunction(Node node) throws TaskDeserializationException, SystemException{
-    	String shortType = node.getAttr("type");
+    public static Function generateFunction(Node node) throws TaskDeserializationException, SystemException {
+        String shortType = node.getAttr("type");
         String type = "ru.spb.ipo.engine.functions." + shortType;
-        Function fn = null;
+        Function fn;
         try {
-            fn = (Function)Class.forName(type).newInstance();
+            fn = (Function) Class.forName(type).newInstance();
             fn.initFunction(node);
         } catch (ClassNotFoundException e) {
 //    		throw new SystemException("Couldn't find class for function " + type, e);
-        	throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
-		} catch (InstantiationException e) {
-			throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
-		} catch (IllegalAccessException e) {
-			throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
-		} 
+            throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
+        } catch (InstantiationException e) {
+            throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
+        } catch (IllegalAccessException e) {
+            throw new TaskDeserializationException("Couldn't find class for function " + shortType, e);
+        }
         return fn;
     }
 }

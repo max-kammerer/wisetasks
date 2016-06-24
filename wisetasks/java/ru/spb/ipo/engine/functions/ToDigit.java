@@ -27,7 +27,7 @@ import ru.spb.ipo.engine.exception.TaskDeserializationException;
 import ru.spb.ipo.engine.exception.XmlException;
 import ru.spb.ipo.engine.task.Node;
 
-public class ToDigit extends Function{
+public class ToDigit extends Function {
 
     private IntElement fe;
 
@@ -36,24 +36,24 @@ public class ToDigit extends Function{
         fe = new IntElement(0);
     }
 
-    public Element compute(Element parameter) {    	
-    	Element e = fns[0].compute(parameter);
-    	fe.setInt(computeAnswer(e));    	        
+    public Element compute(Element parameter) {
+        Element e = fns[0].compute(parameter);
+        fe.setInt(computeAnswer(e));
         return fe;
     }
 
-    public static int computeAnswer(Element e) {    	
-    	if (!(e instanceof ContainerElement)) {
-    		return e.getInt();
-    	} else {
-    		int size = e.getLength();    		
-    		int res = 0;    		
-    		int power = 1;
-    		for (int i = size; i >= 1; i--) {
-				res = power * e.getElementAt(i).getInt() + res;
-				power = power * 10;
-			}
-    		return res;
-    	}
-    }    
+    public static int computeAnswer(Element e) {
+        if (!(e instanceof ContainerElement)) {
+            return e.getInt();
+        } else {
+            int size = e.getLength();
+            int res = 0;
+            int power = 1;
+            for (int i = size; i >= 1; i--) {
+                res = power * e.getElementAt(i).getInt() + res;
+                power = power * 10;
+            }
+            return res;
+        }
+    }
 }

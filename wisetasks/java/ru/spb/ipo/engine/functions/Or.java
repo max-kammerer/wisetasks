@@ -21,7 +21,7 @@ package ru.spb.ipo.engine.functions;
 
 import ru.spb.ipo.engine.elements.Element;
 
-/** 
+/**
  * User: michael.bogdanov
  * Date: 03.01.2005
  */
@@ -29,8 +29,8 @@ public class Or extends Function {
 
     public Element compute(Element parameter) {
 
-        for (int i = 0; i < fns.length; i++) {
-            if (!Element.pfalse.equals(fns[i].compute(parameter))) return Element.ptrue;
+        for (AbstractFunction fn : fns) {
+            if (!Element.pfalse.equals(fn.compute(parameter))) return Element.ptrue;
         }
         return Element.pfalse;
     }
