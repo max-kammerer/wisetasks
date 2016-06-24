@@ -136,8 +136,10 @@ public class LocalContestProblemAccessor implements ContestProblemAccessor {
         try {
             if (file.endsWith("xml")) {
                 return factory.createServerTask(file, problemId);
-            } else {
+            } else if (file.endsWith("kt") || file.endsWith("kts")) {
                 return kotlinFactory.createServerTask(file, problemId);
+            } else {
+                throw new RuntimeException("Unsupported file extension: " + file);
             }
         } catch (IOException e) {
         	throw new TaskDeserializationException("Не могу прочитать файл " + file + ":\n" + e.getMessage(), e);
