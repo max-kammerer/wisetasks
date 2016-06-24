@@ -31,7 +31,7 @@ public class ContainerElement extends Element {
 	}
 	
 	public void setInt(int i){
-		return;
+		//TODO exception
 	}
 	
 	public void setElementAt(int index, Element element) {
@@ -56,7 +56,7 @@ public class ContainerElement extends Element {
 
 	public String toString(){
 		if (array == null) return String.valueOf("Empty element");
-		StringBuffer sb = new StringBuffer("{ ");
+		StringBuilder sb = new StringBuilder("{ ");
 		for (int i = 0; i < array.length; i++) {
 			sb.append(array[i].toString());
 			if (i != array.length - 1) {
@@ -75,8 +75,7 @@ public class ContainerElement extends Element {
 	public int compareTo(Object o) {
 		if (!(o instanceof Element)) return 1;
 		Element e = (Element) o;
-		if (e == null) return 1;
-	
+
 		if (array.length != e.getLength()) {			
 			return -1;
 		} 

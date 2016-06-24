@@ -29,11 +29,11 @@ public class BridgeElement extends Element  {
 		this.original = original;
 	}
 	
-	public Object clone() {		
+	public Element clone() {
 		return original.clone();
 	}
 
-	public Element compute(Element element) {		
+	public Element compute(Element element) {
 		return original.compute(element);
 	}
 

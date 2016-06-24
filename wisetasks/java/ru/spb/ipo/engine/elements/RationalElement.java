@@ -49,7 +49,6 @@ public class RationalElement extends IntElement {
 	public int compareTo(Object o) {
 		if (!(o instanceof RationalElement)) return 1;
 		RationalElement e = (RationalElement) o;
-		if (e == null) return 1;		
 		return fnumber.compareTo(e.getRationalNumber());
 	}
 

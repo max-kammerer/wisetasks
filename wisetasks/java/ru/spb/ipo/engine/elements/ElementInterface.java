@@ -24,11 +24,11 @@ import java.math.BigInteger;
 
 public interface ElementInterface {
 	
-    public int getInt();
+    int getInt();
 
-    public Element getElementAt(int index);
+    Element getElementAt(int index);
 
-    public int getLength();
+    int getLength();
     
-    public BigInteger getBigInteger();
+    BigInteger getBigInteger();
 }

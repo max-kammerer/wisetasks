@@ -64,8 +64,7 @@ public class IntElement extends Element {
 	public int compareTo(Object o) {		
 		if (!(o instanceof IntElement)) return 1;
 		IntElement e = (IntElement) o;
-		if (e == null) return 1;
-		
+
 		if (value < e.getInt()) return -1;
 		if (value > e.getInt()) return 1;
 		return 0;		
