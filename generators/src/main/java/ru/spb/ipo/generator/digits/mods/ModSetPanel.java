@@ -51,10 +51,10 @@ public class ModSetPanel extends ConstraintPanel {
 		gridLayout.setColumns(1);
 		gridLayout.setRows(0);
 		jLabel2 = new JLabel();
-		jLabel2.setText("Последние ");
+		jLabel2.setText("РџРѕСЃР»РµРґРЅРёРµ ");
 		jLabel = new JLabel();
-		jLabel.setText("Делимое");
-		jLabel.setToolTipText("Введите число или арифметическое выражение");
+		jLabel.setText("Р”РµР»РёРјРѕРµ");
+		jLabel.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РёР»Рё Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ");
 		this.setLayout(gridLayout);		
 		this.add(getJPanel(), null);
 		//this.add(getJPanel3(), null);
@@ -70,8 +70,8 @@ public class ModSetPanel extends ConstraintPanel {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.LEFT);
 			jLabel1 = new JLabel();
-			jLabel1.setText("Делитель");
-			jLabel1.setToolTipText("Введите число");
+			jLabel1.setText("Р”РµР»РёС‚РµР»СЊ");
+			jLabel1.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ");
 			jPanel = new JPanel();
 			jPanel.setLayout(flowLayout1);
 			jPanel.add(jLabel, null);
@@ -92,7 +92,7 @@ public class ModSetPanel extends ConstraintPanel {
 	private JPanel getJPanel3() {
 		if (jPanel3 == null) {
 			jLabel3 = new JLabel();
-			jLabel3.setText("цифры равняются ");
+			jLabel3.setText("С†РёС„СЂС‹ СЂР°РІРЅСЏСЋС‚СЃСЏ ");
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.LEFT);
 			flowLayout.setHgap(10);
@@ -145,7 +145,7 @@ public class ModSetPanel extends ConstraintPanel {
 		if (expression == null) {
 			expression = new JTextField();
 			expression.setColumns(20);
-			expression.setToolTipText("Введите число или арифметическое выражение (выражение не должно содержать вложенного возведения в степень - 5^6^7)");
+			expression.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РёР»Рё Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ (РІС‹СЂР°Р¶РµРЅРёРµ РЅРµ РґРѕР»Р¶РЅРѕ СЃРѕРґРµСЂР¶Р°С‚СЊ РІР»РѕР¶РµРЅРЅРѕРіРѕ РІРѕР·РІРµРґРµРЅРёСЏ РІ СЃС‚РµРїРµРЅСЊ - 5^6^7)");
 		}
 		return expression;
 	}
@@ -173,7 +173,7 @@ public class ModSetPanel extends ConstraintPanel {
 		if (modNumber == null) {
 			modNumber = new JTextField();
 			modNumber.setColumns(5);
-			modNumber.setToolTipText("Введите число");
+			modNumber.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ");
 		}
 		return modNumber;
 	}
@@ -191,12 +191,12 @@ public class ModSetPanel extends ConstraintPanel {
 	protected boolean checkCanSave() {
 		String value = modNumber.getText().trim();
 		if ("".equals(value)) {
-			JOptionPane.showMessageDialog(this, "Не указан делитель!" , "Не указан делитель", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "РќРµ СѓРєР°Р·Р°РЅ РґРµР»РёС‚РµР»СЊ!" , "РќРµ СѓРєР°Р·Р°РЅ РґРµР»РёС‚РµР»СЊ", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		value = expression.getText().trim();
 		if ("".equals(value)) {
-			JOptionPane.showMessageDialog(this, "Не указано делимое!" , "Не указано делимое", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "РќРµ СѓРєР°Р·Р°РЅРѕ РґРµР»РёРјРѕРµ!" , "РќРµ СѓРєР°Р·Р°РЅРѕ РґРµР»РёРјРѕРµ", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;

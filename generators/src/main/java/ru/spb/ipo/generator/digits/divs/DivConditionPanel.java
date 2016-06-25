@@ -38,7 +38,7 @@ public class DivConditionPanel extends ConstraintPanel {
 	 */
 	private void initialize() {
 		jLabel = new JLabel();
-		jLabel.setText("раз");
+		jLabel.setText("СЂР°Р·");
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		this.setLayout(flowLayout);		
@@ -57,7 +57,7 @@ public class DivConditionPanel extends ConstraintPanel {
 	 */
 	private JComboBox getCondparams() {
 		if (condparams == null) {
-			condparams = new JComboBox(new DefaultComboBoxModel(new String [] {"увеличивается в целое число раз", "уменьшается в целое число раз", "не меняется", "увеличивается в", "уменьшаются в"} ));
+			condparams = new JComboBox(new DefaultComboBoxModel(new String [] {"СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ РІ С†РµР»РѕРµ С‡РёСЃР»Рѕ СЂР°Р·", "СѓРјРµРЅСЊС€Р°РµС‚СЃСЏ РІ С†РµР»РѕРµ С‡РёСЃР»Рѕ СЂР°Р·", "РЅРµ РјРµРЅСЏРµС‚СЃСЏ", "СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ РІ", "СѓРјРµРЅСЊС€Р°СЋС‚СЃСЏ РІ"} ));
 			condparams.addItemListener(new java.awt.event.ItemListener() {
 				public void itemStateChanged(java.awt.event.ItemEvent e) {
 					boolean enable = condparams.getSelectedIndex() > 2; 
@@ -78,7 +78,7 @@ public class DivConditionPanel extends ConstraintPanel {
 	private JButton getAdd() {
 		if (add == null) {
 			add = new JButton();
-			add.setText("Добавить");
+			add.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			add.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					DivCompareElement element = null;
@@ -89,11 +89,11 @@ public class DivConditionPanel extends ConstraintPanel {
 						try {
 							res = Integer.valueOf(i);
 						} catch (NumberFormatException ex) {
-							JOptionPane.showMessageDialog(getGenerator(), "Неверный параметр условия: проверьте правильность введеного числа", "Ошибка", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(getGenerator(), "РќРµРІРµСЂРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ СѓСЃР»РѕРІРёСЏ: РїСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ РІРІРµРґРµРЅРѕРіРѕ С‡РёСЃР»Р°", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 							return;
 						}
 						if (res <= 1) {
-							JOptionPane.showMessageDialog(getGenerator(), "Введите число большее 1");
+							JOptionPane.showMessageDialog(getGenerator(), "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€РµРµ 1");
 							return;
 						}
 					}

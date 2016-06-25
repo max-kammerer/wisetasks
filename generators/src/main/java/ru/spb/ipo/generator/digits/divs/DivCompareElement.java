@@ -56,7 +56,7 @@ public class DivCompareElement implements ComplexElement {
 		if (compare == -1) {
 			return desc;
 		} else {
-			return desc + " " + compare + "  ðàç";
+			return desc + " " + compare + "  Ñ€Ð°Ð·";
 		}
 	}
 
