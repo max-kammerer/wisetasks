@@ -14,22 +14,22 @@ public class DivXmlGenerator extends NumberXmlGenerator {
 
 	public String generateDescription() {
 		int nabor = Integer.valueOf((String)sourceParams.get("nabor"));
-		StringBuffer def = new StringBuffer();
+		StringBuilder def = new StringBuilder();
 		for (int i = 1; i <= nabor; i++) {
 			def.append("[" + i + "] ");
 		}
 		return "Найти все " + sourceParams.get("nabor") + " значные " 
-		 + "натуральные числа, которые при изменении цифр числа по правилу: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (в полученном числе 1 цифра не 0); " + (String)taskParams.get("inlineDesc") + ".";   
+		 + "натуральные числа, которые при изменении цифр числа по правилу: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (в полученном числе 1 цифра не 0); " + taskParams.get("inlineDesc") + ".";
 	}
 
 	public String getSourceTemplate() {
-		sourceParams.put("isNumber", new Boolean(true));		
+		sourceParams.put("isNumber", true);
 		sourceParams.put("maxDigit", "9");
 		return super.getSourceTemplate();
 	}
 
 	public String getVerifier(Map funcParams) {
-    	StringBuffer sb = new StringBuffer();
+    	StringBuilder sb = new StringBuilder();
     	String shiftCond = generateShift();
     	
     	sb.append("<verifier type=\"ListVerifier\">\n");
@@ -59,9 +59,9 @@ public class DivXmlGenerator extends NumberXmlGenerator {
 		String [] shift = (String [])funcParams.get("shift");
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("<function type=\"FunctionElement\">\n");    	    	
-        for (int i = 0; i < shift.length; i++) {
-        	generatePosition(shift[i], sb);        	
+		sb.append("<function type=\"FunctionElement\">\n");
+		for (String aShift : shift) {
+			generatePosition(aShift, sb);
 		}
 		sb.append("</function>\n");
 		return sb.toString();

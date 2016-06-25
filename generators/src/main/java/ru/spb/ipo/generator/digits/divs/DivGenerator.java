@@ -10,7 +10,7 @@ import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 
 public class DivGenerator extends BaseGeneratorUI {
 
-	public DivGenerator() {
+	private DivGenerator() {
 		super();
 		initialize();
 	}
@@ -44,7 +44,7 @@ public class DivGenerator extends BaseGeneratorUI {
 	protected boolean checkCanSave() {		
 		boolean res = super.checkCanSave();
 		if (!res) {
-			return res;
+			return false;
 		}
 		if (getFunctionList().getModel().getSize() == 0) {
 			JOptionPane.showMessageDialog(this, "Не выбрано ни одного условия!" , "Не выбрано ни одного условия!", JOptionPane.WARNING_MESSAGE);

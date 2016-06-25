@@ -17,7 +17,7 @@ import javax.swing.JComboBox;
 import java.awt.Dimension;
 import java.util.Map;
 
-public class ModSetPanel extends ConstraintPanel {
+class ModSetPanel extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel jLabel = null;
@@ -35,7 +35,7 @@ public class ModSetPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public ModSetPanel(BaseGeneratorUI gen) {
+	ModSetPanel(BaseGeneratorUI gen) {
 		super(gen);
 		initialize();
 		setSize(new Dimension(500, 500));
@@ -182,13 +182,13 @@ public class ModSetPanel extends ConstraintPanel {
 		modNumber.setText("");
 		expression.setText("");
 	}
-	
-	protected void fillParameters(Map source, Map func, Map task) {
+
+	public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		func.put("mod", modNumber.getText());
 		func.put("expression", expression.getText());		
 	}
 	
-	protected boolean checkCanSave() {
+	boolean checkCanSave() {
 		String value = modNumber.getText().trim();
 		if ("".equals(value)) {
 			JOptionPane.showMessageDialog(this, "Не указан делитель!" , "Не указан делитель", JOptionPane.WARNING_MESSAGE);

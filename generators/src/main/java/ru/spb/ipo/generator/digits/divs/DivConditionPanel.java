@@ -15,7 +15,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DivConditionPanel extends ConstraintPanel {
+class DivConditionPanel extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JComboBox condparams = null;
@@ -26,7 +26,7 @@ public class DivConditionPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public DivConditionPanel(BaseGeneratorUI gen) {
+	DivConditionPanel(BaseGeneratorUI gen) {
 		super(gen);
 		initialize();
 	}
@@ -85,7 +85,7 @@ public class DivConditionPanel extends ConstraintPanel {
 					String text = (String)getCondparams().getSelectedItem();
 					if (getComNumber().isEnabled()) {
 						String i = getComNumber().getText();
-						int res = -1;
+						int res;
 						try {
 							res = Integer.valueOf(i);
 						} catch (NumberFormatException ex) {

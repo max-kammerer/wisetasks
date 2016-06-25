@@ -37,7 +37,7 @@ import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 import ru.spb.ipo.generator.numbers.DetailDigitGenerator;
 import ru.spb.ipo.generator.numbers.NumberGenerator;
 
-public class DropDigitPanel extends ConstraintPanel {
+class DropDigitPanel extends ConstraintPanel {
 
 	private JPanel jPanel = null;  //  @jve:decl-index=0:visual-constraint="10,36"
 	private JPanel jPanel1 = null;
@@ -57,7 +57,7 @@ public class DropDigitPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public DropDigitPanel(BaseGeneratorUI parent) {
+	DropDigitPanel(BaseGeneratorUI parent) {
 		super(parent);
 		initialize();
 		this.parent = parent;
@@ -174,7 +174,7 @@ public class DropDigitPanel extends ConstraintPanel {
 		return jPanel4;
 	}
 	
-	protected void reCreateNumbers(int size) {
+	void reCreateNumbers(int size) {
 		jPanel4.removeAll();
 		jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.Y_AXIS));
 		
@@ -190,10 +190,7 @@ public class DropDigitPanel extends ConstraintPanel {
 			la.setTransferHandler(new TransferHandler("text") {
 				
 				public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
-					if (comp == leftCond) {
-						return true;
-					}
-					return false;
+					return comp == leftCond;
 				}
 				
 			});
@@ -214,10 +211,7 @@ public class DropDigitPanel extends ConstraintPanel {
 			la.setTransferHandler(new TransferHandler("text") {
 				
 				public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
-					if (comp == leftCond) {
-						return true;
-					}
-					return false;
+					return comp == leftCond;
 				}
 				
 			});
@@ -281,7 +275,7 @@ public class DropDigitPanel extends ConstraintPanel {
 	 * 	
 	 * @return javax.swing.JButton	
 	 */
-	protected JButton getClearCond() {
+	private JButton getClearCond() {
 		if (clearCond == null) {
 			clearCond = new JButton();
 			clearCond.setText("Сбросить");
@@ -371,7 +365,7 @@ public class DropDigitPanel extends ConstraintPanel {
 		getClearCond().doClick();
 	}
 
-	public boolean checkCanSave() {
+	boolean checkCanSave() {
 		int i = leftCond.getComponentCount();
 		if (i == 0) {
 			JOptionPane.showMessageDialog(this, "Не задана перестановка!" , "Не задана перестановка", JOptionPane.WARNING_MESSAGE);
@@ -400,10 +394,7 @@ public class DropDigitPanel extends ConstraintPanel {
 				la.setTransferHandler(new TransferHandler("text") {
 					
 					public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
-						if (comp == leftCond) {
-							return true;
-						}
-						return false;
+						return comp == leftCond;
 					}
 					
 				});

@@ -10,7 +10,7 @@ import javax.swing.JComboBox;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 
-public class DivSetPanel extends ConstraintPanel {
+class DivSetPanel extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JLabel jLabel = null;
@@ -19,7 +19,7 @@ public class DivSetPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public DivSetPanel(BaseGeneratorUI gen) {
+	DivSetPanel(BaseGeneratorUI gen) {
 		super(gen);
 		initialize();		
 	}

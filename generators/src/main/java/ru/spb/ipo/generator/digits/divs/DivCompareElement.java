@@ -3,13 +3,13 @@ package ru.spb.ipo.generator.digits.divs;
 import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.FuncUtil;
 
-public class DivCompareElement implements ComplexElement {
+class DivCompareElement implements ComplexElement {
 
 	private int result;
 	private int compare;
 	private String desc;
 	
-	public DivCompareElement(int res, int compare, String desc) {
+	DivCompareElement(int res, int compare, String desc) {
 		this.result = res;
 		this.desc = desc;
 		this.compare = compare;
@@ -17,12 +17,12 @@ public class DivCompareElement implements ComplexElement {
 	
 	
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		String shift = "${shift}"; 
 		if (result == 0) {
 			sb.append(FuncUtil.equals(shift, FuncUtil.cse()));			
 		} else {			
-			String mod = "";
+			String mod;
 			if (result == 1) {
 				mod = FuncUtil.func("Mod", FuncUtil.func("ToDigit", shift), FuncUtil.func("ToDigit", FuncUtil.cse()));				
 			} else {
@@ -31,7 +31,7 @@ public class DivCompareElement implements ComplexElement {
 			String isMod = FuncUtil.equals(mod, FuncUtil.constElement(0));
 			
 			
-			String div = "";
+			String div;
 			if (result == 1) {
 				div = FuncUtil.func("Div", FuncUtil.func("ToDigit", shift), FuncUtil.func("ToDigit", FuncUtil.cse()));				
 			} else {
