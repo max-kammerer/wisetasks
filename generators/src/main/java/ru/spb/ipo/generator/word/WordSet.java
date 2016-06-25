@@ -28,7 +28,7 @@ import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 import ru.spb.ipo.generator.cards.TypeModel;
 
-public class WordSet extends ConstraintPanel {
+class WordSet extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -50,7 +50,7 @@ public class WordSet extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public WordSet(BaseGeneratorUI gen) {
+	WordSet(BaseGeneratorUI gen) {
 		super(gen);
 		initialize();
 	}
@@ -191,7 +191,7 @@ public class WordSet extends ConstraintPanel {
 	 * 	
 	 * @return javax.swing.JTextField	
 	 */
-	protected JTextField getTokenList() {
+	JTextField getTokenList() {
 		if (tokenList == null) {
 			tokenList = new JTextField();
 			tokenList.setEditable(false);
@@ -248,7 +248,7 @@ public class WordSet extends ConstraintPanel {
 		return jButton;
 	}
 
-	public List getAlphabit() {
+	List getAlphabit() {
 		return alphabit;
 	}
 
@@ -263,7 +263,7 @@ public class WordSet extends ConstraintPanel {
 			jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 			jScrollPane.setHorizontalScrollBar(new JScrollBar(JScrollBar.HORIZONTAL, 12, 20, 0, 100));
 			Object old = UIManager.get("ScrollBar.width");
-			UIManager.put("ScrollBar.width", new Integer(9));
+			UIManager.put("ScrollBar.width", 9);
 			JScrollBar s = new JScrollBar(JScrollBar.HORIZONTAL, 0, 10, 0, 100);
 			jScrollPane.setHorizontalScrollBar(s);
 			UIManager.put("ScrollBar.width", old);

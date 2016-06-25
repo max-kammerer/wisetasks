@@ -33,7 +33,7 @@ class WordFPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public WordFPanel(BaseGeneratorUI gen) {
+	WordFPanel(BaseGeneratorUI gen) {
 		super(gen);		
 		initialize();
 	}

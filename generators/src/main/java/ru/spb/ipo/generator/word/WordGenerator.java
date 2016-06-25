@@ -82,13 +82,13 @@ public class WordGenerator extends BaseGeneratorUI {
 		return new WordXmlGenerator(source, func, task);
 	}
 	
-	static class CharGenerator extends Generator implements ComplexElement {
+	private static class CharGenerator extends Generator implements ComplexElement {
 		
 		private char ch;
 		
 		private int type;
 		
-		public CharGenerator(char ch, int type) {
+		CharGenerator(char ch, int type) {
 			super(null);
 			this.ch = ch;
 			this.type = type;

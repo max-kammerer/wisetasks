@@ -5,9 +5,9 @@ import java.util.Map;
 
 import ru.spb.ipo.generator.base.BaseGenerator;
 
-public class WordXmlGenerator extends BaseGenerator {
+class WordXmlGenerator extends BaseGenerator {
 
-	public WordXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
+	WordXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 
@@ -24,7 +24,7 @@ public class WordXmlGenerator extends BaseGenerator {
 	
 	public String getSourceTemplate() {
 		int nabor = Integer.valueOf((String) sourceParams.get("nabor"));
-		String source = "";
+		String source;
 		if ((Boolean) sourceParams.get("setType-template")) {
 			source = " <sourceSet> \n <set type=\"DecartSet\" length=\"${length}\"> \n";
 			for (int i = 0; i < nabor; i ++) {

@@ -10,7 +10,7 @@ import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 
 public class IndexWordGenerator extends WordGenerator {
 	
-	public IndexWordGenerator() {
+	private IndexWordGenerator() {
 //        initialize();
         ((WordFPanel) getFunctionPanel()).getIsSingle().setEnabled(false);
     }
