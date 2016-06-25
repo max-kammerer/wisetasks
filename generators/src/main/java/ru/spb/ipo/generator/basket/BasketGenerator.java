@@ -20,7 +20,7 @@ public class BasketGenerator extends BaseGeneratorUI {
 
     protected boolean checkCanSave() {
 		if (getFunctionList().getModel().getSize() == 0) {
-			JOptionPane.showMessageDialog(this, "Не указаны шары, вытаскиваемые из урны!" , "Не указаны шары, вытаскиваемые из урны", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "РќРµ СѓРєР°Р·Р°РЅС‹ С€Р°СЂС‹, РІС‹С‚Р°СЃРєРёРІР°РµРјС‹Рµ РёР· СѓСЂРЅС‹!" , "РќРµ СѓРєР°Р·Р°РЅС‹ С€Р°СЂС‹, РІС‹С‚Р°СЃРєРёРІР°РµРјС‹Рµ РёР· СѓСЂРЅС‹", JOptionPane.WARNING_MESSAGE);
 			return false;			
 		}
 		return super.checkCanSave();
@@ -57,7 +57,7 @@ public class BasketGenerator extends BaseGeneratorUI {
 	}
 
 	public String getEditorTitle() {
-		return "Редактор \"Шары и урны\"";
+		return "Р РµРґР°РєС‚РѕСЂ \"РЁР°СЂС‹ Рё СѓСЂРЅС‹\"";
 	}
 
 

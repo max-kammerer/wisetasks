@@ -26,35 +26,35 @@ public class BeadsCondition implements ComplexElement {
     public String toString() {
         String outColor;
         String outCount;
-       if (color.equalsIgnoreCase("красный"))
-            outColor = new String("красного цвета");
-        else if (color.equalsIgnoreCase("желтый"))
-            outColor = new String("желтого цвета");
-        else if (color.equalsIgnoreCase("синий"))
-            outColor = new String("синего цвета");
-        else if (color.equalsIgnoreCase("зеленый"))
-            outColor = new String("зеленого цвета");
-        else if (color.equalsIgnoreCase("белый"))
-            outColor = new String("белого цвета");
-        else if (color.equalsIgnoreCase("черный"))
-            outColor = new String("черного цвета");
-        else if (color.equalsIgnoreCase("оранжевый"))
-            outColor = new String("оранжевого цвета");
-        else if (color.equalsIgnoreCase("коричневый"))
-            outColor = new String("коричневого цвета");
+       if (color.equalsIgnoreCase("РєСЂР°СЃРЅС‹Р№"))
+            outColor = new String("РєСЂР°СЃРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р¶РµР»С‚С‹Р№"))
+            outColor = new String("Р¶РµР»С‚РѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("СЃРёРЅРёР№"))
+            outColor = new String("СЃРёРЅРµРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р·РµР»РµРЅС‹Р№"))
+            outColor = new String("Р·РµР»РµРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р±РµР»С‹Р№"))
+            outColor = new String("Р±РµР»РѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("С‡РµСЂРЅС‹Р№"))
+            outColor = new String("С‡РµСЂРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("РѕСЂР°РЅР¶РµРІС‹Р№"))
+            outColor = new String("РѕСЂР°РЅР¶РµРІРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("РєРѕСЂРёС‡РЅРµРІС‹Р№"))
+            outColor = new String("РєРѕСЂРёС‡РЅРµРІРѕРіРѕ С†РІРµС‚Р°");
         else
-            outColor = new String("фиолетового цвета");
+            outColor = new String("С„РёРѕР»РµС‚РѕРІРѕРіРѕ С†РІРµС‚Р°");
         
         if (count.equalsIgnoreCase("1"))
-            outCount = new String("1 бусина ");
+            outCount = new String("1 Р±СѓСЃРёРЅР° ");
         else if (count.equalsIgnoreCase("2") || count.equalsIgnoreCase("3") ||
                 count.equalsIgnoreCase("4")) {
             outCount = new String(count);
-            outCount = outCount.concat(new String(" бусины "));
+            outCount = outCount.concat(new String(" Р±СѓСЃРёРЅС‹ "));
         }
         else {
             outCount = new String(count);
-            outCount = outCount.concat(new String(" бусин "));
+            outCount = outCount.concat(new String(" Р±СѓСЃРёРЅ "));
         }
         return outCount.concat(outColor);
     }

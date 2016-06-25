@@ -35,7 +35,7 @@ public class OneCard implements ComplexElement {
 	}
 	
 	public String toString() {		
-		return "имеется " + value + " " + type;
+		return "РёРјРµРµС‚СЃСЏ " + value + " " + type;
 	}
 }
 

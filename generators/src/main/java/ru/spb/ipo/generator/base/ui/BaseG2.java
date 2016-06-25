@@ -144,10 +144,10 @@
 //	private int countGetImageListCall = 0;
 //
 //	private Object[][] constructors = new Object[][] {
-//			{ "Редактор \"Колода карт\"", CardGenerator.class },
-//			{ "Редактор \"Упорядоченные числовые наборы\"",
+//			{ "Р РµРґР°РєС‚РѕСЂ \"РљРѕР»РѕРґР° РєР°СЂС‚\"", CardGenerator.class },
+//			{ "Р РµРґР°РєС‚РѕСЂ \"РЈРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Рµ С‡РёСЃР»РѕРІС‹Рµ РЅР°Р±РѕСЂС‹\"",
 //					NumberGenerator.class },
-//			{ "Редактор \"Количество решений уравнения\"",
+//			{ "Р РµРґР°РєС‚РѕСЂ \"РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№ СѓСЂР°РІРЅРµРЅРёСЏ\"",
 //					EquationGenerator.class }, };
 //
 //	public BaseGeneratorUI() {
@@ -162,7 +162,7 @@
 //	private JPanel getTaskTitlePanel() {
 //		if (taskTitlePanel == null) {
 //			taskTitleLabel = new JLabel();
-//			taskTitleLabel.setText("Название  ");
+//			taskTitleLabel.setText("РќР°Р·РІР°РЅРёРµ  ");
 //			GridBagConstraints gridBagConstraints = new GridBagConstraints();
 //			gridBagConstraints.fill = GridBagConstraints.VERTICAL;
 //			gridBagConstraints.gridy = -1;
@@ -305,7 +305,7 @@
 //	private JMenu getImagesMenu() {
 //		if (imagesMenu == null) {
 //			imagesMenu = new JMenu();
-//			imagesMenu.setText("Избражения");
+//			imagesMenu.setText("РР·Р±СЂР°Р¶РµРЅРёСЏ");
 //			imagesMenu.add(getScale());
 //		}
 //		return imagesMenu;
@@ -319,7 +319,7 @@
 //	private JMenu getFileMenu() {
 //		if (fileMenu == null) {
 //			fileMenu = new JMenu();
-//			fileMenu.setText("Файл");
+//			fileMenu.setText("Р¤Р°Р№Р»");
 //			fileMenu.add(getNewProblemItem());
 //			fileMenu.add(getSaveToPrev());
 //			fileMenu.add(getSaveItem());
@@ -337,7 +337,7 @@
 //	private JMenuItem getNewProblemItem() {
 //		if (newProblemItem == null) {
 //			newProblemItem = new JMenuItem();
-//			newProblemItem.setText("Новая задача");
+//			newProblemItem.setText("РќРѕРІР°СЏ Р·Р°РґР°С‡Р°");
 //			newProblemItem
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -365,7 +365,7 @@
 //	private JMenu getInfoMenu() {
 //		if (infoMenu == null) {
 //			infoMenu = new JMenu();
-//			infoMenu.setText("Справка");
+//			infoMenu.setText("РЎРїСЂР°РІРєР°");
 //			infoMenu.add(getAboutProgramItem());
 //		}
 //		return infoMenu;
@@ -400,7 +400,7 @@
 //	private JButton getGenerateDescriptionButton() {
 //		if (generateDescriptionButton == null) {
 //			generateDescriptionButton = new JButton();
-//			generateDescriptionButton.setText("Сгенерировать условие");
+//			generateDescriptionButton.setText("РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ СѓСЃР»РѕРІРёРµ");
 //			generateDescriptionButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -499,23 +499,23 @@
 //	protected boolean checkCanSave() {
 //		if (isEmpty(taskTitle.getText())) {
 //			JOptionPane.showMessageDialog(BaseGeneratorUI.this,
-//					"Не указано название задачи!",
-//					"Не указано название задачи", JOptionPane.WARNING_MESSAGE);
+//					"РќРµ СѓРєР°Р·Р°РЅРѕ РЅР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё!",
+//					"РќРµ СѓРєР°Р·Р°РЅРѕ РЅР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё", JOptionPane.WARNING_MESSAGE);
 //			return false;
 //		}
 //
 //		if (isEmpty(taskDesc.getText())) {
 //			JOptionPane.showMessageDialog(BaseGeneratorUI.this,
-//					"Условие задачи не задано", "Условие задачи не задано",
+//					"РЈСЃР»РѕРІРёРµ Р·Р°РґР°С‡Рё РЅРµ Р·Р°РґР°РЅРѕ", "РЈСЃР»РѕРІРёРµ Р·Р°РґР°С‡Рё РЅРµ Р·Р°РґР°РЅРѕ",
 //					JOptionPane.WARNING_MESSAGE);
 //			return false;
 //		}
 //
 //		// if (getFunctionList().getModel().getSize() == 0) {
-//		// JOptionPane.showMessageDialog(CardGenerator.this, "пїЅпїЅ
-//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
-//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" , "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
-//		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!",
+//		// JOptionPane.showMessageDialog(CardGenerator.this, "РїС—Р…РїС—Р…
+//		// РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…
+//		// РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…!" , "РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…
+//		// РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р… РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…РїС—Р…!",
 //		// JOptionPane.WARNING_MESSAGE);
 //		// return false;
 //		// }
@@ -531,7 +531,7 @@
 //	private JMenuItem getSaveItem() {
 //		if (saveItem == null) {
 //			saveItem = new JMenuItem();
-//			saveItem.setText("Сохранить в сборник...");
+//			saveItem.setText("РЎРѕС…СЂР°РЅРёС‚СЊ РІ СЃР±РѕСЂРЅРёРє...");
 //			saveItem.addActionListener(new java.awt.event.ActionListener() {
 //				public void actionPerformed(java.awt.event.ActionEvent e) {
 //					if (checkCanSave()) {
@@ -578,14 +578,14 @@
 //								// + "\" file=\"" + shortName + "\"/>",
 //								// "</tasks>");
 //							} catch (Exception e1) {
-//								showError("Не могу сохранить задачу: \n"
+//								showError("РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n"
 //										+ e1.getMessage(),
-//										"Ошибка при сохранении", e1);
+//										"РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё", e1);
 //								return;
 //							}
 //							JOptionPane.showMessageDialog(BaseGeneratorUI.this,
-//									"Задача успешно сохранена.",
-//									"Задача успешно сохранена",
+//									"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.",
+//									"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°",
 //									JOptionPane.INFORMATION_MESSAGE);
 //						}
 //					}
@@ -625,7 +625,7 @@
 //	private JMenuItem getExitItem() {
 //		if (exitItem == null) {
 //			exitItem = new JMenuItem();
-//			exitItem.setText("Выход");
+//			exitItem.setText("Р’С‹С…РѕРґ");
 //			exitItem.addActionListener(new java.awt.event.ActionListener() {
 //				public void actionPerformed(java.awt.event.ActionEvent e) {
 //					System.exit(0);
@@ -660,7 +660,7 @@
 //	private JButton getRemoveAllFuntionsButton() {
 //		if (removeAllFuntionsButton == null) {
 //			removeAllFuntionsButton = new JButton();
-//			removeAllFuntionsButton.setText("Удалить все условия");
+//			removeAllFuntionsButton.setText("РЈРґР°Р»РёС‚СЊ РІСЃРµ СѓСЃР»РѕРІРёСЏ");
 //			removeAllFuntionsButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -679,7 +679,7 @@
 //	private JMenuItem getAboutProgramItem() {
 //		if (aboutProgramItem == null) {
 //			aboutProgramItem = new JMenuItem();
-//			aboutProgramItem.setText("О программе...");
+//			aboutProgramItem.setText("Рћ РїСЂРѕРіСЂР°РјРјРµ...");
 //			aboutProgramItem
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -688,8 +688,8 @@
 //											BaseGeneratorUI.this,
 //											"<html>"
 //													+ getEditorTitle()
-//													+ "\nАвторы:\n(С)   Богданов М.С.     2007-2008 \n(С)   Поздняков С.Н.   2007-2008 \ne-mail: mikhael.bogdanov@gmail.com",
-//											"О программе",
+//													+ "\nРђРІС‚РѕСЂС‹:\n(РЎ)   Р‘РѕРіРґР°РЅРѕРІ Рњ.РЎ.     2007-2008 \n(РЎ)   РџРѕР·РґРЅСЏРєРѕРІ РЎ.Рќ.   2007-2008 \ne-mail: mikhael.bogdanov@gmail.com",
+//											"Рћ РїСЂРѕРіСЂР°РјРјРµ",
 //											JOptionPane.INFORMATION_MESSAGE);
 //						}
 //					});
@@ -743,9 +743,9 @@
 //		if (save2DefaultButton == null) {
 //			save2DefaultButton = new JButton();
 //			save2DefaultButton
-//					.setText("Сохранить задачу в стандартный задачник");
+//					.setText("РЎРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє");
 //			save2DefaultButton
-//					.setToolTipText("Сохраняет задачу в задачник  \"Сгенерированные задачи\"");
+//					.setToolTipText("РЎРѕС…СЂР°РЅСЏРµС‚ Р·Р°РґР°С‡Сѓ РІ Р·Р°РґР°С‡РЅРёРє  \"РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Рµ Р·Р°РґР°С‡Рё\"");
 //			save2DefaultButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -769,9 +769,9 @@
 //										saveToFile(str, file);
 //									} catch (Exception e1) {
 //										showError(
-//												"Не могу сохранить задачу: \n"
+//												"РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n"
 //														+ e1.getMessage(),
-//												"Ошибка при сохранении", e1);
+//												"РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё", e1);
 //										e1.printStackTrace();
 //										return;
 //									}
@@ -780,8 +780,8 @@
 //									JOptionPane
 //											.showMessageDialog(
 //													BaseGeneratorUI.this,
-//													"Задача успешно сохранена.",
-//													"Задача успешно сохранена в стандартный задачник",
+//													"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.",
+//													"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР° РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє",
 //													JOptionPane.INFORMATION_MESSAGE);
 //								}
 //							}
@@ -855,7 +855,7 @@
 //	private JPanel getCheckPanel() {
 //		JPanel panel = new JPanel();
 //		panel.setLayout(new FlowLayout());
-//		needToDimension = new JCheckBox("Масштабировать");
+//		needToDimension = new JCheckBox("РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°С‚СЊ");
 //		panel.add(needToDimension);
 //		return panel;
 //	}
@@ -920,7 +920,7 @@
 //	private JButton getClearImagesButton() {
 //		if (clearImagesButton == null) {
 //			clearImagesButton = new JButton();
-//			clearImagesButton.setText("Очистить все");
+//			clearImagesButton.setText("РћС‡РёСЃС‚РёС‚СЊ РІСЃРµ");
 //			clearImagesButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -939,7 +939,7 @@
 //	private JButton getClearImagesButtonSelected() {
 //		if (clearImagesButtonAdv == null) {
 //			clearImagesButtonAdv = new JButton();
-//			clearImagesButtonAdv.setText("Удалить");
+//			clearImagesButtonAdv.setText("РЈРґР°Р»РёС‚СЊ");
 //			clearImagesButtonAdv
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -974,7 +974,7 @@
 //	private JButton getAddImageButton() {
 //		if (addImageButton == null) {
 //			addImageButton = new JButton();
-//			addImageButton.setText("Добавить изображение...");
+//			addImageButton.setText("Р”РѕР±Р°РІРёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ...");
 //			addImageButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -1077,7 +1077,7 @@
 //	private JMenuItem getDeleteConditionButton() {
 //		if (deleteConditionButton == null) {
 //			deleteConditionButton = new JMenuItem();
-//			deleteConditionButton.setText("Удалить условие");
+//			deleteConditionButton.setText("РЈРґР°Р»РёС‚СЊ СѓСЃР»РѕРІРёРµ");
 //			deleteConditionButton
 //					.addActionListener(new java.awt.event.ActionListener() {
 //						public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -1102,7 +1102,7 @@
 //	private JMenu getConstructorMenu() {
 //		if (constructorMenu == null) {
 //			constructorMenu = new JMenu();
-//			constructorMenu.setText("Редакторы");
+//			constructorMenu.setText("Р РµРґР°РєС‚РѕСЂС‹");
 //			for (int i = 0; i < constructors.length; i++) {
 //				Object[] constructor = constructors[i];
 //				String name = (String) constructor[0];
@@ -1135,7 +1135,7 @@
 //	private JMenuItem getSaveToPrev() {
 //		if (saveToPrev == null) {
 //			saveToPrev = new JMenuItem();
-//			saveToPrev.setText("Сохранить");
+//			saveToPrev.setText("РЎРѕС…СЂР°РЅРёС‚СЊ");
 //			saveToPrev.addActionListener(new java.awt.event.ActionListener() {
 //				public void actionPerformed(java.awt.event.ActionEvent e) {
 //					String str = getGenerator().generateXml();
@@ -1143,8 +1143,8 @@
 //						try {
 //							saveToFile(str, prevSave);
 //						} catch (Exception e1) {
-//							showError("Не могу сохранить задачу: \n"
-//									+ e1.getMessage(), "Ошибка при сохранении",
+//							showError("РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n"
+//									+ e1.getMessage(), "РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё",
 //									e1);
 //							e1.printStackTrace();
 //							return;
@@ -1152,8 +1152,8 @@
 //						JOptionPane
 //								.showMessageDialog(
 //										BaseGeneratorUI.this,
-//										"Задача успешно сохранена.",
-//										"Задача успешно сохранена в стандартный задачник",
+//										"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.",
+//										"Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР° РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє",
 //										JOptionPane.INFORMATION_MESSAGE);
 //					} else {
 //						// setActiveSave(null);
@@ -1170,11 +1170,11 @@
 //	private JMenuItem getScale() {
 //		if (scale == null) {
 //			scale = new JMenuItem();
-//			scale.setText("Масштабирование");
+//			scale.setText("РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ");
 //			scale.addActionListener(new java.awt.event.ActionListener() {
 //				public void actionPerformed(java.awt.event.ActionEvent e) {
 //					dlg = new ScaleDialog(BaseGeneratorUI.this,
-//							"Масштабирование", "message", BaseGeneratorUI.this);
+//							"РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ", "message", BaseGeneratorUI.this);
 //				}
 //			});
 //		}
@@ -1243,7 +1243,7 @@
 //	public JFileChooser getFileChooser() {
 //		if (fileChooser == null) {
 //			fileChooser = new JFileChooser(new File(".").getAbsolutePath());
-//			fileChooser.setDialogTitle("Выберите файл...");
+//			fileChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»...");
 //			fileChooser.removeChoosableFileFilter(fileChooser
 //					.getChoosableFileFilters()[0]);
 //			fileChooser.setFileFilter(new FileFilter() {
@@ -1257,7 +1257,7 @@
 //				}
 //
 //				public String getDescription() {
-//					return "xml файлы (*.xml)";
+//					return "xml С„Р°Р№Р»С‹ (*.xml)";
 //				}
 //			});
 //		}
@@ -1268,7 +1268,7 @@
 //		if (imageChooser == null) {
 //			imageChooser = new JFileChooser(new File("." + File.separator
 //					+ "tasks" + File.separator + "imgs"));
-//			imageChooser.setDialogTitle("Выберите файл-картинку к задаче...");
+//			imageChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»-РєР°СЂС‚РёРЅРєСѓ Рє Р·Р°РґР°С‡Рµ...");
 //			imageChooser.setControlButtonsAreShown(true);
 //			imageChooser.removeChoosableFileFilter(imageChooser
 //					.getChoosableFileFilters()[0]);
@@ -1290,7 +1290,7 @@
 //				}
 //
 //				public String getDescription() {
-//					return "картинки (*.png, *.gif, *.jpg, *.jpeg)";
+//					return "РєР°СЂС‚РёРЅРєРё (*.png, *.gif, *.jpg, *.jpeg)";
 //				}
 //			});
 //			imageChooser.setAccessory(new ImagePreview(imageChooser));
@@ -1328,7 +1328,7 @@
 //		prevSave = file;
 //		if (prevSave == null) {
 //			saveToPrev.setEnabled(false);
-//			setTitle(getEditorTitle() + " - " + "новая задача");
+//			setTitle(getEditorTitle() + " - " + "РЅРѕРІР°СЏ Р·Р°РґР°С‡Р°");
 //		} else {
 //			saveToPrev.setEnabled(true);
 //			setTitle(getEditorTitle() + " - " + file.getName());
@@ -1444,8 +1444,8 @@
 //						.invoke(null, new Object[] { null });
 //			} catch (Exception e) {
 //				JOptionPane.showMessageDialog(BaseGeneratorUI.this,
-//						"Не могу открыть редактор: \n" + e.getMessage(),
-//						"Ошибка", JOptionPane.ERROR_MESSAGE);
+//						"РќРµ РјРѕРіСѓ РѕС‚РєСЂС‹С‚СЊ СЂРµРґР°РєС‚РѕСЂ: \n" + e.getMessage(),
+//						"РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 //				e.printStackTrace();
 //			}
 //		}

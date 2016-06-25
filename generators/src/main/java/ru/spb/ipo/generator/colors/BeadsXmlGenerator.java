@@ -20,24 +20,24 @@ public class BeadsXmlGenerator extends BaseGenerator {
     }
     public String generateDescription() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Сколько различных бус можно составить");
+        sb.append("РЎРєРѕР»СЊРєРѕ СЂР°Р·Р»РёС‡РЅС‹С… Р±СѓСЃ РјРѕР¶РЅРѕ СЃРѕСЃС‚Р°РІРёС‚СЊ");
         Integer taskType = (Integer)sourceParams.get("taskType");
         if (taskType == 1) {
-            sb.append(" из "+sourceParams.get("beadsLength")+" бусин");
-            sb.append(", окрашенных в "+sourceParams.get("colors")+" различных ");
+            sb.append(" РёР· "+sourceParams.get("beadsLength")+" Р±СѓСЃРёРЅ");
+            sb.append(", РѕРєСЂР°С€РµРЅРЅС‹С… РІ "+sourceParams.get("colors")+" СЂР°Р·Р»РёС‡РЅС‹С… ");
             if ((Integer)sourceParams.get("colors") < 5) {
-                sb.append("цвета.");
+                sb.append("С†РІРµС‚Р°.");
             }
             else {
-                sb.append("цветов.");
+                sb.append("С†РІРµС‚РѕРІ.");
             }
         }
         else {
-            sb.append(", если имеется ");
+            sb.append(", РµСЃР»Рё РёРјРµРµС‚СЃСЏ ");
             sb.append(taskParams.get("inlineDesc")+".");
         }
-        sb.append(" Бусы считаются одинаковыми, если сдвигами бусин по нитке и различными" +
-                " поворотами в пространстве их можно сделать неотличимыми.");
+        sb.append(" Р‘СѓСЃС‹ СЃС‡РёС‚Р°СЋС‚СЃСЏ РѕРґРёРЅР°РєРѕРІС‹РјРё, РµСЃР»Рё СЃРґРІРёРіР°РјРё Р±СѓСЃРёРЅ РїРѕ РЅРёС‚РєРµ Рё СЂР°Р·Р»РёС‡РЅС‹РјРё" +
+                " РїРѕРІРѕСЂРѕС‚Р°РјРё РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ РёС… РјРѕР¶РЅРѕ СЃРґРµР»Р°С‚СЊ РЅРµРѕС‚Р»РёС‡РёРјС‹РјРё.");
         return sb.toString();
     }
     
@@ -58,7 +58,7 @@ public class BeadsXmlGenerator extends BaseGenerator {
         Integer length = (Integer)sourceParams.get("beadsLength");
         for (int i = 0; i < length; i++)
             list.add(i+1);
-        // добавление перестановки поворота бус в своей плоскости
+        // РґРѕР±Р°РІР»РµРЅРёРµ РїРµСЂРµСЃС‚Р°РЅРѕРІРєРё РїРѕРІРѕСЂРѕС‚Р° Р±СѓСЃ РІ СЃРІРѕРµР№ РїР»РѕСЃРєРѕСЃС‚Рё
         ArrayList<Integer> roundList = new ArrayList<Integer>();
         roundList.add(Integer.valueOf(length));
         for (int i = 0; i < length-1; i++) {
@@ -66,7 +66,7 @@ public class BeadsXmlGenerator extends BaseGenerator {
         }
         StringBuilder enumeration = new StringBuilder();
         enumeration.append(SetUtil.constElement(roundList));
-        // переворачивание бус
+        // РїРµСЂРµРІРѕСЂР°С‡РёРІР°РЅРёРµ Р±СѓСЃ
         ArrayList<Integer> turnList = new ArrayList<Integer>();
         for (int i = 0; i < list.size()/2+1; i++) {
             turnList.add(list.get(list.size()/2-i));

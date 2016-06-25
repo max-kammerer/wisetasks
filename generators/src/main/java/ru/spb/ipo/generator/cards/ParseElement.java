@@ -19,21 +19,21 @@ public class ParseElement implements ComplexElement {
 	public String toString() {
 		String s = "";
 		switch (cond.charAt(0)) {
-			case '<': s = "меньше"; break;
-			case '=': s = "равно"; break;
-			case '>': s = "больше"; break;		
+			case '<': s = "РјРµРЅСЊС€Рµ"; break;
+			case '=': s = "СЂР°РІРЅРѕ"; break;
+			case '>': s = "Р±РѕР»СЊС€Рµ"; break;		
 		}
-		return "количество карт " + e + " " + cond + " " + value;		
+		return "РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚ " + e + " " + cond + " " + value;		
 	}
 	
 	public String toDescription() {
 		String s = "";
 		switch (cond.charAt(0)) {
-			case '<': s = "меньше"; break;
-			case '=': s = "равно"; break;
-			case '>': s = "больше"; break;		
+			case '<': s = "РјРµРЅСЊС€Рµ"; break;
+			case '=': s = "СЂР°РІРЅРѕ"; break;
+			case '>': s = "Р±РѕР»СЊС€Рµ"; break;		
 		}
-		return "количество карт " + e + " " + s + " " + value;		
+		return "РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚ " + e + " " + s + " " + value;		
 	}
 	
 	

@@ -58,7 +58,7 @@ public class PolyhedronPanel extends ConstraintPanel {
     private JRadioButton type2Btn;
     private ButtonGroup bgTask;
     
-    private String radioCommand = "Правильный многогранник";
+    private String radioCommand = "РџСЂР°РІРёР»СЊРЅС‹Р№ РјРЅРѕРіРѕРіСЂР°РЅРЅРёРє";
     private Hashtable selectedColors = new Hashtable();
 
     public PolyhedronPanel(BaseGeneratorUI gen, final ColorsSetPanel parent) {
@@ -88,41 +88,41 @@ public class PolyhedronPanel extends ConstraintPanel {
         elementsCount = new javax.swing.JComboBox();
         addFigureElement = new javax.swing.JButton();
 
-        figurePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Фигура"));
+        figurePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Р¤РёРіСѓСЂР°"));
 
-        jLabel1.setText("Выберите что красить:");
-        forColoring.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "грани", "вершины", "рёбра" }));
+        jLabel1.setText("Р’С‹Р±РµСЂРёС‚Рµ С‡С‚Рѕ РєСЂР°СЃРёС‚СЊ:");
+        forColoring.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "РіСЂР°РЅРё", "РІРµСЂС€РёРЅС‹", "СЂС‘Р±СЂР°" }));
         
         FigureListener listener = new FigureListener();
         bg = new ButtonGroup();
-        prizm.setText("Призма");
-        prizm.setActionCommand("Призма");
+        prizm.setText("РџСЂРёР·РјР°");
+        prizm.setActionCommand("РџСЂРёР·РјР°");
         prizm.addActionListener(listener);
         bg.add(prizm);
 
-        piramida.setText("Пирамида");
-        piramida.setActionCommand("Пирамида");
+        piramida.setText("РџРёСЂР°РјРёРґР°");
+        piramida.setActionCommand("РџРёСЂР°РјРёРґР°");
         piramida.addActionListener(listener);
         bg.add(piramida);
 
-        parallel.setText("Прямоугольный параллелепипед");
-        parallel.setActionCommand("Прямоугольный параллелепипед");
+        parallel.setText("РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґ");
+        parallel.setActionCommand("РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґ");
         parallel.addActionListener(listener);
         bg.add(parallel);
         
-        goodPoly.setText("Правильный многогранник");
+        goodPoly.setText("РџСЂР°РІРёР»СЊРЅС‹Р№ РјРЅРѕРіРѕРіСЂР°РЅРЅРёРє");
         goodPoly.setSelected(true);
-        goodPoly.setActionCommand("Правильный многогранник");
+        goodPoly.setActionCommand("РџСЂР°РІРёР»СЊРЅС‹Р№ РјРЅРѕРіРѕРіСЂР°РЅРЅРёРє");
         goodPoly.addActionListener(listener);
         bg.add(goodPoly);
 
-        figureType.addItem(new String("тетраэдр"));
-        figureType.addItem(new String("куб"));
-        figureType.addItem(new String("октаэдр"));
-        figureType.addItem(new String("додекаэдр"));
-        figureType.addItem(new String("икосаэдр"));
+        figureType.addItem(new String("С‚РµС‚СЂР°СЌРґСЂ"));
+        figureType.addItem(new String("РєСѓР±"));
+        figureType.addItem(new String("РѕРєС‚Р°СЌРґСЂ"));
+        figureType.addItem(new String("РґРѕРґРµРєР°СЌРґСЂ"));
+        figureType.addItem(new String("РёРєРѕСЃР°СЌРґСЂ"));
 
-        jLabel2.setText("Вершин в основании:");
+        jLabel2.setText("Р’РµСЂС€РёРЅ РІ РѕСЃРЅРѕРІР°РЅРёРё:");
 
         for (int i = 3; i < 10; i++)
             corners.addItem(String.valueOf(i));
@@ -181,11 +181,11 @@ public class PolyhedronPanel extends ConstraintPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        colorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Краски"));
+        colorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("РљСЂР°СЃРєРё"));
 
         ButtonGroup colorBG = new ButtonGroup();
-        type1Btn.setText("По количеству красок");
-        type2Btn.setText("По элементам фигуры");
+        type1Btn.setText("РџРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РєСЂР°СЃРѕРє");
+        type2Btn.setText("РџРѕ СЌР»РµРјРµРЅС‚Р°Рј С„РёРіСѓСЂС‹");
         colorBG.add(type1Btn);
         type1Btn.setActionCommand("type1");
         type1Btn.addActionListener(new ColorListener());
@@ -196,26 +196,26 @@ public class PolyhedronPanel extends ConstraintPanel {
         
         colorCount = new JSpinner(new SpinnerNumberModel(2,2,10,1));
 
-        jLabel3.setText("Цвет:");
+        jLabel3.setText("Р¦РІРµС‚:");
 
-        color.addItem(new String ("красный"));
-        color.addItem(new String ("желтый"));
-        color.addItem(new String ("синий"));
-        color.addItem(new String ("зеленый"));
-        color.addItem(new String ("белый"));
-        color.addItem(new String ("черный"));
-        color.addItem(new String ("оранжевый"));
-        color.addItem(new String ("коричневый"));
-        color.addItem(new String ("фиолетовый"));
+        color.addItem(new String ("РєСЂР°СЃРЅС‹Р№"));
+        color.addItem(new String ("Р¶РµР»С‚С‹Р№"));
+        color.addItem(new String ("СЃРёРЅРёР№"));
+        color.addItem(new String ("Р·РµР»РµРЅС‹Р№"));
+        color.addItem(new String ("Р±РµР»С‹Р№"));
+        color.addItem(new String ("С‡РµСЂРЅС‹Р№"));
+        color.addItem(new String ("РѕСЂР°РЅР¶РµРІС‹Р№"));
+        color.addItem(new String ("РєРѕСЂРёС‡РЅРµРІС‹Р№"));
+        color.addItem(new String ("С„РёРѕР»РµС‚РѕРІС‹Р№"));
         color.setEnabled(false);
 
-        jLabel4.setText("Количество:");
+        jLabel4.setText("РљРѕР»РёС‡РµСЃС‚РІРѕ:");
         for (int i = 1; i < 10; i++) {
             elementsCount.addItem(String.valueOf(i));
         }
         elementsCount.setEnabled(false);
 
-        addFigureElement.setText("Добавить");
+        addFigureElement.setText("Р”РѕР±Р°РІРёС‚СЊ");
         addFigureElement.setEnabled(false);
         addFigureElement.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -289,7 +289,7 @@ public class PolyhedronPanel extends ConstraintPanel {
         String curColor = (String)color.getSelectedItem();
         String countColor = (String) selectedColors.get(curColor);
         if (countColor != null) {
-            JOptionPane.showMessageDialog(this, "Этот цвет уже выбран");
+            JOptionPane.showMessageDialog(this, "Р­С‚РѕС‚ С†РІРµС‚ СѓР¶Рµ РІС‹Р±СЂР°РЅ");
         }
         else {
             String count = (String)elementsCount.getSelectedItem();
@@ -302,12 +302,12 @@ public class PolyhedronPanel extends ConstraintPanel {
     class FigureListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             radioCommand = e.getActionCommand();
-            if (radioCommand.equals("Правильный многогранник")) {
+            if (radioCommand.equals("РџСЂР°РІРёР»СЊРЅС‹Р№ РјРЅРѕРіРѕРіСЂР°РЅРЅРёРє")) {
                 corners.setEnabled(false);
                 figureType.setEnabled(true);
             }
-            else if (radioCommand.equals("Пирамида") || 
-                    radioCommand.equals("Призма")) {
+            else if (radioCommand.equals("РџРёСЂР°РјРёРґР°") || 
+                    radioCommand.equals("РџСЂРёР·РјР°")) {
                 corners.setEnabled(true);
                 figureType.setEnabled(false);
             }
@@ -384,19 +384,19 @@ public class PolyhedronPanel extends ConstraintPanel {
             Figure fig;
             if (figureType.isEnabled()) {
                 String type = (String)figureType.getSelectedItem();
-                if (type.equals("тетраэдр"))
+                if (type.equals("С‚РµС‚СЂР°СЌРґСЂ"))
                     fig = new Tetrahedron((String)forColoring.getSelectedItem());
-                else if (type.equals("куб"))
+                else if (type.equals("РєСѓР±"))
                     fig = new Cube((String)forColoring.getSelectedItem());
-                else if (type.equals("октаэдр"))
+                else if (type.equals("РѕРєС‚Р°СЌРґСЂ"))
                     fig = new Octahedron((String)forColoring.getSelectedItem());
-                else if (type.equals("додекаэдр"))
+                else if (type.equals("РґРѕРґРµРєР°СЌРґСЂ"))
                     fig = new Dodecahedron((String)forColoring.getSelectedItem());
                 else
                     fig = new Icosaedr((String)forColoring.getSelectedItem());
             }
             else if (corners.isEnabled()) {
-                if (radioCommand.equals("Призма"))
+                if (radioCommand.equals("РџСЂРёР·РјР°"))
                     fig = new Prizma((String)forColoring.getSelectedItem(),
                         Integer.valueOf((String)corners.getSelectedItem()).intValue());
                 else
@@ -408,9 +408,9 @@ public class PolyhedronPanel extends ConstraintPanel {
             } 
             if (fig.getDim() != colCount)
                 if (fig.getDim() < 5)
-                    msg = new String("Выберите "+fig.getDim()+" цвета.");
+                    msg = new String("Р’С‹Р±РµСЂРёС‚Рµ "+fig.getDim()+" С†РІРµС‚Р°.");
                 else    
-                    msg = new String("Выберите "+fig.getDim()+" цветов.");
+                    msg = new String("Р’С‹Р±РµСЂРёС‚Рµ "+fig.getDim()+" С†РІРµС‚РѕРІ.");
         }
         return msg;
     }

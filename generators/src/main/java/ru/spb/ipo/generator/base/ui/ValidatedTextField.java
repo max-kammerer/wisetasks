@@ -33,9 +33,9 @@ public class ValidatedTextField extends JTextField {
 				 	
 				 	final JFrame frame = (JFrame)par;				
 					
-					JOptionPane optionPane = new JOptionPane("Значение поля должно быть числом от 0 до " + ValidatedTextField.this.max,
+					JOptionPane optionPane = new JOptionPane("Р—РЅР°С‡РµРЅРёРµ РїРѕР»СЏ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРј РѕС‚ 0 РґРѕ " + ValidatedTextField.this.max,
 						 	JOptionPane.ERROR_MESSAGE, JOptionPane.DEFAULT_OPTION);
-						 	optionPane.createDialog(frame, "Неверное значение").setVisible(true);
+						 	optionPane.createDialog(frame, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ").setVisible(true);
 				}
 				return isValid;
 			}

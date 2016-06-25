@@ -26,8 +26,8 @@ public class IndexXmlGenerator extends WordXmlGenerator {
     }
     
     public String generateDescription() {
-		return "Рассмотрим множество всех " + sourceParams.get("nabor") + "-буквенных слов в алфавите А = " + taskParams.get("alphabit") + " (буквы в словах" + (isMulti() ? " " : " не ") +  "могут повторяться)" +
-				(isEmptyInline() ? "" : ", удовлетворяющих следующим условиям : " + ((String)taskParams.get("inlineDesc")).toLowerCase()) + ". " +
-				"Найдите в этом множестве порядковый номер слова \""  + funcParams.get("indexingElementText") + "\".";
+		return "Р Р°СЃСЃРјРѕС‚СЂРёРј РјРЅРѕР¶РµСЃС‚РІРѕ РІСЃРµС… " + sourceParams.get("nabor") + "-Р±СѓРєРІРµРЅРЅС‹С… СЃР»РѕРІ РІ Р°Р»С„Р°РІРёС‚Рµ Рђ = " + taskParams.get("alphabit") + " (Р±СѓРєРІС‹ РІ СЃР»РѕРІР°С…" + (isMulti() ? " " : " РЅРµ ") +  "РјРѕРіСѓС‚ РїРѕРІС‚РѕСЂСЏС‚СЊСЃСЏ)" +
+				(isEmptyInline() ? "" : ", СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‰РёС… СЃР»РµРґСѓСЋС‰РёРј СѓСЃР»РѕРІРёСЏРј : " + ((String)taskParams.get("inlineDesc")).toLowerCase()) + ". " +
+				"РќР°Р№РґРёС‚Рµ РІ СЌС‚РѕРј РјРЅРѕР¶РµСЃС‚РІРµ РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ СЃР»РѕРІР° \""  + funcParams.get("indexingElementText") + "\".";
     }
 }

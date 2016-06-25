@@ -31,51 +31,51 @@ public class ColorCondition implements ComplexElement{
         String outCount;
         String outBrush;
         if (count.equals("1")) {
-            if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребро");
-            else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершина");
+            if (whatToBrush.equals("СЂС‘Р±СЂР°"))
+                outBrush = new String(" СЂРµР±СЂРѕ");
+            else if(whatToBrush.equals("РІРµСЂС€РёРЅС‹"))
+                outBrush = new String(" РІРµСЂС€РёРЅР°");
             else {
-                outBrush = new String(" грань");
+                outBrush = new String(" РіСЂР°РЅСЊ");
             }
         }
         else if (count.equalsIgnoreCase("2") || count.equalsIgnoreCase("3") ||
                 count.equalsIgnoreCase("4")){
-            if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребра");
-            else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершины");
+            if (whatToBrush.equals("СЂС‘Р±СЂР°"))
+                outBrush = new String(" СЂРµР±СЂР°");
+            else if(whatToBrush.equals("РІРµСЂС€РёРЅС‹"))
+                outBrush = new String(" РІРµСЂС€РёРЅС‹");
             else {
-                outBrush = new String(" грани");
+                outBrush = new String(" РіСЂР°РЅРё");
             }
         }
         else {
-            if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребер");
-            else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершин");
+            if (whatToBrush.equals("СЂС‘Р±СЂР°"))
+                outBrush = new String(" СЂРµР±РµСЂ");
+            else if(whatToBrush.equals("РІРµСЂС€РёРЅС‹"))
+                outBrush = new String(" РІРµСЂС€РёРЅ");
             else
-                outBrush = new String(" граней");
+                outBrush = new String(" РіСЂР°РЅРµР№");
         }
         
-        if (color.equalsIgnoreCase("красный"))
-            outColor = new String(" красного цвета");
-        else if (color.equalsIgnoreCase("желтый"))
-            outColor = new String(" желтого цвета");
-        else if (color.equalsIgnoreCase("синий"))
-            outColor = new String(" синего цвета");
-        else if (color.equalsIgnoreCase("зеленый"))
-            outColor = new String(" зеленого цвета");
-        else if (color.equalsIgnoreCase("белый"))
-            outColor = new String(" белого цвета");
-        else if (color.equalsIgnoreCase("черный"))
-            outColor = new String(" черного цвета");
-        else if (color.equalsIgnoreCase("оранжевый"))
-            outColor = new String(" оранжевого цвета");
-        else if (color.equalsIgnoreCase("коричневый"))
-            outColor = new String(" коричневого цвета");
+        if (color.equalsIgnoreCase("РєСЂР°СЃРЅС‹Р№"))
+            outColor = new String(" РєСЂР°СЃРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р¶РµР»С‚С‹Р№"))
+            outColor = new String(" Р¶РµР»С‚РѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("СЃРёРЅРёР№"))
+            outColor = new String(" СЃРёРЅРµРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р·РµР»РµРЅС‹Р№"))
+            outColor = new String(" Р·РµР»РµРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("Р±РµР»С‹Р№"))
+            outColor = new String(" Р±РµР»РѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("С‡РµСЂРЅС‹Р№"))
+            outColor = new String(" С‡РµСЂРЅРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("РѕСЂР°РЅР¶РµРІС‹Р№"))
+            outColor = new String(" РѕСЂР°РЅР¶РµРІРѕРіРѕ С†РІРµС‚Р°");
+        else if (color.equalsIgnoreCase("РєРѕСЂРёС‡РЅРµРІС‹Р№"))
+            outColor = new String(" РєРѕСЂРёС‡РЅРµРІРѕРіРѕ С†РІРµС‚Р°");
         else
-            outColor = new String(" фиолетового цвета");
+            outColor = new String(" С„РёРѕР»РµС‚РѕРІРѕРіРѕ С†РІРµС‚Р°");
         
         String out = new String(count);
         out = out.concat(outBrush);

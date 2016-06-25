@@ -61,21 +61,21 @@ public class OrderNumberGenerator extends Generator implements ComplexElement {
 		String s = "";
 		switch (order) {
 		case -2:
-			s = "в невозрастающем";
+			s = "РІ РЅРµРІРѕР·СЂР°СЃС‚Р°СЋС‰РµРј";
 			break;
 			
 		case -1:
-			s = "в убывающем";			
+			s = "РІ СѓР±С‹РІР°СЋС‰РµРј";			
 			break;
 			
 		case 1:
-			s = "в возрастающем";
+			s = "РІ РІРѕР·СЂР°СЃС‚Р°СЋС‰РµРј";
 			break;
 		case 2:
-			s = "в неубывающем";
+			s = "РІ РЅРµСѓР±С‹РІР°СЋС‰РµРј";
 			break;
 		}
-		return "Цифры набора идут " + s + " порядке";		
+		return "Р¦РёС„СЂС‹ РЅР°Р±РѕСЂР° РёРґСѓС‚ " + s + " РїРѕСЂСЏРґРєРµ";		
 	}
 	
 	public String toString() {		

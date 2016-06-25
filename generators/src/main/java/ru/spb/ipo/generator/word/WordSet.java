@@ -77,7 +77,7 @@ public class WordSet extends ConstraintPanel {
 	private JPanel getJPanel() {
 		if (jPanel == null) {
 			jLabel = new JLabel();
-			jLabel.setText("Буква");
+			jLabel.setText("Р‘СѓРєРІР°");
 			jPanel = new JPanel();
 			jPanel.setLayout(new BoxLayout(getJPanel(), BoxLayout.X_AXIS));
 			jPanel.add(getJPanel2(), null);
@@ -94,7 +94,7 @@ public class WordSet extends ConstraintPanel {
 	private JPanel getJPanel1() {
 		if (jPanel1 == null) {
 			jLabel2 = new JLabel();
-			jLabel2.setText("  Выбранный алфавит   ");			
+			jLabel2.setText("  Р’С‹Р±СЂР°РЅРЅС‹Р№ Р°Р»С„Р°РІРёС‚   ");			
 			jPanel1 = new JPanel();
 			jPanel1.setLayout(new BorderLayout());
 			jPanel1.add(jLabel2, BorderLayout.WEST);
@@ -135,7 +135,7 @@ public class WordSet extends ConstraintPanel {
 			gridBagConstraints.gridx = -1;
 			gridBagConstraints.gridy = -1;
 			jLabel1 = new JLabel();
-			jLabel1.setText("Количество букв в слове");
+			jLabel1.setText("РљРѕР»РёС‡РµСЃС‚РІРѕ Р±СѓРєРІ РІ СЃР»РѕРІРµ");
 			jPanel3 = new JPanel();
 			jPanel3.setLayout(flowLayout1);
 			jPanel3.add(jLabel1, null);
@@ -152,7 +152,7 @@ public class WordSet extends ConstraintPanel {
 	private JButton getAddToken() {
 		if (addToken == null) {
 			addToken = new JButton();
-			addToken.setText("Добавить букву");
+			addToken.setText("Р”РѕР±Р°РІРёС‚СЊ Р±СѓРєРІСѓ");
 			addToken.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					ListElement el = (ListElement)getWordList().getSelectedItem();
@@ -237,7 +237,7 @@ public class WordSet extends ConstraintPanel {
 	protected JButton getJButton() {
 		if (jButton == null) {
 			jButton = new JButton();
-			jButton.setText("Очистить");
+			jButton.setText("РћС‡РёСЃС‚РёС‚СЊ");
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					alphabit.clear();

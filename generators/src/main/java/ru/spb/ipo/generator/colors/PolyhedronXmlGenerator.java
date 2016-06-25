@@ -26,45 +26,45 @@ public class PolyhedronXmlGenerator extends BaseGenerator {
     }
     public String generateDescription() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Сколькими способами можно раскрасить ");
+        sb.append("РЎРєРѕР»СЊРєРёРјРё СЃРїРѕСЃРѕР±Р°РјРё РјРѕР¶РЅРѕ СЂР°СЃРєСЂР°СЃРёС‚СЊ ");
         sb.append(sourceParams.get("polyhedronText"));
         Integer taskType = (Integer)sourceParams.get("taskType");
         if (taskType == 1) {
-            sb.append(" "+sourceParams.get("colors")+" красками.");
+            sb.append(" "+sourceParams.get("colors")+" РєСЂР°СЃРєР°РјРё.");
         }
         else {
-            sb.append(", если среди них будет ");
+            sb.append(", РµСЃР»Рё СЃСЂРµРґРё РЅРёС… Р±СѓРґРµС‚ ");
             sb.append(taskParams.get("inlineDesc")+".");
         }
-        sb.append(" Раскраски считаются одинаковыми, если поворотом фигуры в " +
-                "пространстве одна раскраска получается из другой.");
+        sb.append(" Р Р°СЃРєСЂР°СЃРєРё СЃС‡РёС‚Р°СЋС‚СЃСЏ РѕРґРёРЅР°РєРѕРІС‹РјРё, РµСЃР»Рё РїРѕРІРѕСЂРѕС‚РѕРј С„РёРіСѓСЂС‹ РІ " +
+                "РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ РѕРґРЅР° СЂР°СЃРєСЂР°СЃРєР° РїРѕР»СѓС‡Р°РµС‚СЃСЏ РёР· РґСЂСѓРіРѕР№.");
         return sb.toString();
     }
     public String getParams() {
         String figureParam = (String)sourceParams.get("polyhedron");
         String brushParam = (String)sourceParams.get("whatToBrush");
-        if (figureParam.equals("Правильный многогранник")) {
+        if (figureParam.equals("РџСЂР°РІРёР»СЊРЅС‹Р№ РјРЅРѕРіРѕРіСЂР°РЅРЅРёРє")) {
             String figureType = (String)sourceParams.get("polyType");
-            if (figureType.equals("тетраэдр"))
+            if (figureType.equals("С‚РµС‚СЂР°СЌРґСЂ"))
                 figure = new Tetrahedron(brushParam);
-            else if (figureType.equals("куб"))
+            else if (figureType.equals("РєСѓР±"))
                 figure = new Cube(brushParam);
-            else if (figureType.equals("октаэдр"))
+            else if (figureType.equals("РѕРєС‚Р°СЌРґСЂ"))
                 figure = new Octahedron(brushParam);
-            else if (figureType.equals("икосаэдр"))
+            else if (figureType.equals("РёРєРѕСЃР°СЌРґСЂ"))
                 figure = new Icosaedr(brushParam);
             else 
                 figure = new Dodecahedron(brushParam);
         }
-        else if (figureParam.equals("Пирамида")) {
+        else if (figureParam.equals("РџРёСЂР°РјРёРґР°")) {
             String corners = (String)sourceParams.get("corners");
             figure = new Piramida(brushParam,Integer.valueOf(corners));
         }
-        else if (figureParam.equals("Призма")) {
+        else if (figureParam.equals("РџСЂРёР·РјР°")) {
             String corners = (String)sourceParams.get("corners");
             figure = new Prizma(brushParam,Integer.valueOf(corners));
         }
-        // Значит параллелепипед
+        // Р—РЅР°С‡РёС‚ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґ
         else {
             figure = new Parallelepiped(brushParam);
         }

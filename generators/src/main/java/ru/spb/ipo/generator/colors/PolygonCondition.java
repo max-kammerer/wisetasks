@@ -34,21 +34,21 @@ public class PolygonCondition implements ComplexElement {
     public String toString() {
         String outFigure;
         String outBrush;
-        if (figure.equals("Равнобедренный треугольник"))
-            outFigure = new String(" равнобедренного треугольника");
-        else if (figure.equals("Прямоугольник"))
-            outFigure = new String(" прямоугольника");
-        else if (figure.equals("Ромб"))
-            outFigure = new String(" ромба");
+        if (figure.equals("Р Р°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє"))
+            outFigure = new String(" СЂР°РІРЅРѕР±РµРґСЂРµРЅРЅРѕРіРѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°");
+        else if (figure.equals("РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє"))
+            outFigure = new String(" РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°");
+        else if (figure.equals("Р РѕРјР±"))
+            outFigure = new String(" СЂРѕРјР±Р°");
         else {
             if (corners.equals("3"))
-                outFigure = new String(" равностороннего треугольника");
+                outFigure = new String(" СЂР°РІРЅРѕСЃС‚РѕСЂРѕРЅРЅРµРіРѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°");
             else if (corners.equals("4"))
-                outFigure = new String(" квадрата");
+                outFigure = new String(" РєРІР°РґСЂР°С‚Р°");
             else {
-                outFigure = new String(" правильного ");
+                outFigure = new String(" РїСЂР°РІРёР»СЊРЅРѕРіРѕ ");
                 outFigure = outFigure.concat(corners);
-                outFigure = outFigure.concat("-угольника");
+                outFigure = outFigure.concat("-СѓРіРѕР»СЊРЅРёРєР°");
             }
         }
         outBrush = new String(whatToBrush);

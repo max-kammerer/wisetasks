@@ -11,61 +11,61 @@ import ru.spb.ipo.generator.word.WordCondition;
 public class TypeModell extends DefaultComboBoxModel {
 
 	public static final ListElement []  type_cards =  { 
-		new ListElement("карт бубновой масти", new Generator("1")),
-		new ListElement("карт червовой масти", new Generator("2")),
-		new ListElement("карт пиковой масти", new Generator("3")),
-		new ListElement("карт трефовой масти", new Generator("4")),
-		new ListElement("красных карт", new Generator(new String [] {"1", "2"})),
-		new ListElement("черных карт",  new Generator(new String [] {"3", "4"})),
+		new ListElement("РєР°СЂС‚ Р±СѓР±РЅРѕРІРѕР№ РјР°СЃС‚Рё", new Generator("1")),
+		new ListElement("РєР°СЂС‚ С‡РµСЂРІРѕРІРѕР№ РјР°СЃС‚Рё", new Generator("2")),
+		new ListElement("РєР°СЂС‚ РїРёРєРѕРІРѕР№ РјР°СЃС‚Рё", new Generator("3")),
+		new ListElement("РєР°СЂС‚ С‚СЂРµС„РѕРІРѕР№ РјР°СЃС‚Рё", new Generator("4")),
+		new ListElement("РєСЂР°СЃРЅС‹С… РєР°СЂС‚", new Generator(new String [] {"1", "2"})),
+		new ListElement("С‡РµСЂРЅС‹С… РєР°СЂС‚",  new Generator(new String [] {"3", "4"})),
 
-		new ListElement("двоек", new SimpleGenerator("1", "1")),
-		new ListElement("троек", new SimpleGenerator("2", "1")),
-		new ListElement("четверок", new SimpleGenerator("3", "1")),
-		new ListElement("пятерок", new SimpleGenerator("4", "1")),
-		new ListElement("шестерок", new SimpleGenerator("5", "1")),
-		new ListElement("семерок", new SimpleGenerator("6", "1")),
-		new ListElement("восьмерок", new SimpleGenerator("7", "1")),
-		new ListElement("девяток", new SimpleGenerator("8", "1")),
-		new ListElement("десяток", new Generator("9", "1")),
-		new ListElement("вальтов", new Generator("10", "1")),
-		new ListElement("дам", new Generator("11", "1")),
-		new ListElement("королей", new Generator("12", "1")),
-		new ListElement("тузов", new Generator("13", "1"))
-		//new ListElement("какой-либо масти", "7")		
+		new ListElement("РґРІРѕРµРє", new SimpleGenerator("1", "1")),
+		new ListElement("С‚СЂРѕРµРє", new SimpleGenerator("2", "1")),
+		new ListElement("С‡РµС‚РІРµСЂРѕРє", new SimpleGenerator("3", "1")),
+		new ListElement("РїСЏС‚РµСЂРѕРє", new SimpleGenerator("4", "1")),
+		new ListElement("С€РµСЃС‚РµСЂРѕРє", new SimpleGenerator("5", "1")),
+		new ListElement("СЃРµРјРµСЂРѕРє", new SimpleGenerator("6", "1")),
+		new ListElement("РІРѕСЃСЊРјРµСЂРѕРє", new SimpleGenerator("7", "1")),
+		new ListElement("РґРµРІСЏС‚РѕРє", new SimpleGenerator("8", "1")),
+		new ListElement("РґРµСЃСЏС‚РѕРє", new Generator("9", "1")),
+		new ListElement("РІР°Р»СЊС‚РѕРІ", new Generator("10", "1")),
+		new ListElement("РґР°Рј", new Generator("11", "1")),
+		new ListElement("РєРѕСЂРѕР»РµР№", new Generator("12", "1")),
+		new ListElement("С‚СѓР·РѕРІ", new Generator("13", "1"))
+		//new ListElement("РєР°РєРѕР№-Р»РёР±Рѕ РјР°СЃС‚Рё", "7")		
 	};
 	
 	public static final ListElement [] valueMast_cards =  { 
-		new ListElement("бубей", new SimpleGenerator("1", "2")),
-		new ListElement("червей", new SimpleGenerator("2", "2")),
-		new ListElement("пик", new SimpleGenerator("3", "2")),
-		new ListElement("треф", new SimpleGenerator("4", "2"))				
+		new ListElement("Р±СѓР±РµР№", new SimpleGenerator("1", "2")),
+		new ListElement("С‡РµСЂРІРµР№", new SimpleGenerator("2", "2")),
+		new ListElement("РїРёРє", new SimpleGenerator("3", "2")),
+		new ListElement("С‚СЂРµС„", new SimpleGenerator("4", "2"))				
 	};
 	
 	public static final ListElement [] valueType_cards =  { 
-		new ListElement("двойка", new SimpleGenerator("1", "1")),
-		new ListElement("тройка", new SimpleGenerator("2", "1")),
-		new ListElement("четверка", new SimpleGenerator("3", "1")),
-		new ListElement("пятерка", new SimpleGenerator("4", "1")),
-		new ListElement("шестерка", new SimpleGenerator("5", "1")),
-		new ListElement("семерка", new SimpleGenerator("6", "1")),
-		new ListElement("восьмерка", new SimpleGenerator("7", "1")),
-		new ListElement("девятка", new SimpleGenerator("8", "1")),
-		new ListElement("десятка", new SimpleGenerator("9", "1")),
-		new ListElement("валет", new SimpleGenerator("10", "1")),
-		new ListElement("дама", new SimpleGenerator("11", "1")),
-		new ListElement("король", new SimpleGenerator("12", "1")),
-		new ListElement("туз", new SimpleGenerator("13", "1"))						
+		new ListElement("РґРІРѕР№РєР°", new SimpleGenerator("1", "1")),
+		new ListElement("С‚СЂРѕР№РєР°", new SimpleGenerator("2", "1")),
+		new ListElement("С‡РµС‚РІРµСЂРєР°", new SimpleGenerator("3", "1")),
+		new ListElement("РїСЏС‚РµСЂРєР°", new SimpleGenerator("4", "1")),
+		new ListElement("С€РµСЃС‚РµСЂРєР°", new SimpleGenerator("5", "1")),
+		new ListElement("СЃРµРјРµСЂРєР°", new SimpleGenerator("6", "1")),
+		new ListElement("РІРѕСЃСЊРјРµСЂРєР°", new SimpleGenerator("7", "1")),
+		new ListElement("РґРµРІСЏС‚РєР°", new SimpleGenerator("8", "1")),
+		new ListElement("РґРµСЃСЏС‚РєР°", new SimpleGenerator("9", "1")),
+		new ListElement("РІР°Р»РµС‚", new SimpleGenerator("10", "1")),
+		new ListElement("РґР°РјР°", new SimpleGenerator("11", "1")),
+		new ListElement("РєРѕСЂРѕР»СЊ", new SimpleGenerator("12", "1")),
+		new ListElement("С‚СѓР·", new SimpleGenerator("13", "1"))						
 	};
 	
 	
 	public static final ListElement []  word_cond =  { 
-		new ListElement("Слово является палиндромом", new WordCondition("Слово является палиндромом")),
-		new ListElement("Гласные и согласные чередуются", new DiffGenerator("Гласные и согласные чередуются")),
-		new ListElement("После каждой согласной идет гласная", new NextGenerator("После каждой согласной идет гласная", 0)),
-		new ListElement("После каждой гласной идет согласная", new NextGenerator("После каждой гласной идет согласная", 1)),
-		new ListElement("Согласных меньше чем гласных", new SignGenerator(-1)),
-		new ListElement("Согласных больше гласных", new SignGenerator(1)),
-		new ListElement("Согласных столько же сколько гласных", new SignGenerator(0))				
+		new ListElement("РЎР»РѕРІРѕ СЏРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј", new WordCondition("РЎР»РѕРІРѕ СЏРІР»СЏРµС‚СЃСЏ РїР°Р»РёРЅРґСЂРѕРјРѕРј")),
+		new ListElement("Р“Р»Р°СЃРЅС‹Рµ Рё СЃРѕРіР»Р°СЃРЅС‹Рµ С‡РµСЂРµРґСѓСЋС‚СЃСЏ", new DiffGenerator("Р“Р»Р°СЃРЅС‹Рµ Рё СЃРѕРіР»Р°СЃРЅС‹Рµ С‡РµСЂРµРґСѓСЋС‚СЃСЏ")),
+		new ListElement("РџРѕСЃР»Рµ РєР°Р¶РґРѕР№ СЃРѕРіР»Р°СЃРЅРѕР№ РёРґРµС‚ РіР»Р°СЃРЅР°СЏ", new NextGenerator("РџРѕСЃР»Рµ РєР°Р¶РґРѕР№ СЃРѕРіР»Р°СЃРЅРѕР№ РёРґРµС‚ РіР»Р°СЃРЅР°СЏ", 0)),
+		new ListElement("РџРѕСЃР»Рµ РєР°Р¶РґРѕР№ РіР»Р°СЃРЅРѕР№ РёРґРµС‚ СЃРѕРіР»Р°СЃРЅР°СЏ", new NextGenerator("РџРѕСЃР»Рµ РєР°Р¶РґРѕР№ РіР»Р°СЃРЅРѕР№ РёРґРµС‚ СЃРѕРіР»Р°СЃРЅР°СЏ", 1)),
+		new ListElement("РЎРѕРіР»Р°СЃРЅС‹С… РјРµРЅСЊС€Рµ С‡РµРј РіР»Р°СЃРЅС‹С…", new SignGenerator(-1)),
+		new ListElement("РЎРѕРіР»Р°СЃРЅС‹С… Р±РѕР»СЊС€Рµ РіР»Р°СЃРЅС‹С…", new SignGenerator(1)),
+		new ListElement("РЎРѕРіР»Р°СЃРЅС‹С… СЃС‚РѕР»СЊРєРѕ Р¶Рµ СЃРєРѕР»СЊРєРѕ РіР»Р°СЃРЅС‹С…", new SignGenerator(0))				
 	};
 
 	

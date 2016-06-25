@@ -37,31 +37,31 @@ public class PolyhedronCondition implements ComplexElement{
     public String toString() {
         String outFigure;
         String outBrush;
-        if (figure.equals("Пирамида")) {
-            outFigure = new String(" пирамиды с ");
+        if (figure.equals("РџРёСЂР°РјРёРґР°")) {
+            outFigure = new String(" РїРёСЂР°РјРёРґС‹ СЃ ");
             String outCorners = new String(corners);
-            outCorners = outCorners.concat(" углами в основании");
+            outCorners = outCorners.concat(" СѓРіР»Р°РјРё РІ РѕСЃРЅРѕРІР°РЅРёРё");
             outFigure = outFigure.concat(outCorners);
         }
-        else if (figure.equals("Призма")) {
-            outFigure = new String(" призмы с ");
+        else if (figure.equals("РџСЂРёР·РјР°")) {
+            outFigure = new String(" РїСЂРёР·РјС‹ СЃ ");
             String outCorners = new String(corners);
-            outCorners = outCorners.concat(" углами в основании");
+            outCorners = outCorners.concat(" СѓРіР»Р°РјРё РІ РѕСЃРЅРѕРІР°РЅРёРё");
             outFigure = outFigure.concat(outCorners);
         }
-        else if (figure.equals("Прямоугольный параллелепипед"))
-            outFigure = new String(" прямоугольного параллелепипеда");
+        else if (figure.equals("РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґ"))
+            outFigure = new String(" РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРѕРіРѕ РїР°СЂР°Р»Р»РµР»РµРїРёРїРµРґР°");
         else {
-            if (polyType.equals("тетраэдр"))
-                outFigure = new String(" правильного тетраэдра");
-            else if (polyType.equals("куб"))
-                outFigure = new String(" куба");
-            else if (polyType.equals("додекаэдр"))
-                outFigure = new String(" додекаэдра");
-            else if (polyType.equals("икосаэдр"))
-                outFigure = new String(" икосаэдра");
+            if (polyType.equals("С‚РµС‚СЂР°СЌРґСЂ"))
+                outFigure = new String(" РїСЂР°РІРёР»СЊРЅРѕРіРѕ С‚РµС‚СЂР°СЌРґСЂР°");
+            else if (polyType.equals("РєСѓР±"))
+                outFigure = new String(" РєСѓР±Р°");
+            else if (polyType.equals("РґРѕРґРµРєР°СЌРґСЂ"))
+                outFigure = new String(" РґРѕРґРµРєР°СЌРґСЂР°");
+            else if (polyType.equals("РёРєРѕСЃР°СЌРґСЂ"))
+                outFigure = new String(" РёРєРѕСЃР°СЌРґСЂР°");
             else
-                outFigure = new String(" октаэдра");
+                outFigure = new String(" РѕРєС‚Р°СЌРґСЂР°");
         }
         outBrush = new String(whatToBrush);
         outBrush = outBrush.concat(outFigure);

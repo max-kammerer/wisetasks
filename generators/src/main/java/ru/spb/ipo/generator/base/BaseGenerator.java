@@ -90,8 +90,8 @@ public class BaseGenerator {
     }
     
     public String generateDescription() {    	
-        return "Из колоды в " + sourceParams.get("colodaDesc") + " карт вытаскивают случайным образом " + sourceParams.get("nabor") + " карт. " +
-        (isEmptyInline() ? "Подсчитайте количество всех возможных наборов карт." : "Подсчитайте количество наборов, в которых " + taskParams.get("inlineDesc") + ".");
+        return "РР· РєРѕР»РѕРґС‹ РІ " + sourceParams.get("colodaDesc") + " РєР°СЂС‚ РІС‹С‚Р°СЃРєРёРІР°СЋС‚ СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј " + sourceParams.get("nabor") + " РєР°СЂС‚. " +
+        (isEmptyInline() ? "РџРѕРґСЃС‡РёС‚Р°Р№С‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІСЃРµС… РІРѕР·РјРѕР¶РЅС‹С… РЅР°Р±РѕСЂРѕРІ РєР°СЂС‚." : "РџРѕРґСЃС‡РёС‚Р°Р№С‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°Р±РѕСЂРѕРІ, РІ РєРѕС‚РѕСЂС‹С… " + taskParams.get("inlineDesc") + ".");
     }    
     
     public String generateXml() {        

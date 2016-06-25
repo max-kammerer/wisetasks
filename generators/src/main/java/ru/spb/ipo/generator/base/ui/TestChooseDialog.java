@@ -53,7 +53,7 @@ public class TestChooseDialog extends JDialog {
 	private void initialize() {
 		this.setSize(367, 252);
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		this.setTitle("Выберите сборник для сохранения");
+		this.setTitle("Р’С‹Р±РµСЂРёС‚Рµ СЃР±РѕСЂРЅРёРє РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ");
 		this.setContentPane(getJContentPane());
 	}
 
@@ -153,7 +153,7 @@ public class TestChooseDialog extends JDialog {
 	private JButton getAdd() {
 		if (add == null) {
 			add = new JButton();
-			add.setText("Сохранить");
+			add.setText("РЎРѕС…СЂР°РЅРёС‚СЊ");
 			add.setEnabled(false);
 			add.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -173,7 +173,7 @@ public class TestChooseDialog extends JDialog {
 	private JButton getCancel() {
 		if (cancel == null) {
 			cancel = new JButton();
-			cancel.setText("Отмена");
+			cancel.setText("РћС‚РјРµРЅР°");
 			cancel.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					TestChooseDialog.this.dispose();

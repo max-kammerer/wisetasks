@@ -34,7 +34,7 @@ public class DivElement implements ComplexElement {
 	}
 
 	public String toString() {		
-		return "x" + (axis) + " делится на " + mod;
+		return "x" + (axis) + " РґРµР»РёС‚СЃСЏ РЅР° " + mod;
 	}
 	
 }

@@ -63,12 +63,12 @@ public class BeadsPanel extends ConstraintPanel{
         JLabel jLabel2 = new javax.swing.JLabel();
         
         ButtonGroup bg = new ButtonGroup();
-        type1Btn.setText("По количеству красок");
+        type1Btn.setText("РџРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РєСЂР°СЃРѕРє");
         type1Btn.setActionCommand("type1");
         type1Btn.addActionListener(new ColorListener());
         type1Btn.setSelected(true);
         bg.add(type1Btn);
-        type2Btn.setText("По количеству бусин определенного цвета");
+        type2Btn.setText("РџРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ Р±СѓСЃРёРЅ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ С†РІРµС‚Р°");
         type2Btn.setActionCommand("type2");
         type2Btn.addActionListener(new ColorListener());
         bg.add(type2Btn);
@@ -76,22 +76,22 @@ public class BeadsPanel extends ConstraintPanel{
         colorCount = new JSpinner(new SpinnerNumberModel(2,2,10,1));
         beadsCount = new JSpinner(new SpinnerNumberModel(3,3,10,1));
 
-        color.addItem(new String ("красный"));
-        color.addItem(new String ("желтый"));
-        color.addItem(new String ("синий"));
-        color.addItem(new String ("зеленый"));
-        color.addItem(new String ("белый"));
-        color.addItem(new String ("черный"));
-        color.addItem(new String ("оранжевый"));
-        color.addItem(new String ("коричневый"));
-        color.addItem(new String ("фиолетовый"));
+        color.addItem(new String ("РєСЂР°СЃРЅС‹Р№"));
+        color.addItem(new String ("Р¶РµР»С‚С‹Р№"));
+        color.addItem(new String ("СЃРёРЅРёР№"));
+        color.addItem(new String ("Р·РµР»РµРЅС‹Р№"));
+        color.addItem(new String ("Р±РµР»С‹Р№"));
+        color.addItem(new String ("С‡РµСЂРЅС‹Р№"));
+        color.addItem(new String ("РѕСЂР°РЅР¶РµРІС‹Р№"));
+        color.addItem(new String ("РєРѕСЂРёС‡РЅРµРІС‹Р№"));
+        color.addItem(new String ("С„РёРѕР»РµС‚РѕРІС‹Р№"));
         color.setEnabled(false);
         
         for (int i = 1; i < 10; i++)
             quantity.addItem(String.valueOf(i));
         quantity.setEnabled(false);
 
-        addFigureElement.setText("Добавить");
+        addFigureElement.setText("Р”РѕР±Р°РІРёС‚СЊ");
         addFigureElement.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 createCondFromParameters();
@@ -99,10 +99,10 @@ public class BeadsPanel extends ConstraintPanel{
         });
         addFigureElement.setEnabled(false);
         
-        jLabel4.setText("Количество:");
-        jLabel3.setText("Цвет:");
-        jLabel1.setText("Краски:");
-        jLabel2.setText("Бусины:");
+        jLabel4.setText("РљРѕР»РёС‡РµСЃС‚РІРѕ:");
+        jLabel3.setText("Р¦РІРµС‚:");
+        jLabel1.setText("РљСЂР°СЃРєРё:");
+        jLabel2.setText("Р‘СѓСЃРёРЅС‹:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -188,7 +188,7 @@ public class BeadsPanel extends ConstraintPanel{
         String colorName = (String)color.getSelectedItem();
         String countColor = (String) selectedColors.get(colorName);
         if (countColor != null) {
-            JOptionPane.showMessageDialog(this, "Этот цвет уже выбран");
+            JOptionPane.showMessageDialog(this, "Р­С‚РѕС‚ С†РІРµС‚ СѓР¶Рµ РІС‹Р±СЂР°РЅ");
         }
         else {
             String count = (String)quantity.getSelectedItem();
@@ -226,12 +226,12 @@ public class BeadsPanel extends ConstraintPanel{
         String msg = null;
         if (taskType == 1) {
             if ((Integer)colorCount.getValue() > (Integer)beadsCount.getValue())
-                msg = "Количество цветов должно быть меньше количества бус.";
+                msg = "РљРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ РєРѕР»РёС‡РµСЃС‚РІР° Р±СѓСЃ.";
         }
         else {
             ComplexElement [] conds = parent.generator.getConditions();
             if (conds.length == 0)
-                msg = "Добавьте несколько бусин разного цвета.";
+                msg = "Р”РѕР±Р°РІСЊС‚Рµ РЅРµСЃРєРѕР»СЊРєРѕ Р±СѓСЃРёРЅ СЂР°Р·РЅРѕРіРѕ С†РІРµС‚Р°.";
         }
         return msg;
     }

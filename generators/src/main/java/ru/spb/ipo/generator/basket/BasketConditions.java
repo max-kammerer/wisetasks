@@ -103,7 +103,7 @@ public class BasketConditions extends ConstraintPanel {
 	private JButton getJButton() {
 		if (jButton == null) {
 			jButton = new JButton();
-			jButton.setText("Добавить");
+			jButton.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					addCondition(new BasketBallComplexElement(jComboBox.getSelectedIndex(), 1));
@@ -123,7 +123,7 @@ public class BasketConditions extends ConstraintPanel {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.LEFT);
 			jLabel = new JLabel();
-			jLabel.setText("Вытаскивают");
+			jLabel.setText("Р’С‹С‚Р°СЃРєРёРІР°СЋС‚");
 			jPanel3 = new JPanel();
 			jPanel3.setLayout(flowLayout1);
 			jPanel3.add(jLabel, null);
@@ -169,8 +169,8 @@ public class BasketConditions extends ConstraintPanel {
 	private JCheckBox getIsCont() {
 		if (isCont == null) {
 			isCont = new JCheckBox();
-			isCont.setText("Последовательно");
-			isCont.setToolTipText("Последовательно или одновременно");
+			isCont.setText("РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ");
+			isCont.setToolTipText("РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ РёР»Рё РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ");
 		}
 		return isCont;
 	}

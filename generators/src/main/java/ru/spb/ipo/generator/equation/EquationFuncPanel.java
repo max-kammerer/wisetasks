@@ -66,7 +66,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.RIGHT);
 			jLabel3 = new JLabel();
-			jLabel3.setText("Ограничения  ");
+			jLabel3.setText("РћРіСЂР°РЅРёС‡РµРЅРёСЏ  ");
 			jPanel = new JPanel();
 			jPanel.setLayout(flowLayout1);
 			jPanel.add(jLabel3, null);
@@ -118,7 +118,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 	private JButton getAddRegion() {
 		if (addRegion == null) {
 			addRegion = new JButton();
-			addRegion.setText("Добавить");
+			addRegion.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addRegion.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Object cond = comdConstraint.getSelectedItem();
@@ -132,9 +132,9 @@ public class EquationFuncPanel extends ConstraintPanel {
 						} catch (Exception ew) {
 						}
 						if (number < 0 || number > 50) {
-							JOptionPane optionPane = new JOptionPane("Значение поля должно быть числом от 0 до 50",
+							JOptionPane optionPane = new JOptionPane("Р—РЅР°С‡РµРЅРёРµ РїРѕР»СЏ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РёСЃР»РѕРј РѕС‚ 0 РґРѕ 50",
 								 	JOptionPane.ERROR_MESSAGE, JOptionPane.DEFAULT_OPTION);
-								 	optionPane.createDialog(EquationFuncPanel.this, "Неверное значение").setVisible(true);
+								 	optionPane.createDialog(EquationFuncPanel.this, "РќРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ").setVisible(true);
 					 		return;
 						}
 					}
@@ -174,7 +174,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 	 */
 	private JComboBox getJComboBox1() {
 		if (jComboBox1 == null) {
-			jComboBox1 = new JComboBox(new DefaultComboBoxModel(new String[]{"четное", "нечетное", "делится на 3", "делится на 5", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]", "x[10]"}));
+			jComboBox1 = new JComboBox(new DefaultComboBoxModel(new String[]{"С‡РµС‚РЅРѕРµ", "РЅРµС‡РµС‚РЅРѕРµ", "РґРµР»РёС‚СЃСЏ РЅР° 3", "РґРµР»РёС‚СЃСЏ РЅР° 5", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]", "x[10]"}));
 		}
 		return jComboBox1;
 	}
@@ -187,7 +187,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 	private JButton getAddConstraint() {
 		if (addConstraint == null) {
 			addConstraint = new JButton();
-			addConstraint.setText("Добавить");
+			addConstraint.setText("Р”РѕР±Р°РІРёС‚СЊ");
 		}
 		return addConstraint;
 	}
@@ -225,7 +225,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 	 */
 	private JComboBox getConstraint() {
 		if (constraint == null) {
-			constraint = new JComboBox(new DefaultComboBoxModel(new String[]{"", "четное", "нечетное", "делится на 3", "делится на 5", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]", "x[10]"}));
+			constraint = new JComboBox(new DefaultComboBoxModel(new String[]{"", "С‡РµС‚РЅРѕРµ", "РЅРµС‡РµС‚РЅРѕРµ", "РґРµР»РёС‚СЃСЏ РЅР° 3", "РґРµР»РёС‚СЃСЏ РЅР° 5", "x[5]", "x[6]", "x[7]", "x[8]", "x[9]", "x[10]"}));
 			constraint.setEditable(true);
 			constraint.addItemListener(new java.awt.event.ItemListener() {
 				public void itemStateChanged(java.awt.event.ItemEvent e) {
@@ -252,7 +252,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 	 */
 	private JComboBox getComdConstraint() {
 		if (comdConstraint == null) {
-			comdConstraint = new JComboBox(new DefaultComboBoxModel(new String[]{"<=", "==" , ">=", "делится на"}));
+			comdConstraint = new JComboBox(new DefaultComboBoxModel(new String[]{"<=", "==" , ">=", "РґРµР»РёС‚СЃСЏ РЅР°"}));
 			comdConstraint.addItemListener(new java.awt.event.ItemListener() {
 				public void itemStateChanged(java.awt.event.ItemEvent e) {
 					if (comdConstraint.getSelectedIndex() == 3) {
@@ -276,7 +276,7 @@ public class EquationFuncPanel extends ConstraintPanel {
 			constrNumber =  new JComboBox(new DefaultComboBoxModel(new String[]{"", "x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9", "x10"}));
 			constrNumber.setEditable(true);
 			constrNumber.setSelectedItem("2");
-			constrNumber.setToolTipText("Введите число или выберите неизвестную");
+			constrNumber.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РёР»Рё РІС‹Р±РµСЂРёС‚Рµ РЅРµРёР·РІРµСЃС‚РЅСѓСЋ");
 			constrNumber.addItemListener(new java.awt.event.ItemListener() {
 				public void itemStateChanged(java.awt.event.ItemEvent e) {
 					Object value = e.getItem();

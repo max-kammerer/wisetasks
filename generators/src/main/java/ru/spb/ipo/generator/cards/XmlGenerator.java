@@ -60,7 +60,7 @@
 //    }
 //    
 //    public static String generateDescription(String coloda, String number, String functionList) {
-//        return "Из колоды в " + coloda + " карт вытаскивают случайным образом " + number + " карт. Подсчитайте количество наборов в которых: " + functionList + ".";
+//        return "РР· РєРѕР»РѕРґС‹ РІ " + coloda + " РєР°СЂС‚ РІС‹С‚Р°СЃРєРёРІР°СЋС‚ СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј " + number + " РєР°СЂС‚. РџРѕРґСЃС‡РёС‚Р°Р№С‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°Р±РѕСЂРѕРІ РІ РєРѕС‚РѕСЂС‹С…: " + functionList + ".";
 //                
 //    }    
 //    

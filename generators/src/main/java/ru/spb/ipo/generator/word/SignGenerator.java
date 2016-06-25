@@ -64,17 +64,17 @@ public class SignGenerator extends WordCondition {
 		String s = "";
 		switch (sign) {
 		case -1:
-			s = "меньше чем";
+			s = "РјРµРЅСЊС€Рµ С‡РµРј";
 			break;
 
 		case 0:
-			s = "столько же сколько";
+			s = "СЃС‚РѕР»СЊРєРѕ Р¶Рµ СЃРєРѕР»СЊРєРѕ";
 			break;
 			
 		case 1:
-			s = "больше чем";
+			s = "Р±РѕР»СЊС€Рµ С‡РµРј";
 			break;
 		}
-		return "Согласных " + s + " гласных";		
+		return "РЎРѕРіР»Р°СЃРЅС‹С… " + s + " РіР»Р°СЃРЅС‹С…";		
 	}	
 }

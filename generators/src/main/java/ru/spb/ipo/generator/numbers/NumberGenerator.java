@@ -65,8 +65,8 @@ public class NumberGenerator extends BaseGeneratorUI {
 	}
 
 	public String getEditorTitle() {
-		//return "Конструктор задач с наборами цифр";
-		return "Редактор \"Упорядоченные числовые наборы\"";
+		//return "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р°РґР°С‡ СЃ РЅР°Р±РѕСЂР°РјРё С†РёС„СЂ";
+		return "Р РµРґР°РєС‚РѕСЂ \"РЈРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Рµ С‡РёСЃР»РѕРІС‹Рµ РЅР°Р±РѕСЂС‹\"";
 	}
 	
 	private static BaseGeneratorUI instance = null;

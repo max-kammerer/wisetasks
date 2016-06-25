@@ -102,7 +102,7 @@ public class BallChoicePanel extends JPanel {
 	private JButton getAddButton() {
 		if (addButton == null) {
 			addButton = new JButton();
-			addButton.setText("Добавить");
+			addButton.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					int color1 = color.getSelectedIndex();

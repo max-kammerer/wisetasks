@@ -21,7 +21,7 @@ public class IndexFPanel extends WordFPanel {
 	private JPanel getRestrict() {
 		if (restrict == null) {
 			restrict = new  JPanel(new FlowLayout(FlowLayout.LEFT));
-			restrict.add(new JLabel("Слово для индексации  "));
+			restrict.add(new JLabel("РЎР»РѕРІРѕ РґР»СЏ РёРЅРґРµРєСЃР°С†РёРё  "));
 			restrict.add(getWord());
 		}
 		return restrict;

@@ -54,17 +54,17 @@ public class ScaleDialog extends JDialog implements ActionListener {
 		top.add(getImagePanelSmallScale());
 		values = new JPanel();
 		values.setLayout(new FlowLayout());
-		wLabel = new JLabel("Ширина");
+		wLabel = new JLabel("РЁРёСЂРёРЅР°");
 		width = new JTextField(3);
 		width.setText("120");
-		hLabel = new JLabel("Высота");
+		hLabel = new JLabel("Р’С‹СЃРѕС‚Р°");
 		height = new JTextField(3);
 		height.setText("120");
 		values.add(wLabel);
 		values.add(width);
 		values.add(hLabel);
 		values.add(height);
-		JButton button3 = new JButton("Масштаб");
+		JButton button3 = new JButton("РњР°СЃС€С‚Р°Р±");
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -94,7 +94,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
 		// top.add(values);
 
 		JPanel buttons = new JPanel();
-		JButton button1 = new JButton("Сохранить");
+		JButton button1 = new JButton("РЎРѕС…СЂР°РЅРёС‚СЊ");
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -123,7 +123,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
                                 JOptionPane.showMessageDialog(
                                             ScaleDialog.this,
                                             "No appropriate writer is found for specified image format",
-                                            "Ошибка при сохранении",
+                                            "РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё",
                                             JOptionPane.ERROR_MESSAGE);
                             }
                         } catch (IOException e1) {
@@ -131,7 +131,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
                             JOptionPane.showMessageDialog(
 										ScaleDialog.this,
 										e1.getMessage(),
-										"Ошибка при сохранении",
+										"РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё",
 										JOptionPane.ERROR_MESSAGE);
                         }
 
@@ -144,7 +144,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
 			}
 		});
 
-		JButton button2 = new JButton("Загрузить...");
+		JButton button2 = new JButton("Р—Р°РіСЂСѓР·РёС‚СЊ...");
 
 		button2.addActionListener(new ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -293,7 +293,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
 		if (imageChooser == null) {
 			imageChooser = new JFileChooser(new File("." + File.separator
 					+ "tasks" + File.separator + "imgs"));
-			imageChooser.setDialogTitle("Выберите файл-картинку к задаче...");
+			imageChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»-РєР°СЂС‚РёРЅРєСѓ Рє Р·Р°РґР°С‡Рµ...");
 			imageChooser.setControlButtonsAreShown(true);
 			imageChooser.removeChoosableFileFilter(imageChooser
 					.getChoosableFileFilters()[0]);
@@ -315,7 +315,7 @@ public class ScaleDialog extends JDialog implements ActionListener {
 				}
 
 				public String getDescription() {
-					return "картинки (*.png, *.gif, *.jpg, *.jpeg)";
+					return "РєР°СЂС‚РёРЅРєРё (*.png, *.gif, *.jpg, *.jpeg)";
 				}
 			});
 			imageChooser.setAccessory(new ImagePreview(imageChooser));

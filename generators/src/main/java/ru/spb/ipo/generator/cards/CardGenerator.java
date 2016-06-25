@@ -95,7 +95,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.RIGHT);
 			collectionSizeLabel = new JLabel();
-			collectionSizeLabel.setText("Размер набора");
+			collectionSizeLabel.setText("Р Р°Р·РјРµСЂ РЅР°Р±РѕСЂР°");
 			collectionSizePanel = new JPanel();
 			collectionSizePanel.setLayout(flowLayout1);
 			collectionSizePanel.add(collectionSizeLabel, null);
@@ -112,7 +112,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JPanel getPackSizeLabel() {
 		if (packSizePanel == null) {
             packSizeLabel = new JLabel();
-			packSizeLabel.setText("Размер колоды ");
+			packSizeLabel.setText("Р Р°Р·РјРµСЂ РєРѕР»РѕРґС‹ ");
             FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.LEFT);
 			packSizePanel = new JPanel();
@@ -158,7 +158,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JPanel getJPanel3() {
 		if (cardQuantityPanel == null) {
 			cardQuantityLabel = new JLabel();
-			cardQuantityLabel.setText("Количество");
+			cardQuantityLabel.setText("РљРѕР»РёС‡РµСЃС‚РІРѕ");
 			FlowLayout flowLayout2 = new FlowLayout();
 			flowLayout2.setAlignment(FlowLayout.RIGHT);
 			cardQuantityPanel = new JPanel();
@@ -193,7 +193,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JButton getAddQuantityCardButton() {
 		if (addQuantityCardButton == null) {
 			addQuantityCardButton = new JButton();
-			addQuantityCardButton.setText("Добавить");
+			addQuantityCardButton.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addQuantityCardButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					DefaultListModel model = (DefaultListModel) functionList.getModel();
@@ -264,7 +264,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			FlowLayout flowLayout5 = new FlowLayout();
 			flowLayout5.setAlignment(FlowLayout.RIGHT);
 			packIncludeLabel = new JLabel();
-			packIncludeLabel.setText("В наборе имеется ");
+			packIncludeLabel.setText("Р’ РЅР°Р±РѕСЂРµ РёРјРµРµС‚СЃСЏ ");
 			packIncludePanel = new JPanel();
 			packIncludePanel.setLayout(flowLayout5);
 			packIncludePanel.add(packIncludeLabel, null);
@@ -283,7 +283,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JButton getAddIncludeConditionButton() {
 		if (addIncludeConditionButton == null) {
 			addIncludeConditionButton = new JButton();
-			addIncludeConditionButton.setText("Добавить");
+			addIncludeConditionButton.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addIncludeConditionButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					DefaultListModel model = (DefaultListModel) functionList.getModel();
@@ -333,8 +333,8 @@ public class CardGenerator extends BaseGeneratorUI {
     }
 
 	public String getEditorTitle() {
-		//return "Конструктор задач с картами";
-		return "Редактор \"Колода карт\"";
+		//return "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р°РґР°С‡ СЃ РєР°СЂС‚Р°РјРё";
+		return "Р РµРґР°РєС‚РѕСЂ \"РљРѕР»РѕРґР° РєР°СЂС‚\"";
 	}
 	
 	public static CardGenerator getInstance() {

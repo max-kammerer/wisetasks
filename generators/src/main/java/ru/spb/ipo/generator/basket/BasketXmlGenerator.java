@@ -11,7 +11,7 @@ import ru.spb.ipo.generator.base.FuncUtil;
 
 public class BasketXmlGenerator extends BaseGenerator {
 
-	public static String [] ballColors = new String [] {"белый", "черный", "синий", "красный", "зеленый"};
+	public static String [] ballColors = new String [] {"Р±РµР»С‹Р№", "С‡РµСЂРЅС‹Р№", "СЃРёРЅРёР№", "РєСЂР°СЃРЅС‹Р№", "Р·РµР»РµРЅС‹Р№"};
 	
 	public static Color [] colors = new Color [] {Color.WHITE, new Color(80, 80, 80), new Color(0, 100, 250), Color.RED, Color.GREEN};
 	
@@ -37,11 +37,11 @@ public class BasketXmlGenerator extends BaseGenerator {
 	public String generateDescription() {
 		String res = "";
 		if (!isSingle()) {
-			res = "Имеются две урны A и B , в урне A находится " + toDesc((ComplexElement []) sourceParams.get("basket1")) + " шаров, в урне B - " + toDesc((ComplexElement []) sourceParams.get("basket2")) + ".";  
+			res = "РРјРµСЋС‚СЃСЏ РґРІРµ СѓСЂРЅС‹ A Рё B , РІ СѓСЂРЅРµ A РЅР°С…РѕРґРёС‚СЃСЏ " + toDesc((ComplexElement []) sourceParams.get("basket1")) + " С€Р°СЂРѕРІ, РІ СѓСЂРЅРµ B - " + toDesc((ComplexElement []) sourceParams.get("basket2")) + ".";  
 		} else {
-			res = "В урне A находится " + toDesc((ComplexElement []) sourceParams.get("basket1")) + " шаров.";
+			res = "Р’ СѓСЂРЅРµ A РЅР°С…РѕРґРёС‚СЃСЏ " + toDesc((ComplexElement []) sourceParams.get("basket1")) + " С€Р°СЂРѕРІ.";
 		}
-		res += " С какой вероятностью из урны A можно " + (isCont() ? "последовательно" : "одновременно") + " вытащить" + taskParams.get("inlineDesc") + ".";
+		res += " РЎ РєР°РєРѕР№ РІРµСЂРѕСЏС‚РЅРѕСЃС‚СЊСЋ РёР· СѓСЂРЅС‹ A РјРѕР¶РЅРѕ " + (isCont() ? "РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ" : "РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ") + " РІС‹С‚Р°С‰РёС‚СЊ" + taskParams.get("inlineDesc") + ".";
 		return res;
 		
 	}

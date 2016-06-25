@@ -43,11 +43,11 @@ public class NumberXmlGenerator extends BaseGenerator {
 		int maxDigit =  Integer.valueOf((String) sourceParams.get("maxDigit")).intValue();
 		boolean isNumber = (Boolean)sourceParams.get("isNumber");
 		if (isNumber) {
-			return "Найдите количество всех " + nabor + "-значных  чисел, состоящих из цифр от 0 до " + maxDigit + 
-			 (isEmptyInline() ? "." : ", для которых верно следующее: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
+			return "РќР°Р№РґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІСЃРµС… " + nabor + "-Р·РЅР°С‡РЅС‹С…  С‡РёСЃРµР», СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С†РёС„СЂ РѕС‚ 0 РґРѕ " + maxDigit + 
+			 (isEmptyInline() ? "." : ", РґР»СЏ РєРѕС‚РѕСЂС‹С… РІРµСЂРЅРѕ СЃР»РµРґСѓСЋС‰РµРµ: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
 		} else {
-			return "Найдите количество всех наборов чисел, состоящих из " + nabor + " цифр от 0 до " + maxDigit + 
-			(isEmptyInline() ? "." : ", для которых верно следующее: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
+			return "РќР°Р№РґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІСЃРµС… РЅР°Р±РѕСЂРѕРІ С‡РёСЃРµР», СЃРѕСЃС‚РѕСЏС‰РёС… РёР· " + nabor + " С†РёС„СЂ РѕС‚ 0 РґРѕ " + maxDigit + 
+			(isEmptyInline() ? "." : ", РґР»СЏ РєРѕС‚РѕСЂС‹С… РІРµСЂРЅРѕ СЃР»РµРґСѓСЋС‰РµРµ: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
 		}
     }
 	

@@ -16,8 +16,8 @@ public class IndexWordGenerator extends WordGenerator {
     }
 
 	public String getEditorTitle() {
-		//return "Конструктор задач на индексацию слов";
-		return "Редактор \"Индексация слов\"";
+		//return "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р°РґР°С‡ РЅР° РёРЅРґРµРєСЃР°С†РёСЋ СЃР»РѕРІ";
+		return "Р РµРґР°РєС‚РѕСЂ \"РРЅРґРµРєСЃР°С†РёСЏ СЃР»РѕРІ\"";
 	}
 	
 	protected ConstraintPanel getSetPanel() {
@@ -70,7 +70,7 @@ public class IndexWordGenerator extends WordGenerator {
 		}
 		
 		if (isEmpty(((IndexFPanel) getFunctionPanel()).getWord().getText())) {
-			JOptionPane.showMessageDialog(this, "Слово для индексации не задано" , "Условие задачи не задано", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "РЎР»РѕРІРѕ РґР»СЏ РёРЅРґРµРєСЃР°С†РёРё РЅРµ Р·Р°РґР°РЅРѕ" , "РЈСЃР»РѕРІРёРµ Р·Р°РґР°С‡Рё РЅРµ Р·Р°РґР°РЅРѕ", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;

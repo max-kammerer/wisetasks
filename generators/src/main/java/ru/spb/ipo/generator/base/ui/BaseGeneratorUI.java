@@ -138,18 +138,18 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenu constructorMenu = null;
 
     private Object [] [] constructors = new Object[] [] {
-            {"Редактор \"Колода карт\"", CardGenerator.class},
-            {"Редактор \"Слова над конечным алфавитом\"", WordGenerator.class},
-            {"Редактор \"Упорядоченные числовые наборы\"", NumberGenerator.class},
-            {"Редактор \"Индексация слов\"", IndexWordGenerator.class},
-            {"Редактор \"Количество решений уравнения\"", EquationGenerator.class},
-            {"Редактор \"Шары и урны\"", BasketGenerator.class},
-            {"Редактор \"Задачи о раскрасках\"", ColorsGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РљРѕР»РѕРґР° РєР°СЂС‚\"", CardGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РЎР»РѕРІР° РЅР°Рґ РєРѕРЅРµС‡РЅС‹Рј Р°Р»С„Р°РІРёС‚РѕРј\"", WordGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РЈРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹Рµ С‡РёСЃР»РѕРІС‹Рµ РЅР°Р±РѕСЂС‹\"", NumberGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РРЅРґРµРєСЃР°С†РёСЏ СЃР»РѕРІ\"", IndexWordGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№ СѓСЂР°РІРЅРµРЅРёСЏ\"", EquationGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РЁР°СЂС‹ Рё СѓСЂРЅС‹\"", BasketGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"Р—Р°РґР°С‡Рё Рѕ СЂР°СЃРєСЂР°СЃРєР°С…\"", ColorsGenerator.class},
             {"separator", "separator"},
-            {"Редактор \"Задачи на делимость\"", DivGenerator.class},
-            {"Редактор \"Арифметика остатков\"", ModGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"Р—Р°РґР°С‡Рё РЅР° РґРµР»РёРјРѕСЃС‚СЊ\"", DivGenerator.class},
+            {"Р РµРґР°РєС‚РѕСЂ \"РђСЂРёС„РјРµС‚РёРєР° РѕСЃС‚Р°С‚РєРѕРІ\"", ModGenerator.class},
             {"separator", "separator"},
-            {"Редактор Сборников", CollectionEditor.class}
+            {"Р РµРґР°РєС‚РѕСЂ РЎР±РѕСЂРЅРёРєРѕРІ", CollectionEditor.class}
     };
 
     public BaseGeneratorUI() {
@@ -164,7 +164,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JPanel getTaskTitlePanel() {
         if (taskTitlePanel == null) {
             taskTitleLabel = new JLabel();
-            taskTitleLabel.setText("Название  ");
+            taskTitleLabel.setText("РќР°Р·РІР°РЅРёРµ  ");
             GridBagConstraints gridBagConstraints = new GridBagConstraints();
             gridBagConstraints.fill = GridBagConstraints.VERTICAL;
             gridBagConstraints.gridy = -1;
@@ -301,7 +301,7 @@ public abstract class BaseGeneratorUI extends JFrame {
 	private JMenu getImagesMenu() {
 		if (imagesMenu == null) {
 			imagesMenu = new JMenu();
-			imagesMenu.setText("Избражения");
+			imagesMenu.setText("РР·Р±СЂР°Р¶РµРЅРёСЏ");
 			imagesMenu.add(getScale());
 		}
 		return imagesMenu;
@@ -315,7 +315,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenu getFileMenu() {
         if (fileMenu == null) {
             fileMenu = new JMenu();
-            fileMenu.setText("Файл");
+            fileMenu.setText("Р¤Р°Р№Р»");
             fileMenu.add(getNewProblemItem());
             fileMenu.add(getSaveToPrev());
             fileMenu.add(getSaveItem());
@@ -333,7 +333,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getNewProblemItem() {
         if (newProblemItem == null) {
             newProblemItem = new JMenuItem();
-            newProblemItem.setText("Новая задача");
+            newProblemItem.setText("РќРѕРІР°СЏ Р·Р°РґР°С‡Р°");
             newProblemItem.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     clear();
@@ -360,7 +360,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenu getInfoMenu() {
         if (infoMenu == null) {
             infoMenu = new JMenu();
-            infoMenu.setText("Справка");
+            infoMenu.setText("РЎРїСЂР°РІРєР°");
             infoMenu.add(getAboutProgramItem());
         }
         return infoMenu;
@@ -395,7 +395,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     protected JButton getGenerateDescriptionButton() {
         if (generateDescriptionButton == null) {
             generateDescriptionButton = new JButton();
-            generateDescriptionButton.setText("Сгенерировать условие");
+            generateDescriptionButton.setText("РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ СѓСЃР»РѕРІРёРµ");
             generateDescriptionButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     taskDesc.setText(getGenerator().generateDescription());
@@ -488,17 +488,17 @@ public abstract class BaseGeneratorUI extends JFrame {
 
     protected boolean checkCanSave() {
         if (isEmpty(taskTitle.getText())) {
-            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Не указано название задачи!" , "Не указано название задачи", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "РќРµ СѓРєР°Р·Р°РЅРѕ РЅР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё!" , "РќРµ СѓРєР°Р·Р°РЅРѕ РЅР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё", JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
         if (isEmpty(taskDesc.getText())) {
-            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Условие задачи не задано" , "Условие задачи не задано", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "РЈСЃР»РѕРІРёРµ Р·Р°РґР°С‡Рё РЅРµ Р·Р°РґР°РЅРѕ" , "РЈСЃР»РѕРІРёРµ Р·Р°РґР°С‡Рё РЅРµ Р·Р°РґР°РЅРѕ", JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
 //		if (getFunctionList().getModel().getSize() == 0) {
-//			JOptionPane.showMessageDialog(CardGenerator.this, "Не выбрано ни одного условия!" , "Не выбрано ни одного условия!", JOptionPane.WARNING_MESSAGE);
+//			JOptionPane.showMessageDialog(CardGenerator.this, "РќРµ РІС‹Р±СЂР°РЅРѕ РЅРё РѕРґРЅРѕРіРѕ СѓСЃР»РѕРІРёСЏ!" , "РќРµ РІС‹Р±СЂР°РЅРѕ РЅРё РѕРґРЅРѕРіРѕ СѓСЃР»РѕРІРёСЏ!", JOptionPane.WARNING_MESSAGE);
 //			return false;
 //		}
 
@@ -513,7 +513,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getSaveItem() {
         if (saveItem == null) {
             saveItem = new JMenuItem();
-            saveItem.setText("Сохранить в сборник...");
+            saveItem.setText("РЎРѕС…СЂР°РЅРёС‚СЊ РІ СЃР±РѕСЂРЅРёРє...");
             saveItem.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     if (checkCanSave()) {
@@ -549,10 +549,10 @@ public abstract class BaseGeneratorUI extends JFrame {
                                 }
 //			                    FileUtil.insertString(new File(res.getId()),  "<task title=\"" +  BaseGenerator.wrapString(taskTitle.getText()) + "\" file=\"" + shortName + "\"/>", "</tasks>");
                             } catch (Exception e1) {
-                                showError("Не могу сохранить задачу: \n" + e1.getMessage(), "Ошибка при сохранении", e1);
+                                showError("РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n" + e1.getMessage(), "РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё", e1);
                                 return;
                             }
-                            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Задача успешно сохранена.", "Задача успешно сохранена", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.", "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 }
@@ -590,7 +590,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getExitItem() {
         if (exitItem == null) {
             exitItem = new JMenuItem();
-            exitItem.setText("Выход");
+            exitItem.setText("Р’С‹С…РѕРґ");
             exitItem.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     System.exit(0);
@@ -624,7 +624,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JButton getRemoveAllFuntionsButton() {
         if (removeAllFuntionsButton == null) {
             removeAllFuntionsButton = new JButton();
-            removeAllFuntionsButton.setText("Удалить все условия");
+            removeAllFuntionsButton.setText("РЈРґР°Р»РёС‚СЊ РІСЃРµ СѓСЃР»РѕРІРёСЏ");
             removeAllFuntionsButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     functionList.setModel(new DefaultListModel());
@@ -642,12 +642,12 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getAboutProgramItem() {
         if (aboutProgramItem == null) {
             aboutProgramItem = new JMenuItem();
-            aboutProgramItem.setText("О программе...");
+            aboutProgramItem.setText("Рћ РїСЂРѕРіСЂР°РјРјРµ...");
             aboutProgramItem.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
-                    JOptionPane.showMessageDialog(BaseGeneratorUI.this, "<html>" + getEditorTitle() + "\nАвторы:\n    (С)   Богданов М.С.     2007-2009 \n    (С)   Поздняков С.Н.   2007-2009 \n"+
+                    JOptionPane.showMessageDialog(BaseGeneratorUI.this, "<html>" + getEditorTitle() + "\nРђРІС‚РѕСЂС‹:\n    (РЎ)   Р‘РѕРіРґР°РЅРѕРІ Рњ.РЎ.     2007-2009 \n    (РЎ)   РџРѕР·РґРЅСЏРєРѕРІ РЎ.Рќ.   2007-2009 \n"+
                             (getSubAuthor() != null ? getSubAuthor() +"\n" : "")
-                            +"e-mail: mikhael.bogdanov@gmail.com", "О программе", JOptionPane.INFORMATION_MESSAGE);
+                            +"e-mail: mikhael.bogdanov@gmail.com", "Рћ РїСЂРѕРіСЂР°РјРјРµ", JOptionPane.INFORMATION_MESSAGE);
                 }
             });
         }
@@ -703,8 +703,8 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JButton getSave2DefaultButton() {
         if (save2DefaultButton == null) {
             save2DefaultButton = new JButton();
-            save2DefaultButton.setText("Сохранить задачу в стандартный задачник");
-            save2DefaultButton.setToolTipText("Сохраняет задачу в задачник  \"Сгенерированные задачи\"");
+            save2DefaultButton.setText("РЎРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє");
+            save2DefaultButton.setToolTipText("РЎРѕС…СЂР°РЅСЏРµС‚ Р·Р°РґР°С‡Сѓ РІ Р·Р°РґР°С‡РЅРёРє  \"РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Рµ Р·Р°РґР°С‡Рё\"");
             save2DefaultButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     if (checkCanSave()) {
@@ -720,13 +720,13 @@ public abstract class BaseGeneratorUI extends JFrame {
                             try {
                                 saveToFile(str, file);
                             } catch (Exception e1) {
-                                showError("Не могу сохранить задачу: \n" + e1.getMessage(), "Ошибка при сохранении", e1);
+                                showError("РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n" + e1.getMessage(), "РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё", e1);
                                 e1.printStackTrace();
                                 return;
                             }
 
                         //System.out.println(str);
-                            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Задача успешно сохранена.", "Задача успешно сохранена в стандартный задачник", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.", "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР° РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 }
@@ -821,7 +821,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JButton getClearImagesButton() {
         if (clearImagesButton == null) {
             clearImagesButton = new JButton();
-            clearImagesButton.setText("Очистить");
+            clearImagesButton.setText("РћС‡РёСЃС‚РёС‚СЊ");
             clearImagesButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     imagesList.clear();
@@ -841,7 +841,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JButton getAddImageButton() {
         if (addImageButton == null) {
             addImageButton = new JButton();
-            addImageButton.setText("Добавить картинку");
+            addImageButton.setText("Р”РѕР±Р°РІРёС‚СЊ РєР°СЂС‚РёРЅРєСѓ");
             addImageButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     int result = getImageChooser().showOpenDialog(BaseGeneratorUI.this);
@@ -852,7 +852,7 @@ public abstract class BaseGeneratorUI extends JFrame {
                             image = ImageIO.read(file);
                         } catch (IOException e1) {
                             e1.printStackTrace();
-                            showError("Не могу загрузить изображение", "Ошибка", e1);
+                            showError("РќРµ РјРѕРіСѓ Р·Р°РіСЂСѓР·РёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ", "РћС€РёР±РєР°", e1);
                             return;
                         }
 
@@ -917,7 +917,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getDeleteConditionButton() {
         if (deleteConditionButton == null) {
             deleteConditionButton = new JMenuItem();
-            deleteConditionButton.setText("Удалить условие");
+            deleteConditionButton.setText("РЈРґР°Р»РёС‚СЊ СѓСЃР»РѕРІРёРµ");
             deleteConditionButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     int [] obj = getFunctionList().getSelectedIndices();
@@ -940,7 +940,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenu getConstructorMenu() {
         if (constructorMenu == null) {
             constructorMenu = new JMenu();
-            constructorMenu.setText("Редакторы");
+            constructorMenu.setText("Р РµРґР°РєС‚РѕСЂС‹");
             for (int i = 0; i < constructors.length; i++) {
                 Object[] constructor = constructors[i];
                 String name = (String)constructor[0];
@@ -973,7 +973,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     private JMenuItem getSaveToPrev() {
         if (saveToPrev == null) {
             saveToPrev = new JMenuItem();
-            saveToPrev.setText("Сохранить");
+            saveToPrev.setText("РЎРѕС…СЂР°РЅРёС‚СЊ");
             saveToPrev.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     String str = getGenerator().generateXml();
@@ -981,11 +981,11 @@ public abstract class BaseGeneratorUI extends JFrame {
                         try {
                             saveToFile(str, prevSave);
                         } catch (Exception e1) {
-                            showError("Не могу сохранить задачу: \n" + e1.getMessage(), "Ошибка при сохранении", e1);
+                            showError("РќРµ РјРѕРіСѓ СЃРѕС…СЂР°РЅРёС‚СЊ Р·Р°РґР°С‡Сѓ: \n" + e1.getMessage(), "РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё", e1);
                             e1.printStackTrace();
                             return;
                         }
-                        JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Задача успешно сохранена.", "Задача успешно сохранена в стандартный задачник", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°.", "Р—Р°РґР°С‡Р° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅР° РІ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·Р°РґР°С‡РЅРёРє", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         //setActiveSave(null);
                         saveToPrev.setEnabled(false);
@@ -1001,11 +1001,11 @@ public abstract class BaseGeneratorUI extends JFrame {
 	private JMenuItem getScale() {
 		if (scale == null) {
 			scale = new JMenuItem();
-			scale.setText("Масштабирование");
+			scale.setText("РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ");
 			scale.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					dlg = new ScaleDialog(BaseGeneratorUI.this,
-							"Масштабирование", "message", BaseGeneratorUI.this);
+							"РњР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ", "message", BaseGeneratorUI.this);
 				}
 			});
 		}
@@ -1075,7 +1075,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     public JFileChooser getFileChooser() {
         if (fileChooser == null) {
             fileChooser = new JFileChooser(new File(".").getAbsolutePath());
-            fileChooser.setDialogTitle("Выберите файл...");
+            fileChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»...");
             fileChooser.removeChoosableFileFilter(fileChooser.getChoosableFileFilters()[0]);
             fileChooser.setFileFilter(new FileFilter() {
                 public boolean accept(File pathname) {
@@ -1086,7 +1086,7 @@ public abstract class BaseGeneratorUI extends JFrame {
                 }
 
                 public String getDescription() {
-                    return "xml файлы (*.xml)";
+                    return "xml С„Р°Р№Р»С‹ (*.xml)";
                 }
             });
         }
@@ -1096,7 +1096,7 @@ public abstract class BaseGeneratorUI extends JFrame {
     public JFileChooser getImageChooser() {
         if (imageChooser == null) {
             imageChooser = new JFileChooser(new File("." + File.separator + "tasks" + File.separator + "imgs"));
-            imageChooser.setDialogTitle("Выберите файл-картинку к задаче...");
+            imageChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»-РєР°СЂС‚РёРЅРєСѓ Рє Р·Р°РґР°С‡Рµ...");
             imageChooser.setControlButtonsAreShown(true);
             imageChooser.removeChoosableFileFilter(imageChooser.getChoosableFileFilters()[0]);
 
@@ -1114,7 +1114,7 @@ public abstract class BaseGeneratorUI extends JFrame {
                 }
 
                 public String getDescription() {
-                    return "картинки (*.png, *.gif, *.jpg, *.jpeg)";
+                    return "РєР°СЂС‚РёРЅРєРё (*.png, *.gif, *.jpg, *.jpeg)";
                 }
             });
 			imageChooser.setAccessory(new ImagePreview(imageChooser));
@@ -1152,7 +1152,7 @@ public abstract class BaseGeneratorUI extends JFrame {
         prevSave = file;
         if (prevSave == null) {
             saveToPrev.setEnabled(false);
-            setTitle(getEditorTitle() + " - " + "новая задача");
+            setTitle(getEditorTitle() + " - " + "РЅРѕРІР°СЏ Р·Р°РґР°С‡Р°");
         } else {
             saveToPrev.setEnabled(true);
             setTitle(getEditorTitle() + " - " + file.getName());
@@ -1181,7 +1181,7 @@ public abstract class BaseGeneratorUI extends JFrame {
             try {
                 clazz.getMethod("main", Class.forName("[Ljava.lang.String;")).invoke(null, new Object[] {null});
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(BaseGeneratorUI.this, "Не могу открыть редактор: \n" + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(BaseGeneratorUI.this, "РќРµ РјРѕРіСѓ РѕС‚РєСЂС‹С‚СЊ СЂРµРґР°РєС‚РѕСЂ: \n" + e.getMessage(), "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         }

@@ -32,8 +32,8 @@ public class EquationXmlGenerator extends BaseGenerator {
 			}
 		}
 		str += "=" + sourceParams.get("resultX");
-		return "Найдите количество решений уравнения " + str + " в целых неотрицательных числах" +   
-		(isEmptyInline() ? "" : ", если известно, что " + taskParams.get("inlineDesc") + " ") + ".";
+		return "РќР°Р№РґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№ СѓСЂР°РІРЅРµРЅРёСЏ " + str + " РІ С†РµР»С‹С… РЅРµРѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… С‡РёСЃР»Р°С…" +   
+		(isEmptyInline() ? "" : ", РµСЃР»Рё РёР·РІРµСЃС‚РЅРѕ, С‡С‚Рѕ " + taskParams.get("inlineDesc") + " ") + ".";
 	}
 
 	public String getParams() {

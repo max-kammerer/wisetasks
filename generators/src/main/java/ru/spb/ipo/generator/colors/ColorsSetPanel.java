@@ -52,12 +52,12 @@ public class ColorsSetPanel extends ConstraintPanel {
         tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);
         beads = new BeadsPanel(gen,this);
         beads.addComponentListener(listener);
-        tabs.add("Бусы",beads);
+        tabs.add("Р‘СѓСЃС‹",beads);
         polygons = new PolygonPanel(gen,this);
-        tabs.add("Многоугольники",polygons);
+        tabs.add("РњРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєРё",polygons);
         polygons.addComponentListener(listener);
         polyhedrons = new PolyhedronPanel(gen,this);
-        tabs.add("Многогранники",polyhedrons);
+        tabs.add("РњРЅРѕРіРѕРіСЂР°РЅРЅРёРєРё",polyhedrons);
         polyhedrons.addComponentListener(listener);
         setLayout(new BorderLayout());
         add(tabs,BorderLayout.CENTER);

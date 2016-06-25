@@ -59,7 +59,7 @@ public class WordFPanel extends ConstraintPanel {
 	private JPanel getJPanel() {
 		if (jPanel == null) {
 			jLabel = new JLabel();
-			jLabel.setText("  Ограничения  ");
+			jLabel.setText("  РћРіСЂР°РЅРёС‡РµРЅРёСЏ  ");
 			jPanel = new JPanel();
 			jPanel.setLayout(new BoxLayout(getJPanel(), BoxLayout.X_AXIS));
 			jPanel.add(jLabel, null);
@@ -108,7 +108,7 @@ public class WordFPanel extends ConstraintPanel {
 	private JButton getJButton() {
 		if (jButton == null) {
 			jButton = new JButton();
-			jButton.setText("Добавить");
+			jButton.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			jButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					ListElement gen = (ListElement)wordCondiion.getSelectedItem();
@@ -127,7 +127,7 @@ public class WordFPanel extends ConstraintPanel {
 	public JCheckBox getIsSingle() {
 		if (isSingle == null) {
 			isSingle = new JCheckBox();
-			isSingle.setText("Буквы могут повторяться");
+			isSingle.setText("Р‘СѓРєРІС‹ РјРѕРіСѓС‚ РїРѕРІС‚РѕСЂСЏС‚СЊСЃСЏ");
 			isSingle.setSelected(true);
 		}
 		return isSingle;

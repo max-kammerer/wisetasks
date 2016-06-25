@@ -43,19 +43,19 @@ public class WordGenerator extends BaseGeneratorUI {
 	public static ListElement [] getTokenList() {
 		 ListElement [] list = new ListElement [30];
 		 HashSet set = new HashSet();
-		 set.add('а');
-		 set.add('е');
-		 set.add('ё');
-		 set.add('и');		 
-		 set.add('о');
-		 set.add('у');
-		 set.add('э');
-		 set.add('ю');
-		 set.add('я');
+		 set.add('Р°');
+		 set.add('Рµ');
+		 set.add('С‘');
+		 set.add('Рё');		 
+		 set.add('Рѕ');
+		 set.add('Сѓ');
+		 set.add('СЌ');
+		 set.add('СЋ');
+		 set.add('СЏ');
 		 int p = 0;
 		 for (int i = 0; i < 32; i++) {
-			char c = (char)('а'+i);
-			if ('ъ' == c || 'ь' == c) { 
+			char c = (char)('Р°'+i);
+			if ('СЉ' == c || 'СЊ' == c) { 
 				continue;
 			}
 			list[p++] = new ListElement(""+c, new  CharGenerator(c, set.contains(c) ? 1 : 0));
@@ -97,7 +97,7 @@ public class WordGenerator extends BaseGeneratorUI {
 		public String generateXml() {
 			StringBuffer sb = new StringBuffer();
 			sb.append("<constElement>\n");
-				sb.append("    <constElement>" + (ch - 'а') + "</constElement>");
+				sb.append("    <constElement>" + (ch - 'Р°') + "</constElement>");
 				sb.append("    <constElement>" + type + "</constElement>");			
 			sb.append("</constElement>\n");
 			return sb.toString();
@@ -127,8 +127,8 @@ public class WordGenerator extends BaseGeneratorUI {
 	}
 	
 	public String getEditorTitle() {
-		//return "Конструктор задач со словами";
-		return "Редактор \"Слова над конечным алфавитом\"";
+		//return "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р°РґР°С‡ СЃРѕ СЃР»РѕРІР°РјРё";
+		return "Р РµРґР°РєС‚РѕСЂ \"РЎР»РѕРІР° РЅР°Рґ РєРѕРЅРµС‡РЅС‹Рј Р°Р»С„Р°РІРёС‚РѕРј\"";
 	}
 	
 	private static BaseGeneratorUI instance = null;

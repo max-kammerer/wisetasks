@@ -24,12 +24,12 @@ public class NumberFunctionPanel extends ConstraintPanel {
 	private JButton addF1 = null;
 	
 	public static final ListElement []  number_cond =  { 
-		new ListElement("Набор состоит из различных цифр", new DiifNumbersGenerator("Набор состоит из различных цифр")),
-		new ListElement("Соседние цифры набора различны", new DiffNearGenerator("Соседние цифры набора различны")),
-		new ListElement("Цифры набора идут в убывающем порядке", new OrderNumberGenerator( -1)),
-		new ListElement("Цифры набора идут в возрастающем порядке", new OrderNumberGenerator(1)),
-		new ListElement("Цифры набора идут в неубывающем порядке", new OrderNumberGenerator(2)),
-		new ListElement("Цифры набора идут в невозрастающем порядке", new OrderNumberGenerator(-2)),						
+		new ListElement("РќР°Р±РѕСЂ СЃРѕСЃС‚РѕРёС‚ РёР· СЂР°Р·Р»РёС‡РЅС‹С… С†РёС„СЂ", new DiifNumbersGenerator("РќР°Р±РѕСЂ СЃРѕСЃС‚РѕРёС‚ РёР· СЂР°Р·Р»РёС‡РЅС‹С… С†РёС„СЂ")),
+		new ListElement("РЎРѕСЃРµРґРЅРёРµ С†РёС„СЂС‹ РЅР°Р±РѕСЂР° СЂР°Р·Р»РёС‡РЅС‹", new DiffNearGenerator("РЎРѕСЃРµРґРЅРёРµ С†РёС„СЂС‹ РЅР°Р±РѕСЂР° СЂР°Р·Р»РёС‡РЅС‹")),
+		new ListElement("Р¦РёС„СЂС‹ РЅР°Р±РѕСЂР° РёРґСѓС‚ РІ СѓР±С‹РІР°СЋС‰РµРј РїРѕСЂСЏРґРєРµ", new OrderNumberGenerator( -1)),
+		new ListElement("Р¦РёС„СЂС‹ РЅР°Р±РѕСЂР° РёРґСѓС‚ РІ РІРѕР·СЂР°СЃС‚Р°СЋС‰РµРј РїРѕСЂСЏРґРєРµ", new OrderNumberGenerator(1)),
+		new ListElement("Р¦РёС„СЂС‹ РЅР°Р±РѕСЂР° РёРґСѓС‚ РІ РЅРµСѓР±С‹РІР°СЋС‰РµРј РїРѕСЂСЏРґРєРµ", new OrderNumberGenerator(2)),
+		new ListElement("Р¦РёС„СЂС‹ РЅР°Р±РѕСЂР° РёРґСѓС‚ РІ РЅРµРІРѕР·СЂР°СЃС‚Р°СЋС‰РµРј РїРѕСЂСЏРґРєРµ", new OrderNumberGenerator(-2)),						
 	};
 	private JLabel jLabel = null;
 
@@ -61,7 +61,7 @@ public class NumberFunctionPanel extends ConstraintPanel {
 	private JPanel getJPanel() {
 		if (jPanel == null) {
 			jLabel = new JLabel();
-			jLabel.setText("Ограничения");
+			jLabel.setText("РћРіСЂР°РЅРёС‡РµРЅРёСЏ");
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.RIGHT);
 			jPanel = new JPanel();
@@ -108,7 +108,7 @@ public class NumberFunctionPanel extends ConstraintPanel {
 	private JButton getAddF1() {
 		if (addF1 == null) {
 			addF1 = new JButton();
-			addF1.setText("Добавить");
+			addF1.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addF1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					ListElement gen = (ListElement)functSelect.getSelectedItem();

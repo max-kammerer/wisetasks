@@ -25,18 +25,18 @@ public class PolygonXmlGenerator extends BaseGenerator{
     @Override
     public String generateDescription() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Сколькими способами можно раскрасить ");
+        sb.append("РЎРєРѕР»СЊРєРёРјРё СЃРїРѕСЃРѕР±Р°РјРё РјРѕР¶РЅРѕ СЂР°СЃРєСЂР°СЃРёС‚СЊ ");
         sb.append(sourceParams.get("polygonText"));
         Integer taskType = (Integer)sourceParams.get("taskType");
         if (taskType == 1) {
-            sb.append(" "+sourceParams.get("colors")+" красками.");
+            sb.append(" "+sourceParams.get("colors")+" РєСЂР°СЃРєР°РјРё.");
         }
         else {
-            sb.append(", если среди них будет ");
+            sb.append(", РµСЃР»Рё СЃСЂРµРґРё РЅРёС… Р±СѓРґРµС‚ ");
             sb.append(taskParams.get("inlineDesc")+".");
         }
-        sb.append(" Раскраски считаются одинаковыми, если поворотом фигуры в " +
-                "пространстве одна раскраска получается из другой.");
+        sb.append(" Р Р°СЃРєСЂР°СЃРєРё СЃС‡РёС‚Р°СЋС‚СЃСЏ РѕРґРёРЅР°РєРѕРІС‹РјРё, РµСЃР»Рё РїРѕРІРѕСЂРѕС‚РѕРј С„РёРіСѓСЂС‹ РІ " +
+                "РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ РѕРґРЅР° СЂР°СЃРєСЂР°СЃРєР° РїРѕР»СѓС‡Р°РµС‚СЃСЏ РёР· РґСЂСѓРіРѕР№.");
         return sb.toString();
     }
     
@@ -44,11 +44,11 @@ public class PolygonXmlGenerator extends BaseGenerator{
     public String getParams() {
         String figureParam = (String)sourceParams.get("polygon");
         String brushParam = (String)sourceParams.get("whatToBrush");
-        if (figureParam.equals("Равнобедренный треугольник"))
+        if (figureParam.equals("Р Р°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє"))
             figure = new Triangle(brushParam);
-        else if (figureParam.equals("Прямоугольник"))
+        else if (figureParam.equals("РџСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє"))
             figure = new Rectangle(brushParam);
-        else if (figureParam.equals("Ромб"))
+        else if (figureParam.equals("Р РѕРјР±"))
             figure = new Romb(brushParam);
         else {
             String corners = (String)sourceParams.get("corners");

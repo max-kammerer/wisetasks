@@ -61,17 +61,17 @@ public class ColorsGenerator extends BaseGeneratorUI {
     }
 
     public String getEditorTitle() {
-        return "Задачи о раскрасках (лемма Бернсайда)";
+        return "Р—Р°РґР°С‡Рё Рѕ СЂР°СЃРєСЂР°СЃРєР°С… (Р»РµРјРјР° Р‘РµСЂРЅСЃР°Р№РґР°)";
     }
 
     public String getSubAuthor() {
-        return "    (С)   Пименов В.Д.       2009 ";
+        return "    (РЎ)   РџРёРјРµРЅРѕРІ Р’.Р”.       2009 ";
     }
 
     protected JButton getGenerateDescriptionButton() {
         if (generateDescriptionButton == null) {
             generateDescriptionButton = new JButton();
-            generateDescriptionButton.setText("Сгенерировать условие");
+            generateDescriptionButton.setText("РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ СѓСЃР»РѕРІРёРµ");
             generateDescriptionButton.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     makeDescription();

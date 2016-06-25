@@ -76,7 +76,7 @@ public class EquationSetPanel extends ConstraintPanel {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.RIGHT);
 			jLabel = new JLabel();
-			jLabel.setText("Количество неизвестных");
+			jLabel.setText("РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРµРёР·РІРµСЃС‚РЅС‹С…");
 			GridBagConstraints gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.fill = GridBagConstraints.VERTICAL;
 			gridBagConstraints.weightx = 1.0;
@@ -98,7 +98,7 @@ public class EquationSetPanel extends ConstraintPanel {
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.LEFT);
 			jLabel1 = new JLabel();
-			jLabel1.setText("Конечная сумма");
+			jLabel1.setText("РљРѕРЅРµС‡РЅР°СЏ СЃСѓРјРјР°");
 			jPanel2 = new JPanel();
 			jPanel2.setLayout(flowLayout);
 			jPanel2.add(jLabel1, null);
@@ -130,7 +130,7 @@ public class EquationSetPanel extends ConstraintPanel {
 			resultNumber = new ValidatedTextField(50);
 			resultNumber.setColumns(3);
 			resultNumber.setText("25");
-			resultNumber.setToolTipText("Введите число от 0 до 50");
+			resultNumber.setToolTipText("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 0 РґРѕ 50");
 		}
 		return resultNumber;
 	}

@@ -106,7 +106,7 @@ public class BasketSetPanel extends ConstraintPanel {
 	private JCheckBox getJCheckBox() {
 		if (jCheckBox == null) {
 			jCheckBox = new JCheckBox();
-			jCheckBox.setText("Дополнительная корзина");
+			jCheckBox.setText("Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РєРѕСЂР·РёРЅР°");
 			jCheckBox.setSelected(true);			
 			jCheckBox.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {

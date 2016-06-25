@@ -55,7 +55,7 @@ public class NumberSetPanel extends ConstraintPanel {
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.RIGHT);
 			jLabel = new JLabel();
-			jLabel.setText("Размер набора");
+			jLabel.setText("Р Р°Р·РјРµСЂ РЅР°Р±РѕСЂР°");
 			jPanel = new JPanel();
 			jPanel.setLayout(flowLayout);
 			jPanel.add(jLabel, null);
@@ -74,7 +74,7 @@ public class NumberSetPanel extends ConstraintPanel {
 			FlowLayout flowLayout1 = new FlowLayout();
 			flowLayout1.setAlignment(FlowLayout.LEFT);
 			jLabel1 = new JLabel();
-			jLabel1.setText("Цифры в наборе от 0 до ");
+			jLabel1.setText("Р¦РёС„СЂС‹ РІ РЅР°Р±РѕСЂРµ РѕС‚ 0 РґРѕ ");
 			jPanel1 = new JPanel();
 			jPanel1.setLayout(flowLayout1);
 			jPanel1.add(jLabel1, null);
@@ -133,7 +133,7 @@ public class NumberSetPanel extends ConstraintPanel {
 	private JCheckBox getJCheckBox() {
 		if (jCheckBox == null) {
 			jCheckBox = new JCheckBox();
-			jCheckBox.setText("Первая цифра не 0");
+			jCheckBox.setText("РџРµСЂРІР°СЏ С†РёС„СЂР° РЅРµ 0");
 		}
 		return jCheckBox;
 	}

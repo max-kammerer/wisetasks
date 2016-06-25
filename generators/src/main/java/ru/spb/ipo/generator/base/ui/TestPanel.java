@@ -175,20 +175,20 @@ public class TestPanel extends JPanel {
 	private JButton getAddTest() {
 		if (addTest == null) {
 			addTest = new JButton();
-			addTest.setText("Создать новый сборник");
+			addTest.setText("РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЃР±РѕСЂРЅРёРє");
 			addTest.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					String input = JOptionPane.showInputDialog(TestPanel.this, "Название сборника", "Создание нового сборника...", JOptionPane.PLAIN_MESSAGE);
+					String input = JOptionPane.showInputDialog(TestPanel.this, "РќР°Р·РІР°РЅРёРµ СЃР±РѕСЂРЅРёРєР°", "РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ СЃР±РѕСЂРЅРёРєР°...", JOptionPane.PLAIN_MESSAGE);
 					if (input != null && !"".equals(input)) {
 						try {
 							int res = getFileChooser().showSaveDialog(TestPanel.this);
 							if (res == JFileChooser.APPROVE_OPTION) {
 								ListIdEntry newCollection = FileUtil.createTest(input, getFileChooser().getSelectedFile());						
 								((DefaultListModel)getTests().getModel()).addElement(newCollection);
-								JOptionPane.showMessageDialog(TestPanel.this, "Новый сборник успешно создан.", "Создание нового сборника", JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.showMessageDialog(TestPanel.this, "РќРѕРІС‹Р№ СЃР±РѕСЂРЅРёРє СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ.", "РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ СЃР±РѕСЂРЅРёРєР°", JOptionPane.INFORMATION_MESSAGE);
 							}
 						} catch (Exception ex) {
-							JOptionPane.showMessageDialog(TestPanel.this, "Не могу создать сборник: \n" + ex.getMessage(), "Ошибка при создании", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(TestPanel.this, "РќРµ РјРѕРіСѓ СЃРѕР·РґР°С‚СЊ СЃР±РѕСЂРЅРёРє: \n" + ex.getMessage(), "РћС€РёР±РєР° РїСЂРё СЃРѕР·РґР°РЅРёРё", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				}
@@ -294,7 +294,7 @@ public class TestPanel extends JPanel {
 	public JFileChooser getFileChooser() {
 		if (fileChooser == null) {
 			fileChooser = new JFileChooser(new File("./tasks").getAbsolutePath());			
-			fileChooser.setDialogTitle("Выберите папку для сборника...");
+			fileChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ РїР°РїРєСѓ РґР»СЏ СЃР±РѕСЂРЅРёРєР°...");
 			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			fileChooser.removeChoosableFileFilter(fileChooser.getChoosableFileFilters()[0]);	        
 			fileChooser.setFileFilter(new FileFilter() {
@@ -303,7 +303,7 @@ public class TestPanel extends JPanel {
 	            }
 
 				public String getDescription() {
-					return "Папки";
+					return "РџР°РїРєРё";
 				}
 	        });
 		}

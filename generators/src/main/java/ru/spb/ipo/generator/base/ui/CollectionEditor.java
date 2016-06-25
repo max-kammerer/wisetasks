@@ -32,7 +32,7 @@ public class CollectionEditor extends JFrame {
 	 */
 	private void initialize() {		
 		this.setContentPane(getJContentPane());
-		this.setTitle("Редактор сборников задач");
+		this.setTitle("Р РµРґР°РєС‚РѕСЂ СЃР±РѕСЂРЅРёРєРѕРІ Р·Р°РґР°С‡");
 		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		this.setSize(new Dimension(657, 432));
 		setLocationRelativeTo(null);

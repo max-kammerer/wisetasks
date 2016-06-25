@@ -139,8 +139,8 @@ public class DetailDigitPanel extends JPanel {
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(FlowLayout.RIGHT);
 			jLabel1 = new JLabel();
-			jLabel1.setText("Сумма элементов");
-			jLabel1.setToolTipText("Элемент на указанном месте или их сумма (\"перетащите\" номер в область ввода)");
+			jLabel1.setText("РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ");
+			jLabel1.setToolTipText("Р­Р»РµРјРµРЅС‚ РЅР° СѓРєР°Р·Р°РЅРЅРѕРј РјРµСЃС‚Рµ РёР»Рё РёС… СЃСѓРјРјР° (\"РїРµСЂРµС‚Р°С‰РёС‚Рµ\" РЅРѕРјРµСЂ РІ РѕР±Р»Р°СЃС‚СЊ РІРІРѕРґР°)");
 			jPanel3 = new JPanel();
 			jPanel3.setLayout(flowLayout);
 			jPanel3.add(jLabel1, null);
@@ -183,7 +183,7 @@ public class DetailDigitPanel extends JPanel {
 				JLabel la = new JLabel();
 				pa.add(la, BorderLayout.CENTER);
 				la.setText(" [" + i + "] ");
-				la.setToolTipText("\"Перетащите\" номер в область ввода");
+				la.setToolTipText("\"РџРµСЂРµС‚Р°С‰РёС‚Рµ\" РЅРѕРјРµСЂ РІ РѕР±Р»Р°СЃС‚СЊ РІРІРѕРґР°");
 				la.setTransferHandler(new TransferHandler("text") {
 					
 					public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
@@ -210,11 +210,11 @@ public class DetailDigitPanel extends JPanel {
 	private JButton getAddCond() {
 		if (addCond == null) {
 			addCond = new JButton();
-			addCond.setText("Добавить");
+			addCond.setText("Р”РѕР±Р°РІРёС‚СЊ");
 			addCond.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					if (leftCond.getComponentCount() == 0 || rightCond.getComponentCount() == 0) {
-						JOptionPane.showMessageDialog(DetailDigitPanel.this, "Одно из полей пусто!");
+						JOptionPane.showMessageDialog(DetailDigitPanel.this, "РћРґРЅРѕ РёР· РїРѕР»РµР№ РїСѓСЃС‚Рѕ!");
 					} else {
 						int i = leftCond.getComponentCount();
 						String [] left = new String [i]; 
@@ -260,7 +260,7 @@ public class DetailDigitPanel extends JPanel {
 	protected JButton getClearCond() {
 		if (clearCond == null) {
 			clearCond = new JButton();
-			clearCond.setText("Очистить списки");
+			clearCond.setText("РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРєРё");
 			clearCond.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					getLeftCond().removeAll();
@@ -286,7 +286,7 @@ public class DetailDigitPanel extends JPanel {
 			flowLayout2.setVgap(0);
 			flowLayout2.setHgap(0);
 			leftCond = new JPanel();
-			leftCond.setToolTipText("Элемент на указанном месте или их сумма (\"перетащите\" номер в область ввода)");
+			leftCond.setToolTipText("Р­Р»РµРјРµРЅС‚ РЅР° СѓРєР°Р·Р°РЅРЅРѕРј РјРµСЃС‚Рµ РёР»Рё РёС… СЃСѓРјРјР° (\"РїРµСЂРµС‚Р°С‰РёС‚Рµ\" РЅРѕРјРµСЂ РІ РѕР±Р»Р°СЃС‚СЊ РІРІРѕРґР°)");
 			leftCond.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 			leftCond.setLayout(flowLayout2);
 			leftCond.setPreferredSize(new Dimension(120, 20));			
@@ -342,7 +342,7 @@ public class DetailDigitPanel extends JPanel {
 			flowLayout3.setVgap(0);
 			flowLayout3.setHgap(0);
 			rightCond = new JPanel();
-			rightCond.setToolTipText("Элемент на указанном месте или их сумма (\"перетащите\" номер в область ввода)");
+			rightCond.setToolTipText("Р­Р»РµРјРµРЅС‚ РЅР° СѓРєР°Р·Р°РЅРЅРѕРј РјРµСЃС‚Рµ РёР»Рё РёС… СЃСѓРјРјР° (\"РїРµСЂРµС‚Р°С‰РёС‚Рµ\" РЅРѕРјРµСЂ РІ РѕР±Р»Р°СЃС‚СЊ РІРІРѕРґР°)");
 			rightCond.setLayout(flowLayout3);
 			rightCond.setPreferredSize(new Dimension(120, 20));
 			rightCond.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));

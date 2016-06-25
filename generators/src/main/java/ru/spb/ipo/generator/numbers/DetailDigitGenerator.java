@@ -18,9 +18,9 @@ public class DetailDigitGenerator implements ComplexElement {
 		public String toString() {
 			String s = "";
 			switch (cond.charAt(0)) {
-				case '<': s = "меньше"; break;
-				case '=': s = "равно"; break;
-				case '>': s = "больше"; break;		
+				case '<': s = "РјРµРЅСЊС€Рµ"; break;
+				case '=': s = "СЂР°РІРЅРѕ"; break;
+				case '>': s = "Р±РѕР»СЊС€Рµ"; break;		
 			}
 			return toString(left, "+") + " " + cond + " " + toString(right, "+");		
 		}
@@ -28,11 +28,11 @@ public class DetailDigitGenerator implements ComplexElement {
 		public String toDescription() {
 			String s = "";
 			switch (cond.charAt(0)) {
-				case '<': s = "меньше"; break;
-				case '=': s = "равна"; break;
-				case '>': s = "больше"; break;		
+				case '<': s = "РјРµРЅСЊС€Рµ"; break;
+				case '=': s = "СЂР°РІРЅР°"; break;
+				case '>': s = "Р±РѕР»СЊС€Рµ"; break;		
 			}
-			return "сумма элементов   " + toString(left, ", ") + " " + s + " сумм" + (cond.equals("=") ? "е" : "ы") + " элементов " + toString(right, ", ");		
+			return "СЃСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ   " + toString(left, ", ") + " " + s + " СЃСѓРјРј" + (cond.equals("=") ? "Рµ" : "С‹") + " СЌР»РµРјРµРЅС‚РѕРІ " + toString(right, ", ");		
 		}
 		
 		public String generateXml() {

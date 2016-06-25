@@ -56,8 +56,8 @@ public class WordXmlGenerator extends BaseGenerator {
 	
 	public String generateDescription() {
 		
-        return "Задан алфавит A = " + taskParams.get("alphabit") + " (буквы в словах" + (isMulti() ? " " : " не ") +  "могут повторяться). Подсчитайте количество всeх слов длины " + sourceParams.get("nabor") + " в алфавите А" +
-        		(isEmptyInline() ? "." : ", для которых верно следующее: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
+        return "Р—Р°РґР°РЅ Р°Р»С„Р°РІРёС‚ A = " + taskParams.get("alphabit") + " (Р±СѓРєРІС‹ РІ СЃР»РѕРІР°С…" + (isMulti() ? " " : " РЅРµ ") +  "РјРѕРіСѓС‚ РїРѕРІС‚РѕСЂСЏС‚СЊСЃСЏ). РџРѕРґСЃС‡РёС‚Р°Р№С‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІСЃeС… СЃР»РѕРІ РґР»РёРЅС‹ " + sourceParams.get("nabor") + " РІ Р°Р»С„Р°РІРёС‚Рµ Рђ" +
+        		(isEmptyInline() ? "." : ", РґР»СЏ РєРѕС‚РѕСЂС‹С… РІРµСЂРЅРѕ СЃР»РµРґСѓСЋС‰РµРµ: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
     }
 	
 	public boolean isMulti () {
