@@ -4,7 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class AttributeTableModel extends DefaultTableModel {
 
-	public static String [] columns = new String [] {"Аттрибут", "Значения"};
+	public static String [] columns = new String [] {"РђС‚С‚СЂРёР±СѓС‚", "Р—РЅР°С‡РµРЅРёСЏ"};
 	
 	public static int NAME_COLUMN = 0;
 	public static int VALUE_COLUMN = 1;

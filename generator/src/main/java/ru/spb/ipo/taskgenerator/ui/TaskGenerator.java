@@ -233,7 +233,7 @@ public class TaskGenerator extends JFrame {
 	
 	public void setTitleWithFile(String fileName) {
 		if (fileName == null || "".equals(fileName)) {
-			setTitle(TITLE + " - " + "Новая задача");			
+			setTitle(TITLE + " - " + "РќРѕРІР°СЏ Р·Р°РґР°С‡Р°");			
 		} else {
 			setTitle(TITLE + " - " + fileName);
 		}
@@ -256,7 +256,7 @@ public class TaskGenerator extends JFrame {
 	public static ImageIcon ELEMENT_ICON;
 	public static ImageIcon FUNCTION_ICON;
 	public static ImageIcon SET_ICON;
-	public static final String TITLE = "Генератор Задач"; 
+	public static final String TITLE = "Р“РµРЅРµСЂР°С‚РѕСЂ Р—Р°РґР°С‡"; 
 	static {
 		loadIcons();
 	}

@@ -53,7 +53,7 @@ public class ContextMenu  extends JPopupMenu {
 		if (functions == null) {
 			ActionListener fal = new ItemListener(ElementUtil.E_FUNCTION);
 			functions = new JMenu();
-			functions.setText("Добавить функцию");
+			functions.setText("Р”РѕР±Р°РІРёС‚СЊ С„СѓРЅРєС†РёСЋ");
 			JMenuItem temp;
 			Collection c = Config.getInstance().getFunctions();
 //			String [] fns = (String []) c.toArray(new String[c.size()]);
@@ -82,7 +82,7 @@ public class ContextMenu  extends JPopupMenu {
 		if (sets == null) {
 			ActionListener sal = new ItemListener(ElementUtil.E_SET);
 			sets = new JMenu();
-			sets.setText("Добавить множество");
+			sets.setText("Р”РѕР±Р°РІРёС‚СЊ РјРЅРѕР¶РµСЃС‚РІРѕ");
 			Collection c = Config.getInstance().getSets().keySet();
 			String [] ss = (String []) c.toArray(new String[c.size()]);
 			for (int i = 0; i < ss.length; i++) {
@@ -103,7 +103,7 @@ public class ContextMenu  extends JPopupMenu {
 		if (additions == null) {
 			ActionListener aal = new ItemListener(ElementUtil.E_ADDITION);		
 			additions = new JMenu();
-			additions.setText("Дополнительно");
+			additions.setText("Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ");
 			Collection c = Config.getInstance().getCommands().keySet();
 			String [] commands = (String []) c.toArray(new String[c.size()]);
 			for (int i = 0; i < commands.length; i++) {
@@ -183,7 +183,7 @@ public class ContextMenu  extends JPopupMenu {
 	private JMenuItem getDelete() {
 		if (delete == null) {
 			delete = new JMenuItem();			
-			delete.setText("Удалить");
+			delete.setText("РЈРґР°Р»РёС‚СЊ");
 			delete.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.delete();
@@ -202,7 +202,7 @@ public class ContextMenu  extends JPopupMenu {
 		if (parameter == null) {
 			ActionListener pal = new ItemListener(ElementUtil.E_PARAMETER);
 			parameter = new JMenuItem();
-			parameter.setText("Добавить параметр");
+			parameter.setText("Р”РѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂ");
 			parameter.addActionListener(pal);
 		}
 		return parameter;

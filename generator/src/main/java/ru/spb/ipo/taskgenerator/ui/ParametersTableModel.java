@@ -5,7 +5,7 @@ public class ParametersTableModel extends AttributeTableModel{
 	public static int VALUE_COLUMN2 = 0;
 	public static int DESCRIPTION_COLUMN = 1;
 	
-	private String [] columns = new String[] {"Значение", "Описание"};
+	private String [] columns = new String[] {"Р—РЅР°С‡РµРЅРёРµ", "РћРїРёСЃР°РЅРёРµ"};
 	
 	public String getColumnName(int column) {		
 		return columns[column];

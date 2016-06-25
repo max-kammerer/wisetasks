@@ -58,7 +58,7 @@ public class MainMenu extends JMenuBar {
 	private JMenu getFile() {
 		if (file == null) {
 			file = new JMenu();
-			file.setText("Файл");
+			file.setText("Р¤Р°Р№Р»");
 			file.add(getNewTask());
 			file.add(getOpen());
 			file.add(getSave());
@@ -76,7 +76,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getOpen() {
 		if (open == null) {
 			open = new JMenuItem();
-			open.setText("Открыть...");
+			open.setText("РћС‚РєСЂС‹С‚СЊ...");
 			open.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					int result = getFileChooser().showOpenDialog(TaskGenerator.getFrame());
@@ -100,7 +100,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getSave() {
 		if (save == null) {
 			save = new JMenuItem();
-			save.setText("Сохранить...");
+			save.setText("РЎРѕС…СЂР°РЅРёС‚СЊ...");
 			save.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					int result = getFileChooser().showSaveDialog(TaskGenerator.getFrame());
@@ -124,7 +124,7 @@ public class MainMenu extends JMenuBar {
 	public JFileChooser getFileChooser() {
 		if (fileChooser == null) {
 			fileChooser = new JFileChooser(new File(".").getAbsolutePath());			
-			fileChooser.setDialogTitle("Выберите файл...");
+			fileChooser.setDialogTitle("Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»...");
 			fileChooser.removeChoosableFileFilter(fileChooser.getChoosableFileFilters()[0]);	        
 			fileChooser.setFileFilter(new FileFilter() {
 	            public boolean accept(File pathname) {
@@ -135,7 +135,7 @@ public class MainMenu extends JMenuBar {
 	            }
 
 	            public String getDescription() {
-	                return "xml файлы (*.xml)";
+	                return "xml С„Р°Р№Р»С‹ (*.xml)";
 	            }
 	        });
 		}
@@ -150,7 +150,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getNewTask() {
 		if (newTask == null) {
 			newTask = new JMenuItem();
-			newTask.setText("Создать");
+			newTask.setText("РЎРѕР·РґР°С‚СЊ");
 			newTask.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.load(new File("emptytask.xml"));
@@ -169,7 +169,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getExit() {
 		if (exit == null) {
 			exit = new JMenuItem();
-			exit.setText("Выход");
+			exit.setText("Р’С‹С…РѕРґ");
 			exit.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.exit();
@@ -187,7 +187,7 @@ public class MainMenu extends JMenuBar {
 	private JMenu getHelp() {
 		if (help == null) {
 			help = new JMenu();
-			help.setText("Справка");
+			help.setText("РЎРїСЂР°РІРєР°");
 			help.add(getAbout());
 		}
 		return help;
@@ -201,7 +201,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getAbout() {
 		if (about == null) {
 			about = new JMenuItem();
-			about.setText("О программе...");
+			about.setText("Рћ РїСЂРѕРіСЂР°РјРјРµ...");
 			about.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					JDialog dialog = new InfoDialog(TaskGenerator.getFrame());
@@ -219,7 +219,7 @@ public class MainMenu extends JMenuBar {
 	private JMenu getElements() {
 		if (elements == null) {
 			elements = new JMenu();
-			elements.setText("Элементы");
+			elements.setText("Р­Р»РµРјРµРЅС‚С‹");
 			elements.add(getDescriptionParameters());
 			elements.add(getVerifierParameters());
 			elements.addSeparator();
@@ -252,7 +252,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getDescriptionParameters() {
 		if (descriptionParameters == null) {
 			descriptionParameters = new JMenuItem();
-			descriptionParameters.setText("Добавить параметры генерации");
+			descriptionParameters.setText("Р”РѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РіРµРЅРµСЂР°С†РёРё");
 			descriptionParameters.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.addParameterSet(true);
@@ -270,7 +270,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getVerifierParameters() {
 		if (verifierParameters == null) {
 			verifierParameters = new JMenuItem();
-			verifierParameters.setText("Добавить параметры верификации");
+			verifierParameters.setText("Р”РѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РІРµСЂРёС„РёРєР°С†РёРё");
 			verifierParameters.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.addParameterSet(false);
@@ -288,7 +288,7 @@ public class MainMenu extends JMenuBar {
 	private JMenuItem getExpand() {
 		if (expand == null) {
 			expand = new JMenuItem();
-			expand.setText("Раскрыть все вершины");
+			expand.setText("Р Р°СЃРєСЂС‹С‚СЊ РІСЃРµ РІРµСЂС€РёРЅС‹");
 			expand.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					Actions.expand();

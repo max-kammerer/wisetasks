@@ -73,7 +73,7 @@ public class InfoDialog extends JDialog {
         this.setSize(new Dimension(405, 141));
         this.setResizable(false);
         this.setContentPane(getMainPanel());
-        this.setTitle("��������� �����");
+        this.setTitle("Генератор задач");
         this.addWindowListener(myDef);
 	}
 

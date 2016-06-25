@@ -51,7 +51,7 @@ public class SmartPanel extends JPanel{
 	private void initialize() {
         this.setLayout(new BorderLayout());
         this.setSize(new java.awt.Dimension(271,123));
-        this.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Свойства", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, null));        
+        this.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "РЎРІРѕР№СЃС‚РІР°", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, null));        
         this.setPreferredSize(new java.awt.Dimension(155,183));
         this.add(getActionPAnel(), java.awt.BorderLayout.SOUTH);
         this.add(getTabbedPane(), java.awt.BorderLayout.CENTER);
@@ -147,7 +147,7 @@ public class SmartPanel extends JPanel{
 	public JButton getApply() {
 		if (apply == null) {
 			apply = new JButton();
-			apply.setText("Обновить");
+			apply.setText("РћР±РЅРѕРІРёС‚СЊ");
 			apply.setEnabled(false);
 			apply.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -279,9 +279,9 @@ public class SmartPanel extends JPanel{
 	private JTabbedPane getTabbedPane() {
 		if (tabbedPane == null) {
 			tabbedPane = new JTabbedPane();			
-			tabbedPane.addTab("Аттрибуты", null, getAttributePanel(), null);
-			tabbedPane.addTab("Текст", null, getTextPanel(), null);
-			tabbedPane.addTab("Параметры", null, getParameterPanel(), null);			
+			tabbedPane.addTab("РђС‚С‚СЂРёР±СѓС‚С‹", null, getAttributePanel(), null);
+			tabbedPane.addTab("РўРµРєСЃС‚", null, getTextPanel(), null);
+			tabbedPane.addTab("РџР°СЂР°РјРµС‚СЂС‹", null, getParameterPanel(), null);			
 		}
 		return tabbedPane;
 	}
