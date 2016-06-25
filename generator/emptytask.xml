@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<task title="Укажите название задачи">
+    <description>
+Введите условие задачи
+    </description>
+    <mathDescription>    	
+        <sourceSet>
+        </sourceSet>  
+        <verifier type="Укажите тип верификатора и критерий проверки"/>
+    </mathDescription>
+</task>

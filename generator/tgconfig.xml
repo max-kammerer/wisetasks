@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--  Operations
+    ADD_SET, ADD_FUNCTION, ADD_ELEMENT, ADD_COMMAND, 
+    ADD_PARAM, UPDATE, DELETE, ADD_TEXT;
+-->
+<config>
+<operations-set>
+    <operations name="UD">
+        <operation name="UPDATE"/>
+        <operation name="DELETE"/>
+    </operations>
+
+    <operations name="UDC">
+        <super name="UD"/>
+        <operation name="ADD_COMMAND"/>
+    </operations>
+
+    <operations name="UDT">
+        <super name="UD"/>
+        <operation name="ADD_TEXT"/>    
+    </operations>
+
+    <operations name="SET">
+        <super name="UDC"/>
+    </operations>
+
+    <operations name="ESET">
+        <super name="SET"/>
+        <operation name="ADD_SET"/> 
+    </operations>
+
+
+    <operations name="TASK">
+        <operation name="UPDATE"/>  
+        <operation name="ADD_VPARAMSET"/>   
+        <operation name="ADD_GPARAMSET"/>   
+    </operations>
+
+    <operations name="DESC">
+        <operation name="ADD_TEXT"/>    
+    </operations>
+    
+
+    <operations name="MATHDESC">
+    </operations>
+
+    <operations name="SSET">
+        <operation name="ADD_SET"/> 
+    </operations>
+
+    <operations name="VER">
+        <operation name="ADD_FUNCTION"/>    
+    </operations>
+
+    <operations name="FUNCTION">
+        <super name="UDC"/>
+        <operation name="ADD_FUNCTION"/>    
+    </operations>
+
+    <operations name="CONST">
+        <super name="FUNCTION"/>
+        <operation name="ADD_TEXT"/>    
+    </operations>
+
+    <operations name="TEXT">
+        <super name="UD"/>
+    </operations>
+
+    <operations name="DESCRIPTION-PARAMS">
+        <operation name="DELETE"/>  
+        <operation name="ADD_PARAM"/>
+    </operations>
+
+    <operations name="VERIFIER-PARAMS">
+        <operation name="DELETE"/>  
+        <operation name="ADD_PARAM"/>   
+    </operations>
+
+    <operations name="PARAM">
+        <super name="UD"/>
+    </operations>
+
+    <operations name="FOR">
+        <super name="UD"/>
+        <operation name="ADD_FUNCTION"/>
+		<operation name="ADD_SET"/>
+		<operation name="ADD_COMMAND"/>
+    </operations>
+
+    
+</operations-set>
+
+<rootelements>
+    <element name="task" operations="TASK">
+        <attribute name="title"/>
+    </element>
+
+    <element name="description" operations="DESC">
+    </element>
+
+    <element name="mathDescription" operations="MATHDESC">
+    </element>
+
+    <element name="sourceSet" operations="SSET">
+    </element>
+
+    <element name="verifier" operations="VER">
+    </element>                       
+
+    <element name="verifier-params" type="verifier-params" operations="VERIFIER-PARAMS">
+    </element>                       
+
+    <element name="description-params" type="description-params" operations="DESCRIPTION-PARAMS">
+    </element>                       
+
+    <element name="param" operations="PARAM" type="param">
+       <attribute name="name"/>
+       <attribute name="type" required="false"/>
+    </element>                       
+    
+    <element name="set" type="set" operations="ESET">
+	    <attribute name="type"/>
+    </element>                       
+    
+    <element name="function" type="function" operations="FUNCTION">
+	    <attribute name="type"/>
+    </element>                       
+    
+</rootelements>
+
+<sets>
+    <set name="NumericSet">
+        <attribute name="first" required="false"/>
+        <attribute name="last"/>
+    </set>
+
+    <set name="DecartSet" operations="ESET"/>
+
+    <set name="LayoutSet" operations="ESET">
+        <attribute name="length"/>
+    </set>
+
+    <set name="CombinationSet" operations="ESET">
+        <attribute name="length"/>
+    </set>
+        
+    <set name="EnumerationSet" operations="ESET"/>
+</sets>
+
+<functions>
+    <function name="And"/>
+    <function name="Not"/>
+    <function name="Or"/>
+
+    <function name="SEPARATOR"/>
+
+    <function name="Equals"/>
+    <function name="Like"/>
+    <function name="Greater"/>
+    <function name="Smaller"/>
+    
+    <function name="SEPARATOR"/>
+
+    <function name="Add"/>
+    <function name="Div"/>
+    <function name="Mod"/>
+    <function name="Sub"/>
+
+    <function name="SEPARATOR"/>
+    
+    <function name="Even"/>
+    <function name="Odd"/>
+
+    <function name="SEPARATOR"/>
+
+    <function name="Parser">
+        <attribute name="exp"/>
+    </function>
+
+	<function name="ToDigit"/>
+
+    <function name="SEPARATOR"/>
+    
+    <function name="Projection">
+        <attribute name="axis"/>
+    </function>
+    <function name="constElement" operations="CONST"/>
+    <function name="current-set-element"/>
+    <function name="Count">
+        <attribute name="axis"/>
+    </function>
+</functions>
+
+<preprocessorcommands>
+    <command name="for" operations="FOR">
+        <attribute name="name"></attribute>
+        <attribute name="first"></attribute>
+        <attribute name="last"></attribute>
+        <attribute name="inc"></attribute>
+    </command>
+    
+    <command name="constElement"/>
+</preprocessorcommands>
+
+</config>

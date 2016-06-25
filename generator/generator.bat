@@ -1,0 +1,1 @@
+java -cp bin ru.spb.ipo.generator.cards.CardGenerator
