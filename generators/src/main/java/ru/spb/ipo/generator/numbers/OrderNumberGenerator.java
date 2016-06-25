@@ -1,19 +1,19 @@
 package ru.spb.ipo.generator.numbers;
 
 import ru.spb.ipo.generator.base.ComplexElement;
-import ru.spb.ipo.generator.cards.TypeModell.Generator;
+import ru.spb.ipo.generator.cards.TypeModel.Generator;
 
-public class OrderNumberGenerator extends Generator implements ComplexElement {
+class OrderNumberGenerator extends Generator implements ComplexElement {
 
 	private int order;
 	
-	public OrderNumberGenerator(int order) {
+	OrderNumberGenerator(int order) {
 		super(null);
 		this.order = order;
 	}
 
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		String type = "";
 		switch (order) {
 		case -1: case -2:

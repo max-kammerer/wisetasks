@@ -35,7 +35,7 @@ import javax.swing.border.TitledBorder;
 
 import ru.spb.ipo.generator.base.ComplexElement;
 
-public class DetailDigitPanel extends JPanel {
+class DetailDigitPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel jPanel = null;  //  @jve:decl-index=0:visual-constraint="10,36"
@@ -56,7 +56,7 @@ public class DetailDigitPanel extends JPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public DetailDigitPanel(JFrame parent) {
+	DetailDigitPanel(JFrame parent) {
 		super();
 		initialize();
 		this.parent = parent;
@@ -187,10 +187,7 @@ public class DetailDigitPanel extends JPanel {
 				la.setTransferHandler(new TransferHandler("text") {
 					
 					public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
-						if (comp == leftCond || comp == rightCond) {
-							return true;
-						}
-						return false;
+						return comp == leftCond || comp == rightCond;
 					}
 					
 				});
@@ -257,7 +254,7 @@ public class DetailDigitPanel extends JPanel {
 	 * 	
 	 * @return javax.swing.JButton	
 	 */
-	protected JButton getClearCond() {
+	JButton getClearCond() {
 		if (clearCond == null) {
 			clearCond = new JButton();
 			clearCond.setText("Очистить списки");

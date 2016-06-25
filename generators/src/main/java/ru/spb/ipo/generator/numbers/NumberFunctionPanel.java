@@ -14,7 +14,7 @@ import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.ListElement;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
-import ru.spb.ipo.generator.cards.TypeModell;
+import ru.spb.ipo.generator.cards.TypeModel;
 
 public class NumberFunctionPanel extends ConstraintPanel {
 
@@ -94,7 +94,7 @@ public class NumberFunctionPanel extends ConstraintPanel {
 	private JComboBox getFunctSelect() {
 		if (functSelect == null) {
 			functSelect = new JComboBox();
-			functSelect.setModel(new TypeModell(number_cond));
+			functSelect.setModel(new TypeModel(number_cond));
 			functSelect.setSelectedIndex(0);
 		}
 		return functSelect;

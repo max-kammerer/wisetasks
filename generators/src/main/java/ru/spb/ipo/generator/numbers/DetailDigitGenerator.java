@@ -36,7 +36,7 @@ public class DetailDigitGenerator implements ComplexElement {
 		}
 		
 		public String generateXml() {
-			StringBuffer sb = new StringBuffer("<function type=");
+			StringBuilder sb = new StringBuilder("<function type=");
 			String func = "";
 			switch (cond.charAt(0)) {
 				case '<': func = "Smaller"; break;
@@ -52,7 +52,7 @@ public class DetailDigitGenerator implements ComplexElement {
 			return sb.toString();		
 		}
 		
-		String toString (String [] str, String del) {
+		private String toString(String[] str, String del) {
 			String res = "";
 			for (int i = 0; i < str.length; i++) {
 				if ("+".equals(del)) {
@@ -69,19 +69,17 @@ public class DetailDigitGenerator implements ComplexElement {
 			return res;
 		}
 
-		public String forOne(String id) {
-			StringBuffer sb = new StringBuffer();					
-			sb.append("<function type=\"Projection\" axis=\"" + id+ "\">\n");			
-			sb.append("		<current-set-element/>\n");
-			sb.append("</function>\n");	
-			return sb.toString();
+		private String forOne(String id) {
+			return "<function type=\"Projection\" axis=\"" + id + "\">\n" +
+					"		<current-set-element/>\n" +
+					"</function>\n";
 		}
 		
-		public String forPart(String [] ids) {
-			StringBuffer sb = new StringBuffer();
+		private String forPart(String[] ids) {
+			StringBuilder sb = new StringBuilder();
 			sb.append("<function type=\"Add\">\n");
-			for (int i = 0; i < ids.length; i++) {
-				sb.append(forOne(ids[i]));
+			for (String id : ids) {
+				sb.append(forOne(id));
 			}
 			sb.append("</function>\n");	
 			return sb.toString();

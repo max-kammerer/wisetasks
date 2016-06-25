@@ -229,7 +229,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JComboBox getCardType() {
 		if (cardType == null) {
 			cardType = new JComboBox();
-			cardType.setModel(new TypeModell(TypeModell.type_cards));
+			cardType.setModel(new TypeModel(TypeModel.type_cards));
 			cardType.setSelectedIndex(0);
 		}
 		return cardType;
@@ -303,7 +303,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JComboBox getCardValue() {
 		if (cardValue == null) {
 			cardValue = new JComboBox();
-			cardValue.setModel(new TypeModell(TypeModell.valueType_cards));
+			cardValue.setModel(new TypeModel(TypeModel.valueType_cards));
 			cardValue.setSelectedIndex(5);
 		}
 		return cardValue;
@@ -317,7 +317,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	private JComboBox getCardColor() {
 		if (cardColor == null) {
 			cardColor = new JComboBox();
-			cardColor.setModel(new TypeModell(TypeModell.valueMast_cards));
+			cardColor.setModel(new TypeModel(TypeModel.valueMast_cards));
 			cardColor.setSelectedIndex(0);
 		}
 		return cardColor;

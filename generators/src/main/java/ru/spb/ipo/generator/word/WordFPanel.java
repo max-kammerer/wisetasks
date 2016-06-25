@@ -19,7 +19,7 @@ import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.ListElement;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
-import ru.spb.ipo.generator.cards.TypeModell;
+import ru.spb.ipo.generator.cards.TypeModel;
 
 class WordFPanel extends ConstraintPanel {
 
@@ -94,7 +94,7 @@ class WordFPanel extends ConstraintPanel {
 	private JComboBox getWordCondiion() {
 		if (wordCondiion == null) {
 			wordCondiion = new JComboBox();
-			wordCondiion.setModel(new TypeModell(TypeModell.word_cond));
+			wordCondiion.setModel(new TypeModel(TypeModel.word_cond));
 			wordCondiion.setSelectedIndex(0);
 		}
 		return wordCondiion;

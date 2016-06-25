@@ -3,7 +3,7 @@
  */
 package ru.spb.ipo.generator.base;
 
-import ru.spb.ipo.generator.cards.TypeModell.Generator;
+import ru.spb.ipo.generator.cards.TypeModel.Generator;
 
 public class ListElement {
 

@@ -1,9 +1,9 @@
 package ru.spb.ipo.generator.word;
 
 import ru.spb.ipo.generator.base.ComplexElement;
-import ru.spb.ipo.generator.cards.TypeModell;
+import ru.spb.ipo.generator.cards.TypeModel;
 
-public class DiffGenerator extends TypeModell.Generator implements ComplexElement {
+public class DiffGenerator extends TypeModel.Generator implements ComplexElement {
 
 	private String desc;
 		

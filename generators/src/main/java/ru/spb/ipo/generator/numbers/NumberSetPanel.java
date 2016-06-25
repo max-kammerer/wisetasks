@@ -12,7 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NumberSetPanel extends ConstraintPanel {
+class NumberSetPanel extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel jPanel = null;
@@ -27,7 +27,7 @@ public class NumberSetPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public NumberSetPanel(BaseGeneratorUI gen) {
+	NumberSetPanel(BaseGeneratorUI gen) {
 		super(gen);
 		initialize();
 	}
@@ -88,7 +88,7 @@ public class NumberSetPanel extends ConstraintPanel {
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	public JComboBox getNaborSize() {
+	JComboBox getNaborSize() {
 		if (naborSize == null) {
 			naborSize = new JComboBox();
 			naborSize.setModel(new DefaultComboBoxModel(new String[]  {"3","4" ,"5", "6", "7", "8", "9", "10"}));
@@ -102,7 +102,7 @@ public class NumberSetPanel extends ConstraintPanel {
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	public JComboBox getMaxDigit() {
+	JComboBox getMaxDigit() {
 		if (maxDigit == null) {
 			maxDigit = new JComboBox();
 			maxDigit.setModel(new DefaultComboBoxModel(new String[]  {"2", "3", "4", "5", "6", "7", "8", "9"}));
@@ -138,7 +138,7 @@ public class NumberSetPanel extends ConstraintPanel {
 		return jCheckBox;
 	}
 	
-	public boolean isNumber() {
+	boolean isNumber() {
 		return jCheckBox.isSelected();
 	}
 

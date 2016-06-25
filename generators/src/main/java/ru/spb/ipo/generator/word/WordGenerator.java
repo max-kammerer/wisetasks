@@ -10,7 +10,7 @@ import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.ListElement;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
-import ru.spb.ipo.generator.cards.TypeModell.Generator;
+import ru.spb.ipo.generator.cards.TypeModel.Generator;
 
 public class WordGenerator extends BaseGeneratorUI {
 

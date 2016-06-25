@@ -8,7 +8,7 @@ import ru.spb.ipo.generator.word.NextGenerator;
 import ru.spb.ipo.generator.word.SignGenerator;
 import ru.spb.ipo.generator.word.WordCondition;
 
-public class TypeModell extends DefaultComboBoxModel {
+public class TypeModel extends DefaultComboBoxModel {
 
 	static final ListElement []  type_cards =  {
 		new ListElement("карт бубновой масти", new Generator("1")),
@@ -71,7 +71,7 @@ public class TypeModell extends DefaultComboBoxModel {
 	
 	private ListElement [] cards;
 	
-	public TypeModell(ListElement [] cards) {
+	public TypeModel(ListElement [] cards) {
 		this.cards = cards;
 	}
 		

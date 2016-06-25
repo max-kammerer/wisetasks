@@ -26,7 +26,7 @@ import javax.swing.border.TitledBorder;
 import ru.spb.ipo.generator.base.ListElement;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
-import ru.spb.ipo.generator.cards.TypeModell;
+import ru.spb.ipo.generator.cards.TypeModel;
 
 public class WordSet extends ConstraintPanel {
 
@@ -223,7 +223,7 @@ public class WordSet extends ConstraintPanel {
 	private JComboBox getWordList() {
 		if (wordList == null) {
 			wordList = new JComboBox();			
-			wordList.setModel(new TypeModell(WordGenerator.getTokenList()));
+			wordList.setModel(new TypeModel(WordGenerator.getTokenList()));
 			wordList.setSelectedIndex(0);
 		}
 		return wordList;

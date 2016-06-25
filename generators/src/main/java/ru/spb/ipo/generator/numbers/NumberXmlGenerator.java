@@ -12,13 +12,11 @@ public class NumberXmlGenerator extends BaseGenerator {
 	}
 	
 	public String getSourceTemplate() {
-		
-		int nabor =  Integer.valueOf((String) sourceParams.get("nabor")).intValue();
-		int maxDigit =  Integer.valueOf((String) sourceParams.get("maxDigit")).intValue();
+		int nabor = Integer.valueOf((String) sourceParams.get("nabor"));
+		int maxDigit = Integer.valueOf((String) sourceParams.get("maxDigit"));
 		boolean isNumber = (Boolean)sourceParams.get("isNumber");
 		
-		String source = "";		
-		source = " <sourceSet> \n <set type=\"DecartSet\"> \n";
+		String source = " <sourceSet> \n <set type=\"DecartSet\"> \n";
 		for (int i = 0; i < nabor; i ++) {
 			if (isNumber && i == 0) {
 				source +=  "<set type=\"NumericSet\" first=\"1\" last=\"" + maxDigit + "\"/>";			        
@@ -38,8 +36,8 @@ public class NumberXmlGenerator extends BaseGenerator {
 	}
 	
 	public String generateDescription() {
-		int nabor =  Integer.valueOf((String) sourceParams.get("nabor")).intValue();
-		int maxDigit =  Integer.valueOf((String) sourceParams.get("maxDigit")).intValue();
+		int nabor = Integer.valueOf((String) sourceParams.get("nabor"));
+		int maxDigit = Integer.valueOf((String) sourceParams.get("maxDigit"));
 		boolean isNumber = (Boolean)sourceParams.get("isNumber");
 		if (isNumber) {
 			return "Найдите количество всех " + nabor + "-значных  чисел, состоящих из цифр от 0 до " + maxDigit + 

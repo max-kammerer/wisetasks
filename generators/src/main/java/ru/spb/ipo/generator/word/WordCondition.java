@@ -1,9 +1,9 @@
 package ru.spb.ipo.generator.word;
 
 import ru.spb.ipo.generator.base.ComplexElement;
-import ru.spb.ipo.generator.cards.TypeModell;
+import ru.spb.ipo.generator.cards.TypeModel;
 
-public class WordCondition extends TypeModell.Generator implements ComplexElement {
+public class WordCondition extends TypeModel.Generator implements ComplexElement {
 
 	private String desc;
 	
