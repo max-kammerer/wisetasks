@@ -21,13 +21,13 @@ public class CardGenerator extends BaseGeneratorUI {
 
 	private JPanel collectionSizePanel = null;
 
-	protected JLabel packSizeLabel = null;
+	private JLabel packSizeLabel = null;
 
 	private JPanel packSizePanel = null;
 
 	private JComboBox coloda = null;
 
-	protected JLabel collectionSizeLabel = null;
+	private JLabel collectionSizeLabel = null;
 
 	private JComboBox nabor = null;
 
@@ -61,7 +61,7 @@ public class CardGenerator extends BaseGeneratorUI {
 	}
 	
 	protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
-		source.put("coloda", Integer.valueOf(((String)coloda.getSelectedItem())).intValue() == 36 ? "5" : "1");
+		source.put("coloda", Integer.valueOf(((String) coloda.getSelectedItem())) == 36 ? "5" : "1");
 		source.put("colodaDesc", coloda.getSelectedItem());
 		source.put("nabor", nabor.getSelectedItem());
 	}

@@ -21,7 +21,7 @@ public class ParseElement implements ComplexElement {
 		switch (cond.charAt(0)) {
 			case '<': s = "меньше"; break;
 			case '=': s = "равно"; break;
-			case '>': s = "больше"; break;		
+			case '>': s = "больше"; break;
 		}
 		return "количество карт " + e + " " + cond + " " + value;		
 	}
@@ -39,7 +39,7 @@ public class ParseElement implements ComplexElement {
 	
 	
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer("<function type=");
+		StringBuilder sb = new StringBuilder("<function type=");
 		String func = "";
 		switch (cond.charAt(0)) {
 			case '<': func = "Smaller"; break;
