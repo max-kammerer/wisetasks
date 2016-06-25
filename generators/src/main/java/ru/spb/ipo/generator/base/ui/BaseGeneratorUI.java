@@ -18,6 +18,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -110,7 +112,7 @@ public abstract class BaseGeneratorUI extends JFrame {
 
     private JPanel imageListPanel = null;
 
-    protected ArrayList<String> imagesList = new ArrayList<String>();  //  @jve:decl-index=0:
+    private ArrayList<String> imagesList = new ArrayList<String>();  //  @jve:decl-index=0:
 
     private JPopupMenu conditionPopup = null;  //  @jve:decl-index=0:visual-constraint="951,232"
 
@@ -847,7 +849,7 @@ public abstract class BaseGeneratorUI extends JFrame {
                     int result = getImageChooser().showOpenDialog(BaseGeneratorUI.this);
                     if (JFileChooser.APPROVE_OPTION == result) {
                         File file = getImageChooser().getSelectedFile();
-                        Image image = null;
+                        Image image;
                         try {
                             image = ImageIO.read(file);
                         } catch (IOException e1) {
@@ -941,14 +943,13 @@ public abstract class BaseGeneratorUI extends JFrame {
         if (constructorMenu == null) {
             constructorMenu = new JMenu();
             constructorMenu.setText("Редакторы");
-            for (int i = 0; i < constructors.length; i++) {
-                Object[] constructor = constructors[i];
-                String name = (String)constructor[0];
+            for (Object[] constructor : constructors) {
+                String name = (String) constructor[0];
                 if (!"separator".equals(name)) {
-                    final Class clazz = (Class)constructor[1];
+                    final Class clazz = (Class) constructor[1];
                     JMenuItem item = new JMenuItem(name);
-                    item.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent e) {
+                    item.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
                             executeEditor(clazz);
                         }
                     });
@@ -1004,8 +1005,7 @@ public abstract class BaseGeneratorUI extends JFrame {
 			scale.setText("Масштабирование");
 			scale.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					dlg = new ScaleDialog(BaseGeneratorUI.this,
-							"Масштабирование", "message", BaseGeneratorUI.this);
+					dlg = new ScaleDialog(BaseGeneratorUI.this, "Масштабирование", "message", BaseGeneratorUI.this);
 				}
 			});
 		}

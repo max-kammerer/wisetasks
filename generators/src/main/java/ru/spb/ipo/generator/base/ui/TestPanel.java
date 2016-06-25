@@ -284,9 +284,9 @@ public class TestPanel extends JPanel {
 	}
 	
 	public static DefaultListModel createModel(ListIdEntry [] entries) {
-		DefaultListModel model = new DefaultListModel();		
-		for (int i = 0; i < entries.length; i++) {
-			model.addElement(entries[i]);				
+		DefaultListModel model = new DefaultListModel();
+		for (ListIdEntry entry : entries) {
+			model.addElement(entry);
 		}
 		return model;
 	}

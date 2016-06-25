@@ -1,48 +1,20 @@
 package ru.spb.ipo.generator.base.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
-
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriter;
-import javax.imageio.stream.ImageOutputStream;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.TransferHandler;
-import javax.swing.filechooser.FileFilter;
 
 public class ScaleDialog extends JDialog implements ActionListener {
 	private BaseGeneratorUI baseGen;
     private ImageIcon icon = null;
-	public ScaleDialog(JFrame parent, String title, String message,
-			final BaseGeneratorUI baseGen) {
+	public ScaleDialog(JFrame parent, String title, String message, final BaseGeneratorUI baseGen) {
 		super(parent, title, true);
         this.baseGen = baseGen;
 		setResizable(false);
@@ -68,8 +40,8 @@ public class ScaleDialog extends JDialog implements ActionListener {
 		button3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int widthS = Integer.valueOf(width.getText().toString());
-					int heightS = Integer.valueOf(height.getText().toString());
+					int widthS = Integer.valueOf(width.getText());
+					int heightS = Integer.valueOf(height.getText());
 					icon = new ImageIcon(fileToScale
 							.getAbsolutePath());
 					icon = new ImageIcon(icon.getImage().getScaledInstance(
@@ -135,8 +107,6 @@ public class ScaleDialog extends JDialog implements ActionListener {
 										JOptionPane.ERROR_MESSAGE);
                         }
 
-					} else {
-						return;
 					}
 
 				} catch (Exception e9) {

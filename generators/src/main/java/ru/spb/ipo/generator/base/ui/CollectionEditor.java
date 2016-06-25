@@ -1,13 +1,7 @@
 package ru.spb.ipo.generator.base.ui;
 
-import ru.spb.ipo.generator.base.ui.TestPanel;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
+import java.awt.*;
 
 public class CollectionEditor extends JFrame {
 
