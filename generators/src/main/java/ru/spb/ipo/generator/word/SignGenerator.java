@@ -10,7 +10,6 @@ public class SignGenerator extends WordCondition {
 	}
 
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer();
 		String type = "";
 		switch (sign) {
 		case -1:
@@ -26,38 +25,32 @@ public class SignGenerator extends WordCondition {
 			break;
 		}
 
-		
-		sb.append("<function type=\"" + type + "\">\n");		
-		
-		sb.append("<function type=\"Add\">\n");
-		sb.append("<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n");
-		sb.append("<function type=\"Equals\">\n");		
-		sb.append("<function type=\"Projection\" axis=\"2\">\n");
-		sb.append("<function type=\"Projection\" axis=\"${i}\">\n");			
-		sb.append("		<current-set-element/>\n");
-		sb.append("</function>\n");
-		sb.append("</function>\n");
-		sb.append("<constElement>0</constElement>\n");		
-		sb.append("</function>\n");		
-		sb.append("</for>");
-		sb.append("</function>\n");
-		
-		sb.append("<function type=\"Add\">\n");
-		sb.append("<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n");
-		sb.append("<function type=\"Equals\">\n");		
-		sb.append("<function type=\"Projection\" axis=\"2\">\n");
-		sb.append("<function type=\"Projection\" axis=\"${i}\">\n");			
-		sb.append("		<current-set-element/>\n");
-		sb.append("</function>\n");
-		sb.append("</function>\n");
-		sb.append("<constElement>1</constElement>\n");		
-		sb.append("</function>\n");                	
-		sb.append("</for>");
-		sb.append("</function>\n");
-		
-		sb.append("</function>\n");
-		
-		return sb.toString();
+		return ("<function type=\"" + type + "\">\n") +
+				"<function type=\"Add\">\n" +
+				"<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n" +
+				"<function type=\"Equals\">\n" +
+				"<function type=\"Projection\" axis=\"2\">\n" +
+				"<function type=\"Projection\" axis=\"${i}\">\n" +
+				"		<current-set-element/>\n" +
+				"</function>\n" +
+				"</function>\n" +
+				"<constElement>0</constElement>\n" +
+				"</function>\n" +
+				"</for>" +
+				"</function>\n" +
+				"<function type=\"Add\">\n" +
+				"<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n" +
+				"<function type=\"Equals\">\n" +
+				"<function type=\"Projection\" axis=\"2\">\n" +
+				"<function type=\"Projection\" axis=\"${i}\">\n" +
+				"		<current-set-element/>\n" +
+				"</function>\n" +
+				"</function>\n" +
+				"<constElement>1</constElement>\n" +
+				"</function>\n" +
+				"</for>" +
+				"</function>\n" +
+				"</function>\n";
 	}
 
 	public String toDescription() {

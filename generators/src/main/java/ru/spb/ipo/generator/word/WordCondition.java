@@ -21,28 +21,20 @@ public class WordCondition extends TypeModell.Generator implements ComplexElemen
 	}
 
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer();
-		sb.append("<function type=\"And\">\n");
-		sb.append("<constElement>1</constElement>\n");
-		sb.append("<constElement>1</constElement>\n");
-		
-		sb.append("<for name=\"i\" first=\"1\" last=\"${lengthMod2}\" inc=\"1\">\n");
-		sb.append("<function type=\"Equals\">\n");
-		
-		sb.append("<function type=\"Projection\" axis=\"${i}\">\n");			
-		sb.append("		<current-set-element/>\n");
-		sb.append("</function>\n");
-		
-		sb.append("<function type=\"Projection\" axis=\"${length} + 1 -${i}\">\n");			
-		sb.append("		<current-set-element/>\n");
-		sb.append("</function>\n");
-		
-		sb.append("</function>\n");
-                	
-		sb.append("</for>");
-		sb.append("</function>\n");
-		
-		return sb.toString();
+		return "<function type=\"And\">\n" +
+				"<constElement>1</constElement>\n" +
+				"<constElement>1</constElement>\n" +
+				"<for name=\"i\" first=\"1\" last=\"${lengthMod2}\" inc=\"1\">\n" +
+				"<function type=\"Equals\">\n" +
+				"<function type=\"Projection\" axis=\"${i}\">\n" +
+				"		<current-set-element/>\n" +
+				"</function>\n" +
+				"<function type=\"Projection\" axis=\"${length} + 1 -${i}\">\n" +
+				"		<current-set-element/>\n" +
+				"</function>\n" +
+				"</function>\n" +
+				"</for>" +
+				"</function>\n";
 		
 	}	
 }

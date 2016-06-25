@@ -21,7 +21,7 @@ import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 import ru.spb.ipo.generator.cards.TypeModell;
 
-public class WordFPanel extends ConstraintPanel {
+class WordFPanel extends ConstraintPanel {
 
 	private JPanel jPanel = null;
 	private JPanel jPanel1 = null;
@@ -124,7 +124,7 @@ public class WordFPanel extends ConstraintPanel {
 	 * 	
 	 * @return javax.swing.JCheckBox	
 	 */
-	public JCheckBox getIsSingle() {
+	JCheckBox getIsSingle() {
 		if (isSingle == null) {
 			isSingle = new JCheckBox();
 			isSingle.setText("Буквы могут повторяться");

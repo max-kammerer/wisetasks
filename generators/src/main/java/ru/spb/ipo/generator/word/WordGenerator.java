@@ -42,7 +42,7 @@ public class WordGenerator extends BaseGeneratorUI {
 	
 	public static ListElement [] getTokenList() {
 		 ListElement [] list = new ListElement [30];
-		 HashSet set = new HashSet();
+		 HashSet<Character> set = new HashSet<Character>();
 		 set.add('а');
 		 set.add('е');
 		 set.add('ё');
@@ -95,12 +95,10 @@ public class WordGenerator extends BaseGeneratorUI {
 		}
 
 		public String generateXml() {
-			StringBuffer sb = new StringBuffer();
-			sb.append("<constElement>\n");
-				sb.append("    <constElement>" + (ch - 'а') + "</constElement>");
-				sb.append("    <constElement>" + type + "</constElement>");			
-			sb.append("</constElement>\n");
-			return sb.toString();
+			return "<constElement>\n" +
+					"    <constElement>" + (ch - 'а') + "</constElement>" +
+					"    <constElement>" + type + "</constElement>" +
+					"</constElement>\n";
 		}
 
 		public String toDescription() {			

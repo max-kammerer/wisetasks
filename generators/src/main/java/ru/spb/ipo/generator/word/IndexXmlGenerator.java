@@ -2,27 +2,20 @@ package ru.spb.ipo.generator.word;
 
 import java.util.Map;
 
-public class IndexXmlGenerator extends WordXmlGenerator {
+class IndexXmlGenerator extends WordXmlGenerator {
 
-	public IndexXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+	IndexXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 	
     public String getVerifier(Map funcParams) {
-    	StringBuffer sb = new StringBuffer();
-    	sb.append("<verifier type=\"IndexVerifier\">\n");
-    	sb.append("<function type=\"And\">\n");
-    	sb.append("<constElement>" + 1 + "</constElement>\n");    	
-        
-    	sb.append(funcParams.get("function") + "\n");        
-		
-        sb.append("</function>\n");
-        
-
-        sb.append(funcParams.get("indexingElement") + "\n");
-
-        sb.append("</verifier>");          
-       return sb.toString();
+		return "<verifier type=\"IndexVerifier\">\n" +
+				"<function type=\"And\">\n" +
+				"<constElement>" + 1 + "</constElement>\n" +
+				funcParams.get("function") + "\n" +
+				"</function>\n" +
+				funcParams.get("indexingElement") + "\n" +
+				"</verifier>";
     }
     
     public String generateDescription() {

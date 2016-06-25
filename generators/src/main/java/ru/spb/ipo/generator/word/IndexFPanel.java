@@ -8,12 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class IndexFPanel extends WordFPanel {
+class IndexFPanel extends WordFPanel {
 
 	private JPanel restrict;
 	private JTextField word;
 	
-	public IndexFPanel(BaseGeneratorUI gen) {
+	IndexFPanel(BaseGeneratorUI gen) {
 		super(gen);
 		add(getRestrict(), 0);
 	}

@@ -12,22 +12,20 @@ public class WordXmlGenerator extends BaseGenerator {
 	}
 
     public String getParams() {
-    	String genParam =    "<description-params>\n" +
-        "	<param name=\"length\">\n" +
-        " 		<value>${nabor}</value>\n" +
-        " 	</param>\n" + 
-        "	<param name=\"lengthMod2\">\n" +
-        " 		<value>${half-length}</value>\n" +
-        " 	</param>\n" +
-        "</description-params>";
-    	return genParam;
-    }
+		return "<description-params>\n" +
+				"	<param name=\"length\">\n" +
+				" 		<value>${nabor}</value>\n" +
+				" 	</param>\n" +
+				"	<param name=\"lengthMod2\">\n" +
+				" 		<value>${half-length}</value>\n" +
+				" 	</param>\n" +
+				"</description-params>";
+	}
 	
 	public String getSourceTemplate() {
-		Boolean b = (Boolean) sourceParams.get("setType-template");
-		int nabor =  Integer.valueOf((String) sourceParams.get("nabor")).intValue();
+		int nabor = Integer.valueOf((String) sourceParams.get("nabor"));
 		String source = "";
-		if (b.booleanValue()) {
+		if ((Boolean) sourceParams.get("setType-template")) {
 			source = " <sourceSet> \n <set type=\"DecartSet\" length=\"${length}\"> \n";
 			for (int i = 0; i < nabor; i ++) {
 				source +="	<set type=\"EnumerationSet\">\n" +
@@ -60,9 +58,8 @@ public class WordXmlGenerator extends BaseGenerator {
         		(isEmptyInline() ? "." : ", для которых верно следующее: " + ((String)taskParams.get("inlineDesc")).toLowerCase() + ".");
     }
 	
-	public boolean isMulti () {
-		Boolean b = (Boolean) sourceParams.get("setType-template");
-		return b.booleanValue();
+	boolean isMulti() {
+		return (Boolean) sourceParams.get("setType-template");
 	}
 	
 }

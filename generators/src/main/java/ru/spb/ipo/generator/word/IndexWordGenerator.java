@@ -39,15 +39,15 @@ public class IndexWordGenerator extends WordGenerator {
 		super.fillParameters(source, func, task);
 		//todo parse words
 		String value = ((IndexFPanel) getFunctionPanel()).getWord().getText();
-		StringBuffer sb = new StringBuffer("<indexingElement>");
+		StringBuilder sb = new StringBuilder("<indexingElement>");
 		sb.append("<constElement>");
 		ListElement [] letters = WordGenerator.getTokenList();
 		for (int i = 0; i < value.length(); i++) {
 			String s = "" + value.charAt(i);			
 			ListElement res = null;
-			for (int j = 0; j < letters.length; j++) {
-				if (letters[j].toString().equals(s)) {
-					res = letters[j];
+			for (ListElement letter : letters) {
+				if (letter.toString().equals(s)) {
+					res = letter;
 					sb.append(res.generateXml());
 					break;
 				}
@@ -75,7 +75,4 @@ public class IndexWordGenerator extends WordGenerator {
 		}
 		return true;
 	}
-	
-	
-	
 }

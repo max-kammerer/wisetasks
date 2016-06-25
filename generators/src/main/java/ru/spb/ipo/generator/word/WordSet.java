@@ -172,7 +172,7 @@ public class WordSet extends ConstraintPanel {
 	}
 
 	private void setTokenList() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("{");
 		for (int i = 0; i < alphabit.size(); i++) {
 			ListElement e1 = (ListElement)alphabit.get(i);						
