@@ -1,18 +1,12 @@
 package ru.spb.ipo.generator.basket;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.UIUtils;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BallChoicePanel extends JPanel {
 	
@@ -21,10 +15,10 @@ public class BallChoicePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JPanel jPanel = null;
 	private JButton addButton = null;
-	protected JPanel choiceContent = null;
+	private JPanel choiceContent = null;
 	private JPanel jPanel1 = null;
 	private JPanel jPanel2 = null;
-	JComboBox color, number;
+	private JComboBox color, number;
 
 	public BallChoicePanel() {	
 		super();

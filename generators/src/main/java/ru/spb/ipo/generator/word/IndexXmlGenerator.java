@@ -4,7 +4,7 @@ import java.util.Map;
 
 class IndexXmlGenerator extends WordXmlGenerator {
 
-	IndexXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+	IndexXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 	

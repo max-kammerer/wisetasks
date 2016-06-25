@@ -7,7 +7,7 @@ import ru.spb.ipo.generator.base.BaseGenerator;
 
 public class WordXmlGenerator extends BaseGenerator {
 
-	public WordXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+	public WordXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 
@@ -46,7 +46,7 @@ public class WordXmlGenerator extends BaseGenerator {
     	return source;
 	}
 
-	protected Map<String, String> getBaseSourceParameters() {
+	protected Map<String, Object> getBaseSourceParameters() {
     	//m.put("setType", "LayoutSet");
     	return Collections.emptyMap();
 	}

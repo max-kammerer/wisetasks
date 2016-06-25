@@ -227,7 +227,7 @@ public abstract class BaseGeneratorUI extends JFrame {
         getSetPanel().fillMaps(source, func,  task);
     }
 
-    protected abstract BaseGenerator createGenerator(Map source, Map func, Map task);
+    protected abstract BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task);
 
     /**
      * This method initializes mathDescriptionWidgetPanel

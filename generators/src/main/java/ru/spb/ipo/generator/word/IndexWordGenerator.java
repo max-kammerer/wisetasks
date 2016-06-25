@@ -31,7 +31,7 @@ public class IndexWordGenerator extends WordGenerator {
 		new IndexWordGenerator().setVisible(true);
 	}
 
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {		
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new IndexXmlGenerator(source, func, task);
 	}
 

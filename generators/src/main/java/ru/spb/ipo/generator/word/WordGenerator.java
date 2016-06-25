@@ -78,7 +78,7 @@ public class WordGenerator extends BaseGeneratorUI {
 		task.put("alphabit", ((WordSet) getSetPanel()).getTokenList().getText());
 	}
 
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {		 
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new WordXmlGenerator(source, func, task);
 	}
 	

@@ -42,7 +42,7 @@ public class ColorsGenerator extends BaseGeneratorUI {
     }
 
     @Override
-    protected BaseGenerator createGenerator(Map source, Map func, Map task) {
+    protected BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
         Integer tab = (Integer)source.get("tabNum");
         switch(tab.intValue()) {
             case 1:

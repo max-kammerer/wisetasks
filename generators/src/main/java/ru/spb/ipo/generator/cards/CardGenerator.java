@@ -66,7 +66,7 @@ public class CardGenerator extends BaseGeneratorUI {
 		source.put("nabor", nabor.getSelectedItem());
 	}
 	
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new BaseGenerator(source, func, task);
 	}
 

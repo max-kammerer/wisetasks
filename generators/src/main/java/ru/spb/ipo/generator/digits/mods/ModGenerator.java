@@ -44,13 +44,13 @@ public class ModGenerator extends BaseGeneratorUI {
 		((ModSetPanel) getSetPanel()).clear();
 	}
 
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {		
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new ModXmlGenerator(source, func, task);
 	}
 
 	@Override
 	public String getEditorTitle() {
-		return "Редактор \"Арифметика остатков\"";
+		return "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ \"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\"";
 	}
 	
 	

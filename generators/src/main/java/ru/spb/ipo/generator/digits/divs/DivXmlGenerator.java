@@ -7,7 +7,7 @@ import ru.spb.ipo.generator.numbers.NumberXmlGenerator;
 
 public class DivXmlGenerator extends NumberXmlGenerator {
 
-	public DivXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+	public DivXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 
@@ -18,8 +18,8 @@ public class DivXmlGenerator extends NumberXmlGenerator {
 		for (int i = 1; i <= nabor; i++) {
 			def.append("[" + i + "] ");
 		}
-		return "Найти все " + sourceParams.get("nabor") + " значные " 
-		 + "натуральные числа, которые при изменении цифр числа по правилу: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (в полученном числе 1 цифра не 0); " + (String)taskParams.get("inlineDesc") + ".";   
+		return "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ " + sourceParams.get("nabor") + " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " 
+		 + "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 0); " + (String)taskParams.get("inlineDesc") + ".";   
 	}
 
 	public String getSourceTemplate() {

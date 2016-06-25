@@ -7,7 +7,7 @@ import ru.spb.ipo.generator.base.SetUtil;
 
 public class EquationXmlGenerator extends BaseGenerator {
 
-	public EquationXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+	public EquationXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
 

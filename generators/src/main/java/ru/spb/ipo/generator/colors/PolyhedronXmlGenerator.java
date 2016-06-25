@@ -21,7 +21,7 @@ import ru.spb.ipo.generator.colors.figures.Tetrahedron;
  */
 public class PolyhedronXmlGenerator extends BaseGenerator {
     private Figure figure;
-    public PolyhedronXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+    public PolyhedronXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
     }
     public String generateDescription() {

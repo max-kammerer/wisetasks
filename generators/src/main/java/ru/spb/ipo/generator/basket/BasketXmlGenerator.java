@@ -1,13 +1,12 @@
 package ru.spb.ipo.generator.basket;
 
-import java.awt.Color;
-import java.util.HashMap;
-import java.util.Map;
-
 import ru.spb.ipo.generator.base.BaseGenerator;
 import ru.spb.ipo.generator.base.ComplexElement;
-import ru.spb.ipo.generator.base.FileUtil;
 import ru.spb.ipo.generator.base.FuncUtil;
+
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BasketXmlGenerator extends BaseGenerator {
 

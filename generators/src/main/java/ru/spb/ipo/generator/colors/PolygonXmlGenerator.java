@@ -19,7 +19,7 @@ import ru.spb.ipo.generator.colors.figures.Triangle;
  */
 public class PolygonXmlGenerator extends BaseGenerator{
     Figure figure;
-    public PolygonXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+    public PolygonXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
     }
     @Override

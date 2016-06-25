@@ -34,10 +34,10 @@ public class DivGenerator extends BaseGeneratorUI {
 	}
 
 	public String getEditorTitle() {
-		return "Редактор \"Задачи на делимость\"";
+		return "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ \"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\"";
 	}
 
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {		
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new DivXmlGenerator(source, func, task);
 	}
 	
@@ -47,7 +47,7 @@ public class DivGenerator extends BaseGeneratorUI {
 			return res;
 		}
 		if (getFunctionList().getModel().getSize() == 0) {
-			JOptionPane.showMessageDialog(this, "Не выбрано ни одного условия!" , "Не выбрано ни одного условия!", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" , "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return ((DropDigitPanel) getFunctionPanel()).checkCanSave();

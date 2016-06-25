@@ -7,8 +7,8 @@ import ru.spb.ipo.generator.base.BaseGenerator;
 public class ModXmlGenerator extends BaseGenerator {
 
 
-	public ModXmlGenerator(Map source, Map func, Map task) {
-		super(source, func, task);
+	public ModXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
+		super(sourceParams, funcParams, taskParams);
 	}
 
 	public String getVerifier(Map funcParams) {
@@ -21,7 +21,7 @@ public class ModXmlGenerator extends BaseGenerator {
 	}
 
 	public String generateDescription() {
-		return "Какой остаток дает число " + funcParams.get("expression") + " при делении на " + funcParams.get("mod") + "?";
+		return "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ " + funcParams.get("expression") + " пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ " + funcParams.get("mod") + "?";
 	}
 
 	

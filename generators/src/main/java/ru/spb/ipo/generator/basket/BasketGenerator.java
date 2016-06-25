@@ -46,7 +46,7 @@ public class BasketGenerator extends BaseGeneratorUI {
 		new BasketGenerator().setVisible(true);
 	}
 	
-	public BaseGenerator createGenerator(Map source, Map func, Map task) {
+	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		return new BasketXmlGenerator(source, func, task);
 	}
 
