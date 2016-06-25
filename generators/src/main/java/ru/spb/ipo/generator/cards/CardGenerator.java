@@ -51,7 +51,7 @@ public class CardGenerator extends BaseGeneratorUI {
 
 	private JComboBox cardValue = null;
 
-	private JComboBox cardType = null;
+	private JComboBox cardColor = null;
 
 	private  static CardGenerator instance = null;
 
@@ -269,7 +269,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			packIncludePanel.setLayout(flowLayout5);
 			packIncludePanel.add(packIncludeLabel, null);
 			packIncludePanel.add(getCardValue(), null);
-			packIncludePanel.add(getCardType(), null);
+			packIncludePanel.add(getCardColor(), null);
 			packIncludePanel.add(getAddIncludeConditionButton(), null);
 		}
 		return packIncludePanel;
@@ -287,7 +287,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			addIncludeConditionButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					DefaultListModel model = (DefaultListModel) functionList.getModel();
-					OneCard el = new OneCard((ListElement)getCardValue().getSelectedItem(), (ListElement)getCardType().getSelectedItem());					
+					OneCard el = new OneCard((ListElement)getCardValue().getSelectedItem(), (ListElement) getCardColor().getSelectedItem());
 					((DefaultListModel) functionList.getModel()).add(model.getSize(), el);
 				}
 			});
@@ -310,17 +310,17 @@ public class CardGenerator extends BaseGeneratorUI {
 	}
 
 	/**
-	 * This method initializes cardType	
+	 * This method initializes cardColor
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox getCardType() {
-		if (cardType == null) {
-			cardType = new JComboBox();
-			cardType.setModel(new TypeModell(TypeModell.valueMast_cards));
-			cardType.setSelectedIndex(0);
+	private JComboBox getCardColor() {
+		if (cardColor == null) {
+			cardColor = new JComboBox();
+			cardColor.setModel(new TypeModell(TypeModell.valueMast_cards));
+			cardColor.setSelectedIndex(0);
 		}
-		return cardType;
+		return cardColor;
 	}
 	
 	public static void main(String[] args) {
