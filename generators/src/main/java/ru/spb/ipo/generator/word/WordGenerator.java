@@ -63,7 +63,7 @@ public class WordGenerator extends BaseGeneratorUI {
 		 return list; 
 	}
 		
-	protected void fillParameters(Map source, Map func, Map task) {
+	protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("nabor", ((WordSet) getSetPanel()).getNabor().getSelectedItem());
 		source.put("half-length", "" + Integer.valueOf((String)((WordSet) getSetPanel()).getNabor().getSelectedItem()).intValue() / 2);
 		source.put("setType-template", ((WordFPanel) getFunctionPanel()).getIsSingle().isSelected());

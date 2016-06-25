@@ -60,7 +60,7 @@ public class CardGenerator extends BaseGeneratorUI {
 		initialize();
 	}
 	
-	protected void fillParameters(Map source, Map func, Map task) {
+	protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("coloda", Integer.valueOf(((String)coloda.getSelectedItem())).intValue() == 36 ? "5" : "1");
 		source.put("colodaDesc", coloda.getSelectedItem());
 		source.put("nabor", nabor.getSelectedItem());

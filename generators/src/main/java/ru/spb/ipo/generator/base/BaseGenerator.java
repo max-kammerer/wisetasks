@@ -2,7 +2,6 @@ package ru.spb.ipo.generator.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -15,35 +14,34 @@ public class BaseGenerator {
 	
 	public static final String SET_TYPE = "setType"; 
 	
-	protected Map sourceParams;
+	protected Map<String, Object> sourceParams;
 	
-	protected Map taskParams;
+	protected Map<String, Object> taskParams;
 	
-	protected Map funcParams;
+	protected Map<String, Object> funcParams;
 	    
-    public BaseGenerator(Map sourceParams, Map funcParams, Map taskParams) {
+    public BaseGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
         this.sourceParams = sourceParams;
         this.funcParams = funcParams;
         this.taskParams = taskParams;
     }
 
     public String getParams() {
-    	String genParam =    "<description-params>\n" +
-        "	<param name=\"length\">\n" +
-        " 		<value>${nabor}</value>\n" +
-        " 	</param>\n" + 
-        "</description-params>";
-    	return genParam;
-    }
+		return "<description-params>\n" +
+				"	<param name=\"length\">\n" +
+				" 		<value>${nabor}</value>\n" +
+				" 	</param>\n" +
+				"</description-params>";
+	}
     
-    public String getDescription(Map sourceParams, Map funcParams, Map taskParams) {
+    public String getDescription(Map<String, Object> sourceParams, Map funcParams, Map taskParams) {
     	String genParam = getParams();
     	ArrayList images = (ArrayList)taskParams.get("images");
     	String imageStr = "";
-    	for (int i = 0; i < images.size(); i++) {
-    		String str  = (String)images.get(i);
-    		imageStr += "<img>" + str + "</img>\n"; 
-    	}
+		for (Object image : images) {
+			String str = (String) image;
+			imageStr += "<img>" + str + "</img>\n";
+		}
     	if (imageStr.length() > 0) {
     		imageStr = "<imgs>" + imageStr + "</imgs>";
     	}
@@ -73,19 +71,16 @@ public class BaseGenerator {
     }
     
     public String getVerifier(Map funcParams) {
-    	StringBuffer sb = new StringBuffer();
-    	sb.append("<verifier type=\"CountVerifier\">\n");
-    	sb.append("<function type=\"And\">\n");
-    	sb.append("<constElement>" + 1 + "</constElement>\n");    	
-        
-    	sb.append(funcParams.get("function") + "\n");        
-		
-        sb.append("</function>\n");        
-        sb.append("</verifier>");          
-       return sb.toString();
-    }
+
+		return "<verifier type=\"CountVerifier\">\n" +
+				"	<function type=\"And\">\n" +
+				"		<constElement>" + 1 + "</constElement>\n" +
+						funcParams.get("function") + "\n" +
+				"	</function>\n" +
+				"</verifier>";
+	}
     
-    public boolean isEmptyInline() {
+    protected boolean isEmptyInline() {
     	return taskParams.get("inlineDesc") == null || ((String)taskParams.get("inlineDesc")).length() == 0;
     }
     
@@ -94,38 +89,34 @@ public class BaseGenerator {
         (isEmptyInline() ? "Подсчитайте количество всех возможных наборов карт." : "Подсчитайте количество наборов, в которых " + taskParams.get("inlineDesc") + ".");
     }    
     
-    public String generateXml() {        
-        StringBuffer str = new StringBuffer("<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n");
-        str.append("<task title=\"" + wrapString((String)taskParams.get("title")) + "\">\n");
-        str.append(getDescription(sourceParams, funcParams, taskParams)+ "\n");
-        str.append(" <mathDescription>\n");
-        str.append(getSource(sourceParams) + "\n");
-        str.append(getVerifier(funcParams));
-        
-        str.append(" </mathDescription>\n");
-        str.append(" </task>");
-        return str.toString();                
+    public String generateXml() {
+		return "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n" +
+				"<task title=\"" + wrapString((String) taskParams.get("title")) + "\">\n" +
+					getDescription(sourceParams, funcParams, taskParams) + "\n" +
+				" 	<mathDescription>\n" +
+						getSource(sourceParams) + "\n" +
+						getVerifier(funcParams) +
+				" 	</mathDescription>\n" +
+				"</task>";
     }
     
 
-    protected Map getBaseSourceParameters() {
-    	HashMap m = new HashMap();
+    protected Map<String, Object> getBaseSourceParameters() {
+    	Map<String, Object> m = new HashMap<String, Object>();
     	m.put("setType", "CombinationSet");    	    	
     	return m;
     }
 
-    protected String replace(String text, Map values) {
-    	Iterator it = values.keySet().iterator();
-    	while (it.hasNext()) {
-    		String key =  (String) it.next();
-    		Object obj = values.get(key);
-    		text = text.replaceAll("[$][{]" + key + "[}]", obj.toString());
-    	}
+    protected String replace(String text, Map<String, Object> values) {
+		for (String key : values.keySet()) {
+			Object obj = values.get(key);
+			text = text.replaceAll("[$][{]" + key + "[}]", obj.toString());
+		}
     	return text;
     }
     
     protected String replace(String text, String key, String value) {
-    	Map m = new HashMap();
+    	Map<String, Object> m = new HashMap<String, Object>();
     	m.put(key, value);
     	return replace(text, m); 
     }

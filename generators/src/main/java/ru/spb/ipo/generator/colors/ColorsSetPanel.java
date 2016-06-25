@@ -11,7 +11,6 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.Map;
 import javax.swing.DefaultListModel;
-import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 import ru.spb.ipo.generator.base.ui.ConstraintPanel;
@@ -33,7 +32,7 @@ public class ColorsSetPanel extends ConstraintPanel {
         this.generator = gen;
         initialize(gen);
     }
-    public void fillMaps(Map source, Map func, Map task) {
+    public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
         switch(tabs.getSelectedIndex()) {
             case 0:
                 beads.fillMaps(source, func, task);

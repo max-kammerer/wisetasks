@@ -135,25 +135,25 @@ public class EquationSetPanel extends ConstraintPanel {
 		return resultNumber;
 	}
 
-	public void fillMaps(Map source, Map func, Map task) {
+	public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("resultX", resultNumber.getText());
 		source.put("nabor", xNumber.getSelectedItem());
 		String function = (String) func.get("function");
 		if (function == null) {
 			function = "";
 		}
-		
-		StringBuffer sb = new StringBuffer();
-		sb.append("<function type=\"Equals\">\n");			
-		sb.append(FuncUtil.constElement("${result}"));
-		sb.append("<function type=\"Add\">\n");
-		sb.append("<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n");
-		sb.append(FuncUtil.projection("${i}"));
-		sb.append("</for>\n");
-		sb.append("</function>\n");
-		sb.append("</function>\n");
 
-		function = function + "\n" + sb.toString();
+		String sb =
+				"<function type=\"Equals\">\n" +
+					FuncUtil.constElement("${result}") +
+				"	<function type=\"Add\">\n" +
+				"		<for name=\"i\" first=\"1\" last=\"${length}\" inc=\"1\">\n" +
+							FuncUtil.projection("${i}") +
+				"		</for>\n" +
+				"	</function>\n" +
+				"</function>\n";
+
+		function = function + "\n" + sb;
 		func.put("function", function);		
 		
 	}

@@ -31,7 +31,7 @@ public class DivSetPanel extends ConstraintPanel {
 	 */
 	private void initialize() {
 		jLabel = new JLabel();
-		jLabel.setText("Количество цифр в числе");
+		jLabel.setText("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ");
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		this.setLayout(flowLayout);
@@ -59,7 +59,7 @@ public class DivSetPanel extends ConstraintPanel {
 		return numberSize;
 	}
 
-	public void fillMaps(Map source, Map func, Map task) {
+	public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("nabor", getNumberSize().getSelectedItem());
 		super.fillMaps(source, func, task);
 	}

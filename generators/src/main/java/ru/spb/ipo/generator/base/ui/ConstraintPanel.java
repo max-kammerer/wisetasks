@@ -3,11 +3,8 @@ package ru.spb.ipo.generator.base.ui;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 
-import ru.spb.ipo.generator.cards.CardGenerator;
-import ru.spb.ipo.generator.base.ui.BaseGeneratorUI;
 import ru.spb.ipo.generator.base.ComplexElement;
 
 public class ConstraintPanel extends JPanel {
@@ -28,7 +25,7 @@ public class ConstraintPanel extends JPanel {
 	}
 
     //set current ui parameters to maps for task generation process
-    public void fillMaps(Map source, Map func, Map task) {
+    public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		
 	}
 

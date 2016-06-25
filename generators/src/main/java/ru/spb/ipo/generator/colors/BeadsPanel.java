@@ -199,7 +199,7 @@ public class BeadsPanel extends ConstraintPanel{
     }
     
     @Override
-    public void fillMaps(Map source, Map func, Map task) {
+    public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 	int length = 0;
         if (taskType == 2) {
             ArrayList<Integer> cList = new ArrayList<Integer>();
@@ -210,16 +210,16 @@ public class BeadsPanel extends ConstraintPanel{
                 cList.add(Integer.valueOf((String)selectedColors.get(key)));
                 length = length + Integer.valueOf(val);
             }
-            source.put("colors", (Integer)selectedColors.size());
+            source.put("colors", selectedColors.size());
             source.put("cList", cList);
-            source.put("beadsLength", Integer.valueOf(length));
+            source.put("beadsLength", length);
         }
         else {
-            source.put("colors", (Integer)colorCount.getValue());
-            source.put("beadsLength", (Integer)beadsCount.getValue());
+            source.put("colors", colorCount.getValue());
+            source.put("beadsLength", beadsCount.getValue());
         }
-        source.put("tabNum", Integer.valueOf(parent.tabs.getSelectedIndex()+1));
-        source.put("taskType",Integer.valueOf(taskType));
+        source.put("tabNum", parent.tabs.getSelectedIndex() + 1);
+        source.put("taskType", taskType);
     }
     
     public String isRightColors() {

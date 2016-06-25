@@ -35,7 +35,7 @@ public class IndexWordGenerator extends WordGenerator {
 		return new IndexXmlGenerator(source, func, task);
 	}
 
-	protected void fillParameters(Map source, Map func, Map task) {		
+	protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		super.fillParameters(source, func, task);
 		//todo parse words
 		String value = ((IndexFPanel) getFunctionPanel()).getWord().getText();

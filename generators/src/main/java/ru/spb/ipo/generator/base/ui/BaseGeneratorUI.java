@@ -110,7 +110,7 @@ public abstract class BaseGeneratorUI extends JFrame {
 
     private JPanel imageListPanel = null;
 
-    protected ArrayList imagesList = new ArrayList();  //  @jve:decl-index=0:
+    protected ArrayList<String> imagesList = new ArrayList<String>();  //  @jve:decl-index=0:
 
     private JPopupMenu conditionPopup = null;  //  @jve:decl-index=0:visual-constraint="951,232"
 
@@ -196,9 +196,9 @@ public abstract class BaseGeneratorUI extends JFrame {
     }
 
     protected BaseGenerator getGenerator() {
-        HashMap source = new HashMap();
-        HashMap func = new HashMap();
-        HashMap task = new HashMap();
+        Map<String, Object> source = new HashMap<String, Object>();
+        Map<String, Object> func = new HashMap<String, Object>();
+        Map<String, Object> task = new HashMap<String, Object>();
 
         task.put("title", taskTitle.getText());
         task.put("description", taskDesc.getText());
@@ -206,8 +206,8 @@ public abstract class BaseGeneratorUI extends JFrame {
 
         DefaultListModel model = (DefaultListModel) functionList.getModel();
         int s = model.getSize();
-        StringBuffer funcDesc = new StringBuffer();
-        StringBuffer inlineDesc = new StringBuffer();
+        StringBuilder funcDesc = new StringBuilder();
+        StringBuilder inlineDesc = new StringBuilder();
         for (int i = 0; i < s; i++) {
             ComplexElement pe = (ComplexElement) model.get(i);
             funcDesc.append(pe.generateXml());
@@ -220,7 +220,7 @@ public abstract class BaseGeneratorUI extends JFrame {
         return createGenerator(source, func, task);
     }
 
-    protected void fillParameters(Map source, Map func, Map task) {
+    protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
         getFunctionPanel().fillMaps(source, func,  task);
         getSetPanel().fillMaps(source, func,  task);
     }
@@ -1163,7 +1163,7 @@ public abstract class BaseGeneratorUI extends JFrame {
         return str == null || "".equals(str);
     }
 
-    public ArrayList getImagesList() {
+    public ArrayList<String> getImagesList() {
         return imagesList;
     }
 

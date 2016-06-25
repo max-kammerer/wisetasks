@@ -1,6 +1,6 @@
 package ru.spb.ipo.generator.numbers;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 import ru.spb.ipo.generator.base.BaseGenerator;
@@ -33,9 +33,8 @@ public class NumberXmlGenerator extends BaseGenerator {
     	return source;
 	}
 
-	protected Map getBaseSourceParameters() {
-    	HashMap m = new HashMap();    	
-    	return m;    
+	protected Map<String, String> getBaseSourceParameters() {
+    	return Collections.emptyMap();
 	}
 	
 	public String generateDescription() {

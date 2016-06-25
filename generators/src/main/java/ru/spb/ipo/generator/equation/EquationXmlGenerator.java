@@ -10,11 +10,6 @@ public class EquationXmlGenerator extends BaseGenerator {
 	public EquationXmlGenerator(Map sourceParams, Map funcParams, Map taskParams) {
 		super(sourceParams, funcParams, taskParams);
 	}
-	
-	public String getDescription(Map sourceParams, Map funcParams, Map taskParams) {
-		
-		return super.getDescription(sourceParams, funcParams, taskParams);
-	}
 
 	public String getSourceTemplate() {
 		String set = SetUtil.decart(SetUtil.numericSet("" + 0, "${result}"));		

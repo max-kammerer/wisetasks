@@ -135,7 +135,7 @@ public class BasketSetPanel extends ConstraintPanel {
 		return jPanel3;
 	}
 	
-	public void fillMaps(Map source, Map func, Map task) {
+	public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("isSingle", !jCheckBox.isSelected());
 		source.put("basket1", bcpanel1.getChoices());
 		source.put("basket2", bcpanel2.getChoices());

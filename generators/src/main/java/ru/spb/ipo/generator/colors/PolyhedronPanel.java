@@ -338,24 +338,24 @@ public class PolyhedronPanel extends ConstraintPanel {
         }
     }
     
-    public void fillMaps(Map source, Map func, Map task) {
+    public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
         PolyhedronCondition cond;
         if (corners.isEnabled()) {
             cond = new PolyhedronCondition((String)forColoring.getSelectedItem(),
                 radioCommand, null,(String)corners.getSelectedItem());
-            source.put("corners",(String)corners.getSelectedItem());
+            source.put("corners", corners.getSelectedItem());
         }
         else if(figureType.isEnabled()) {
             cond = new PolyhedronCondition((String)forColoring.getSelectedItem(),
                 radioCommand, (String)figureType.getSelectedItem(),null);
-            source.put("polyType",(String)figureType.getSelectedItem());
+            source.put("polyType", figureType.getSelectedItem());
         }
         else
             cond = new PolyhedronCondition((String)forColoring.getSelectedItem(),
                 radioCommand, null,null);
         source.put("polyhedronText", cond.toDescription());
         if (taskType == 1)
-            source.put("colors",(Integer)colorCount.getValue());
+            source.put("colors", colorCount.getValue());
         else {
             source.put("colors", selectedColors.size());
             ArrayList<Integer> cList = new ArrayList<Integer>();
@@ -366,10 +366,10 @@ public class PolyhedronPanel extends ConstraintPanel {
             }
             source.put("cList", cList);
         }
-        source.put("whatToBrush", (String)forColoring.getSelectedItem());
+        source.put("whatToBrush", forColoring.getSelectedItem());
         source.put("polyhedron", radioCommand);
-        source.put("taskType",Integer.valueOf(taskType));
-        source.put("tabNum", Integer.valueOf(parent.tabs.getSelectedIndex()+1));
+        source.put("taskType", taskType);
+        source.put("tabNum", parent.tabs.getSelectedIndex() + 1);
     }
     
     public String isRightColors() {

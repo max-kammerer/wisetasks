@@ -58,7 +58,7 @@ public class NumberGenerator extends BaseGeneratorUI {
 		return new NumberXmlGenerator(source, func, task);
 	}
 
-	protected void fillParameters(Map source, Map func, Map task) {
+	protected void fillParameters(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		source.put("nabor", ((NumberSetPanel) getSetPanel()).getNaborSize().getSelectedItem());
 		source.put("isNumber", ((NumberSetPanel) getSetPanel()).isNumber());
 		source.put("maxDigit", ((NumberSetPanel) getSetPanel()).getMaxDigit().getSelectedItem());

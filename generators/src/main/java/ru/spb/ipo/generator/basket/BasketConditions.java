@@ -176,7 +176,7 @@ public class BasketConditions extends ConstraintPanel {
 	}
 
 	
-	public void fillMaps(Map source, Map func, Map task) {		
+	public void fillMaps(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
 		func.put("isCont", isCont.isSelected());		
 		func.put("toFind", getConditions());
 	}

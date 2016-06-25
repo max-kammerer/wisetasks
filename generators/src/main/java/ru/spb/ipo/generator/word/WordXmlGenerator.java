@@ -1,6 +1,6 @@
 package ru.spb.ipo.generator.word;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 import ru.spb.ipo.generator.base.BaseGenerator;
@@ -46,10 +46,9 @@ public class WordXmlGenerator extends BaseGenerator {
     	return source;
 	}
 
-	protected Map getBaseSourceParameters() {
-    	HashMap m = new HashMap();
-    	//m.put("setType", "LayoutSet");    	
-    	return m;    
+	protected Map<String, String> getBaseSourceParameters() {
+    	//m.put("setType", "LayoutSet");
+    	return Collections.emptyMap();
 	}
 	
 	public String generateDescription() {
