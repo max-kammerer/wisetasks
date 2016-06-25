@@ -41,7 +41,7 @@ public class CardGenerator extends BaseGeneratorUI {
 
 	private JLabel cardQuantityLabel = null;
 
-	private JComboBox type = null;
+	private JComboBox cardType = null;
 
 	private JPanel packIncludePanel = null;
 
@@ -164,7 +164,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			cardQuantityPanel = new JPanel();
 			cardQuantityPanel.setLayout(flowLayout2);
 			cardQuantityPanel.add(cardQuantityLabel, null);
-			cardQuantityPanel.add(getType(), null);
+			cardQuantityPanel.add(getCardType(), null);
 			cardQuantityPanel.add(getCondition(), null);
 			cardQuantityPanel.add(getValue(), null);
 			cardQuantityPanel.add(getAddQuantityCardButton(), null);
@@ -197,7 +197,7 @@ public class CardGenerator extends BaseGeneratorUI {
 			addQuantityCardButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					DefaultListModel model = (DefaultListModel) functionList.getModel();
-					ParseElement el = new ParseElement((ListElement) type.getSelectedItem(), (String)condition.getSelectedItem(), (String)value.getSelectedItem());
+					ParseElement el = new ParseElement((ListElement) cardType.getSelectedItem(), (String)condition.getSelectedItem(), (String)value.getSelectedItem());
 
 					((DefaultListModel) functionList.getModel()).add(model.getSize(), el);					
 				}
@@ -222,17 +222,17 @@ public class CardGenerator extends BaseGeneratorUI {
 	}
 
 	/**
-	 * This method initializes type
+	 * This method initializes cardType
 	 * 	
 	 * @return javax.swing.JComboBox	
 	 */
-	private JComboBox getType() {
-		if (type == null) {
-			type = new JComboBox();
-			type.setModel(new TypeModell(TypeModell.type_cards));
-			type.setSelectedIndex(0);
+	private JComboBox getCardType() {
+		if (cardType == null) {
+			cardType = new JComboBox();
+			cardType.setModel(new TypeModell(TypeModell.type_cards));
+			cardType.setSelectedIndex(0);
 		}
-		return type;
+		return cardType;
 	}
 
 	protected Dimension getRightPanelDimension() {
