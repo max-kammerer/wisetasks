@@ -32,18 +32,20 @@ public class TaskTreeRenderer extends DefaultTreeCellRenderer{
 			}
 			return node.getTextArea();			
 		}
-		if (ElementUtil.getElementType((Element)node.getElement()) == ElementUtil.E_FUNCTION) {
-			setClosedIcon(TaskGenerator.FUNCTION_ICON);
-			setLeafIcon(TaskGenerator.FUNCTION_ICON);
-			setOpenIcon(TaskGenerator.FUNCTION_ICON);
-		} else if (ElementUtil.getElementType((Element)node.getElement()) == ElementUtil.E_SET) {
-			setClosedIcon(TaskGenerator.SET_ICON);
-			setLeafIcon(TaskGenerator.SET_ICON);
-			setOpenIcon(TaskGenerator.SET_ICON);
-		} else {
-			setClosedIcon(TaskGenerator.ELEMENT_ICON);
-			setLeafIcon(TaskGenerator.ELEMENT_ICON);
-			setOpenIcon(TaskGenerator.ELEMENT_ICON);
+		if (node.getElement() instanceof Element ) {
+			if (ElementUtil.getElementType((Element) node.getElement()) == ElementUtil.E_FUNCTION) {
+				setClosedIcon(TaskGenerator.FUNCTION_ICON);
+				setLeafIcon(TaskGenerator.FUNCTION_ICON);
+				setOpenIcon(TaskGenerator.FUNCTION_ICON);
+			} else if (ElementUtil.getElementType((Element) node.getElement()) == ElementUtil.E_SET) {
+				setClosedIcon(TaskGenerator.SET_ICON);
+				setLeafIcon(TaskGenerator.SET_ICON);
+				setOpenIcon(TaskGenerator.SET_ICON);
+			} else {
+				setClosedIcon(TaskGenerator.ELEMENT_ICON);
+				setLeafIcon(TaskGenerator.ELEMENT_ICON);
+				setOpenIcon(TaskGenerator.ELEMENT_ICON);
+			}
 		}
 		return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf,
 				row, hasFocus);
