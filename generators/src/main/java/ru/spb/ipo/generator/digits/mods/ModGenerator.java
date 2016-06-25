@@ -50,7 +50,7 @@ public class ModGenerator extends BaseGeneratorUI {
 
 	@Override
 	public String getEditorTitle() {
-		return "�������� \"���������� ��������\"";
+		return "Редактор \"Арифметика остатков\"";
 	}
 	
 	

@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Dodecahedron extends Figure {
     public Dodecahedron(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("�������")) {
+        if (WhatToBrush.equals("вершины")) {
             dim = 20;
         }
-        else if (WhatToBrush.equals("����")) {
+        else if (WhatToBrush.equals("рёбра")) {
             dim = 30;
         }
         else {
@@ -29,7 +29,7 @@ public class Dodecahedron extends Figure {
     public ArrayList<Integer> getPermutation(int index) {
        ArrayList<Integer> list = new ArrayList<Integer>();
         if (index == 0) {
-            if (WhatToBrush.equals("�������")) {
+            if (WhatToBrush.equals("вершины")) {
                 list.add(5);
                 list.add(1);
                 list.add(2);
@@ -51,7 +51,7 @@ public class Dodecahedron extends Figure {
                 list.add(18);
                 list.add(19);
             }
-            else if (WhatToBrush.equals("�����")) {
+            else if (WhatToBrush.equals("грани")) {
                 list.add(1);
                 list.add(6);
                 list.add(2);
@@ -99,7 +99,7 @@ public class Dodecahedron extends Figure {
             }
         }
         else {
-            if (WhatToBrush.equals("�������")) {
+            if (WhatToBrush.equals("вершины")) {
                 list.add(5);
                 list.add(4);
                 list.add(5);
@@ -121,7 +121,7 @@ public class Dodecahedron extends Figure {
                 list.add(17);
                 list.add(12);
             }
-            else if (WhatToBrush.equals("�����")) {
+            else if (WhatToBrush.equals("грани")) {
                 list.add(6);
                 list.add(2);
                 list.add(1);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Tetrahedron extends Figure{
     public Tetrahedron(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины") || WhatToBrush.equals("грани"))
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹") || WhatToBrush.equals("РіСЂР°РЅРё"))
             dim = 4;
         else
             dim = 6;
@@ -23,7 +23,7 @@ public class Tetrahedron extends Figure{
     @Override
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        if (WhatToBrush.equals("рёбра")) {
+        if (WhatToBrush.equals("СЂС‘Р±СЂР°")) {
             if (index == 0) {
                 list.add(Integer.valueOf(2));
                 list.add(Integer.valueOf(3));
@@ -49,7 +49,7 @@ public class Tetrahedron extends Figure{
                 list.add(Integer.valueOf(4));
             }
             else {
-                if (WhatToBrush.equals("вершины")) {
+                if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                     list.add(Integer.valueOf(2));
                     list.add(Integer.valueOf(4));
                     list.add(Integer.valueOf(3));

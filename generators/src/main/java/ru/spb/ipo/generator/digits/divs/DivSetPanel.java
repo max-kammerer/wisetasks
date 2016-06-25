@@ -31,7 +31,7 @@ public class DivSetPanel extends ConstraintPanel {
 	 */
 	private void initialize() {
 		jLabel = new JLabel();
-		jLabel.setText("���������� ���� � �����");
+		jLabel.setText("Количество цифр в числе");
 		FlowLayout flowLayout = new FlowLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		this.setLayout(flowLayout);

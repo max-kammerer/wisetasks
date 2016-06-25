@@ -34,7 +34,7 @@ public class DivGenerator extends BaseGeneratorUI {
 	}
 
 	public String getEditorTitle() {
-		return "�������� \"������ �� ���������\"";
+		return "Редактор \"Задачи на делимость\"";
 	}
 
 	public BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
@@ -47,7 +47,7 @@ public class DivGenerator extends BaseGeneratorUI {
 			return res;
 		}
 		if (getFunctionList().getModel().getSize() == 0) {
-			JOptionPane.showMessageDialog(this, "�� ������� �� ������ �������!" , "�� ������� �� ������ �������!", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Не выбрано ни одного условия!" , "Не выбрано ни одного условия!", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return ((DropDigitPanel) getFunctionPanel()).checkCanSave();

@@ -24,7 +24,7 @@ public class Romb extends Figure{
             list.add(Integer.valueOf(2));
         }
         else {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                 list.add(Integer.valueOf(3));
                 list.add(Integer.valueOf(2));
                 list.add(Integer.valueOf(1));

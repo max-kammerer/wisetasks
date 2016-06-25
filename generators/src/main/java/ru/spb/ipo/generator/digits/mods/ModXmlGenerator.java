@@ -21,7 +21,7 @@ public class ModXmlGenerator extends BaseGenerator {
 	}
 
 	public String generateDescription() {
-		return "����� ������� ���� ����� " + funcParams.get("expression") + " ��� ������� �� " + funcParams.get("mod") + "?";
+		return "Какой остаток дает число " + funcParams.get("expression") + " при делении на " + funcParams.get("mod") + "?";
 	}
 
 	

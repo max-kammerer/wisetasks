@@ -18,8 +18,8 @@ public class DivXmlGenerator extends NumberXmlGenerator {
 		for (int i = 1; i <= nabor; i++) {
 			def.append("[" + i + "] ");
 		}
-		return "����� ��� " + sourceParams.get("nabor") + " ������� " 
-		 + "����������� �����, ������� ��� ��������� ���� ����� �� �������: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (� ���������� ����� 1 ����� �� 0); " + (String)taskParams.get("inlineDesc") + ".";   
+		return "Найти все " + sourceParams.get("nabor") + " значные " 
+		 + "натуральные числа, которые при изменении цифр числа по правилу: " + def + "-->" + toString((String [])funcParams.get("shift"), false) + " (в полученном числе 1 цифра не 0); " + (String)taskParams.get("inlineDesc") + ".";   
 	}
 
 	public String getSourceTemplate() {

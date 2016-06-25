@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Cube extends Figure {
     public Cube(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины"))
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹"))
             dim = 8;
-        else if (WhatToBrush.equals("грани"))
+        else if (WhatToBrush.equals("РіСЂР°РЅРё"))
             dim = 6;
         else
             dim = 12;
@@ -25,7 +25,7 @@ public class Cube extends Figure {
     @Override
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        if (WhatToBrush.equals("вершины")) {
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
             if (index == 0) {
                 list.add(Integer.valueOf(2));
                 list.add(Integer.valueOf(3));
@@ -47,7 +47,7 @@ public class Cube extends Figure {
                 list.add(Integer.valueOf(5));
             }
         }
-        else  if (WhatToBrush.equals("грани")){
+        else  if (WhatToBrush.equals("РіСЂР°РЅРё")){
             if (index == 0) {
                 list.add(Integer.valueOf(2));
                 list.add(Integer.valueOf(3));

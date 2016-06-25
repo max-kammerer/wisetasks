@@ -73,7 +73,7 @@ public class DropDigitPanel extends ConstraintPanel {
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		panel.setBorder(new TitledBorder("������� ������������ ������ �����"));
+		panel.setBorder(new TitledBorder("Правило формирования нового числа"));
 		panel.add(getJPanel4(), BorderLayout.CENTER);
 		panel.add(getJPanel5(), BorderLayout.EAST);
 		panel.add(getJPanel(), null);
@@ -146,8 +146,8 @@ public class DropDigitPanel extends ConstraintPanel {
 		if (jPanel3 == null) {
 			BorderLayout flowLayout = new BorderLayout(5, 5);			
 			jLabel1 = new JLabel();
-			jLabel1.setText("����������");
-			jLabel1.setToolTipText("���������� ���� ����� � ���� �� 0 �� 9");
+			jLabel1.setText("Комбинация");
+			jLabel1.setToolTipText("Комбинация цифр числа и цифр от 0 до 9");
 			jPanel3 = new JPanel();
 			jPanel3.setLayout(flowLayout);
 			jPanel3.add(jLabel1, BorderLayout.WEST);
@@ -186,7 +186,7 @@ public class DropDigitPanel extends ConstraintPanel {
 			JLabel la = new JLabel();
 			pa.add(la, BorderLayout.CENTER);
 			la.setText(" [" + i + "] ");
-			la.setToolTipText( i + " ����� �����. \"����������\" � ������� �����");
+			la.setToolTipText( i + " цифра числа. \"Перетащите\" в область ввода");
 			la.setTransferHandler(new TransferHandler("text") {
 				
 				public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
@@ -210,7 +210,7 @@ public class DropDigitPanel extends ConstraintPanel {
 			JLabel la = new JLabel();
 			pa.add(la, BorderLayout.CENTER);
 			la.setText("  " + (i % 10) + "  ");
-			la.setToolTipText("����� " + (i % 10) +  ". \"����������\" � ������� �����");
+			la.setToolTipText("Цифра " + (i % 10) +  ". \"Перетащите\" в область ввода");
 			la.setTransferHandler(new TransferHandler("text") {
 				
 				public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
@@ -241,11 +241,11 @@ public class DropDigitPanel extends ConstraintPanel {
 	private JButton getAddCond() {
 		if (addCond == null) {
 			addCond = new JButton();
-			addCond.setText("��������");
+			addCond.setText("Добавить");
 			addCond.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					if (leftCond.getComponentCount() == 0) {
-						JOptionPane.showMessageDialog(DropDigitPanel.this, "���� �� ����� �����!");
+						JOptionPane.showMessageDialog(DropDigitPanel.this, "Одно из полей пусто!");
 					} else {
 						int i = leftCond.getComponentCount();
 						String [] left = new String [i]; 
@@ -284,7 +284,7 @@ public class DropDigitPanel extends ConstraintPanel {
 	protected JButton getClearCond() {
 		if (clearCond == null) {
 			clearCond = new JButton();
-			clearCond.setText("��������");
+			clearCond.setText("Сбросить");
 			clearCond.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					getLeftCond().removeAll();
@@ -307,7 +307,7 @@ public class DropDigitPanel extends ConstraintPanel {
 			flowLayout2.setVgap(0);
 			flowLayout2.setHgap(0);
 			leftCond = new JPanel();
-			leftCond.setToolTipText("���������� ���� ����� � ���� �� 0 �� 9 (\"����������\" �����, ��������� ����, ����)");
+			leftCond.setToolTipText("Комбинация цифр числа и цифр от 0 до 9 (\"перетащите\" цифры, указанные выше, сюда)");
 			leftCond.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 			leftCond.setLayout(flowLayout2);
 			leftCond.setPreferredSize(new Dimension(120, 20));			
@@ -331,7 +331,7 @@ public class DropDigitPanel extends ConstraintPanel {
 					try {
 						int i = leftCond.getComponentCount();
 						if (i >= 9) {
-							JOptionPane.showMessageDialog(DropDigitPanel.this, "� ����� ������ ���� �� ����� 9 ����!" , "������� ����� ����", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(DropDigitPanel.this, "В числе должно быть не более 9 цифр!" , "Слишком много цифр", JOptionPane.WARNING_MESSAGE);
 							return;
 						}
 						dtde.acceptDrop(dtde.getDropAction());
@@ -374,7 +374,7 @@ public class DropDigitPanel extends ConstraintPanel {
 	public boolean checkCanSave() {
 		int i = leftCond.getComponentCount();
 		if (i == 0) {
-			JOptionPane.showMessageDialog(this, "�� ������ ������������!" , "�� ������ ������������", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Не задана перестановка!" , "Не задана перестановка", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;
@@ -396,7 +396,7 @@ public class DropDigitPanel extends ConstraintPanel {
 				JLabel la = new JLabel();
 				pa.add(la, BorderLayout.CENTER);
 				la.setText(" " + (i % 10) + " ");
-				la.setToolTipText("\"����������\" ����� � ������� �����");
+				la.setToolTipText("\"Перетащите\" номер в область ввода");
 				la.setTransferHandler(new TransferHandler("text") {
 					
 					public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {

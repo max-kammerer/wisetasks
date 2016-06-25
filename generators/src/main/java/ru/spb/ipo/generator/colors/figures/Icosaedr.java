@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Icosaedr extends Figure {
     public Icosaedr(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("�������")) {
+        if (WhatToBrush.equals("вершины")) {
             dim = 12;
         }
-        else if (WhatToBrush.equals("����")) {
+        else if (WhatToBrush.equals("рёбра")) {
             dim = 30;
         }
         else {
@@ -29,7 +29,7 @@ public class Icosaedr extends Figure {
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if (index == 0) {
-            if (WhatToBrush.equals("�������")) {
+            if (WhatToBrush.equals("вершины")) {
                 list.add(5);
                 list.add(1);
                 list.add(2);
@@ -43,7 +43,7 @@ public class Icosaedr extends Figure {
                 list.add(11);
                 list.add(12);
             }
-            else if (WhatToBrush.equals("�����")) {
+            else if (WhatToBrush.equals("грани")) {
                 list.add(9);
                 list.add(10);
                 list.add(1);
@@ -99,7 +99,7 @@ public class Icosaedr extends Figure {
             }
         }
         else {
-            if (WhatToBrush.equals("�������")) {
+            if (WhatToBrush.equals("вершины")) {
                 list.add(6);
                 list.add(7);
                 list.add(3);
@@ -113,7 +113,7 @@ public class Icosaedr extends Figure {
                 list.add(2);
                 list.add(9);
             }
-            else if (WhatToBrush.equals("�����")) {
+            else if (WhatToBrush.equals("грани")) {
                 list.add(16);
                 list.add(17);
                 list.add(18);

@@ -30,7 +30,7 @@ public class Polygon extends Figure {
             for (int i = 0; i < dim-1; i++)
                 list.add(Integer.valueOf(i+1));
         }
-        // âðàùåíèå ïî îñè ÷åðåç âåðøèíû ìíîãîóãîëüíèêà
+        // Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ðµ Ð¿Ð¾ Ð¾ÑÐ¸ Ñ‡ÐµÑ€ÐµÐ· Ð²ÐµÑ€ÑˆÐ¸Ð½Ñ‹ Ð¼Ð½Ð¾Ð³Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°
         else if (index == 1){
             list.add(Integer.valueOf(1));
             for (int i = 0; i < dim-1;i++)

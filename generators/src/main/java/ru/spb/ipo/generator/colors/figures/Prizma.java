@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Prizma extends Figure{
     public Prizma(String WhatToBrush, int corners) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины")) {
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
             dim = 2*corners;
         }
-        else if (WhatToBrush.equals("рёбра")) {
+        else if (WhatToBrush.equals("СЂС‘Р±СЂР°")) {
             dim = 3*corners;
         }
         else {
@@ -19,9 +19,9 @@ public class Prizma extends Figure{
     @Override
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer> ();
-        // вращение по основанию
+        // РІСЂР°С‰РµРЅРёРµ РїРѕ РѕСЃРЅРѕРІР°РЅРёСЋ
         if (index == 0) {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                 list.add(Integer.valueOf(dim/2));
                 for (int i = 1; i < dim/2; i++)
                     list.add(Integer.valueOf(i));
@@ -29,7 +29,7 @@ public class Prizma extends Figure{
                 for (int i = dim/2+1; i < dim; i++)
                     list.add(Integer.valueOf(i));
             }
-            else if (WhatToBrush.equals("грани")) {
+            else if (WhatToBrush.equals("РіСЂР°РЅРё")) {
                 for (int i = dim-2; i > 0; i--)
                     list.add(Integer.valueOf(i));
                 list.add(dim-1);
@@ -51,7 +51,7 @@ public class Prizma extends Figure{
             }
         }
         else {
-            if (WhatToBrush.equals("грани")) {
+            if (WhatToBrush.equals("РіСЂР°РЅРё")) {
                 for (int i = 0; i < dim/2; i++) {
                     list.add(Integer.valueOf(dim/2-i));
                 }
@@ -60,8 +60,8 @@ public class Prizma extends Figure{
                 list.add(dim);
                 list.add(dim-1);
             }
-            else if(WhatToBrush.equals("вершины")) {
-                // если четное число вершин
+            else if(WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
+                // РµСЃР»Рё С‡РµС‚РЅРѕРµ С‡РёСЃР»Рѕ РІРµСЂС€РёРЅ
                 for (int i = 0; i < dim/4; i++) {
                     list.add(Integer.valueOf(3*dim/4-i));
                 }
@@ -75,19 +75,19 @@ public class Prizma extends Figure{
                     list.add(i);
             }
             else {
-                // верхняя грань
+                // РІРµСЂС…РЅСЏСЏ РіСЂР°РЅСЊ
                 for (int i = 0; i < dim/6+1; i++) {
                     list.add(Integer.valueOf(dim/2+1-i));
                 }
                 for(int i = 2*dim/3; i > dim/2+1; i--)
                     list.add(i);
-                // нижняя грань
+                // РЅРёР¶РЅСЏСЏ РіСЂР°РЅСЊ
                 for (int i = 0; i < dim/6+1; i++) {
                     list.add(Integer.valueOf(dim/6+1-i));
                 }
                 for(int i = dim/3; i > dim/6+1; i--)
                     list.add(i);
-                // боковые ребра
+                // Р±РѕРєРѕРІС‹Рµ СЂРµР±СЂР°
                 for (int i = 0; i < dim/6; i++) {
                     list.add(Integer.valueOf(5*dim/6-i));
                 }

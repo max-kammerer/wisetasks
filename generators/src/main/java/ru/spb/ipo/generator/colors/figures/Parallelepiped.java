@@ -9,10 +9,10 @@ import java.util.ArrayList;
 public class Parallelepiped extends Figure{
     public Parallelepiped(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины")) {
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
             dim = 8;
         }
-        else if (WhatToBrush.equals("рёбра")) {
+        else if (WhatToBrush.equals("СЂС‘Р±СЂР°")) {
             dim = 12;
         }
         else {
@@ -25,7 +25,7 @@ public class Parallelepiped extends Figure{
     public ArrayList<Integer> getPermutation(int index) {
        ArrayList<Integer> list = new ArrayList<Integer>();
         if (index == 0) {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                 list.add(3);
                 list.add(4);
                 list.add(1);
@@ -35,7 +35,7 @@ public class Parallelepiped extends Figure{
                 list.add(5);
                 list.add(6);
             }
-            else if (WhatToBrush.equals("грани")) {
+            else if (WhatToBrush.equals("РіСЂР°РЅРё")) {
                 list.add(3);
                 list.add(4);
                 list.add(1);
@@ -59,7 +59,7 @@ public class Parallelepiped extends Figure{
             }
         }
         else {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                 list.add(6);
                 list.add(5);
                 list.add(7);
@@ -69,7 +69,7 @@ public class Parallelepiped extends Figure{
                 list.add(4);
                 list.add(3);
             }
-            else if (WhatToBrush.equals("грани")) {
+            else if (WhatToBrush.equals("РіСЂР°РЅРё")) {
                 list.add(3);
                 list.add(2);
                 list.add(1);

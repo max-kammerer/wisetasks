@@ -32,7 +32,7 @@ public class Rectangle extends Figure{
             list.add(Integer.valueOf(2));
         }
         else {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
                 list.add(Integer.valueOf(4));
                 list.add(Integer.valueOf(3));
                 list.add(Integer.valueOf(2));

@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Piramida extends Figure{
     public Piramida(String WhatToBrush, int corners) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины")) {
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹")) {
             dim = corners + 1;
         }
-        else if (WhatToBrush.equals("рёбра")) {
+        else if (WhatToBrush.equals("СЂС‘Р±СЂР°")) {
             dim = 2*corners;
         }
         else {
@@ -28,7 +28,7 @@ public class Piramida extends Figure{
     @Override
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer> ();
-        if (WhatToBrush.equals("вершины") || WhatToBrush.equals("грани")) {
+        if (WhatToBrush.equals("РІРµСЂС€РёРЅС‹") || WhatToBrush.equals("РіСЂР°РЅРё")) {
             list.add(Integer.valueOf(dim-1));
             for (int i = 1; i < dim-1; i++) {
                 list.add(Integer.valueOf(i));
