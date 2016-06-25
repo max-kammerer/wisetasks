@@ -20,7 +20,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.util.Map;
 
-public class EquationSetPanel extends ConstraintPanel {
+class EquationSetPanel extends ConstraintPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel jPanel = null;
@@ -34,7 +34,7 @@ public class EquationSetPanel extends ConstraintPanel {
 	/**
 	 * This is the default constructor
 	 */
-	public EquationSetPanel(BaseGeneratorUI generator) {
+	EquationSetPanel(BaseGeneratorUI generator) {
 		super(generator);
 		initialize();
 	}

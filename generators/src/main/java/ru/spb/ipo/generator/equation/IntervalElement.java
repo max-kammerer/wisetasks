@@ -3,7 +3,7 @@ package ru.spb.ipo.generator.equation;
 import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.FuncUtil;
 
-public class DiaposonElement implements ComplexElement {
+class IntervalElement implements ComplexElement {
 
 	private int min = -1;
 	private int max = -1;
@@ -11,28 +11,28 @@ public class DiaposonElement implements ComplexElement {
 	private boolean isEqual;
 	private boolean isValue;
 
-	
-	public DiaposonElement(int min, int max, int axis, boolean isValue) {
+
+	IntervalElement(int min, int max, int axis, boolean isValue) {
 		this.max = max;
 		this.min = min;
 		this.axis = axis;
 		this.isValue = isValue;
 	}
-	
-	public DiaposonElement(int equal, int axis, boolean isValue) {
+
+	IntervalElement(int equal, int axis, boolean isValue) {
 		this.min = equal;
 		this.axis = axis;
 		isEqual = true;
 		this.isValue = isValue;
 	}
-	
+
 	public String generateXml() {
-		StringBuffer sb = new StringBuffer();
-		
+		StringBuilder sb = new StringBuilder();
+
 		if (!isEqual) {
 			sb.append("<function type=\"Not\">\n");
 		}
-		
+
 		if (max != -1) {
 			sb.append("<function type=\"Greater\">\n");
 		} else if (min != -1 && !isEqual) {
@@ -45,18 +45,18 @@ public class DiaposonElement implements ComplexElement {
 			sb.append(FuncUtil.constElement("" + (max != -1 ? max : min)));
 		} else {
 			sb.append(FuncUtil.projection("" + (max != -1 ? max : min)));
-		}		
-		
+		}
+
 		sb.append("</function>\n");
-		
-		if (!isEqual) {		
+
+		if (!isEqual) {
 			sb.append("</function>\n");
 		}
 		System.out.println(sb.toString());
 		return sb.toString();
 	}
 
-	public String toDescription() {		
+	public String toDescription() {
 		return toString();
 	}
 
@@ -65,16 +65,16 @@ public class DiaposonElement implements ComplexElement {
 			return min +  " <=  x" + (axis ) + " <= " + max;
 		} else {
 			if (isEqual) {
-				return "x" + (axis) + " == " + (isValue ? min : "x" + (min) + "");				
+				return "x" + (axis) + " == " + (isValue ? min : "x" + (min) + "");
 			} else {
 				if (min != -1) {
-					return (isValue ? min : "x" + (min) + "") +  " <=  x" + (axis) + "";				
+					return (isValue ? min : "x" + (min) + "") +  " <=  x" + (axis) + "";
 				} else {
 					return "x" + (axis) + " <= " + (isValue ? max : "x" + (max) + "");
 				}
 			}
 		}
-		
+
 	}
-	
+
 }

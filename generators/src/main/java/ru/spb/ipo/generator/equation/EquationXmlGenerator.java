@@ -32,14 +32,13 @@ public class EquationXmlGenerator extends BaseGenerator {
 	}
 
 	public String getParams() {
-		String genParam =   "<description-params>\n" +
-        "	<param name=\"length\">\n" +
-        " 		<value>${nabor}</value>\n" +
-        " 	</param>\n" + 
-        "	<param name=\"result\">\n" +
-        " 		<value>${resultX}</value>\n" +
-        " 	</param>\n" +
-        "</description-params>";
-		return genParam;
+		return "<description-params>\n" +
+				"	<param name=\"length\">\n" +
+				" 		<value>${nabor}</value>\n" +
+				" 	</param>\n" +
+				"	<param name=\"result\">\n" +
+				" 		<value>${resultX}</value>\n" +
+				" 	</param>\n" +
+				"</description-params>";
 	}
 }

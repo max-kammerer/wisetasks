@@ -141,11 +141,11 @@ public class EquationFuncPanel extends ConstraintPanel {
 					boolean isValue = index > 0 ? false : true;
 					int axis = xNumber.getSelectedIndex() + 1;
 					if (cond.equals("<=")) {						
-						addCondition(new DiaposonElement(-1, number, axis, isValue));
+						addCondition(new IntervalElement(-1, number, axis, isValue));
 					} else if (cond.equals(">=") ){
-						addCondition(new DiaposonElement(number, -1, axis, isValue));
+						addCondition(new IntervalElement(number, -1, axis, isValue));
 					} else if (cond.equals("==") ){
-						addCondition(new DiaposonElement(number, axis, isValue));
+						addCondition(new IntervalElement(number, axis, isValue));
 					} else {
 						addCondition(new DivElement(number, axis, isValue));
 					}

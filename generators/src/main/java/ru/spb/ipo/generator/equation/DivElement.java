@@ -3,12 +3,12 @@ package ru.spb.ipo.generator.equation;
 import ru.spb.ipo.generator.base.ComplexElement;
 import ru.spb.ipo.generator.base.FuncUtil;
 
-public class DivElement implements ComplexElement {
+class DivElement implements ComplexElement {
 
 	private int mod, axis;
 	private boolean isValue;
 	
-	public DivElement(int mod, int axis, boolean isValue) {		
+	DivElement(int mod, int axis, boolean isValue) {
 		this.mod = mod;
 		this.axis = axis;
 		this.isValue = isValue;
