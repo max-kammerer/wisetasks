@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":engine:main" external.linked.project.path="$MODULE_DIR$/../../../engine" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="wisetasks" external.system.module.type="sourceSet" external.system.module.version="0.71" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../../../engine/build/classes/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../engine/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../engine/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../engine/src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../engine/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-compiler:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.2" level="project" />
+  </component>
+</module>
