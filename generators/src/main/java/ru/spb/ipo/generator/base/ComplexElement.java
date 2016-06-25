@@ -2,9 +2,9 @@ package ru.spb.ipo.generator.base;
 
 public interface ComplexElement {
 
-	public abstract String toDescription();
+	String toDescription();
 	
-	public abstract String generateXml();
+	String generateXml();
 	
-	public abstract String toString();
+	String toString();
 }

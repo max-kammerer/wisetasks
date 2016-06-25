@@ -15,7 +15,7 @@ public abstract class ChoicePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JPanel jPanel = null;
 	private JButton addButton = null;
-	protected JPanel choiceContent = null;
+	private JPanel choiceContent = null;
 	private JList jList = null;
 	private JScrollPane jScrollPane = null;
 	private JPanel jPanel1 = null;

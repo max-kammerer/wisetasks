@@ -8,6 +8,7 @@ import ru.spb.ipo.generator.cards.TypeModell.Generator;
 public class ListElement {
 
 	private String text;
+
 	private Generator gen;
 	
 	public ListElement(String text, Generator gen) {

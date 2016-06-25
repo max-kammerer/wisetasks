@@ -12,10 +12,10 @@ public class UIUtils {
 	public static void enableAll(JComponent comp, boolean enable) {
 		comp.setEnabled(enable);
 		Component [] cs = comp.getComponents();
-		for (int i = 0; i < cs.length; i++) {
-			if (cs[i] instanceof JComponent) {
-				((JComponent)cs[i]).setEnabled(enable);
-				enableAll(((JComponent)cs[i]), enable);
+		for (Component c : cs) {
+			if (c instanceof JComponent) {
+				c.setEnabled(enable);
+				enableAll(((JComponent) c), enable);
 			}
 		}
 	}

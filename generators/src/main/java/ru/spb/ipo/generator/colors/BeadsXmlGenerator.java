@@ -6,6 +6,7 @@
 package ru.spb.ipo.generator.colors;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import ru.spb.ipo.generator.base.BaseGenerator;
 import ru.spb.ipo.generator.base.SetUtil;
@@ -19,12 +20,11 @@ public class BeadsXmlGenerator extends BaseGenerator {
 		super(sourceParams, funcParams, taskParams);
     }
     public String generateDescription() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Сколько различных бус можно составить");
+        StringBuilder sb = new StringBuilder("Сколько различных бус можно составить");
         Integer taskType = (Integer)sourceParams.get("taskType");
         if (taskType == 1) {
-            sb.append(" из "+sourceParams.get("beadsLength")+" бусин");
-            sb.append(", окрашенных в "+sourceParams.get("colors")+" различных ");
+            sb.append(" из " + sourceParams.get("beadsLength") + " бусин");
+            sb.append(", окрашенных в " + sourceParams.get("colors") + " различных ");
             if ((Integer)sourceParams.get("colors") < 5) {
                 sb.append("цвета.");
             }
@@ -42,7 +42,7 @@ public class BeadsXmlGenerator extends BaseGenerator {
     }
     
     public String getSourceTemplate() {
-	StringBuilder set = new StringBuilder();
+	    StringBuilder set = new StringBuilder();
         set.append("<sourceSet> \n<set type=\"DistinctSet\">\n");
         
         Integer taskType = (Integer)sourceParams.get("taskType");
@@ -50,7 +50,7 @@ public class BeadsXmlGenerator extends BaseGenerator {
             set.append(SetUtil.decart(SetUtil.numericSet("1", "${colors}")));
         }
         else {
-            ArrayList<Integer> cList = (ArrayList<Integer>)sourceParams.get("cList");
+            List<Integer> cList = (List<Integer>)sourceParams.get("cList");
             set.append(SetUtil.permutationWithRepetition(cList));
         }
         
@@ -60,9 +60,9 @@ public class BeadsXmlGenerator extends BaseGenerator {
             list.add(i+1);
         // добавление перестановки поворота бус в своей плоскости
         ArrayList<Integer> roundList = new ArrayList<Integer>();
-        roundList.add(Integer.valueOf(length));
+        roundList.add(length);
         for (int i = 0; i < length-1; i++) {
-            roundList.add(Integer.valueOf(i+1));
+            roundList.add(i + 1);
         }
         StringBuilder enumeration = new StringBuilder();
         enumeration.append(SetUtil.constElement(roundList));
@@ -81,22 +81,19 @@ public class BeadsXmlGenerator extends BaseGenerator {
     }
     
     public String getParams() {
-	String genParam =   "<description-params>\n" +
-        "	<param name=\"length\">\n" +
-        "		<value>${beadsLength}</value>\n" +
-        "	</param>\n" + 
-        "</description-params>";
-		return genParam;
+        return "<description-params>\n" +
+                "	<param name=\"length\">\n" +
+                "		<value>${beadsLength}</value>\n" +
+                "	</param>\n" +
+                "</description-params>";
     }
     
     public String getVerifier(Map funcParams) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("<verifier type=\"SimpleVerifier\">\n");
-        sb.append("<function type=\"Equals\">\n");
-        sb.append("<constElement>" + 1 + "</constElement>\n");    	
-        sb.append("<constElement>" + 1 + "</constElement>\n");    	
-        sb.append("</function>\n");
-        sb.append("</verifier>\n");      
-        return sb.toString();
+        return "<verifier type=\"SimpleVerifier\">\n" +
+                "   <function type=\"Equals\">\n" +
+                "       <constElement>" + 1 + "</constElement>\n" +
+                "       <constElement>" + 1 + "</constElement>\n" +
+                "   </function>\n" +
+                "</verifier>\n";
     }
 }

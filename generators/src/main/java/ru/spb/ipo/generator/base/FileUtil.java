@@ -71,7 +71,6 @@ public class FileUtil {
 	}
 	
 	public static ListIdEntry [] getTestList() {
-			    
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    Document doc = null;
 	    try {
@@ -80,7 +79,8 @@ public class FileUtil {
 	    } catch (Exception e) {
 	        e.printStackTrace(); 
 	    }
-	    NodeList nl = doc.getElementsByTagName("test");
+		assert doc != null;
+		NodeList nl = doc.getElementsByTagName("test");
 	    ListIdEntry [] entries = new ListIdEntry[nl.getLength()];
 	    
 	    for (int i = 0; i < nl.getLength(); i++) {	    	
@@ -214,9 +214,9 @@ public class FileUtil {
 
 	public static void insertString(File file, String toInsert, String before) throws FileNotFoundException, UnsupportedEncodingException, IOException {
 		InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "windows-1251");        
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         char [] ba = new char [1024];
-        int size = 0;
+        int size;
         while (!isr.ready());
         do {	                    	
             size = isr.read(ba);

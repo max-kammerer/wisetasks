@@ -33,9 +33,9 @@ public class BaseGenerator {
 				" 	</param>\n" +
 				"</description-params>";
 	}
-    
-    public String getDescription(Map<String, Object> sourceParams, Map funcParams, Map taskParams) {
-    	String genParam = getParams();
+
+	public String getDescription(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
+		String genParam = getParams();
     	ArrayList images = (ArrayList)taskParams.get("images");
     	String imageStr = "";
 		for (Object image : images) {
@@ -130,7 +130,7 @@ public class BaseGenerator {
 
     public static String toString(Object [] array, boolean split) {
     	if (array != null) {
-	    	StringBuffer sb = new StringBuffer();
+	    	StringBuilder sb = new StringBuilder();
 	    	for (int i = 0; i < array.length; i++) {
 				sb.append(array[i]);
 				if (i < array.length - 1) {
