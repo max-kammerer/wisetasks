@@ -23,9 +23,3 @@ jar {
         attributes 'Main-Class': 'ru.spb.ipo.client.taskgenerator.ui.TaskGenerator'
     }
 }
-
-
-dependencies {
-    compile "commons-digester:commons-digester:2.1"
-}
-

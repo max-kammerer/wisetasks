@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator.iml" group="generator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator_main.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator_main.iml" group="generator" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/generator/generator_test.iml" filepath="$PROJECT_DIR$/.idea/modules/generator/generator_test.iml" group="generator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generators/generators.iml" filepath="$PROJECT_DIR$/.idea/modules/generators/generators.iml" group="generators" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generators/generators_main.iml" filepath="$PROJECT_DIR$/.idea/modules/generators/generators_main.iml" group="generators" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/generators/generators_test.iml" filepath="$PROJECT_DIR$/.idea/modules/generators/generators_test.iml" group="generators" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wisetasks.iml" filepath="$PROJECT_DIR$/.idea/modules/wisetasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wisetasks_main.iml" filepath="$PROJECT_DIR$/.idea/modules/wisetasks_main.iml" group="wisetasks" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/wisetasks_test.iml" filepath="$PROJECT_DIR$/.idea/modules/wisetasks_test.iml" group="wisetasks" />

@@ -23,6 +23,8 @@
       <module name="engine_test" target="1.6" />
       <module name="generator_main" target="1.6" />
       <module name="generator_test" target="1.6" />
+      <module name="generators_main" target="1.6" />
+      <module name="generators_test" target="1.6" />
       <module name="wisetasks_main" target="1.6" />
       <module name="wisetasks_test" target="1.6" />
     </bytecodeTargetLevel>

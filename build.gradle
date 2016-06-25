@@ -1,4 +1,14 @@
 allprojects {
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
     apply plugin: 'java'
     sourceCompatibility = 1.6
 }

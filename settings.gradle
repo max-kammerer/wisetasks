@@ -1,1 +1,1 @@
-include 'engine', 'generator'
+include 'engine', 'generator', 'generators'
