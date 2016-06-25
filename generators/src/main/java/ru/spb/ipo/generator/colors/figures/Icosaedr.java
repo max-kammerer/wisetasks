@@ -6,7 +6,6 @@
 package ru.spb.ipo.generator.colors.figures;
 
 import java.util.ArrayList;
-import ru.spb.ipo.generator.colors.figures.Figure;
 
 /**
  *
@@ -15,10 +14,10 @@ import ru.spb.ipo.generator.colors.figures.Figure;
 public class Icosaedr extends Figure {
     public Icosaedr(String WhatToBrush) {
         super(WhatToBrush);
-        if (WhatToBrush.equals("вершины")) {
+        if (WhatToBrush.equals("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")) {
             dim = 12;
         }
-        else if (WhatToBrush.equals("рёбра")) {
+        else if (WhatToBrush.equals("пїЅпїЅпїЅпїЅ")) {
             dim = 30;
         }
         else {
@@ -30,7 +29,7 @@ public class Icosaedr extends Figure {
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if (index == 0) {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")) {
                 list.add(5);
                 list.add(1);
                 list.add(2);
@@ -44,7 +43,7 @@ public class Icosaedr extends Figure {
                 list.add(11);
                 list.add(12);
             }
-            else if (WhatToBrush.equals("грани")) {
+            else if (WhatToBrush.equals("пїЅпїЅпїЅпїЅпїЅ")) {
                 list.add(9);
                 list.add(10);
                 list.add(1);
@@ -100,7 +99,7 @@ public class Icosaedr extends Figure {
             }
         }
         else {
-            if (WhatToBrush.equals("вершины")) {
+            if (WhatToBrush.equals("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")) {
                 list.add(6);
                 list.add(7);
                 list.add(3);
@@ -114,7 +113,7 @@ public class Icosaedr extends Figure {
                 list.add(2);
                 list.add(9);
             }
-            else if (WhatToBrush.equals("грани")) {
+            else if (WhatToBrush.equals("пїЅпїЅпїЅпїЅпїЅ")) {
                 list.add(16);
                 list.add(17);
                 list.add(18);

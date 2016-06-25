@@ -19,15 +19,15 @@ import ru.spb.ipo.generator.base.ui.ConstraintPanel;
  *
  * @author Admin
  */
-public class ColorsSetPanel extends ConstraintPanel {
-    public JTabbedPane tabs;
+class ColorsSetPanel extends ConstraintPanel {
+    JTabbedPane tabs;
     public BaseGeneratorUI generator;
     
     private BeadsPanel beads;
     private PolygonPanel polygons;
     private PolyhedronPanel polyhedrons;
     
-    public ColorsSetPanel (BaseGeneratorUI gen) {
+    ColorsSetPanel(BaseGeneratorUI gen) {
         super(gen);
         this.generator = gen;
         initialize(gen);
@@ -62,7 +62,7 @@ public class ColorsSetPanel extends ConstraintPanel {
         add(tabs,BorderLayout.CENTER);
     }
     
-    class TabsListener implements ComponentListener {
+    private class TabsListener implements ComponentListener {
 
         public void componentResized(ComponentEvent e) {
         }
@@ -86,7 +86,7 @@ public class ColorsSetPanel extends ConstraintPanel {
         }
     }
     
-    public String isRightColors() {
+    String isRightColors() {
         String msg = null;
         switch(tabs.getSelectedIndex()) {
             case 0:

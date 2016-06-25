@@ -11,10 +11,10 @@ import ru.spb.ipo.generator.base.ComplexElement;
  *
  * @author Admin
  */
-public class BeadsCondition implements ComplexElement {
-    String color;
-    String count;
-    public BeadsCondition(String a_color, String a_count) {
+class BeadsCondition implements ComplexElement {
+    private String color;
+    private String count;
+    BeadsCondition(String a_color, String a_count) {
         color = a_color;
         count = a_count;
     }
@@ -27,39 +27,37 @@ public class BeadsCondition implements ComplexElement {
         String outColor;
         String outCount;
        if (color.equalsIgnoreCase("красный"))
-            outColor = new String("красного цвета");
+            outColor = "красного цвета";
         else if (color.equalsIgnoreCase("желтый"))
-            outColor = new String("желтого цвета");
+            outColor = "желтого цвета";
         else if (color.equalsIgnoreCase("синий"))
-            outColor = new String("синего цвета");
+            outColor = "синего цвета";
         else if (color.equalsIgnoreCase("зеленый"))
-            outColor = new String("зеленого цвета");
+            outColor = "зеленого цвета";
         else if (color.equalsIgnoreCase("белый"))
-            outColor = new String("белого цвета");
+            outColor = "белого цвета";
         else if (color.equalsIgnoreCase("черный"))
-            outColor = new String("черного цвета");
+            outColor = "черного цвета";
         else if (color.equalsIgnoreCase("оранжевый"))
-            outColor = new String("оранжевого цвета");
+            outColor = "оранжевого цвета";
         else if (color.equalsIgnoreCase("коричневый"))
-            outColor = new String("коричневого цвета");
+            outColor = "коричневого цвета";
         else
-            outColor = new String("фиолетового цвета");
+            outColor = "фиолетового цвета";
         
         if (count.equalsIgnoreCase("1"))
-            outCount = new String("1 бусина ");
+            outCount = "1 бусина ";
         else if (count.equalsIgnoreCase("2") || count.equalsIgnoreCase("3") ||
                 count.equalsIgnoreCase("4")) {
-            outCount = new String(count);
-            outCount = outCount.concat(new String(" бусины "));
+            outCount = count.concat(" бусины ");
         }
         else {
-            outCount = new String(count);
-            outCount = outCount.concat(new String(" бусин "));
+            outCount = count.concat(" бусин ");
         }
         return outCount.concat(outColor);
     }
     // realize function tag here
     public String generateXml() {
-        return new String(" ");
+        return " ";
     }
 }

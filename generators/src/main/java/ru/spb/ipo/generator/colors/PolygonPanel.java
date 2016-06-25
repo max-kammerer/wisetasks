@@ -29,7 +29,7 @@ import ru.spb.ipo.generator.colors.figures.Triangle;
  *
  * @author Admin
  */
-public class PolygonPanel extends ConstraintPanel{
+class PolygonPanel extends ConstraintPanel{
     private JComboBox color;
     private JComboBox elementsCount;
     private JButton addFigureElement;
@@ -45,8 +45,8 @@ public class PolygonPanel extends ConstraintPanel{
     private int taskType = 1;
     private JSpinner colorCount;
     
-    ColorsSetPanel parent;
-    Hashtable selectedColors;
+    private ColorsSetPanel parent;
+    private Hashtable selectedColors;
     
     String radioCommand = "Правильный многоугольник";
     
@@ -55,7 +55,7 @@ public class PolygonPanel extends ConstraintPanel{
     private JRadioButton type1Btn;
     private JRadioButton type2Btn;
     
-    public PolygonPanel (BaseGeneratorUI gen, final ColorsSetPanel parent) {
+    PolygonPanel(BaseGeneratorUI gen, final ColorsSetPanel parent) {
         super(gen);
         this.parent = parent;
         selectedColors = new Hashtable();
@@ -173,15 +173,15 @@ public class PolygonPanel extends ConstraintPanel{
 
         jLabel3.setText("Цвет:");
 
-        color.addItem(new String ("красный"));
-        color.addItem(new String ("желтый"));
-        color.addItem(new String ("синий"));
-        color.addItem(new String ("зеленый"));
-        color.addItem(new String ("белый"));
-        color.addItem(new String ("черный"));
-        color.addItem(new String ("оранжевый"));
-        color.addItem(new String ("коричневый"));
-        color.addItem(new String ("фиолетовый"));
+        color.addItem("красный");
+        color.addItem("желтый");
+        color.addItem("синий");
+        color.addItem("зеленый");
+        color.addItem("белый");
+        color.addItem("черный");
+        color.addItem("оранжевый");
+        color.addItem("коричневый");
+        color.addItem("фиолетовый");
         color.setEnabled(false);
 
         jLabel4.setText("Количество:");
@@ -258,7 +258,7 @@ public class PolygonPanel extends ConstraintPanel{
         );
     }
     
-    class FigureListener implements ActionListener {
+    private class FigureListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             radioCommand = e.getActionCommand();
             if (radioCommand.equals("Правильный многоугольник"))
@@ -268,7 +268,7 @@ public class PolygonPanel extends ConstraintPanel{
         }
     }
     
-    class ColorListener implements ActionListener {
+    private class ColorListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String cmd = e.getActionCommand();
             if (cmd.equals("type1")) {
@@ -334,7 +334,7 @@ public class PolygonPanel extends ConstraintPanel{
         source.put("tabNum", parent.tabs.getSelectedIndex() + 1);
     }
     
-    public String isRightColors() {
+    String isRightColors() {
         String msg=null;
         if (taskType == 2) {
         int colCount = 0;
@@ -346,7 +346,7 @@ public class PolygonPanel extends ConstraintPanel{
         Figure fig;
         if (corners.isEnabled()) {
             fig = new Polygon((String)forColoring.getSelectedItem(),
-                    Integer.valueOf((String)corners.getSelectedItem()).intValue());
+                    Integer.valueOf((String) corners.getSelectedItem()));
         }
         else {
             if (radioCommand.equals("Равнобедренный треугольник"))
@@ -358,14 +358,14 @@ public class PolygonPanel extends ConstraintPanel{
         } 
         if (fig.getDim() != colCount)
             if (fig.getDim() < 5)
-                msg = new String("Выберите "+fig.getDim()+" цвета.");
+                msg = "Выберите " + fig.getDim() + " цвета.";
             else    
-                msg = new String("Выберите "+fig.getDim()+" цветов.");
+                msg = "Выберите " + fig.getDim() + " цветов.";
         }
         return msg;
     }
     
-    public void unlockForColoring () {
+    void unlockForColoring() {
         forColoring.setEnabled(true);
     }
 }

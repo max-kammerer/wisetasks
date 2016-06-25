@@ -7,6 +7,7 @@ package ru.spb.ipo.generator.colors;
 
 import ru.spb.ipo.generator.colors.figures.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import ru.spb.ipo.generator.base.BaseGenerator;
 import ru.spb.ipo.generator.base.SetUtil;
@@ -18,7 +19,7 @@ import ru.spb.ipo.generator.colors.figures.Triangle;
  * @author Admin
  */
 public class PolygonXmlGenerator extends BaseGenerator{
-    Figure figure;
+    private Figure figure;
     public PolygonXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
     }
@@ -54,7 +55,7 @@ public class PolygonXmlGenerator extends BaseGenerator{
             String corners = (String)sourceParams.get("corners");
             figure = new Polygon(brushParam,Integer.valueOf(corners));
         }
-        sourceParams.put("elementsCount", Integer.valueOf(figure.getDim()));
+        sourceParams.put("elementsCount", figure.getDim());
         StringBuilder sb = new StringBuilder();
         sb.append("<description-params>\n" +
         "	<param name=\"length\">\n" +
@@ -81,7 +82,7 @@ public class PolygonXmlGenerator extends BaseGenerator{
         if (taskType == 1)
             set.append(SetUtil.decart(SetUtil.numericSet("1", "${colorCount}")));
         else {
-            ArrayList<Integer> cList = (ArrayList<Integer>)sourceParams.get("cList");
+            List<Integer> cList = (List<Integer>)sourceParams.get("cList");
             set.append(SetUtil.permutationWithRepetition(cList));
         }
         StringBuilder enumeration = new StringBuilder();

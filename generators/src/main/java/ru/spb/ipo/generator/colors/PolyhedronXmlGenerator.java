@@ -4,6 +4,7 @@ package ru.spb.ipo.generator.colors;
 import ru.spb.ipo.generator.colors.figures.Icosaedr;
 import ru.spb.ipo.generator.colors.figures.Dodecahedron;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import ru.spb.ipo.generator.base.BaseGenerator;
 import ru.spb.ipo.generator.base.SetUtil;
@@ -68,7 +69,7 @@ public class PolyhedronXmlGenerator extends BaseGenerator {
         else {
             figure = new Parallelepiped(brushParam);
         }
-        sourceParams.put("elementsCount", Integer.valueOf(figure.getDim()));
+        sourceParams.put("elementsCount", figure.getDim());
         StringBuilder sb = new StringBuilder();
         sb.append("<description-params>\n" +
         "	<param name=\"length\">\n" +
@@ -95,7 +96,7 @@ public class PolyhedronXmlGenerator extends BaseGenerator {
         if (taskType == 1)
             set.append(SetUtil.decart(SetUtil.numericSet("1", "${colorCount}")));
         else {
-            ArrayList<Integer> cList = (ArrayList<Integer>)sourceParams.get("cList");
+            List<Integer> cList = (List<Integer>)sourceParams.get("cList");
             set.append(SetUtil.permutationWithRepetition(cList));
         }StringBuilder enumeration = new StringBuilder();
         int n = figure.getPermCount();

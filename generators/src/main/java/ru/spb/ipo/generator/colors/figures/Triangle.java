@@ -18,9 +18,9 @@ public class Triangle extends Figure{
     }
     public ArrayList<Integer> getPermutation(int index) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(Integer.valueOf(1));
-        list.add(Integer.valueOf(3));
-        list.add(Integer.valueOf(2));
+        list.add(1);
+        list.add(3);
+        list.add(2);
         return list;
     }
 

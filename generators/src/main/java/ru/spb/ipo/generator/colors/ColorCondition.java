@@ -11,12 +11,13 @@ import ru.spb.ipo.generator.base.ComplexElement;
  *
  * @author Admin
  */
-public class ColorCondition implements ComplexElement{
+class ColorCondition implements ComplexElement{
 
-    String color;
-    String count;
-    String whatToBrush;
-    public ColorCondition(String color, String count,String whatToBrush) {
+    private String color;
+    private String count;
+    private String whatToBrush;
+
+    ColorCondition(String color, String count, String whatToBrush) {
         this.color = color;
         this.count = count;
         this.whatToBrush = whatToBrush;
@@ -28,63 +29,59 @@ public class ColorCondition implements ComplexElement{
     @Override
     public String toString() {
         String outColor;
-        String outCount;
         String outBrush;
         if (count.equals("1")) {
             if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребро");
+                outBrush = " ребро";
             else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершина");
+                outBrush = " вершина";
             else {
-                outBrush = new String(" грань");
+                outBrush = " грань";
             }
         }
         else if (count.equalsIgnoreCase("2") || count.equalsIgnoreCase("3") ||
                 count.equalsIgnoreCase("4")){
             if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребра");
+                outBrush = " ребра";
             else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершины");
+                outBrush = " вершины";
             else {
-                outBrush = new String(" грани");
+                outBrush = " грани";
             }
         }
         else {
             if (whatToBrush.equals("рёбра"))
-                outBrush = new String(" ребер");
+                outBrush = " ребер";
             else if(whatToBrush.equals("вершины"))
-                outBrush = new String(" вершин");
+                outBrush = " вершин";
             else
-                outBrush = new String(" граней");
+                outBrush = " граней";
         }
         
         if (color.equalsIgnoreCase("красный"))
-            outColor = new String(" красного цвета");
+            outColor = " красного цвета";
         else if (color.equalsIgnoreCase("желтый"))
-            outColor = new String(" желтого цвета");
+            outColor = " желтого цвета";
         else if (color.equalsIgnoreCase("синий"))
-            outColor = new String(" синего цвета");
+            outColor = " синего цвета";
         else if (color.equalsIgnoreCase("зеленый"))
-            outColor = new String(" зеленого цвета");
+            outColor = " зеленого цвета";
         else if (color.equalsIgnoreCase("белый"))
-            outColor = new String(" белого цвета");
+            outColor = " белого цвета";
         else if (color.equalsIgnoreCase("черный"))
-            outColor = new String(" черного цвета");
+            outColor = " черного цвета";
         else if (color.equalsIgnoreCase("оранжевый"))
-            outColor = new String(" оранжевого цвета");
+            outColor = " оранжевого цвета";
         else if (color.equalsIgnoreCase("коричневый"))
-            outColor = new String(" коричневого цвета");
+            outColor = " коричневого цвета";
         else
-            outColor = new String(" фиолетового цвета");
-        
-        String out = new String(count);
-        out = out.concat(outBrush);
-        out = out.concat(outColor);
-        return out;
+            outColor = " фиолетового цвета";
+
+        return count + outBrush + outColor;
     }
     
     public String generateXml() {
-        return new String("Not supported yet.");
+        return "Not supported yet.";
     }
 
 }

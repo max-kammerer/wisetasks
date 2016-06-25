@@ -11,12 +11,12 @@ import ru.spb.ipo.generator.base.ComplexElement;
  *
  * @author Admin
  */
-public class PolygonCondition implements ComplexElement {
-    public String whatToBrush;
+class PolygonCondition implements ComplexElement {
+    private String whatToBrush;
     public String figure;
-    public String corners;
+    private String corners;
     
-    public PolygonCondition(String whatToBrush, String figure, String corners) {
+    PolygonCondition(String whatToBrush, String figure, String corners) {
         this.whatToBrush = whatToBrush;
         this.figure = figure;
         this.corners = corners;
@@ -27,7 +27,7 @@ public class PolygonCondition implements ComplexElement {
     }
 
     public String generateXml() {
-        return new String("not supported yet");
+        return "not supported yet";
     }
     
     @Override
@@ -35,23 +35,23 @@ public class PolygonCondition implements ComplexElement {
         String outFigure;
         String outBrush;
         if (figure.equals("Равнобедренный треугольник"))
-            outFigure = new String(" равнобедренного треугольника");
+            outFigure = " равнобедренного треугольника";
         else if (figure.equals("Прямоугольник"))
-            outFigure = new String(" прямоугольника");
+            outFigure = " прямоугольника";
         else if (figure.equals("Ромб"))
-            outFigure = new String(" ромба");
+            outFigure = " ромба";
         else {
             if (corners.equals("3"))
-                outFigure = new String(" равностороннего треугольника");
+                outFigure = " равностороннего треугольника";
             else if (corners.equals("4"))
-                outFigure = new String(" квадрата");
+                outFigure = " квадрата";
             else {
-                outFigure = new String(" правильного ");
+                outFigure = " правильного ";
                 outFigure = outFigure.concat(corners);
                 outFigure = outFigure.concat("-угольника");
             }
         }
-        outBrush = new String(whatToBrush);
+        outBrush = whatToBrush;
         outBrush = outBrush.concat(outFigure);
         return outBrush;
     }

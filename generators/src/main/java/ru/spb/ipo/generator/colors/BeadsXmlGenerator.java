@@ -15,8 +15,8 @@ import ru.spb.ipo.generator.base.SetUtil;
  *
  * @author Admin
  */
-public class BeadsXmlGenerator extends BaseGenerator {
-    public BeadsXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
+class BeadsXmlGenerator extends BaseGenerator {
+    BeadsXmlGenerator(Map<String, Object> sourceParams, Map<String, Object> funcParams, Map<String, Object> taskParams) {
 		super(sourceParams, funcParams, taskParams);
     }
     public String generateDescription() {

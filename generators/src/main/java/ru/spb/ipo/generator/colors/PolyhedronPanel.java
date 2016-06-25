@@ -33,7 +33,7 @@ import ru.spb.ipo.generator.colors.figures.Tetrahedron;
  *
  * @author Admin
  */
-public class PolyhedronPanel extends ConstraintPanel {
+class PolyhedronPanel extends ConstraintPanel {
     private JComboBox color;
     private JComboBox elementsCount;
     private JButton addFigureElement;
@@ -50,7 +50,7 @@ public class PolyhedronPanel extends ConstraintPanel {
     private JPanel figurePanel;
     private JPanel colorPanel;
     
-    ColorsSetPanel parent;
+    private ColorsSetPanel parent;
     
     private int taskType = 1;
     private JRadioButton type1Btn;
@@ -61,7 +61,7 @@ public class PolyhedronPanel extends ConstraintPanel {
     private String radioCommand = "Правильный многогранник";
     private Hashtable selectedColors = new Hashtable();
 
-    public PolyhedronPanel(BaseGeneratorUI gen, final ColorsSetPanel parent) {
+    PolyhedronPanel(BaseGeneratorUI gen, final ColorsSetPanel parent) {
         super(gen);
         this.parent = parent;
         initComponents();
@@ -116,11 +116,11 @@ public class PolyhedronPanel extends ConstraintPanel {
         goodPoly.addActionListener(listener);
         bg.add(goodPoly);
 
-        figureType.addItem(new String("тетраэдр"));
-        figureType.addItem(new String("куб"));
-        figureType.addItem(new String("октаэдр"));
-        figureType.addItem(new String("додекаэдр"));
-        figureType.addItem(new String("икосаэдр"));
+        figureType.addItem("тетраэдр");
+        figureType.addItem("куб");
+        figureType.addItem("октаэдр");
+        figureType.addItem("додекаэдр");
+        figureType.addItem("икосаэдр");
 
         jLabel2.setText("Вершин в основании:");
 
@@ -198,15 +198,15 @@ public class PolyhedronPanel extends ConstraintPanel {
 
         jLabel3.setText("Цвет:");
 
-        color.addItem(new String ("красный"));
-        color.addItem(new String ("желтый"));
-        color.addItem(new String ("синий"));
-        color.addItem(new String ("зеленый"));
-        color.addItem(new String ("белый"));
-        color.addItem(new String ("черный"));
-        color.addItem(new String ("оранжевый"));
-        color.addItem(new String ("коричневый"));
-        color.addItem(new String ("фиолетовый"));
+        color.addItem("красный");
+        color.addItem("желтый");
+        color.addItem("синий");
+        color.addItem("зеленый");
+        color.addItem("белый");
+        color.addItem("черный");
+        color.addItem("оранжевый");
+        color.addItem("коричневый");
+        color.addItem("фиолетовый");
         color.setEnabled(false);
 
         jLabel4.setText("Количество:");
@@ -372,7 +372,7 @@ public class PolyhedronPanel extends ConstraintPanel {
         source.put("tabNum", parent.tabs.getSelectedIndex() + 1);
     }
     
-    public String isRightColors() {
+    String isRightColors() {
         String msg=null;
         int colCount = 0;
         if (taskType == 2) {
@@ -398,24 +398,24 @@ public class PolyhedronPanel extends ConstraintPanel {
             else if (corners.isEnabled()) {
                 if (radioCommand.equals("Призма"))
                     fig = new Prizma((String)forColoring.getSelectedItem(),
-                        Integer.valueOf((String)corners.getSelectedItem()).intValue());
+                            Integer.valueOf((String) corners.getSelectedItem()));
                 else
                     fig = new Piramida((String)forColoring.getSelectedItem(),
-                        Integer.valueOf((String)corners.getSelectedItem()).intValue());
+                            Integer.valueOf((String) corners.getSelectedItem()));
             }
             else {
                 fig = new Parallelepiped((String)forColoring.getSelectedItem());
             } 
             if (fig.getDim() != colCount)
                 if (fig.getDim() < 5)
-                    msg = new String("Выберите "+fig.getDim()+" цвета.");
+                    msg = "Выберите " + fig.getDim() + " цвета.";
                 else    
-                    msg = new String("Выберите "+fig.getDim()+" цветов.");
+                    msg = "Выберите " + fig.getDim() + " цветов.";
         }
         return msg;
     }
     
-    public void unlockForColoring () {
+    void unlockForColoring() {
         forColoring.setEnabled(true);
     }
 }

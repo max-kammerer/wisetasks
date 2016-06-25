@@ -7,10 +7,7 @@ package ru.spb.ipo.generator.colors;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -31,21 +28,21 @@ import ru.spb.ipo.generator.base.ui.ConstraintPanel;
 public class BeadsPanel extends ConstraintPanel{
     private JComboBox color;
     private JComboBox quantity;
-    JButton addButton;
-    public ColorsSetPanel parent;
-    Hashtable selectedColors;
-    JPanel all;
+    private JButton addButton;
+    private ColorsSetPanel parent;
+    private Map<String, String> selectedColors;
+    private JPanel all;
     private JRadioButton type2Btn;
     private JButton addFigureElement;
     private JSpinner colorCount;
     private JRadioButton type1Btn;
     private JSpinner beadsCount;
-    int taskType=1;
+    private int taskType = 1;
 
-    public BeadsPanel(BaseGeneratorUI gen, ColorsSetPanel parent) {
+    BeadsPanel(BaseGeneratorUI gen, ColorsSetPanel parent) {
         super(gen);
         this.parent = parent;
-        selectedColors = new Hashtable();
+        selectedColors = new HashMap<String, String>();
         initComponents();
     }
     
@@ -76,15 +73,15 @@ public class BeadsPanel extends ConstraintPanel{
         colorCount = new JSpinner(new SpinnerNumberModel(2,2,10,1));
         beadsCount = new JSpinner(new SpinnerNumberModel(3,3,10,1));
 
-        color.addItem(new String ("красный"));
-        color.addItem(new String ("желтый"));
-        color.addItem(new String ("синий"));
-        color.addItem(new String ("зеленый"));
-        color.addItem(new String ("белый"));
-        color.addItem(new String ("черный"));
-        color.addItem(new String ("оранжевый"));
-        color.addItem(new String ("коричневый"));
-        color.addItem(new String ("фиолетовый"));
+        color.addItem("красный");
+        color.addItem("желтый");
+        color.addItem("синий");
+        color.addItem("зеленый");
+        color.addItem("белый");
+        color.addItem("черный");
+        color.addItem("оранжевый");
+        color.addItem("коричневый");
+        color.addItem("фиолетовый");
         color.setEnabled(false);
         
         for (int i = 1; i < 10; i++)
@@ -160,7 +157,7 @@ public class BeadsPanel extends ConstraintPanel{
         );
     }
     
-    class ColorListener implements ActionListener {
+    private class ColorListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String cmd = e.getActionCommand();
             if (cmd.equals("type1")) {
@@ -181,12 +178,13 @@ public class BeadsPanel extends ConstraintPanel{
             }
         }
     }
-    public void createCondFromParameters() {
+
+    private void createCondFromParameters() {
         ComplexElement [] conds = parent.generator.getConditions();
         if (conds.length == 0)
-            selectedColors = new Hashtable();
+            selectedColors = new HashMap<String, String>();
         String colorName = (String)color.getSelectedItem();
-        String countColor = (String) selectedColors.get(colorName);
+        String countColor = selectedColors.get(colorName);
         if (countColor != null) {
             JOptionPane.showMessageDialog(this, "Этот цвет уже выбран");
         }
@@ -203,11 +201,9 @@ public class BeadsPanel extends ConstraintPanel{
 	int length = 0;
         if (taskType == 2) {
             ArrayList<Integer> cList = new ArrayList<Integer>();
-            Enumeration en = selectedColors.keys();
-            while(en.hasMoreElements()) {
-                String key = (String)en.nextElement();
-                String val = (String)selectedColors.get(key);
-                cList.add(Integer.valueOf((String)selectedColors.get(key)));
+            for (String key : selectedColors.keySet()) {
+                String val = selectedColors.get(key);
+                cList.add(Integer.valueOf(selectedColors.get(key)));
                 length = length + Integer.valueOf(val);
             }
             source.put("colors", selectedColors.size());
@@ -222,7 +218,7 @@ public class BeadsPanel extends ConstraintPanel{
         source.put("taskType", taskType);
     }
     
-    public String isRightColors() {
+    String isRightColors() {
         String msg = null;
         if (taskType == 1) {
             if ((Integer)colorCount.getValue() > (Integer)beadsCount.getValue())

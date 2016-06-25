@@ -11,14 +11,14 @@ import ru.spb.ipo.generator.base.ComplexElement;
  *
  * @author Admin
  */
-public class PolyhedronCondition implements ComplexElement{
+class PolyhedronCondition implements ComplexElement{
 
-    public String whatToBrush;
+    private String whatToBrush;
     public String figure;
-    public String polyType;
-    public String corners;
+    private String polyType;
+    private String corners;
     
-    public PolyhedronCondition(String whatToBrush, String figure, String polyType, String corners) {
+    PolyhedronCondition(String whatToBrush, String figure, String polyType, String corners) {
         this.whatToBrush = whatToBrush;
         this.polyType = polyType;
         this.figure = figure;
@@ -30,7 +30,7 @@ public class PolyhedronCondition implements ComplexElement{
     }
 
     public String generateXml() {
-        return new String();
+        return "";
     }
 
     @Override
@@ -38,32 +38,32 @@ public class PolyhedronCondition implements ComplexElement{
         String outFigure;
         String outBrush;
         if (figure.equals("Пирамида")) {
-            outFigure = new String(" пирамиды с ");
-            String outCorners = new String(corners);
+            outFigure = " пирамиды с ";
+            String outCorners = corners;
             outCorners = outCorners.concat(" углами в основании");
             outFigure = outFigure.concat(outCorners);
         }
         else if (figure.equals("Призма")) {
-            outFigure = new String(" призмы с ");
-            String outCorners = new String(corners);
+            outFigure = " призмы с ";
+            String outCorners = corners;
             outCorners = outCorners.concat(" углами в основании");
             outFigure = outFigure.concat(outCorners);
         }
         else if (figure.equals("Прямоугольный параллелепипед"))
-            outFigure = new String(" прямоугольного параллелепипеда");
+            outFigure = " прямоугольного параллелепипеда";
         else {
             if (polyType.equals("тетраэдр"))
-                outFigure = new String(" правильного тетраэдра");
+                outFigure = " правильного тетраэдра";
             else if (polyType.equals("куб"))
-                outFigure = new String(" куба");
+                outFigure = " куба";
             else if (polyType.equals("додекаэдр"))
-                outFigure = new String(" додекаэдра");
+                outFigure = " додекаэдра";
             else if (polyType.equals("икосаэдр"))
-                outFigure = new String(" икосаэдра");
+                outFigure = " икосаэдра";
             else
-                outFigure = new String(" октаэдра");
+                outFigure = " октаэдра";
         }
-        outBrush = new String(whatToBrush);
+        outBrush = whatToBrush;
         outBrush = outBrush.concat(outFigure);
         return outBrush;
     }

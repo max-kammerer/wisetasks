@@ -44,7 +44,7 @@ public class ColorsGenerator extends BaseGeneratorUI {
     @Override
     protected BaseGenerator createGenerator(Map<String, Object> source, Map<String, Object> func, Map<String, Object> task) {
         Integer tab = (Integer)source.get("tabNum");
-        switch(tab.intValue()) {
+        switch(tab) {
             case 1:
                 return new BeadsXmlGenerator(source,func,task);
             case 2:
@@ -81,7 +81,7 @@ public class ColorsGenerator extends BaseGeneratorUI {
         return generateDescriptionButton;
     }
     
-    public void makeDescription() {
+    private void makeDescription() {
         String ret = ((ColorsSetPanel)this.setPanel).isRightColors();
         if ( ret == null)
             taskDesc.setText(getGenerator().generateDescription());
