@@ -1,7 +1,7 @@
 /*
  * This file is part of Wisetasks
  *
- * Copyright (C) 2006-2008, 2012-2014  Michael Bogdanov
+ * Copyright (C) 2006-2008, 2012  Michael Bogdanov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,40 +17,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'kotlin'
+package ru.spb.ipo.engine.functions;
 
-sourceCompatibility = 1.6
-version = '0.71'
+import ru.spb.ipo.engine.elements.Element;
 
+/**
+ * Author: Michael.Bogdanov
+ * Date: ***
+ */
+public class Not extends Function {
 
-sourceSets {
-    main.kotlin.srcDirs += 'src/main/kotlin'
-}
+    public Element compute(Element parameter) {
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'ru.spb.ipo.client.ui.ClientUI'
-    }
-}
-
-buildscript {
-    ext.kotlin_version = '1.0.2'
-    repositories {
-        mavenCentral()
+        if (Element.pfalse.equals(fns[0].compute(parameter))) return Element.ptrue;  
+        return Element.pfalse;
     }
 
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
 
-repositories {
-    mavenCentral()
 }
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-compiler:$kotlin_version"
-}
-

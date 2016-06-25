@@ -1,7 +1,7 @@
 /*
  * This file is part of Wisetasks
  *
- * Copyright (C) 2006-2008, 2012-2014  Michael Bogdanov
+ * Copyright (C) 2006-2008, 2012  Michael Bogdanov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,40 +17,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'kotlin'
+package ru.spb.ipo.engine.rmi;
 
-sourceCompatibility = 1.6
-version = '0.71'
+import java.io.Serializable;
 
+/**
+ * Author: Michael.Bogdanov
+ * Date: Oct 29, 2006
+ */
+public class ContestProxy implements Serializable {
 
-sourceSets {
-    main.kotlin.srcDirs += 'src/main/kotlin'
-}
+    private String title;
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'ru.spb.ipo.client.ui.ClientUI'
-    }
-}
+    private long id;
 
-buildscript {
-    ext.kotlin_version = '1.0.2'
-    repositories {
-        mavenCentral()
+    public ContestProxy(){
+
     }
 
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    public ContestProxy(String title, long id){
+        this.id = id;
+        this.title = title;
     }
-}
 
-repositories {
-    mavenCentral()
-}
+    public String getTitle() {
+        return title;
+    }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-compiler:$kotlin_version"
-}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+}
