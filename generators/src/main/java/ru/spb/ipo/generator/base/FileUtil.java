@@ -173,8 +173,8 @@ public class FileUtil {
 //	}
 	
 	public static ListIdEntry [] getTasks(final ListIdEntry entry) {
-	
-	    File taskFolderFile = new File(entry.getId());
+		String folder = entry.getId().replaceAll("\\\\","/");
+		File taskFolderFile = new File(folder);
 	    final File [] taskFiles = taskFolderFile.listFiles(new FileFilter() {
 			public boolean accept(File pathname) {
 				return pathname.getAbsolutePath().toLowerCase().endsWith(".xml");
