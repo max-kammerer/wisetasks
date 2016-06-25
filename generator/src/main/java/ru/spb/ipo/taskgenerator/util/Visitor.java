@@ -10,8 +10,8 @@ public abstract class Visitor {
 	public void visit(KernelElement parent) {
 		processElement(parent);
 		List children = parent.getChildren();
-		for (Iterator iter = children.iterator(); iter.hasNext();) {
-			KernelElement child = (KernelElement) iter.next();
+		for (Object aChildren : children) {
+			KernelElement child = (KernelElement) aChildren;
 			visit(child);
 		}
 	}

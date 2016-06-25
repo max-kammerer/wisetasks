@@ -3,13 +3,13 @@ package ru.spb.ipo.taskgenerator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class KernelElementImpl implements KernelElement {
+abstract class KernelElementImpl implements KernelElement {
 	
-	public ArrayList myChildren;
-	public KernelElement myParent;
+	private ArrayList<KernelElement> myChildren;
+	private KernelElement myParent;
 	
-	public KernelElementImpl() {
-		myChildren = new ArrayList();
+	KernelElementImpl() {
+		myChildren = new ArrayList<KernelElement>();
 	}
 
 	public void addChild(KernelElement child) {
@@ -18,7 +18,7 @@ public abstract class KernelElementImpl implements KernelElement {
 		myChildren.add(child);
 	}
 
-	public List getChildren() {
+	public List<KernelElement> getChildren() {
 		return myChildren;
 	}
 
@@ -26,7 +26,7 @@ public abstract class KernelElementImpl implements KernelElement {
 		return myParent;
 	}
 
-	public void setParent(KernelElement parent) {
+	private void setParent(KernelElement parent) {
 		this.myParent = parent;
 	}
 

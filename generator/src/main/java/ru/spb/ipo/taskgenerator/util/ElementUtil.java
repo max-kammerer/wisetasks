@@ -77,11 +77,8 @@ public class ElementUtil {
 	}
 	
 	public static boolean isConst(String name) {
-		if ("constElement".equals(name) || 
-				"current-set-element".equals(name)) {
-			return true;
-		}			
-		return false;
+		return "constElement".equals(name) ||
+				"current-set-element".equals(name);
 	}
 
 	public boolean isElement(KernelElement element) {

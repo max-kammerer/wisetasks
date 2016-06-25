@@ -121,7 +121,7 @@ public class MainMenu extends JMenuBar {
 		return save;
 	}
 	
-	public JFileChooser getFileChooser() {
+	private JFileChooser getFileChooser() {
 		if (fileChooser == null) {
 			fileChooser = new JFileChooser(new File(".").getAbsolutePath());			
 			fileChooser.setDialogTitle("Выберите файл...");

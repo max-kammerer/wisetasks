@@ -67,9 +67,8 @@ public class Reader {
     }
 
     private KernelElement buildTree(Node node) {
-    	KernelElement newElement = null;        
-        newElement = ElementFactory.buildElement(node);        
-        NodeList nl = node.getChildNodes();        
+    	KernelElement newElement = ElementFactory.buildElement(node);
+        NodeList nl = node.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
             Node n = nl.item(i);
             short type = n.getNodeType();

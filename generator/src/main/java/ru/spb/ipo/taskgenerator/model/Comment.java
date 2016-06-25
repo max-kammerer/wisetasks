@@ -17,7 +17,7 @@ public class Comment extends KernelElementImpl {
 		throw new UnsupportedOperationException();
 	}
 
-	public List getChildren() {		
+	public List<KernelElement> getChildren() {
 		return Collections.EMPTY_LIST;
 	}
 

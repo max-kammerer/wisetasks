@@ -1,21 +1,17 @@
 package ru.spb.ipo.taskgenerator.ui;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Collection;
-import java.util.Iterator;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-
 import ru.spb.ipo.taskgenerator.config.Config;
 import ru.spb.ipo.taskgenerator.config.FunctionElement;
 import ru.spb.ipo.taskgenerator.model.Element;
 import ru.spb.ipo.taskgenerator.model.KernelElement;
 import ru.spb.ipo.taskgenerator.util.Actions;
 import ru.spb.ipo.taskgenerator.util.ElementUtil;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Collection;
 
 
 public class ContextMenu  extends JPopupMenu {
@@ -55,20 +51,20 @@ public class ContextMenu  extends JPopupMenu {
 			functions = new JMenu();
 			functions.setText("Добавить функцию");
 			JMenuItem temp;
-			Collection c = Config.getInstance().getFunctions();
+			Collection<ru.spb.ipo.taskgenerator.config.Element> c = Config.getInstance().getFunctions();
 //			String [] fns = (String []) c.toArray(new String[c.size()]);
-			
-	        for (Iterator it = c.iterator(); it.hasNext(); ) {
-	        	FunctionElement el = (FunctionElement)it.next();
-	        	if ("SEPARATOR".equals(el.getName())) {
-	        		functions.addSeparator();	        		
-	        	} else {
-	        		temp = new JMenuItem(el.getName());
-	        		temp.addActionListener(fal);
-	        		functions.add(temp);
-	        	}	            
-	            
-	        }
+
+			for (ru.spb.ipo.taskgenerator.config.Element aC : c) {
+				FunctionElement el = (FunctionElement) aC;
+				if ("SEPARATOR".equals(el.getName())) {
+					functions.addSeparator();
+				} else {
+					temp = new JMenuItem(el.getName());
+					temp.addActionListener(fal);
+					functions.add(temp);
+				}
+
+			}
 		}
 		return functions;
 	}
@@ -83,13 +79,13 @@ public class ContextMenu  extends JPopupMenu {
 			ActionListener sal = new ItemListener(ElementUtil.E_SET);
 			sets = new JMenu();
 			sets.setText("Добавить множество");
-			Collection c = Config.getInstance().getSets().keySet();
-			String [] ss = (String []) c.toArray(new String[c.size()]);
-			for (int i = 0; i < ss.length; i++) {
-				JMenuItem temp = new JMenuItem(ss[i]);
-	            temp.addActionListener(sal);
+			Collection<String> c = Config.getInstance().getSets().keySet();
+			String [] ss = c.toArray(new String[c.size()]);
+			for (String s : ss) {
+				JMenuItem temp = new JMenuItem(s);
+				temp.addActionListener(sal);
 				sets.add(temp);
-	        }	        
+			}
 		}
 		return sets;
 	}
@@ -104,13 +100,13 @@ public class ContextMenu  extends JPopupMenu {
 			ActionListener aal = new ItemListener(ElementUtil.E_ADDITION);		
 			additions = new JMenu();
 			additions.setText("Дополнительно");
-			Collection c = Config.getInstance().getCommands().keySet();
-			String [] commands = (String []) c.toArray(new String[c.size()]);
-			for (int i = 0; i < commands.length; i++) {
-				JMenuItem temp = new JMenuItem(commands[i]);
-	            temp.addActionListener(aal);
+			Collection<String> c = Config.getInstance().getCommands().keySet();
+			String [] commands = c.toArray(new String[c.size()]);
+			for (String command : commands) {
+				JMenuItem temp = new JMenuItem(command);
+				temp.addActionListener(aal);
 				additions.add(temp);
-	        }
+			}
 		}
 		return additions;
 	}

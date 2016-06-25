@@ -1,32 +1,29 @@
 package ru.spb.ipo.taskgenerator.ui;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import ru.spb.ipo.taskgenerator.model.Element;
+import ru.spb.ipo.taskgenerator.model.KernelElement;
+import ru.spb.ipo.taskgenerator.model.KeyValue;
+import ru.spb.ipo.taskgenerator.model.Parameter;
+import ru.spb.ipo.taskgenerator.util.ElementUtil;
 
-import javax.swing.JTextArea;
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-
-import ru.spb.ipo.taskgenerator.model.Element;
-import ru.spb.ipo.taskgenerator.model.KernelElement;
-import ru.spb.ipo.taskgenerator.model.Parameter;
-import ru.spb.ipo.taskgenerator.model.KeyValue;
-import ru.spb.ipo.taskgenerator.util.ElementUtil;
+import java.util.HashMap;
+import java.util.List;
 
 public class GraphicFactory {
 	
-	public static HashMap elements = new HashMap();
+	private static HashMap<KernelElement, TaskTreeNode> elements = new HashMap<KernelElement, TaskTreeNode>();
 	
 	public static void addChild(KernelElement parent, KernelElement element){
 		insertChild(parent, element);		
 		parent.addChild(element);		
 	}
 	
-	public static void insertChild(KernelElement parent, KernelElement element){
-		TaskTreeNode parentNode = (TaskTreeNode)elements.get(parent);
+	private static void insertChild(KernelElement parent, KernelElement element){
+		TaskTreeNode parentNode = elements.get(parent);
 		TaskTreeNode childNode = getView(element);
 		elements.put(element, childNode);		
 		//parentNode.add(childNode);
@@ -39,7 +36,7 @@ public class GraphicFactory {
 		
 	}
 	
-	public static TaskTreeNode getNewRoot(KernelElement root) {
+	private static TaskTreeNode getNewRoot(KernelElement root) {
 		TaskTreeNode rootNode = new TaskTreeNode(root);
 		elements.put(root, rootNode);
 		return rootNode;
@@ -53,9 +50,8 @@ public class GraphicFactory {
 	}
 	
 	private static void recursiveBuild(KernelElement parent) {
-		List children = parent.getChildren();
-		for (Iterator iter = children.iterator(); iter.hasNext();) {
-			KernelElement child = (KernelElement) iter.next();
+		List<KernelElement> children = parent.getChildren();
+		for (KernelElement child : children) {
 			insertChild(parent, child);
 			recursiveBuild(child);
 		}
@@ -66,7 +62,7 @@ public class GraphicFactory {
 	}
 	
 	public static void refresh(KernelElement element) {
-		TaskTreeNode node = (TaskTreeNode)elements.get(element);
+		TaskTreeNode node = elements.get(element);
 		node.update();
 		if (element instanceof Element) {
 			Element e = (Element)element;
@@ -82,9 +78,8 @@ public class GraphicFactory {
 			if (element instanceof Parameter) {
 				StringBuffer text = new StringBuffer();
 				Parameter parameter = (Parameter)element;
-				List map = parameter.getValues();
-				for (Iterator iter = map.iterator(); iter.hasNext();) {
-					KeyValue vd = (KeyValue)iter.next();
+				List<KeyValue> map = parameter.getValues();
+				for (KeyValue vd : map) {
 					String value = vd.getKey();
 					String description = vd.getValue();
 					text.append(value);
@@ -117,16 +112,15 @@ public class GraphicFactory {
 			String text = null;
 			
 			if (element instanceof Parameter) {
-				StringBuffer text1 = new StringBuffer();
+				StringBuilder text1 = new StringBuilder();
 				Parameter parameter = (Parameter)element;
-				List list = parameter.getValues();
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
-					KeyValue vd = (KeyValue)iter.next();
+				List<KeyValue> list = parameter.getValues();
+				for (KeyValue vd : list) {
 					String value = vd.getKey();
 					String description = vd.getValue();
 					text1.append(value);
 					if (!"".equals(ElementUtil.getSafe(description))) {
-						text1.append("  - [" + description + "]");
+						text1.append("  - [").append(description).append("]");
 					}
 					text1.append("\n");
 				}
@@ -153,6 +147,6 @@ public class GraphicFactory {
 	}
 	
 	public static TaskTreeNode getLinkedElement(KernelElement element){
-		return (TaskTreeNode)elements.get(element);
+		return elements.get(element);
 	}
 }

@@ -11,11 +11,11 @@ public class Element {
 
     protected String type;
     protected String name;
-    protected boolean isRequired = true;
+    private boolean isRequired = true;
 
-    protected Map subElements = new HashMap();
-    protected List attributes = new ArrayList();
-    protected int operations;
+    private Map subElements = new HashMap();
+    private List<KeyValue> attributes = new ArrayList<KeyValue>();
+    private int operations;
     protected boolean containingText;
 
     public String getType() {
@@ -42,7 +42,7 @@ public class Element {
         return subElements;
     }
 
-    public List getAttributes() {
+    public List<KeyValue> getAttributes() {
         return attributes;
     }
 

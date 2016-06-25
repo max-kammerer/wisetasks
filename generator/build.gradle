@@ -20,7 +20,7 @@
 
 jar {
     manifest {
-        attributes 'Main-Class': 'ru.spb.ipo.client.taskgenerator.ui'
+        attributes 'Main-Class': 'ru.spb.ipo.client.taskgenerator.ui.TaskGenerator'
     }
 }
 

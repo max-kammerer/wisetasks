@@ -38,13 +38,13 @@ public class Config {
     public final static int DEFAULT_ELEMENT = NO_OPERATIONS;
     public final static int ALL_OPERATIONS = 2147483647;
 	
-    private Map functions = new HashMap();
-    private List functionsList = new ArrayList();
+    private Map<String, Element> functions = new HashMap<String, Element>();
+    private List<Element> functionsList = new ArrayList<Element>();
     
-    private Map sets = new HashMap();
-    private Map rootelements = new HashMap();
-    private static Map operations = new HashMap();
-    private Map commands = new HashMap();
+    private Map<String, Element> sets = new HashMap<String, Element>();
+    private Map<String, RootElement> rootelements = new HashMap<String, RootElement>();
+    private static Map<String, Operation> operations = new HashMap<String, Operation>();
+    private Map<String, CommandElement> commands = new HashMap<String, CommandElement>();
 
     
     private static Config myConfig = loadConfig();
@@ -54,20 +54,20 @@ public class Config {
     }
 
     
-    public List getFunctions() {
+    public List<Element> getFunctions() {
         return functionsList;
     }
 
-    public Map getSets() {
+    public Map<String, Element> getSets() {
         return sets;
     }
 
     public Element getFunction(String name) {
-        return (Element)functions.get(name);
+        return functions.get(name);
     }
 
     public Element getSet(String name) {
-        return (Element)sets.get(name);
+        return sets.get(name);
     }
 
     public void addFunction(Element e) {
@@ -85,11 +85,11 @@ public class Config {
 
     public static int getOperation(String name) {
         if (operations.containsKey(name))
-            return ((Operation)operations.get(name)).getInt();
+            return (operations.get(name)).getInt();
         else return NO_OPERATIONS;
     }
 
-    public static Map getOperations() {
+    public static Map<String, Operation> getOperations() {
         return operations;
     }
 
@@ -98,24 +98,24 @@ public class Config {
     }
 
     public Element getRootElement(String name){
-        return (Element) rootelements.get(name);
+        return rootelements.get(name);
     }
 
     
     public Element getRootModelElement(String name){
     	if (rootelements.containsKey(name)) {
-    		return (Element) rootelements.get(name);
+    		return rootelements.get(name);
     	} else {
-    		return (Element)commands.get(name);
+    		return commands.get(name);
     	}
     }
 
-    public Map getCommands() {
+    public Map<String, CommandElement> getCommands() {
         return commands;
     }
 
     public Element getCommand(String name) {
-        return (Element)commands.get(name);
+        return commands.get(name);
     }
 
     public void addCommand(CommandElement c) {

@@ -14,16 +14,16 @@ public class Element extends KernelElementImpl {
 	private String myName;
 	private String myText;
 	//remove
-	private HashMap attributes;
-	private List attributesList;
+	private HashMap<String, Attribute> attributes;
+	private List<Attribute> attributesList;
 	
 	public Element(String name) {
 		myName = name;
-		attributes = new HashMap();
-		attributesList = new ArrayList();
+		attributes = new HashMap<String, Attribute>();
+		attributesList = new ArrayList<Attribute>();
 	}
 	
-	public void addAttribute(Attribute attr) {		
+	private void addAttribute(Attribute attr) {
 		Object v = attributes.put(attr.getName(), attr);
 		if (v != null) {
 			int i = attributesList.indexOf(v);
@@ -39,7 +39,7 @@ public class Element extends KernelElementImpl {
 	}
 	
 	public Attribute getAttribute(String name) {
-		return (Attribute)attributes.get(name); 
+		return attributes.get(name);
 	}
 	
 	public void removeAttributes(){
@@ -55,20 +55,17 @@ public class Element extends KernelElementImpl {
 		boolean isType = false;
 		if (ElementUtil.getElementType(this) == ElementUtil.E_FUNCTION || 
 				ElementUtil.getElementType(this) == ElementUtil.E_SET) {
-			isType = true;
-			if (ElementUtil.isConst(this)) {
-				isType = false;
-			}
+			isType = !ElementUtil.isConst(this);
 		}
 		
-		Iterator it = attributesList.iterator();
-		StringBuffer sb = new StringBuffer();
+		Iterator<Attribute> it = attributesList.iterator();
+		StringBuilder sb = new StringBuilder();
 		while (it.hasNext()) {		
-			Attribute attr = (Attribute) it.next();
+			Attribute attr = it.next();
 			if (isType && isType(attr)) {
 				sb.insert(0, attr.getValue() + " ");			
 			} else {
-				sb.append("&nbsp;&nbsp;&nbsp;" + attr.getPresentableString());
+				sb.append("&nbsp;&nbsp;&nbsp;").append(attr.getPresentableString());
 			}
 		}
 		if (!isType) {		
@@ -86,7 +83,7 @@ public class Element extends KernelElementImpl {
 		myText = text;
 	}
 
-	public Collection getAttributes() {
+	public Collection<Attribute> getAttributes() {
 		return attributesList;
 	}
 
@@ -94,7 +91,7 @@ public class Element extends KernelElementImpl {
 		return myName;
 	}
 	
-	public boolean isType(Attribute attribute) {	
+	private boolean isType(Attribute attribute) {
 		return "type".equals(attribute.getName());
 	}
 

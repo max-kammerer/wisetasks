@@ -15,14 +15,11 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
 import java.io.OutputStreamWriter;
-import java.util.Iterator;
 import java.util.List;
 
 public class Writer {
 
-    private static DocumentBuilder parser;
-
-    private static Document doc = null;
+	private static Document doc = null;
 	
 	public static Document generateXmlTree(KernelElement root) {
 		try {
@@ -63,7 +60,7 @@ public class Writer {
 		}		
 	}
 	
-	public static void transform(Document doc, java.io.Writer out) {
+	private static void transform(Document doc, java.io.Writer out) {
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
 
@@ -84,11 +81,9 @@ public class Writer {
         if (element instanceof Element) {        	
         	Element el = (Element)element;
         	newNode = doc.createElement(el.getName());
-        	Iterator it = el.getAttributes().iterator();
-        	while(it.hasNext()) {
-        		Attribute attr = (Attribute)it.next();
-        		((org.w3c.dom.Element)newNode).setAttribute(attr.getName(), attr.getValue());
-        	}
+			for (Attribute attr : el.getAttributes()) {
+				((org.w3c.dom.Element) newNode).setAttribute(attr.getName(), attr.getValue());
+			}
         	String text = ElementUtil.getSafe(el.getText());
         	if (!"".equals(text)){        		
         		newNode.appendChild(doc.createTextNode(text));
@@ -96,12 +91,12 @@ public class Writer {
         	if (element instanceof Parameter) {        		
 				Parameter parameter = (Parameter)element;
 				List list = parameter.getValues();
-				for (Iterator iter = list.iterator(); iter.hasNext();) {
-					KeyValue vd = (KeyValue)iter.next(); 
+				for (Object aList : list) {
+					KeyValue vd = (KeyValue) aList;
 					String name = vd.getKey();
 					String description = vd.getValue();
 					org.w3c.dom.Element value = doc.createElement("value");
-					value.appendChild(doc.createTextNode(name));					
+					value.appendChild(doc.createTextNode(name));
 					newNode.appendChild(value);
 					description = ElementUtil.getSafe(description);
 					if (!"".equals(description)) {
@@ -112,13 +107,10 @@ public class Writer {
         } else if (element instanceof Comment) {
         	newNode = doc.createComment(((ru.spb.ipo.taskgenerator.model.Comment)element).getText());
         }
-        
-        
-        Iterator ch = element.getChildren().iterator();
-        while(ch.hasNext()){
-        	KernelElement child = (KernelElement)ch.next();
-        	buildXmlTree(child, newNode);
-        }
+
+		for (KernelElement child : element.getChildren()) {
+			buildXmlTree(child, newNode);
+		}
         parentNode.appendChild(newNode);
         return newNode;
     }

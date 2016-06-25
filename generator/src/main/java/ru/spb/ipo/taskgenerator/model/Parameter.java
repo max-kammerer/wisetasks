@@ -2,7 +2,6 @@ package ru.spb.ipo.taskgenerator.model;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import ru.spb.ipo.taskgenerator.config.Config;
@@ -10,11 +9,11 @@ import ru.spb.ipo.taskgenerator.util.ElementUtil;
 
 public class Parameter extends Element{
 
-	private List parameters;
+	private List<KeyValue> parameters;
 	
 	public Parameter() {
 		super(Config.TYPE_PARAM);
-		parameters = new ArrayList();
+		parameters = new ArrayList<KeyValue>();
 	}
 	
 	public String getText() {
@@ -46,7 +45,7 @@ public class Parameter extends Element{
  		throw new UnsupportedOperationException();
 	}
 	
-	public List getValues() {
+	public List<KeyValue> getValues() {
 		return parameters;
 	}
 	
@@ -59,7 +58,7 @@ public class Parameter extends Element{
 	}
 
 	public void addChild(KernelElement child) {
-		if (child == null || child instanceof Element == false) return;			
+		if (child == null || !(child instanceof Element)) return;
 			
 		Element el = (Element)child;
 		Attribute attribute = el.getAttribute("text");

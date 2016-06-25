@@ -96,8 +96,8 @@ public class XMLEditorKit extends StyledEditorKit {
             
             int startIndex = offset;
             int endIndex = offset + length + 1;
-            int openIndex = 0;
-            int closeIndex = 0;
+            int openIndex;
+            int closeIndex;
             boolean outOfTag = true;
             
             while (startIndex <= endIndex) {

@@ -8,7 +8,7 @@ public interface KernelElement {
 	
 	void addChild(KernelElement child);
 	
-	List getChildren();
+	List<KernelElement> getChildren();
 	
 	KernelElement getParent();
 	

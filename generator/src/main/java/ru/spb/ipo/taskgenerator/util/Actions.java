@@ -1,38 +1,23 @@
 package ru.spb.ipo.taskgenerator.util;
 
+import org.w3c.dom.Document;
+import ru.spb.ipo.taskgenerator.config.Config;
+import ru.spb.ipo.taskgenerator.model.*;
+import ru.spb.ipo.taskgenerator.ui.*;
+import ru.spb.ipo.taskgenerator.xml.Reader;
+import ru.spb.ipo.taskgenerator.xml.Writer;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeModel;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.swing.JTree;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreeModel;
-
-import org.w3c.dom.Document;
-
-import ru.spb.ipo.taskgenerator.config.Config;
-import ru.spb.ipo.taskgenerator.model.Attribute;
-import ru.spb.ipo.taskgenerator.model.Comment;
-import ru.spb.ipo.taskgenerator.model.Element;
-import ru.spb.ipo.taskgenerator.model.KernelElement;
-import ru.spb.ipo.taskgenerator.model.Parameter;
-import ru.spb.ipo.taskgenerator.model.KeyValue;
-import ru.spb.ipo.taskgenerator.ui.AttributeTableModel;
-import ru.spb.ipo.taskgenerator.ui.ContextMenu;
-import ru.spb.ipo.taskgenerator.ui.GraphicFactory;
-import ru.spb.ipo.taskgenerator.ui.ParametersTableModel;
-import ru.spb.ipo.taskgenerator.ui.SmartPanel;
-import ru.spb.ipo.taskgenerator.ui.TaskGenerator;
-import ru.spb.ipo.taskgenerator.ui.TaskTreeNode;
-import ru.spb.ipo.taskgenerator.xml.Reader;
-import ru.spb.ipo.taskgenerator.xml.Writer;
 
 
 public class Actions {
@@ -87,8 +72,8 @@ public class Actions {
 		String [][] attributes = null;
 		String [][] parameters = null;
 		String text = null;
-		
-		if (element == null ) {
+
+		if (element == null) {
 			node = (TaskTreeNode)node.getParent();
 			element = node.getElement();
 			type = SmartPanel.DESCRIPTION;			
@@ -124,7 +109,7 @@ public class Actions {
 	
 	
 	public static String [][] getTableValues(Element element, int type) {
-		List attributes = new ArrayList();
+		List<KeyValue> attributes = new ArrayList<KeyValue>();
 		AttributeTableModel model = (AttributeTableModel)SmartPanel.table.getModel();		
 		
 		if (element == null) {
@@ -134,16 +119,14 @@ public class Actions {
 		if (type == SmartPanel.PARAMETER) {
 			insertParameters((Parameter)element, attributes);
 		} else {
-			Collection temp = element.getAttributes();
-			for (Iterator iter = temp.iterator(); iter.hasNext();) {
-				Attribute attribute = (Attribute) iter.next();
+			Collection<Attribute> temp = element.getAttributes();
+			for (Attribute attribute : temp) {
 				attributes.add(new KeyValue(attribute.getName(), attribute.getValue()));
 			}		
 			ru.spb.ipo.taskgenerator.config.Element rootElement = Config.getInstance().getRootModelElement(element.getName());
 			if (rootElement != null) {
-				Collection attributesFromConfig = rootElement.getAttributes();
-				for (Iterator iter = attributesFromConfig.iterator(); iter.hasNext();) {
-					KeyValue attribute = (KeyValue) iter.next();
+				Collection<KeyValue> attributesFromConfig = rootElement.getAttributes();
+				for (KeyValue attribute : attributesFromConfig) {
 					if (!attributes.contains(attribute)) {
 						attributes.add(new KeyValue(attribute.getKey(), null));
 					}
@@ -154,12 +137,11 @@ public class Actions {
 		
 		String [][] keys = new String[attributes.size()][2];		
 		int index = 0;
-		for (Iterator iterator = attributes.iterator(); iterator.hasNext();) {
-			KeyValue kv = (KeyValue)iterator.next();
+		for (KeyValue kv : attributes) {
 			String name = kv.getKey();
-			String value = kv.getValue();			
+			String value = kv.getValue();
 			if ("type".equals(name) && index != 0) {
-				String tempName = keys[0][0]; 
+				String tempName = keys[0][0];
 				String tempValue = keys[0][1];
 				keys[0][0] = name;
 				keys[0][1] = value;
@@ -173,13 +155,12 @@ public class Actions {
 		return keys;		
 	}
 	
-	private static void insertExtendedAttributes(Element element, List attributes) {
+	private static void insertExtendedAttributes(Element element, List<KeyValue> attributes) {
 		if (ElementUtil.getElementType(element) == ElementUtil.E_FUNCTION || ElementUtil.getElementType(element) == ElementUtil.E_SET) {
 			ru.spb.ipo.taskgenerator.config.Element rootElement = Config.getInstance().getElementByName(ElementUtil.getElementKind(element));
 			if (rootElement != null) {
-				Collection attributesFromConfig = rootElement.getAttributes();
-				for (Iterator iter = attributesFromConfig.iterator(); iter.hasNext();) {
-					KeyValue attribute = (KeyValue) iter.next();
+				Collection<KeyValue> attributesFromConfig = rootElement.getAttributes();
+				for (KeyValue attribute : attributesFromConfig) {
 					if (!attributes.contains(attribute)) {
 						attributes.add(new KeyValue(attribute.getKey(), null));
 					}
@@ -188,8 +169,8 @@ public class Actions {
 		}
 	}
 	
-	private static void insertParameters(Parameter element, List attributes) {		
-		Collection attributesFromConfig = element.getValues();
+	private static void insertParameters(Parameter element, List<KeyValue> attributes) {
+		Collection<KeyValue> attributesFromConfig = element.getValues();
 		attributes.addAll(attributesFromConfig);
 //		for (Iterator iter = attributesFromConfig.iterator(); iter.hasNext();) {
 //			KeyValue vd = (KeyValue)iter.next();			
@@ -204,10 +185,8 @@ public class Actions {
     	if (node == null) return;        
     	((ContextMenu)TaskGenerator.getFrame().getContextMenu()).show(node.getElement(), e.getComponent(), e.getX(), e.getY());
     }
-	
-	 
-	public static String EMPTY_STRING = "";
-	
+
+
 	public static void setAttributes() {
 		SmartPanel.smartPanel.getApply().setEnabled(false);
 		SmartPanel.smartPanel.getCurrentNode();
@@ -233,7 +212,7 @@ public class Actions {
 			setText(element);
 			
 			if (isParameter(element)) {
-				model = (AttributeTableModel)SmartPanel.smartPanel.getParametersTableModel();			
+				model = SmartPanel.smartPanel.getParametersTableModel();
 				rows = SmartPanel.table.getModel().getRowCount();
 				((Parameter)element).clear();
 				for (int i =0; i < rows; i++) {
@@ -309,10 +288,9 @@ public class Actions {
 		DefaultTreeModel model = (DefaultTreeModel)TaskGenerator.getFrame().getModelTree().getModel();		
 		TaskTreeNode node = (TaskTreeNode)model.getRoot();
 		Element root = (Element)node.getElement();
-		List children = root.getChildren();
-		for (Iterator iter = children.iterator(); iter.hasNext();) {			
-			KernelElement element = (KernelElement) iter.next();
-			String sample = null;
+		List<KernelElement> children = root.getChildren();
+		for (KernelElement element : children) {
+			String sample;
 			if (isDescription) {
 				sample = Config.TYPE_DESCPARAMSET;
 			} else {

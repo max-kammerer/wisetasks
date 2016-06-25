@@ -9,8 +9,7 @@ public class Attribute extends KernelElementImpl{
 
 	private String myName;
 	private String myValue;
-	private static final String EQUAL = "="; 
-	
+
 	public Attribute() {
 		
 	}
@@ -24,7 +23,7 @@ public class Attribute extends KernelElementImpl{
 		throw new UnsupportedOperationException();
 	}
 
-	public List getChildren() {		
+	public List<KernelElement> getChildren() {
 		return Collections.EMPTY_LIST;
 	}
 

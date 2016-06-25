@@ -256,7 +256,7 @@ public class TaskGenerator extends JFrame {
 	public static ImageIcon ELEMENT_ICON;
 	public static ImageIcon FUNCTION_ICON;
 	public static ImageIcon SET_ICON;
-	public static final String TITLE = "Генератор Задач"; 
+	private static final String TITLE = "Генератор Задач";
 	static {
 		loadIcons();
 	}

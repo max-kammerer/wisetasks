@@ -26,11 +26,8 @@ public class KeyValue {
 	public boolean equals(Object obj) {			
 		if (obj instanceof KeyValue) {
 			KeyValue o = (KeyValue) obj;
-			if (!o.key.equals(key)) {
-				return false;
-			}			
-			return true;
-//			if (value == null) {
+			return o.key.equals(key);
+			//			if (value == null) {
 //				if (o.value == null) {
 //					return true;
 //				} else {
