@@ -1,20 +1,19 @@
 package ru.spb.ipo.wisetaks2.compile
 
 import com.intellij.openapi.util.Disposer
-import jdk.internal.org.objectweb.asm.ClassReader
 import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.messages.MessageCollector
+import org.jetbrains.kotlin.cli.common.messages.MessageRenderer
 import org.jetbrains.kotlin.cli.common.messages.PrintingMessageCollector
 import org.jetbrains.kotlin.cli.jvm.compiler.EnvironmentConfigFiles
 import org.jetbrains.kotlin.cli.jvm.compiler.KotlinCoreEnvironment
 import org.jetbrains.kotlin.cli.jvm.compiler.KotlinToJVMBytecodeCompiler
-import org.jetbrains.kotlin.cli.jvm.config.JVMConfigurationKeys
 import org.jetbrains.kotlin.cli.jvm.config.addJvmClasspathRoot
 import org.jetbrains.kotlin.cli.jvm.config.addJvmClasspathRoots
-import org.jetbrains.kotlin.cli.jvm.repl.ReplInterpreter
 import org.jetbrains.kotlin.codegen.GeneratedClassLoader
 import org.jetbrains.kotlin.codegen.state.GenerationStateEventCallback
 import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.config.JVMConfigurationKeys
 import org.jetbrains.kotlin.config.addKotlinSourceRoot
 import org.jetbrains.kotlin.resolve.diagnostics.DiagnosticSuppressor
 import org.jetbrains.kotlin.script.KotlinScriptDefinitionProvider
@@ -22,18 +21,15 @@ import org.jetbrains.kotlin.script.ScriptNameUtil
 import org.jetbrains.kotlin.script.StandardScriptDefinition
 import org.jetbrains.kotlin.util.ExtensionProvider
 import org.jetbrains.kotlin.utils.PathUtil
-import org.jetbrains.org.objectweb.asm.util.Textifier
 import ru.spb.ipo.wisetaks2.Task
 import java.io.File
-import java.io.FileReader
-import java.net.URLClassLoader
 
 
 fun compile(taskPath: String): Class<*> {
     val classpathEntries = System.getProperty("java.class.path").split(File.pathSeparator);
 
     val configuration = CompilerConfiguration().apply {
-        put<MessageCollector>(CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY, PrintingMessageCollector.PLAIN_TEXT_TO_SYSTEM_ERR)
+        put<MessageCollector>(CLIConfigurationKeys.MESSAGE_COLLECTOR_KEY, PrintingMessageCollector(System.err, MessageRenderer.PLAIN_RELATIVE_PATHS, /* verbose = */ false))
         addKotlinSourceRoot(taskPath)
         addJvmClasspathRoots(classpathEntries.map { File(it) })
         addJvmClasspathRoot(PathUtil.getPathUtilJar())

@@ -51,7 +51,7 @@ class DVar<T, R, P: KMutableProperty1<T, R>>(val kmember: P) {
     }
 }
 
-class DVal<T, R, P: KProperty1<T, R>>(val kmember: P) {
+class DVal<T, R, out P: KProperty1<T, R>>(val kmember: P) {
     operator fun getValue(t: T, p: KProperty<*>): R {
         return kmember.get(t)
     }

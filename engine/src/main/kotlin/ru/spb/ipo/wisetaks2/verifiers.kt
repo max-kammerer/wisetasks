@@ -15,14 +15,14 @@ class CountVerifier<E> : SourceSetBasedVerifier<E>() {
 
     override fun verify(result: ru.spb.ipo.engine.utils.RationalNumber): Boolean {
         val iterator = sourceSet.iterator()
-        var vResult = 0L;
+        var vResult = 0L
         for (i in iterator) {
             if (filter(i)) {
                 vResult++
             }
         }
         print(vResult)
-        return RationalNumber(BigInteger.valueOf(vResult)) == result;
+        return RationalNumber(BigInteger.valueOf(vResult)) == result
     }
 }
 

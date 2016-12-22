@@ -51,12 +51,12 @@ class ServerTask(val task: Task, val problemId: Long): ServerTask {
     override fun getClientTask(): ClientTask? {
         val p = hashMapOf<String, Any?>()
         task.parameters.forEach {
-            val v = it.values[0]
+            val v = it.values[(Math.random() * it.values.size).toInt()]
             it.text = v.text
             it.value = v.value
         }
         task.parameters.forEach{ p.put(it.name, Value(it.value, it.text))}
-        return ClientTaskImpl(getTitle(), task.(task.description)(), p, problemId, arrayListOf<String>())
+        return ClientTaskImpl(title, task.(task.description)(), p, problemId, arrayListOf<String>())
     }
 
     override fun getClientTaskWithParameters(parameters: MutableMap<out Any?, out Any?>?): ClientTask? {

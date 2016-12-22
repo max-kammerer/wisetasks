@@ -55,11 +55,11 @@ public class ServerImpl /*extends UnicastRemoteObject*/ implements Server {
     }
 
     public boolean verify(UserChoice uc, ClientTask ct) throws TaskDeserializationException, SystemException, UserAnswerParseException {
-        return ProblemsForContest.getProblemsPerContest(uc.getContestId(), accessor).getProblem((int)uc.getProblemId()).verify(ct);
+        return ProblemsForContest.getProblemsPerContest(uc.getContestId(), accessor).getProblem(uc.getProblemId()).verify(ct);
     }
 
     public ClientTask getProblem(UserChoice uc) throws SystemException, TaskDeserializationException {
-		return ProblemsForContest.getProblemsPerContest(uc.getContestId(), accessor).getProblem((int)uc.getProblemId()).getClientTask();
+		return ProblemsForContest.getProblemsPerContest(uc.getContestId(), accessor).getProblem(uc.getProblemId()).getClientTask();
     }
 
     public UserChoice getUC(UserChoice userChoice, long contestId) {
