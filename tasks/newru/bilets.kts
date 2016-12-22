@@ -24,16 +24,16 @@ val задача = задача {
     }
 
     верификатор<CountVerifier<ContainerElement>>{
-        исходноеМножество = DecartSet(NumericSet(0, основание.значение).times(2 * полдлины.значение)).toSet<ContainerElement>()
-        filter = { p: ContainerElement ->
+        исходноеМножество = DecartSet(NumericSet(0, основание.значение).times(2 * полдлины.значение)).toSet()
+        filter { cortege ->
             var left = 0
             var right = 0
 
             var left2 = 0
             var right2 = 0
-            for (i in 1..p.length) {
-                val value = p[i].getInt()
-                if (i <= p.length / 2) {
+            for (i in 1..cortege.length) {
+                val value = cortege[i].getInt()
+                if (i <= cortege.length / 2) {
                     left += value
                 } else {
                     right += value

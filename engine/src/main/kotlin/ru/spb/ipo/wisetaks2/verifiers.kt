@@ -7,11 +7,16 @@ import java.math.BigInteger
  * Created by mike on 10/14/14.
  */
 abstract class SourceSetBasedVerifier<E> : Verifier() {
+    protected var filter by d<(E) -> Boolean>()
+
     var sourceSet by d<SourceSet<E>>()
+
+    fun filter(p : (E) -> Boolean) {
+        filter = p
+    }
 }
 
 class CountVerifier<E> : SourceSetBasedVerifier<E>() {
-    var filter by d<(E) -> Boolean>()
 
     override fun verify(result: ru.spb.ipo.engine.utils.RationalNumber): Boolean {
         val iterator = sourceSet.iterator()

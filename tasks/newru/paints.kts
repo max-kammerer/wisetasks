@@ -19,7 +19,7 @@ val задача = задача {
 
         исходноеМножество = DecartSet((1..n).map { NumericSet(1, k) }.toList()).toSet()
 
-        filter = { cortege ->
+        filter { cortege ->
             (1..cortege.length + 1).none { cortege[it] == cortege[it + 1] }
         }
     }
