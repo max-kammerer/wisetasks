@@ -19,14 +19,8 @@ val задача = задача {
 
         исходноеМножество = DecartSet((1..n).map { NumericSet(1, k) }.toList()).toSet()
 
-        filter = fun(p): Boolean {
-            for (i in 1..p.length + 1) {
-                if (p[i] == p[i + 1]) {
-                    return false
-                }
-            }
-
-            return true
+        filter = { cortege ->
+            (1..cortege.length + 1).none { cortege[it] == cortege[it + 1] }
         }
     }
 }

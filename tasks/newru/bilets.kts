@@ -23,14 +23,14 @@ val задача = задача {
             если для записи билета используются цифры от нуля до ${основание.текст}?"""
     }
 
-    верификатор<CountVerifier<ContainerElement>>(fun CountVerifier<ContainerElement>.() {
+    верификатор<CountVerifier<ContainerElement>>{
         исходноеМножество = DecartSet(NumericSet(0, основание.значение).times(2 * полдлины.значение)).toSet<ContainerElement>()
         filter = { p: ContainerElement ->
-            var left = 0;
+            var left = 0
             var right = 0
 
-            var left2 = 0;
-            var right2 = 0;
+            var left2 = 0
+            var right2 = 0
             for (i in 1..p.length) {
                 val value = p[i].getInt()
                 if (i <= p.length / 2) {
@@ -48,5 +48,5 @@ val задача = задача {
 
             left == right && left2 == right2
         }
-    })
+    }
 }
